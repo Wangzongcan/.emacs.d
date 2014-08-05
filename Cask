@@ -31,6 +31,7 @@
 (depends-on "rvm")
 (depends-on "scss-mode")
 (depends-on "smartparens")
+(depends-on "smart-mode-line")
 (depends-on "smex")
 (depends-on "web-mode")
 (depends-on "yaml-mode")
