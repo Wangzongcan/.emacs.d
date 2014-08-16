@@ -8,8 +8,6 @@
 
 (setq visible-bell t)
 
-(setq-default indicate-empty-lines t)
-
 (setq frame-title-format
       (list "%b@Emacs " emacs-version))
 
