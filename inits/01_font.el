@@ -4,7 +4,7 @@
 (defvar emacs-cjk-font "Noto Sans S Chinese"
   "The font name for CJK.")
 
-(defvar emacs-font-size-pair '(15 . 18)
+(defvar emacs-font-size-pair '(17 . 20)
   "Default font size pair for (english . chinese)")
 
 (defvar emacs-font-size-pair-list

@@ -50,9 +50,6 @@
 (setq kill-ring-max 1024)
 (setq mark-ring-max 1024)
 
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome")
-
 (require 'server)
 (unless (server-running-p)
   (server-start))
