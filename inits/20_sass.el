@@ -3,4 +3,4 @@
 
 (add-hook 'sass-mode-hook
           (lambda ()
-            (rainbow-mode t)))))
+            (rainbow-mode t)))
