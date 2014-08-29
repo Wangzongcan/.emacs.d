@@ -21,7 +21,6 @@
 (depends-on "nvm")
 (depends-on "projectile")
 (depends-on "projectile-rails")
-(depends-on "rainbow-delimiters")
 (depends-on "rainbow-mode")
 (depends-on "ruby-compilation")
 (depends-on "rvm")
