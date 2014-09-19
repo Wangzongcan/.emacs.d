@@ -24,6 +24,9 @@
      (evil-ex-define-cmd "q" 'kill-this-buffer)
      (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
 
+     ;; Helm
+     (evil-ex-define-cmd "ho" 'helm-occur)
+
      (evil-set-initial-state 'dired-mode 'emacs)
      (evil-set-initial-state 'ibuffer-mode 'emacs)
      (evil-set-initial-state 'makey-key-mode 'emacs)

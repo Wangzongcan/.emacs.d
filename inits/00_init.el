@@ -1,55 +1,60 @@
-(set-language-environment 'utf-8)
+;; Encoding
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 
-(setq inhibit-startup-message t)
-(setq initial-scratch-message "")
-(setq ring-bell-function 'ignore)
-(setq inhibit-startup-echo-area-message "guerry")
+;; General Settings
+(setq
+ inhibit-startup-message t
+ backup-directory-alist `((".*" . ,temporary-file-directory)) ;don't clutter my fs and put backups into tmp
+ auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
+ require-final-newline t                ;auto add newline at the end of file
+ column-number-mode t                   ;show the column number
+ default-major-mode 'text-mode          ;use text mode per default
+ mouse-yank-at-point t                  ;middle click with the mouse yanks at point
+ history-length 250                     ;default is 30
+ locale-coding-system 'utf-8            ;utf-8 is default
+ tab-always-indent 'complete            ;try to complete before identing
+ confirm-nonexistent-file-or-buffer nil ;don't ask to create a buffer
+ vc-follow-symlinks t                   ;follow symlinks automatically
+ recentf-max-saved-items 5000           ;same up to 5000 recent files
+ eval-expression-print-length nil       ;do not truncate printed expressions
+ eval-expression-print-level nil        ;print nested expressions
+ send-mail-function 'sendmail-send-it
+ kill-ring-max 5000                     ;truncate kill ring after 5000 entries
+ mark-ring-max 5000                     ;truncate mark ring after 5000 entries
+ mouse-autoselect-window -.1            ;window focus follows the mouse pointer
+ mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control))) ;make mouse scrolling smooth
+ indicate-buffer-boundaries 'left       ;fringe markers
+ split-height-threshold 110             ;more readily split horziontally
+ enable-recursive-minibuffers t
+ custom-unlispify-menu-entries nil      ;M-x customize should not cripple menu entries
+ custom-unlispify-tag-names nil         ;M-x customize should not cripple tags
+ show-paren-delay 0
+ )
 
-(setq visible-bell t)
+(put 'narrow-to-region 'disabled nil)   ;narrow to region should be enabled by default
 
-(setq frame-title-format
-      (list "%b@Emacs " emacs-version))
+;; Default Settings
+(setq-default
+ tab-width 4
+ indent-tabs-mode nil                   ;use spaces instead of tabs
+ c-basic-offset 4                       ;"tab" with in c-related modes
+ c-hungry-delete-key t                  ;delete more than one space
+ )
 
-(setq default-frame-alist
-      '((horizontal-scroll-bars . nil)
-        (vertical-scroll-bars . nil)
-        (menu-bar-lines . 0)
-        (tool-bar-lines . 0)))
+;; Global Modes
+(global-auto-revert-mode 1)  ;auto revert buffers when changed on disk
+(show-paren-mode t)          ;visualize()
+(blink-cursor-mode -1)       ;no cursor blinking
+(tool-bar-mode -1)           ;disable the awful toolbar
+(menu-bar-mode -1)           ;no menu, you can toggle it with C-c m
+(scroll-bar-mode -1)         ;disable the sroll bar
 
-(if (featurep 'menu-bar) (menu-bar-mode -1))
-(if (featurep 'tool-bar) (tool-bar-mode -1))
+;; Prompt Behavior
+(defalias 'yes-or-no-p 'y-or-n-p)
 
-(blink-cursor-mode -1)
-(mouse-avoidance-mode 'animate)
-
-(global-font-lock-mode t)
-(font-lock-fontify-buffer)
-(setq font-lock-verbose t)
-(setq font-lock-maximum-decoration t)
-
-(setq-default indent-tabs-mode nil tab-width 4)
-
-(show-paren-mode t)
-(setq show-paren-delay 0)
-(setq show-paren-style 'parenthesis)
-
-(setq scroll-margin 5)
-(setq scroll-conservatively 10240)
-
-(setq echo-keystrokes 0.1)
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(global-auto-revert-mode t)
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
-
-(setq auto-save-default nil)
-(setq make-backup-files nil)
-
-(setq kill-ring-max 1024)
-(setq mark-ring-max 1024)
-
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
