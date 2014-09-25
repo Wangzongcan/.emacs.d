@@ -12,6 +12,4 @@
                      (dired-single-buffer "..")))
                  (setq dired-single-use-magic-buffer t)
                  (setq dired-single-magic-buffer-name "*dired*")
-                 (dired-single-toggle-buffer-name)
-
-                 (hl-line-mode t)))))
+                 (dired-single-toggle-buffer-name)))))
