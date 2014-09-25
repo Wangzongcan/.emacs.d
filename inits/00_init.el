@@ -45,6 +45,7 @@
  )
 
 ;; Global Modes
+(global-hl-line-mode 1)
 (global-auto-revert-mode 1)  ;auto revert buffers when changed on disk
 (show-paren-mode t)          ;visualize()
 (blink-cursor-mode -1)       ;no cursor blinking
