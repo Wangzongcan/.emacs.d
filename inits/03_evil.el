@@ -14,23 +14,23 @@
      (evil-define-key 'normal global-map (kbd "j") (kbd "gj"))
      (evil-define-key 'normal global-map (kbd "k") (kbd "gk"))
      (evil-define-key 'normal global-map (kbd "f") 'evil-ace-jump-char-mode)
-     (evil-define-key 'normal global-map (kbd "<up>") 'evil-window-up)
-     (evil-define-key 'normal global-map (kbd "<down>") 'evil-window-down)
-     (evil-define-key 'normal global-map (kbd "<left>") 'evil-window-left)
-     (evil-define-key 'normal global-map (kbd "<right>") 'evil-window-right)
+     (evil-define-key 'normal global-map (kbd "C-k") 'evil-window-up)
+     (evil-define-key 'normal global-map (kbd "C-j") 'evil-window-down)
+     (evil-define-key 'normal global-map (kbd "C-h") 'evil-window-left)
+     (evil-define-key 'normal global-map (kbd "C-l") 'evil-window-right)
      (evil-define-key 'normal global-map (kbd "|") 'evil-window-vsplit)
      (evil-define-key 'normal global-map (kbd "_") 'evil-window-split)
 
      (evil-ex-define-cmd "q" 'kill-this-buffer)
      (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
 
-     ;; Helm
-     (evil-ex-define-cmd "ho" 'helm-occur)
-
      (evil-set-initial-state 'dired-mode 'emacs)
      (evil-set-initial-state 'ibuffer-mode 'emacs)
      (evil-set-initial-state 'makey-key-mode 'emacs)
      (evil-set-initial-state 'inf-ruby-mode 'emacs)
+
+     (evil-set-initial-state 'elfeed-show-mode 'emacs)
+     (evil-set-initial-state 'elfeed-search-mode 'emacs)
 
      (eval-after-load "evil-leader"
        '(progn

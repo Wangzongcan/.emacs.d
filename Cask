@@ -18,6 +18,7 @@
 (depends-on "frame-cmds")
 (depends-on "frame-fns")
 (depends-on "git-commit-mode")
+(depends-on "git-gutter-fringe")
 (depends-on "git-rebase-mode")
 (depends-on "goto-chg")
 (depends-on "haml-mode")
