@@ -1,10 +1,10 @@
-(defvar emacs-english-font "Source Code Pro"
+(defvar emacs-english-font "Ubuntu Mono"
   "The font name of English.")
 
-(defvar emacs-cjk-font "Noto Sans S Chinese"
+(defvar emacs-cjk-font "Noto Sans CJK SC"
   "The font name for CJK.")
 
-(defvar emacs-font-size-pair '(17 . 20)
+(defvar emacs-font-size-pair '(17 . 18)
   "Default font size pair for (english . chinese)")
 
 (defvar emacs-font-size-pair-list

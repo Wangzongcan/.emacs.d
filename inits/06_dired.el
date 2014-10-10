@@ -6,7 +6,8 @@
      (add-hook 'dired-mode-hook
                (lambda ()
                  (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
-                 (define-key dired-mode-map (kbd "^")
+                 (define-key dired-mode-map (kbd "C-j") 'dired-single-buffer)
+                 (define-key dired-mode-map (kbd "C-k")
                    (lambda ()
                      (interactive)
                      (dired-single-buffer "..")))
