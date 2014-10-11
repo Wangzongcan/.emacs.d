@@ -40,7 +40,6 @@
 (depends-on "pkg-info")
 (depends-on "projectile")
 (depends-on "projectile-rails")
-(depends-on "rainbow-mode")
 (depends-on "rich-minority")
 (depends-on "ruby-compilation")
 (depends-on "rvm")
