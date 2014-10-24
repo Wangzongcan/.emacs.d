@@ -1,11 +1,7 @@
-(autoload 'ibuffer "ibuffer" "List buffers." t)
-
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (eval-after-load "ibuffer"
   '(progn
-     (require 'ibuffer-vc)
-
      (setq ibuffer-expert t)
 
      (setq ibuffer-formats
