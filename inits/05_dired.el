@@ -1,7 +1,11 @@
 (add-hook 'dired-mode-hook
           (lambda ()
-            (require 'dired+)
 
+            (when (eq system-type 'darwin)
+              (require 'ls-lisp)
+              (setq ls-lisp-use-insert-directory-program nil))
+
+            (require 'dired+)
             (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
             (define-key dired-mode-map (kbd "C-l")
               (lambda ()
