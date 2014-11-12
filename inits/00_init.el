@@ -24,7 +24,6 @@
  send-mail-function 'sendmail-send-it
  kill-ring-max 5000                     ;truncate kill ring after 5000 entries
  mark-ring-max 5000                     ;truncate mark ring after 5000 entries
- mouse-autoselect-window -.1            ;window focus follows the mouse pointer
  mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control))) ;make mouse scrolling smooth
  indicate-buffer-boundaries 'left       ;fringe markers
  split-height-threshold 110             ;more readily split horziontally
@@ -32,6 +31,7 @@
  custom-unlispify-menu-entries nil      ;M-x customize should not cripple menu entries
  custom-unlispify-tag-names nil         ;M-x customize should not cripple tags
  show-paren-delay 0
+ default-truncate-lines t
  )
 
 (put 'narrow-to-region 'disabled nil)   ;narrow to region should be enabled by default
@@ -45,7 +45,6 @@
  )
 
 ;; Global Modes
-(global-hl-line-mode 1)
 (global-auto-revert-mode 1)  ;auto revert buffers when changed on disk
 (show-paren-mode t)          ;visualize()
 (blink-cursor-mode -1)       ;no cursor blinking
