@@ -17,6 +17,7 @@
 
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'emacs)
+(evil-set-initial-state 'makey-key-mode 'emacs)
 (evil-set-initial-state 'inf-ruby-mode 'emacs)
 
 ;; evil-leader
