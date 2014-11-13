@@ -1,5 +1,7 @@
 (eval-after-load "ruby-mode"
   '(progn
+     (rvm-use-default)
+
      (autoload 'ruby-mode "ruby-mode" "" t)
      (autoload 'inf-ruby-minor-mode "inf-ruby" "" t)
 
