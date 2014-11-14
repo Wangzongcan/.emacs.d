@@ -20,6 +20,7 @@
 (depends-on "frame-fns")
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
+(depends-on "git-timemachine")
 (depends-on "google-translate")
 (depends-on "goto-chg")
 (depends-on "haml-mode")

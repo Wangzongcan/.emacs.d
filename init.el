@@ -1,3 +1,6 @@
+(add-to-list 'exec-path "/usr/local/bin")
+(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
+
 (require 'cask "/usr/local/opt/cask/cask.el")
 (cask-initialize)
 
