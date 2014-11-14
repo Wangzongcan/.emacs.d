@@ -32,6 +32,8 @@
  custom-unlispify-tag-names nil         ;M-x customize should not cripple tags
  show-paren-delay 0
  default-truncate-lines t
+ echo-keystrokes 0.1
+ system-time-locale "C"
  )
 
 (put 'narrow-to-region 'disabled nil)   ;narrow to region should be enabled by default
@@ -51,6 +53,9 @@
 (tool-bar-mode -1)           ;disable the awful toolbar
 (menu-bar-mode 1)            ;no menu, you can toggle it with C-c m
 (scroll-bar-mode -1)         ;disable the sroll bar
+(global-font-lock-mode t)
+(transient-mark-mode t)
+(display-time-mode 1)
 
 ;; Prompt Behavior
 (defalias 'yes-or-no-p 'y-or-n-p)
