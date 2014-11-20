@@ -48,7 +48,6 @@
    show-paren-delay 0
    default-truncate-lines t
    echo-keystrokes 0.1
-   system-time-locale "C"
    )
 
   (put 'narrow-to-region 'disabled nil)
@@ -74,7 +73,6 @@
   (scroll-bar-mode -1)         ;disable the sroll bar
   (global-font-lock-mode t)
   (transient-mark-mode t)
-  (display-time-mode 1)
 #+END_SRC
 ** Yes or No
 
@@ -92,6 +90,11 @@
     (set-fontset-font (frame-parameter nil 'font)
                       charset
                       (font-spec :family "Hiragino Sans GB W3" :size 16)))
+#+END_SRC
+* Theme                                                               :theme:
+** Settings
+#+BEGIN_SRC emacs-lisp
+  (load-theme 'monokai t)
 #+END_SRC
 * Dired                                                               :dired:
 ** dired+
@@ -174,12 +177,41 @@ use-magic-buffer
 #+END_SRC
 
 * Evil-leader                                                   :evil:leader:
-
 *** Settings
 
 载入 evil-leader
 #+BEGIN_SRC emacs-lisp
   (require 'evil-leader)
+#+END_SRC
+
+设置  leader key
+#+BEGIN_SRC emacs-lisp
+  (evil-leader/set-leader "<SPC>")
+#+END_SRC
+
+开启
+#+BEGIN_SRC emacs-lisp
+  (global-evil-leader-mode)
+#+END_SRC
+*** projectile
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "projectile-autoloads"
+    '(progn
+       (evil-leader/set-key
+         "pp" 'projectile-switch-project
+         "pf" 'projectile-find-file
+         "pa" 'projectile-ag)))
+#+END_SRC
+* Org-mode                                                              :org:
+** Settings
+
+设置
+#+BEGIN_SRC emacs-lisp
+  (setq org-startup-indented t
+        org-startup-folded t
+        org-hide-leading-starts t
+        org-src-fontify-natively t
+        org-src-window-setup 'current-window)
 #+END_SRC
 * Helm                                                                 :helm:
 
@@ -215,6 +247,30 @@ use-magic-buffer
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-i") 'helm-swoop)
+#+END_SRC
+* Company                                                           :company:
+** Settings
+
+载入 company
+#+BEGIN_SRC emacs-lisp
+  (require 'company)
+#+END_SRC
+
+开启
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+
+设置
+#+BEGIN_SRC emacs-lisp
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 1
+        company-tooltip-limit 30)
+#+END_SRC
+** define-key
+#+BEGIN_SRC emacs-lisp
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
 #+END_SRC
 * Projectile                                                     :projectile:
 
