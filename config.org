@@ -96,28 +96,6 @@
 #+BEGIN_SRC emacs-lisp
   (load-theme 'monokai t)
 #+END_SRC
-* Dired                                                               :dired:
-** add-hook
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'dired-mode-hook
-            (lambda ()
-              (require 'dired+)
-              (require 'dired-single)
-
-              (when (eq system-type 'darwin)
-                (require 'ls-lisp)
-                (setq ls-lisp-use-insert-directory-program nil))
-
-              (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
-              (define-key dired-mode-map (kbd "C-l")
-                (lambda ()
-                  (interactive)
-                  (dired-single-buffer "..")))
-
-              (setq dired-single-use-magic-buffer t
-                    dired-single-magic-buffer-name "*dired*")
-              (dired-single-toggle-buffer-name)))
-#+END_SRC
 * Evil                                                                 :evil:
 
 ** Settings
@@ -149,8 +127,6 @@
 #+BEGIN_SRC emacs-lisp
   (evil-define-key 'normal global-map (kbd "j") (kbd "gj"))
   (evil-define-key 'normal global-map (kbd "k") (kbd "gk"))
-  (evil-define-key 'normal global-map (kbd "|") 'evil-window-vsplit)
-  (evil-define-key 'normal global-map (kbd "_") 'evil-window-split)
 #+END_SRC
 
 ** evil-ex-define-cmd
@@ -159,14 +135,12 @@
   (evil-ex-define-cmd "q" 'kill-this-buffer)
   (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
 #+END_SRC
-** evil-set-initial-state
+** evil-add-hjkl-bindings
 
-在一些 mode 下不进入 evil-mode
+hjkl-bindings
 #+BEGIN_SRC emacs-lisp
-  (evil-set-initial-state 'dired-mode 'emacs)
-  (evil-set-initial-state 'ibuffer-mode 'emacs)
-  (evil-set-initial-state 'makey-key-mode 'emacs)
-  (evil-set-initial-state 'inf-ruby-mode 'emacs)
+  (evil-add-hjkl-bindings dired-mode-map 'emacs)
+  (evil-add-hjkl-bindings ibuffer-mode-map 'emacs)
 #+END_SRC
 
 * Evil-leader                                                   :evil:leader:
@@ -186,6 +160,14 @@
 #+BEGIN_SRC emacs-lisp
   (global-evil-leader-mode)
 #+END_SRC
+*** window
+#+BEGIN_SRC emacs-lisp
+    (evil-leader/set-key
+      "0" 'delete-window
+      "1" 'delete-other-windows
+      "2" 'split-window-below
+      "3" 'split-window-right)
+#+END_SRC
 *** projectile
 #+BEGIN_SRC emacs-lisp
   (eval-after-load "projectile-autoloads"
@@ -194,6 +176,28 @@
          "pp" 'projectile-switch-project
          "pf" 'projectile-find-file
          "pa" 'projectile-ag)))
+#+END_SRC
+* Dired                                                               :dired:
+** add-hook
+#+BEGIN_SRC emacs-lisp
+    (add-hook 'dired-mode-hook
+              (lambda ()
+                (require 'dired+)
+                (require 'dired-single)
+
+                (when (eq system-type 'darwin)
+                  (require 'ls-lisp)
+                  (setq ls-lisp-use-insert-directory-program nil))
+
+                (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
+                (define-key dired-mode-map (kbd "C-l")
+                  (lambda ()
+                    (interactive)
+                    (dired-single-buffer "..")))
+
+                (setq dired-single-use-magic-buffer t
+                      dired-single-magic-buffer-name "*dired*")
+                (dired-single-toggle-buffer-name)))
 #+END_SRC
 * Org-mode                                                              :org:
 ** Settings
@@ -407,6 +411,22 @@ Formats
 载入 nlinum
 #+BEGIN_SRC emacs-lisp
   (require 'nlinum)
+#+END_SRC
+* Ace-window                                                     :ace:window:
+** Settings
+
+载入
+#+BEGIN_SRC emacs-lisp
+  (require 'ace-window)
+#+END_SRC
+
+设置
+#+BEGIN_SRC emacs-lisp
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+#+END_SRC
+** global-set-key
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x o") 'ace-window)
 #+END_SRC
 * Programme                                                       :programme:
 ** add-hook
