@@ -97,33 +97,26 @@
   (load-theme 'monokai t)
 #+END_SRC
 * Dired                                                               :dired:
-** dired+
-*** Settings
-
-载入 dired+
+** add-hook
 #+BEGIN_SRC emacs-lisp
-  (require 'dired+)
-#+END_SRC
-** dired-single
-*** Settings
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              (require 'dired+)
+              (require 'dired-single)
 
-载入 dired-single
-#+BEGIN_SRC emacs-lisp
-  (require 'dired-single)
-#+END_SRC
+              (when (eq system-type 'darwin)
+                (require 'ls-lisp)
+                (setq ls-lisp-use-insert-directory-program nil))
 
-use-magic-buffer
-#+BEGIN_SRC emacs-lisp
-  (setq dired-single-use-magic-buffer t)
-#+END_SRC
-*** define-key
+              (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
+              (define-key dired-mode-map (kbd "C-l")
+                (lambda ()
+                  (interactive)
+                  (dired-single-buffer "..")))
 
-#+BEGIN_SRC emacs-lisp
-  (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
-  (define-key dired-mode-map (kbd "C-l")
-    (lambda ()
-      (interactive)
-      (dired-single-buffer "..")))
+              (setq dired-single-use-magic-buffer t
+                    dired-single-magic-buffer-name "*dired*")
+              (dired-single-toggle-buffer-name)))
 #+END_SRC
 * Evil                                                                 :evil:
 
