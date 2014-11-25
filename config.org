@@ -160,22 +160,31 @@ hjkl-bindings
 #+BEGIN_SRC emacs-lisp
   (global-evil-leader-mode)
 #+END_SRC
-*** window
+
 #+BEGIN_SRC emacs-lisp
-    (evil-leader/set-key
-      "0" 'delete-window
-      "1" 'delete-other-windows
-      "2" 'split-window-below
-      "3" 'split-window-right)
+  (evil-leader/set-key
+    "0" 'delete-window
+    "1" 'delete-other-windows
+    "2" 'split-window-below
+    "3" 'split-window-right
+    "o" 'ace-window)
 #+END_SRC
 *** projectile
 #+BEGIN_SRC emacs-lisp
   (eval-after-load "projectile-autoloads"
     '(progn
        (evil-leader/set-key
-         "pp" 'projectile-switch-project
+         "pa" 'projectile-ag
+         "pb" 'projectile-switch-to-buffer
          "pf" 'projectile-find-file
-         "pa" 'projectile-ag)))
+         "pp" 'projectile-switch-project)))
+#+END_SRC
+*** helm
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "helm-autoloads"
+    '(progn
+       (evil-leader/set-key
+         "b" 'helm-buffers-list)))
 #+END_SRC
 * Dired                                                               :dired:
 ** add-hook
