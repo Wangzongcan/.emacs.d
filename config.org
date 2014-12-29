@@ -236,12 +236,7 @@ hjkl-bindings
 
 载入 helm
 #+BEGIN_SRC emacs-lisp
-  (require 'helm)
-#+END_SRC
-
-改变 tab 的行为
-#+BEGIN_SRC emacs-lisp
-  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+  (require 'helm-config)
 #+END_SRC
 
 ** global-set-key
@@ -252,18 +247,9 @@ hjkl-bindings
   (global-set-key (kbd "C-x b") 'helm-buffers-list)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
 #+END_SRC
-* Helm-swoop                                                     :helm:swoop:
-
-** Settings
-
-载入 helm-swoop
+** start
 #+BEGIN_SRC emacs-lisp
-  (require 'helm-swoop)
-#+END_SRC
-** global-set-key
-
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-i") 'helm-swoop)
+  (helm-mode 1)
 #+END_SRC
 * Company                                                           :company:
 ** Settings
@@ -447,15 +433,6 @@ Formats
 ** global-set-key
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x o") 'ace-window)
-#+END_SRC
-* Programme                                                       :programme:
-** add-hook
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook
-            '(lambda ()
-               (progn
-                 (nlinum-mode t)
-                 (setq nlinum-format "%3d "))))
 #+END_SRC
 * Rvm                                                                   :rvm:
 ** Settings
