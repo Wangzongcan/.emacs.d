@@ -3,7 +3,6 @@
 #+OPTIONS: ^:nil
 
 * Base                                                                 :base:
-
 ** 载入 cl
 
 #+BEGIN_SRC emacs-lisp
@@ -80,7 +79,7 @@
   (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 * Font                                                                 :font:
-
+字体设置
 #+BEGIN_SRC emacs-lisp
   ;; 英文字体
   (set-frame-font "Monaco:pixelsize=13")
@@ -97,7 +96,6 @@
   (load-theme 'monokai t)
 #+END_SRC
 * Evil                                                                 :evil:
-
 ** Settings
 
 载入 evil
@@ -144,7 +142,7 @@ hjkl-bindings
 #+END_SRC
 
 * Evil-leader                                                   :evil:leader:
-*** Settings
+** Settings
 
 载入 evil-leader
 #+BEGIN_SRC emacs-lisp
@@ -169,7 +167,7 @@ hjkl-bindings
     "3" 'split-window-right
     "o" 'ace-window)
 #+END_SRC
-*** projectile
+** projectile
 #+BEGIN_SRC emacs-lisp
   (eval-after-load "projectile-autoloads"
     '(progn
@@ -179,7 +177,7 @@ hjkl-bindings
          "pf" 'projectile-find-file
          "pp" 'projectile-switch-project)))
 #+END_SRC
-*** helm
+** helm
 #+BEGIN_SRC emacs-lisp
   (eval-after-load "helm-autoloads"
     '(progn
@@ -231,29 +229,21 @@ hjkl-bindings
    )
 #+END_SRC
 * Helm                                                                 :helm:
-
 ** Settings
-
 载入 helm
 #+BEGIN_SRC emacs-lisp
   (require 'helm-config)
 #+END_SRC
 
 ** global-set-key
-
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
   (global-set-key (kbd "C-x b") 'helm-buffers-list)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
 #+END_SRC
-** start
-#+BEGIN_SRC emacs-lisp
-  (helm-mode 1)
-#+END_SRC
 * Company                                                           :company:
 ** Settings
-
 载入 company
 #+BEGIN_SRC emacs-lisp
   (require 'company)
@@ -270,15 +260,14 @@ hjkl-bindings
         company-minimum-prefix-length 1
         company-tooltip-limit 30)
 #+END_SRC
+
 ** define-key
 #+BEGIN_SRC emacs-lisp
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
 #+END_SRC
 * Projectile                                                     :projectile:
-
 ** Settings
-
 载入 projectile
 #+BEGIN_SRC emacs-lisp
   (require 'projectile)
@@ -294,9 +283,7 @@ hjkl-bindings
   (setq projectile-completion-system 'helm)
 #+END_SRC
 * Smart-mode-line                                                  :modeline:
-
 ** Settings
-
 载入 smart-mode-line
 #+BEGIN_SRC emacs-lisp
   (require 'smart-mode-line)
@@ -314,9 +301,7 @@ hjkl-bindings
   (sml/setup)
 #+END_SRC
 * Whitespace                                                     :whitespace:
-
 ** Settings
-
 开启 whitespace
 #+BEGIN_SRC emacs-lisp
   (global-whitespace-mode 1)
@@ -335,9 +320,7 @@ mappings
           (tab-mark 9 [187 32 32 32])))
 #+END_SRC
 * Smartparens                                                   :smartparens:
-
 ** Settings
-
 载入 smartparens
 #+BEGIN_SRC emacs-lisp
   (require 'smartparens)
@@ -356,9 +339,7 @@ mappings
                                web-mode))
 #+END_SRC
 * Ibuffer                                                           :ibuffer:
-
 ** Settings
-
 载入 ibuffer
 #+BEGIN_SRC emacs-lisp
   (require 'ibuffer)
@@ -386,7 +367,6 @@ mappings
 #+END_SRC
 
 ** formats
-
 Formats
 #+BEGIN_SRC emacs-lisp
   (setq ibuffer-formats
@@ -398,25 +378,17 @@ Formats
                 " " filename-and-process)))
 #+END_SRC
 ** global-set-key
-
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-b") 'ibuffer)
 #+END_SRC
-** add-hook
 
+** add-hook
 #+BEGIN_SRC emacs-lisp
   (add-hook 'ibuffer-hook
             (lambda ()
               (ibuffer-auto-mode)
               (ibuffer-do-sort-by-alphabetic)
               (ibuffer-vc-set-filter-groups-by-vc-root)))
-#+END_SRC
-* Nlinum                                                             :nlinum:
-** Settings
-
-载入 nlinum
-#+BEGIN_SRC emacs-lisp
-  (require 'nlinum)
 #+END_SRC
 * Ace-window                                                     :ace:window:
 ** Settings
@@ -436,7 +408,6 @@ Formats
 #+END_SRC
 * Rvm                                                                   :rvm:
 ** Settings
-
 载入 rvm
 #+BEGIN_SRC emacs-lisp
   (require 'rvm)
@@ -448,7 +419,6 @@ Formats
 #+END_SRC
 * Ruby                                                                 :ruby:
 ** Settings
-
 载入
 #+BEGIN_SRC emacs-lisp
   (autoload 'ruby-mode "ruby-mode" "" t)
@@ -458,12 +428,14 @@ Formats
 #+BEGIN_SRC emacs-lisp
   (setq ruby-insert-encoding-magic-comment nil)
 #+END_SRC
+
 ** add-to-list
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 #+END_SRC
+
 ** add-hook
 #+BEGIN_SRC emacs-lisp
   (add-hook 'ruby-mode-hook
@@ -474,7 +446,6 @@ Formats
 #+END_SRC
 * Web                                                                   :web:
 ** Settings
-
 载入 web-mode
 #+BEGIN_SRC emacs-lisp
   (require 'web-mode)
@@ -489,6 +460,7 @@ setq-default
    web-mode-code-indent-offset 2
    web-mode-script-padding 2)
 #+END_SRC
+
 ** add-to-list
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
@@ -503,15 +475,16 @@ setq-default
 #+END_SRC
 * Javascript                                                     :javascript:
 ** Settings
-
 载入 js2-mode
 #+BEGIN_SRC emacs-lisp
   (autoload 'js2-mode "js2-mode" nil t)
 #+END_SRC
+
 ** add-to-list
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 #+END_SRC
+
 ** add-hook
 #+BEGIN_SRC emacs-lisp
   (add-hook 'js2-mode-hook
@@ -521,7 +494,6 @@ setq-default
 #+END_SRC
 * Coffeescript                                                 :coffeescript:
 ** Settings
-
 载入 coffee-mode
 #+BEGIN_SRC emacs-lisp
   (require 'coffee-mode)
@@ -533,24 +505,22 @@ setq-default
 #+END_SRC
 * Css                                                                   :css:
 ** Settings
-
 #+BEGIN_SRC emacs-lisp
   (defvar css-indent-offset 2)
 #+END_SRC
 * Sass                                                                 :sass:
 ** Settings
-
 载入 sass-mode
 #+BEGIN_SRC emacs-lisp
   (autoload 'sass-mode "sass-mode")
 #+END_SRC
+
 ** add-to-list
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 #+END_SRC
 * Scss                                                                 :scss:
 ** Settings
-
 载入 scss-mode
 #+BEGIN_SRC emacs-lisp
   (autoload 'scss-mode "scss-mode")
@@ -560,19 +530,19 @@ setq-default
 #+BEGIN_SRC emacs-lisp
   (setq scss-compile-at-save nil)
 #+END_SRC
+
 ** add-to-list
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 #+END_SRC
 * Yaml                                                                 :yaml:
 ** Settings
-
 载入 yaml-mode
 #+BEGIN_SRC emacs-lisp
   (require 'yaml-mode)
 #+END_SRC
-** add-to-list
 
+** add-to-list
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 #+END_SRC
