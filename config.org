@@ -208,7 +208,6 @@ hjkl-bindings
 #+END_SRC
 * Org-mode                                                              :org:
 ** Settings
-
 设置
 #+BEGIN_SRC emacs-lisp
   (setq org-startup-indented t
@@ -228,11 +227,28 @@ hjkl-bindings
    '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
    )
 #+END_SRC
-* Helm                                                                 :helm:
+* Helm                                                                :helm:
 ** Settings
 载入 helm
 #+BEGIN_SRC emacs-lisp
+  (require 'helm)
   (require 'helm-config)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+        helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+        helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+        helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+        helm-M-x-fuzzy-match                  t
+        helm-buffers-fuzzy-matching           t
+        helm-imenu-fuzzy-match                t
+        helm-ff-file-name-history-use-recentf t)
+#+END_SRC
+
+autoresize
+#+BEGIN_SRC emacs-lisp
+  (helm-autoresize-mode t)
 #+END_SRC
 
 ** global-set-key
@@ -241,6 +257,16 @@ hjkl-bindings
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
   (global-set-key (kbd "C-x b") 'helm-buffers-list)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
+#+END_SRC
+
+** define-key
+#+BEGIN_SRC emacs-lisp
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+#+END_SRC
+
+** start
+#+BEGIN_SRC emacs-lisp
+  (helm-mode 1)
 #+END_SRC
 * Company                                                           :company:
 ** Settings
