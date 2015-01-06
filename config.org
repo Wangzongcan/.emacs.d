@@ -237,7 +237,6 @@ hjkl-bindings
 
 #+BEGIN_SRC emacs-lisp
   (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-        helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
         helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
         helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
         helm-M-x-fuzzy-match                  t
@@ -268,6 +267,19 @@ autoresize
 #+BEGIN_SRC emacs-lisp
   (helm-mode 1)
 #+END_SRC
+* Helm-swoop                                                     :helm:swoop:
+** Settings
+载入
+#+BEGIN_SRC emacs-lisp
+  (require 'helm-swoop)
+#+END_SRC
+** global-set-key
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-i") 'helm-swoop)
+  (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+  (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
+  (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
+#+END_SRC
 * Company                                                           :company:
 ** Settings
 载入 company
@@ -282,16 +294,30 @@ autoresize
 
 设置
 #+BEGIN_SRC emacs-lisp
-  (setq company-idle-delay 0.1
+  (setq company-auto-complete nil
+        company-idle-delay nil
         company-minimum-prefix-length 1
         company-tooltip-limit 30)
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+  (defun complete-or-indent ()
+    "Either indent or complete at point."
+    (interactive)
+    (if (looking-at "\\_>")
+        (company-complete-common)
+      (indent-according-to-mode)))
+#+END_SRC
+** global-set-key
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "TAB") 'complete-or-indent)
+#+END_SRC
 ** define-key
 #+BEGIN_SRC emacs-lisp
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
 #+END_SRC
+
 * Projectile                                                     :projectile:
 ** Settings
 载入 projectile
@@ -416,6 +442,25 @@ Formats
               (ibuffer-do-sort-by-alphabetic)
               (ibuffer-vc-set-filter-groups-by-vc-root)))
 #+END_SRC
+* Imenu                                                               :imenu:
+** Settings
+#+BEGIN_SRC emacs-lisp
+  (require 'imenu)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (setq imenu-auto-rescan t)
+#+END_SRC
+* Rainbow-delimiters                                                :rainbow:
+** Settings
+载入
+#+BEGIN_SRC emacs-lisp
+  (require 'rainbow-delimiters)
+#+END_SRC
+** add-hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+#+END_SRC
 * Ace-window                                                     :ace:window:
 ** Settings
 
@@ -491,6 +536,20 @@ setq-default
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.erb$" . web-mode))
+#+END_SRC
+* Emmet                                                               :emmet:
+** Settings
+载入
+#+BEGIN_SRC emacs-lisp
+  (require 'emmet-mode)
+#+END_SRC
+** add-hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'web-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
+  (add-hook 'scss-mode-hook 'emmet-mode)
+  (add-hook 'sass-mode-hook 'emmet-mode)
+  (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
 #+END_SRC
 * Nvm                                                                   :nvm:
 ** Settings

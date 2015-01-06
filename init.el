@@ -8,10 +8,6 @@
 (require 'cask "/usr/local/opt/cask/cask.el")
 (cask-initialize)
 
-;; 载入 pallet
-(require 'pallet)
-(pallet-mode t)
-
 ;; Define emacs-dir where all the files live.
 (defvar emacs-dir
   (file-name-directory (or load-file-name (buffer-file-name)))
