@@ -13,6 +13,7 @@
 (depends-on "emmet-mode")
 (depends-on "evil")
 (depends-on "evil-leader")
+(depends-on "git-gutter")
 (depends-on "git-timemachine")
 (depends-on "haml-mode")
 (depends-on "helm")

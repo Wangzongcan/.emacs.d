@@ -184,6 +184,14 @@ hjkl-bindings
        (evil-leader/set-key
          "b" 'helm-buffers-list)))
 #+END_SRC
+** git
+*** git-gutter
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "git-gutter-autoloads"
+    '(progn
+       (evil-leader/set-key
+         "gg" 'git-gutter)))
+#+END_SRC
 * Dired                                                               :dired:
 ** add-hook
 #+BEGIN_SRC emacs-lisp
@@ -280,6 +288,18 @@ autoresize
   (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
   (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
 #+END_SRC
+* Git                                                                   :git:
+** git-gutter
+*** Settings
+载入
+#+BEGIN_SRC emacs-lisp
+  (require 'git-gutter)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (global-git-gutter-mode +1)
+#+END_SRC
+
 * Company                                                           :company:
 ** Settings
 载入 company
