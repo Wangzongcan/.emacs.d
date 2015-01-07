@@ -185,6 +185,13 @@ hjkl-bindings
          "b" 'helm-buffers-list)))
 #+END_SRC
 ** git
+*** magit
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "magit-autoloads"
+    '(progn
+       (evil-leader/set-key
+         "gs" 'magit-status)))
+#+END_SRC
 *** git-gutter
 #+BEGIN_SRC emacs-lisp
   (eval-after-load "git-gutter-autoloads"
@@ -299,7 +306,12 @@ autoresize
 #+BEGIN_SRC emacs-lisp
   (global-git-gutter-mode +1)
 #+END_SRC
-
+** git-gutter-fringe
+*** Settings
+载入
+#+BEGIN_SRC emacs-lisp
+  (require 'git-gutter-fringe)
+#+END_SRC
 * Company                                                           :company:
 ** Settings
 载入 company
