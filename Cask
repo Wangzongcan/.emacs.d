@@ -11,6 +11,7 @@
 (depends-on "dired+")
 (depends-on "dired-single")
 (depends-on "dired-sort-menu")
+(depends-on "dired-sort-menu+")
 (depends-on "emmet-mode")
 (depends-on "evil")
 (depends-on "evil-leader")

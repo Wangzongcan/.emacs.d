@@ -207,6 +207,7 @@ hjkl-bindings
               (require 'dired+)
               (require 'dired-single)
               (require 'dired-sort-menu)
+              (require 'dired-sort-menu+)
 
               (when (eq system-type 'darwin)
                 (require 'ls-lisp)
