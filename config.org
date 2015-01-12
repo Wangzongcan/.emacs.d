@@ -199,6 +199,20 @@ hjkl-bindings
        (evil-leader/set-key
          "gg" 'git-gutter)))
 #+END_SRC
+** rails
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "projectile-rails-autoloads"
+    '(progn
+       (evil-leader/set-key
+         "rc" 'projectile-rails-find-controller
+         "rC" 'projectile-rails-find-current-controller
+         "rm" 'projectile-rails-find-model
+         "rM" 'projectile-rails-find-current-model
+         "rh" 'projectile-rails-find-helper
+         "rH" 'projectile-rails-find-current-helper
+         "rv" 'projectile-rails-find-view
+         "rV" 'projectile-rails-find-current-view)))
+#+END_SRC
 * Dired                                                               :dired:
 ** add-hook
 #+BEGIN_SRC emacs-lisp
@@ -352,6 +366,16 @@ autoresize
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
 #+END_SRC
 
+* Yasnippet                                                         :snippet:
+** Settings
+载入
+#+BEGIN_SRC emacs-lisp
+    (require 'yasnippet)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (yas-global-mode 1)
+#+END_SRC
 * Projectile                                                     :projectile:
 ** Settings
 载入 projectile
@@ -367,6 +391,10 @@ autoresize
 补全用 helm
 #+BEGIN_SRC emacs-lisp
   (setq projectile-completion-system 'helm)
+#+END_SRC
+** add-hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'projectile-mode-hook 'projectile-rails-on)
 #+END_SRC
 * Smart-mode-line                                                  :modeline:
 ** Settings

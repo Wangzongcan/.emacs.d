@@ -37,3 +37,4 @@
 (depends-on "smartparens")
 (depends-on "web-mode")
 (depends-on "yaml-mode")
+(depends-on "yasnippet")
