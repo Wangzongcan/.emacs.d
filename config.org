@@ -130,7 +130,7 @@
 #+END_SRC
 ** evil-set-initial-state
 #+BEGIN_SRC emacs-lisp
-  (evil-set-initial-state 'direed-mode 'emacs)
+  (evil-set-initial-state 'dired-mode 'emacs)
   (evil-set-initial-state 'ibuffer-mode 'emacs)
   (evil-set-initial-state 'makey-key-mode 'emacs)
   (evil-set-initial-state 'inf-ruby-mode 'emacs)
@@ -400,6 +400,15 @@ autoresize
 #+BEGIN_SRC emacs-lisp
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
 #+END_SRC
+* Flycheck                                                         :flycheck:
+** Settings
+#+BEGIN_SRC emacs-lisp
+  (require 'flycheck)
+#+END_SRC
+** add-hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+#+END_SRC
 * Smart-mode-line                                                  :modeline:
 ** Settings
 载入 smart-mode-line
@@ -542,6 +551,11 @@ Formats
 ** global-set-key
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x o") 'ace-window)
+#+END_SRC
+* Quickrun                                                         :quickrun:
+** Settings
+#+BEGIN_SRC emacs-lisp
+  (require 'quickrun)
 #+END_SRC
 * Rvm                                                                   :rvm:
 ** Settings
