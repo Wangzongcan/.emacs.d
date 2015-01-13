@@ -96,7 +96,6 @@
 #+END_SRC
 * Evil                                                                 :evil:
 ** Settings
-
 载入 evil
 #+BEGIN_SRC emacs-lisp
   (require 'evil)
@@ -115,9 +114,7 @@
 
   (define-key evil-insert-state-map[escape] 'evil-normal-state)
 #+END_SRC
-
 ** evil-define-key
-
 *** normal mode
 
 普通模式
@@ -127,20 +124,18 @@
 #+END_SRC
 
 ** evil-ex-define-cmd
-
 #+BEGIN_SRC emacs-lisp
   (evil-ex-define-cmd "q" 'kill-this-buffer)
   (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
 #+END_SRC
 ** evil-set-initial-state
-
 #+BEGIN_SRC emacs-lisp
   (evil-set-initial-state 'direed-mode 'emacs)
   (evil-set-initial-state 'ibuffer-mode 'emacs)
   (evil-set-initial-state 'makey-key-mode 'emacs)
   (evil-set-initial-state 'inf-ruby-mode 'emacs)
+  (evil-set-initial-state 'git-commit-mode 'emacs)
 #+END_SRC
-
 ** evil-cursor
 #+BEGIN_SRC emacs-lisp
   (setq evil-emacs-state-cursor '("red" box))
