@@ -9,7 +9,6 @@
   (eval-when-compile (require 'cl))
 #+END_SRC
 ** Encoding
-
 #+BEGIN_SRC emacs-lisp
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
@@ -21,6 +20,9 @@
 #+BEGIN_SRC emacs-lisp
   (setq
    inhibit-startup-message t
+   initial-scratch-message ""
+   visible-bell t
+   ring-bell-function #'ignore
    backup-directory-alist `((".*" . ,temporary-file-directory)) ;don't clutter my fs and put backups into tmp
    auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
    require-final-newline t                ;auto add newline at the end of file
@@ -52,7 +54,6 @@
   (put 'narrow-to-region 'disabled nil)
 #+END_SRC
 ** Default Settings
-
 #+BEGIN_SRC emacs-lisp
   (setq-default
    tab-width 4
@@ -62,7 +63,6 @@
   )
 #+END_SRC
 ** Global Modes
-
 #+BEGIN_SRC emacs-lisp
   (global-auto-revert-mode 1)  ;auto revert buffers when changed on disk
   (show-paren-mode t)          ;visualize()
@@ -74,7 +74,6 @@
   (transient-mark-mode t)
 #+END_SRC
 ** Yes or No
-
 #+BEGIN_SRC emacs-lisp
   (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
@@ -133,14 +132,21 @@
   (evil-ex-define-cmd "q" 'kill-this-buffer)
   (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
 #+END_SRC
-** evil-add-hjkl-bindings
+** evil-set-initial-state
 
-hjkl-bindings
 #+BEGIN_SRC emacs-lisp
-  (evil-add-hjkl-bindings dired-mode-map 'emacs)
-  (evil-add-hjkl-bindings ibuffer-mode-map 'emacs)
+  (evil-set-initial-state 'direed-mode 'emacs)
+  (evil-set-initial-state 'ibuffer-mode 'emacs)
+  (evil-set-initial-state 'makey-key-mode 'emacs)
+  (evil-set-initial-state 'inf-ruby-mode 'emacs)
 #+END_SRC
 
+** evil-cursor
+#+BEGIN_SRC emacs-lisp
+  (setq evil-emacs-state-cursor '("red" box))
+  (setq evil-normal-state-cursor '("green" box))
+  (setq evil-visual-state-cursor '("orange" box))
+#+END_SRC
 * Evil-leader                                                   :evil:leader:
 ** Settings
 
@@ -214,28 +220,31 @@ hjkl-bindings
          "rV" 'projectile-rails-find-current-view)))
 #+END_SRC
 * Dired                                                               :dired:
+** Settings
+#+BEGIN_SRC emacs-lisp
+  (require 'dired+)
+  (require 'dired-single)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (setq dired-single-use-magic-buffer t
+        dired-single-magic-buffer-name "*dired*")
+  (setq dired-use-ls-dired nil)
+#+END_SRC
+** define-key
+#+BEGIN_SRC emacs-lisp
+  (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
+  (define-key dired-mode-map (kbd "<mouse-1>") 'dired-single-buffer-mouse)
+  (define-key dired-mode-map (kbd "C-l")
+    (lambda ()
+      (interactive)
+      (dired-single-buffer "..")))
+#+END_SRC
 ** add-hook
 #+BEGIN_SRC emacs-lisp
   (add-hook 'dired-mode-hook
-            (lambda ()
-              (require 'dired+)
-              (require 'dired-single)
-              (require 'dired-sort-menu)
-              (require 'dired-sort-menu+)
-
-              (when (eq system-type 'darwin)
-                (require 'ls-lisp)
-                (setq ls-lisp-use-insert-directory-program nil))
-
-              (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
-              (define-key dired-mode-map (kbd "C-l")
-                (lambda ()
-                  (interactive)
-                  (dired-single-buffer "..")))
-
-              (setq dired-single-use-magic-buffer t
-                    dired-single-magic-buffer-name "*dired*")
-              (dired-single-toggle-buffer-name)))
+            '(lambda ()
+               (dired-single-toggle-buffer-name)))
 #+END_SRC
 * Org-mode                                                              :org:
 ** Settings
