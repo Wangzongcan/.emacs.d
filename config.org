@@ -4,7 +4,6 @@
 
 * Base                                                                 :base:
 ** 载入 cl
-
 #+BEGIN_SRC emacs-lisp
   (eval-when-compile (require 'cl))
 #+END_SRC
@@ -16,7 +15,6 @@
   (prefer-coding-system 'utf-8)
 #+END_SRC
 ** General Settings
-
 #+BEGIN_SRC emacs-lisp
   (setq
    inhibit-startup-message t
@@ -60,6 +58,7 @@
    indent-tabs-mode nil                   ;use spaces instead of tabs
    c-basic-offset 4                       ;"tab" with in c-related modes
    c-hungry-delete-key t                  ;delete more than one space
+   indicate-empty-lines t
   )
 #+END_SRC
 ** Global Modes
@@ -90,7 +89,6 @@
                       (font-spec :family "Hiragino Sans GB W3" :size 16)))
 #+END_SRC
 * Theme                                                               :theme:
-** Settings
 #+BEGIN_SRC emacs-lisp
   (load-theme 'monokai t)
 #+END_SRC
@@ -116,13 +114,11 @@
 #+END_SRC
 ** evil-define-key
 *** normal mode
-
 普通模式
 #+BEGIN_SRC emacs-lisp
   (evil-define-key 'normal global-map (kbd "j") (kbd "gj"))
   (evil-define-key 'normal global-map (kbd "k") (kbd "gk"))
 #+END_SRC
-
 ** evil-ex-define-cmd
 #+BEGIN_SRC emacs-lisp
   (evil-ex-define-cmd "q" 'kill-this-buffer)
