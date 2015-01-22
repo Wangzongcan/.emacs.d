@@ -92,6 +92,20 @@
 #+BEGIN_SRC emacs-lisp
   (load-theme 'monokai t)
 #+END_SRC
+* Function                                                         :function:
+** reload init.el
+#+BEGIN_SRC emacs-lisp
+  (defun reload-config-file()
+    (interactive)
+    (let ((current-file-path buffer-file-name))
+      (progn
+        (kill-this-buffer)
+        (find-file "~/.emacs.d/init.el")
+        (eval-current-buffer)
+        (kill-this-buffer)
+        (find-file current-file-path))))
+
+#+END_SRC
 * Evil                                                                 :evil:
 ** Settings
 载入 evil
@@ -162,6 +176,7 @@
     "1" 'delete-other-windows
     "2" 'split-window-below
     "3" 'split-window-right
+    "ll" 'reload-config-file
     "o" 'ace-window)
 #+END_SRC
 ** projectile
