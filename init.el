@@ -25,8 +25,3 @@
     (org-babel-load-file (expand-file-name config-file))
   (error (format "%s not found!!" config-file)))
 
-;; 编辑 config.org
-(defun edit-config-file ()
-  "edit config.org."
-  (interactive)
-  (find-file config-file))

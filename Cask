@@ -24,7 +24,7 @@
 (depends-on "helm")
 (depends-on "helm-ag")
 (depends-on "helm-swoop")
-(depends-on "ibuffer-vc")
+(depends-on "ibuffer-projectile")
 (depends-on "js2-mode")
 (depends-on "magit")
 (depends-on "monokai-theme")
