@@ -98,13 +98,14 @@
   (defun reload-config-file()
     (interactive)
     (let ((current-file-path buffer-file-name))
-      (progn
-        (kill-this-buffer)
-        (find-file "~/.emacs.d/init.el")
-        (eval-current-buffer)
-        (kill-this-buffer)
-        (find-file current-file-path))))
-
+      (if current-file-path
+          (progn
+            (kill-this-buffer)
+            (load-file init-file)
+            (find-file current-file-path))
+        (progn
+          (load-file init-file)
+          (find-file init-file)))))
 #+END_SRC
 * Evil                                                                 :evil:
 ** Settings

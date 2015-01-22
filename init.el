@@ -13,6 +13,9 @@
   (file-name-directory (or load-file-name (buffer-file-name)))
   "Define where user load this init.el, this variable will be `~/.emacs.d/' in many case.")
 
+(defvar init-file
+  (concat emacs-dir "init.el"))
+
 (defvar config-file
   (concat emacs-dir "config.org"))
 
