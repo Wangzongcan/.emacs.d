@@ -77,21 +77,6 @@
 #+BEGIN_SRC emacs-lisp
   (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
-* Functions                                                       :functions:
-** load init.el
-#+BEGIN_SRC emacs-lisp
-  (defun load-init-file()
-    (interactive)
-    (load-file "~/.emacs.d/init.el"))
-#+END_SRC
-** edit config.org
-#+BEGIN_SRC emacs-lisp
-  ;; 编辑 config.org
-  (defun edit-config-file ()
-    "edit config.org."
-    (interactive)
-    (find-file config-file))
-#+END_SRC
 * Font                                                                 :font:
 字体设置
 #+BEGIN_SRC emacs-lisp
@@ -181,8 +166,6 @@
     "1" 'delete-other-windows
     "2" 'split-window-below
     "3" 'split-window-right
-    "ee" 'edit-config-file
-    "ll" 'load-init-file
     "o" 'ace-window)
 #+END_SRC
 ** projectile

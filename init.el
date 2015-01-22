@@ -24,4 +24,3 @@
 (if (file-exists-p config-file)
     (org-babel-load-file (expand-file-name config-file))
   (error (format "%s not found!!" config-file)))
-
