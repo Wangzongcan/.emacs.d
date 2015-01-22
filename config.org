@@ -107,6 +107,12 @@
           (load-file init-file)
           (find-file init-file)))))
 #+END_SRC
+** open config.org
+#+BEGIN_SRC emacs-lisp
+  (defun edit-config-file()
+    (interactive)
+    (find-file config-file))
+#+END_SRC
 * Evil                                                                 :evil:
 ** Settings
 载入 evil
@@ -177,6 +183,7 @@
     "1" 'delete-other-windows
     "2" 'split-window-below
     "3" 'split-window-right
+    "ee" 'edit-config-file
     "ll" 'reload-config-file
     "o" 'ace-window)
 #+END_SRC
