@@ -184,7 +184,18 @@
     "2" 'split-window-below
     "3" 'split-window-right
     "ee" 'edit-config-file
-    "ll" 'reload-config-file
+    "ll" 'reload-config-file)
+#+END_SRC
+** ace-jump
+#+BEGIN_SRC emacs-lisp
+  (evil-leader/set-key
+    "ac" 'ace-jump-char-mode
+    "aw" 'ace-jump-word-mode
+    "al" 'ace-jump-line-mode)
+#+END_SRC
+** ace-window
+#+BEGIN_SRC emacs-lisp
+  (evil-leader/set-key
     "o" 'ace-window)
 #+END_SRC
 ** projectile
