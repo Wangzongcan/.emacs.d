@@ -6,8 +6,8 @@
 
 (setq ibuffer-saved-filter-groups
       '(("home"
-         ("Magit" (name . "\*magit"))
-         ("Ag" (name ."\*Ag")))))
+         ("Magit" (name . "^\*magit"))
+         ("Helm" (name . "^\*helm")))))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 

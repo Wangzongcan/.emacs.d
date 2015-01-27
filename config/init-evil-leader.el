@@ -12,6 +12,7 @@
  "1" 'delete-other-windows
  "2" 'split-window-below
  "3" 'split-window-right
+ "b" 'helm-buffers-list
 
  "o" 'ace-window
 
@@ -21,6 +22,7 @@
 
  "pf" 'projectile-find-file
  "pp" 'projectile-switch-project
+ "pb" 'projectile-switch-to-buffer
 
  "gs" 'magit-status
 
