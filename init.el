@@ -1,29 +1,65 @@
-;; Mac 使用 brew 安装软件后，设置 PATH
-(add-to-list 'exec-path "/usr/local/bin")
-(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
-
+;; require cl
 (eval-when-compile (require 'cl))
 
-;; 载入 cask
-(require 'cask "/usr/local/opt/cask/cask.el")
-(cask-initialize)
+(add-to-list 'load-path "~/.emacs.d/config")
 
-;; Define emacs-dir where all the files live.
-(defvar emacs-dir
-  (file-name-directory (or load-file-name (buffer-file-name)))
-  "Define where user load this init.el, this variable will be `~/.emacs.d/' in many case.")
+(require 'init-base)
+(require 'init-font)
+(require 'init-package)
+(require 'init-theme)
 
-(defvar init-file
-  (concat emacs-dir "init.el"))
+;; Evil
+(require 'init-evil)
+(require 'init-evil-leader)
 
-(defvar config-file
-  (concat emacs-dir "config.org"))
+;; Dired
+(require 'init-dired)
+(require 'init-dired-single)
 
-;; 载入 org
-(require 'org)
-(setq org-confirm-babel-evaluate nil)
+;; Ibuffer
+(require 'init-ibuffer)
 
-;; Load config.org from emacs-dir
-(if (file-exists-p config-file)
-    (org-babel-load-file (expand-file-name config-file))
-  (error (format "%s not found!!" config-file)))
+;; Helm
+(require 'init-helm)
+
+;; Porjectile
+(require 'init-projectile)
+(require 'init-projectile-rails)
+
+;; Magit
+(require 'init-magit)
+
+;; Ruby
+(require 'init-rvm)
+(require 'init-ruby)
+(require 'init-ruby-electric)
+
+;; Web
+(require 'init-web)
+(require 'init-emmet)
+
+;; NVM
+(require 'init-nvm)
+
+;; JS2
+(require 'init-js2)
+
+;; Coffee
+(require 'init-coffee)
+
+;; Css
+(require 'init-css)
+(require 'init-sass)
+(require 'init-scss)
+
+;; YAML
+(require 'init-yaml)
+
+;; Smart Mode Line
+(require 'init-smart-mode-line)
+
+;; Smartparens
+(require 'init-smartparens)
+
+;; Rainbow Delimiters
+(require 'init-rainbow-delimiters)
