@@ -7,5 +7,6 @@
 (helm-autoresize-mode 1)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "M-i") 'helm-imenu)
 
 (provide 'init-helm)

@@ -1,7 +1,9 @@
 ;; require cl
 (eval-when-compile (require 'cl))
 
+(add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'load-path "~/.emacs.d/config")
+(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 
 (require 'init-base)
 (require 'init-font)
@@ -14,6 +16,7 @@
 
 ;; Dired
 (require 'init-dired)
+(require 'init-dired+)
 (require 'init-dired-single)
 
 ;; Ibuffer
