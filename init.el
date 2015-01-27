@@ -32,6 +32,12 @@
 ;; Magit
 (require 'init-magit)
 
+;; Ace Window
+(require 'init-ace-window)
+
+;; Ace Jump
+(require 'init-ace-jump)
+
 ;; Ruby
 (require 'init-rvm)
 (require 'init-ruby)
@@ -66,3 +72,6 @@
 
 ;; Rainbow Delimiters
 (require 'init-rainbow-delimiters)
+
+;; Function
+(require 'init-function)

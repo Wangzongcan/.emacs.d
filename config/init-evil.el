@@ -14,6 +14,10 @@
 (evil-define-key 'normal global-mode (kbd "j") 'gj)
 (evil-define-key 'normal global-mode (kbd "k") 'kj)
 
+(evil-set-initial-state 'dired-mode 'emacs)
+(evil-set-initial-state 'ibuffer-mode 'emacs)
+(evil-set-initial-state 'git-commit-mode 'emacs)
+
 ;; evil cursor
 (setq evil-emacs-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("green" box))
