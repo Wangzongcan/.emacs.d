@@ -11,6 +11,9 @@
          ("Magit" (name . "^\*magit"))
          ("Helm" (name . "^\*helm"))
          ("Ag" (name . "^\*ag"))
+         ("Term" (or
+                  (mode . term-mode)
+                  (mode . eshell-mode)))
          )))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
