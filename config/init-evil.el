@@ -22,6 +22,7 @@
 ;; evil cursor
 (setq evil-emacs-state-cursor '("red" box)
       evil-normal-state-cursor '("green" box)
-      evil-visual-state-cursor '("orange" box))
+      evil-visual-state-cursor '("orange" box)
+      evil-insert-state-cursor '("firebrick" bar))
 
 (provide 'init-evil)
