@@ -12,8 +12,4 @@
   (interactive)
   (helm-ag (projectile-project-root)))
 
-(defun projectile-helm-do-ag ()
-  (interactive)
-  (helm-do-ag (projectile-project-root)))
-
 (provide 'init-function)

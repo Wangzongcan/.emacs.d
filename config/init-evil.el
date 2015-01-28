@@ -18,6 +18,7 @@
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'emacs)
 (evil-set-initial-state 'git-commit-mode 'emacs)
+(evil-set-initial-state 'ag-mode 'emacs)
 
 ;; evil cursor
 (setq evil-emacs-state-cursor '("red" box)

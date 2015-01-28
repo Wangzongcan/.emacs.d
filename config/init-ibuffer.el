@@ -7,8 +7,10 @@
 (setq ibuffer-saved-filter-groups
       '(("home"
          (".emacs.d" (filename . "/.emacs.d/"))
+         ("Ruby" (mode . ruby-mode))
          ("Magit" (name . "^\*magit"))
          ("Helm" (name . "^\*helm"))
+         ("Ag" (name . "^\*ag"))
          )))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
