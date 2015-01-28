@@ -36,7 +36,7 @@
  show-paren-delay 0
  default-truncate-lines t
  echo-keystrokes 0.1
- whitespace-style '(face tabs empty trailing lines-tail)
+ whitespace-style '(face tabs empty trailing indendation space-after-tab space-before-tab)
  )
 
 ;; Default Settings

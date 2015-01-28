@@ -38,6 +38,9 @@
 ;; Ace Jump
 (require 'init-ace-jump)
 
+;; Ag
+(require 'init-ag)
+
 ;; Ruby
 (require 'init-rvm)
 (require 'init-ruby)

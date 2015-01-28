@@ -7,4 +7,13 @@
     (load-file current-file)
     (find-file current-file)))
 
+;; projectile helm ag
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
+
+(defun projectile-helm-do-ag ()
+  (interactive)
+  (helm-do-ag (projectile-project-root)))
+
 (provide 'init-function)
