@@ -12,7 +12,10 @@
  "1" 'delete-other-windows
  "2" 'split-window-below
  "3" 'split-window-right
+
  "b" 'helm-buffers-list
+ "hm" 'helm-imenu
+ "ho" 'helm-occur
 
  "o" 'ace-window
 
