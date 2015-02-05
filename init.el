@@ -76,5 +76,8 @@
 ;; Rainbow Delimiters
 (require 'init-rainbow-delimiters)
 
+;; Zone
+(require 'init-zone)
+
 ;; Function
 (require 'init-function)
