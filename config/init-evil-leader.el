@@ -12,6 +12,7 @@
  "1" 'delete-other-windows
  "2" 'split-window-below
  "3" 'split-window-right
+ "k" 'kill-buffer
 
  "b" 'helm-buffers-list
  "hm" 'helm-imenu
