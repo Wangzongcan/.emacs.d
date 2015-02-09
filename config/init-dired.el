@@ -1,6 +1,8 @@
 ;; Dired
 (require 'dired)
 
-(setq dired-use-ls-dired nil)
+(setq global-auto-revert-non-file-buffers t
+      auto-revert-verbose nil
+      dired-use-ls-dired nil)
 
 (provide 'init-dired)

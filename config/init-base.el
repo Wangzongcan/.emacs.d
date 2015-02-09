@@ -53,7 +53,7 @@
 (show-paren-mode t)          ;visualize()
 (blink-cursor-mode -1)       ;no cursor blinking
 (tool-bar-mode -1)           ;disable the awful toolbar
-(menu-bar-mode 1)            ;no menu, you can toggle it with C-c m
+(menu-bar-mode -1)            ;no menu, you can toggle it with C-c m
 (scroll-bar-mode -1)         ;disable the sroll bar
 (global-font-lock-mode t)
 (transient-mark-mode t)
