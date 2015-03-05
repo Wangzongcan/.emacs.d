@@ -25,6 +25,9 @@
 ;; Helm
 (require 'init-helm)
 
+;; Company
+(require 'init-company)
+
 ;; Porjectile
 (require 'init-projectile)
 (require 'init-projectile-rails)
