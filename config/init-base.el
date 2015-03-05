@@ -62,4 +62,6 @@
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(global-unset-key (kbd "C-x C-c"))
+
 (provide 'init-base)
