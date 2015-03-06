@@ -37,6 +37,9 @@
  default-truncate-lines t
  echo-keystrokes 0.1
  whitespace-style '(face tabs empty trailing indendation space-after-tab space-before-tab)
+ scroll-step 1
+ scroll-conservatively 10000
+ auto-window-vscroll nil
  )
 
 ;; Default Settings
