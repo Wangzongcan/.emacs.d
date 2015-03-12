@@ -12,4 +12,10 @@
   (interactive)
   (helm-ag (projectile-project-root)))
 
+(defun exit-emacs ()
+  ;; 退出 emacs 时先确认
+  (interactive)
+  (if (yes-or-no-p (format "exit emacs?"))
+      (save-buffers-kill-emacs)))
+
 (provide 'init-function)

@@ -81,3 +81,5 @@
 
 ;; Function
 (require 'init-function)
+
+(require 'init-bindings)
