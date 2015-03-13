@@ -22,10 +22,4 @@
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-set-initial-state 'eshell-mode 'emacs)
 
-;; evil cursor
-(setq evil-emacs-state-cursor '("red" box)
-      evil-normal-state-cursor '("green" box)
-      evil-visual-state-cursor '("orange" box)
-      evil-insert-state-cursor '("firebrick" (bar . 2)))
-
 (provide 'init-evil)
