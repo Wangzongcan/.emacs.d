@@ -5,10 +5,10 @@
 
 (setq sml/theme 'respectful
       sml/no-confirm-load-theme t
-      sml/mode-width 'full
       sml/shorten-modes t
       sml/shorten-directory t
-      sml/name-width 20)
+      sml/mode-width 'full
+      sml/name-width 30)
 
 (sml/setup)
 
