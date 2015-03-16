@@ -19,7 +19,6 @@
 (evil-set-initial-state 'ibuffer-mode 'emacs)
 (evil-set-initial-state 'git-commit-mode 'emacs)
 (evil-set-initial-state 'ag-mode 'emacs)
-(evil-set-initial-state 'term-mode 'emacs)
 (evil-set-initial-state 'eshell-mode 'emacs)
 
 (provide 'init-evil)
