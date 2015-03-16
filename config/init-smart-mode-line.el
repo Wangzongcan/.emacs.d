@@ -8,7 +8,7 @@
       sml/shorten-modes t
       sml/shorten-directory t
       sml/mode-width 'full
-      sml/name-width 30)
+      sml/name-width 20)
 
 (sml/setup)
 
