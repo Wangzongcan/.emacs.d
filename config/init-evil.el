@@ -11,6 +11,8 @@
 
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
+(define-key evil-motion-state-map (kbd ";") 'evil-ex)
+
 ;; evil define key
 (evil-define-key 'normal global-mode (kbd "j") 'gj)
 (evil-define-key 'normal global-mode (kbd "k") 'kj)
