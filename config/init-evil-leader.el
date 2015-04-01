@@ -8,40 +8,41 @@
 
 ;; base
 (evil-leader/set-key
- "0" 'delete-window
- "1" 'delete-other-windows
- "2" 'split-window-below
- "3" 'split-window-right
- "k" 'kill-buffer
+  "0" 'delete-window
+  "1" 'delete-other-windows
+  "2" 'split-window-below
+  "3" 'split-window-right
+  "k" 'kill-buffer
 
- "b" 'helm-buffers-list
- "hm" 'helm-imenu
- "ho" 'helm-occur
+  "<SPC>" 'helm-M-x
+  "b"     'helm-buffers-list
+  "hm"    'helm-imenu
+  "ho"    'helm-occur
 
- "o" 'ace-window
+  "o" 'ace-window
 
- "ac" 'ace-jump-char-mode
- "aw" 'ace-jump-word-mode
- "al" 'ace-jump-line-mode
+  "ac" 'ace-jump-char-mode
+  "aw" 'ace-jump-word-mode
+  "al" 'ace-jump-line-mode
 
- "pf" 'projectile-find-file
- "pp" 'projectile-switch-project
- "pb" 'projectile-switch-to-buffer
- "pa" 'projectile-ag
- "pA" 'projectile-helm-ag
+  "pf" 'projectile-find-file
+  "pp" 'projectile-switch-project
+  "pb" 'projectile-switch-to-buffer
+  "pa" 'projectile-ag
+  "pA" 'projectile-helm-ag
 
- "gs" 'magit-status
+  "gs" 'magit-status
 
- "rc" 'projectile-rails-find-controller
- "rC" 'projectile-rails-find-current-controller
- "rm" 'projectile-rails-find-model
- "rM" 'projectile-rails-find-current-model
- "rh" 'projectile-rails-find-helper
- "rH" 'projectile-rails-find-current-helper
- "rv" 'projectile-rails-find-view
- "rV" 'projectile-rails-find-current-view
+  "rc" 'projectile-rails-find-controller
+  "rC" 'projectile-rails-find-current-controller
+  "rm" 'projectile-rails-find-model
+  "rM" 'projectile-rails-find-current-model
+  "rh" 'projectile-rails-find-helper
+  "rH" 'projectile-rails-find-current-helper
+  "rv" 'projectile-rails-find-view
+  "rV" 'projectile-rails-find-current-view
 
- "ll" 'load-current-file
- )
+  "ll" 'load-current-file
+)
 
 (provide 'init-evil-leader)
