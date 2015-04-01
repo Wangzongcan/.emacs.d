@@ -33,14 +33,15 @@
 
   "gs" 'magit-status
 
-  "rc" 'projectile-rails-find-controller
-  "rC" 'projectile-rails-find-current-controller
-  "rm" 'projectile-rails-find-model
-  "rM" 'projectile-rails-find-current-model
-  "rh" 'projectile-rails-find-helper
-  "rH" 'projectile-rails-find-current-helper
-  "rv" 'projectile-rails-find-view
-  "rV" 'projectile-rails-find-current-view
+  "rc"  'projectile-rails-find-controller
+  "rC"  'projectile-rails-find-current-controller
+  "rm"  'projectile-rails-find-model
+  "rM"  'projectile-rails-find-current-model
+  "rh"  'projectile-rails-find-helper
+  "rH"  'projectile-rails-find-current-helper
+  "rv"  'projectile-rails-find-view
+  "rV"  'projectile-rails-find-current-view
+  "rgf" 'projectile-rails-goto-file-at-point
 
   "ll" 'load-current-file
 )
