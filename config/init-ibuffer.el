@@ -8,6 +8,8 @@
       '(("home"
          (".emacs.d" (filename . "/.emacs.d/"))
          ("Ruby" (mode . ruby-mode))
+         ("Web" (mode . web-mode))
+         ("Yaml" (mode . yaml-mode))
          ("Magit" (name . "^\*magit"))
          ("Helm" (name . "^\*helm"))
          ("Ag" (name . "^\*ag"))
