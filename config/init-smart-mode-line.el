@@ -6,9 +6,7 @@
 (setq sml/theme 'respectful
       sml/no-confirm-load-theme t
       sml/shorten-modes t
-      sml/shorten-directory t
-      sml/mode-width 'full
-      sml/name-width 20)
+      sml/shorten-directory t)
 
 (sml/setup)
 
