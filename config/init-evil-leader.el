@@ -43,6 +43,8 @@
   "rV"  'projectile-rails-find-current-view
   "rgf" 'projectile-rails-goto-file-at-point
 
+  "mt"  'helm-mt
+
   "ll" 'load-current-file
 )
 

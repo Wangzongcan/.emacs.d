@@ -24,6 +24,7 @@
 
 ;; Helm
 (require 'init-helm)
+(require 'init-helm-mt)
 
 ;; Company
 (require 'init-company)
