@@ -44,6 +44,9 @@
 ;; Ag
 (require 'init-ag)
 
+;; quickrun
+(require 'init-quickrun)
+
 ;; Ruby
 (require 'init-rvm)
 (require 'init-ruby)
