@@ -83,3 +83,6 @@
 (require 'init-function)
 
 (require 'init-bindings)
+
+;; Nyan
+(require 'init-nyan)
