@@ -50,6 +50,7 @@
 ;; Ruby
 (require 'init-rvm)
 (require 'init-ruby)
+(require 'init-inf-ruby)
 (require 'init-ruby-electric)
 
 ;; Web
