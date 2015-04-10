@@ -48,6 +48,9 @@
 ;; quickrun
 (require 'init-quickrun)
 
+;; expand-region
+(require 'init-expand-region)
+
 ;; Ruby
 (require 'init-rvm)
 (require 'init-ruby)
