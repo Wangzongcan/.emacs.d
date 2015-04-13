@@ -67,5 +67,4 @@
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(require 'el-init)
-(el-init-provide)
+(provide 'init-base)

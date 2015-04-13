@@ -1,4 +1,4 @@
-;; Function
+;; function
 (defun load-current-file()
   (interactive)
   (let ((current-file buffer-file-name))
@@ -17,6 +17,6 @@
   (interactive)
   (if (yes-or-no-p (format "exit emacs?"))
       (save-buffers-kill-emacs)))
+(global-set-key (kbd "C-x C-c") 'exit-emacs)
 
-(require 'el-init)
-(el-init-provide)
+(provide 'init-function)

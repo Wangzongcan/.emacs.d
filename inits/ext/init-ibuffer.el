@@ -1,3 +1,4 @@
+;; ibuffer
 (setq ibuffer-expert t
       ibuffer-show-empty-filter-groups nil)
 
@@ -24,5 +25,4 @@
              (ibuffer-auto-mode 1)
              (ibuffer-switch-to-saved-filter-groups "home")))
 
-(require 'el-init)
-(el-init-provide)
+(provide 'init-ibuffer)
