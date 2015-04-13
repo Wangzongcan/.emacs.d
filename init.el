@@ -20,12 +20,11 @@
 ;; Dired
 (require 'init-dired)
 
-;; Ibuffer
-(require 'init-ibuffer)
-
 ;; Helm
 (require 'init-helm)
-(require 'init-helm-mt)
+
+;; Ibuffer
+(require 'init-ibuffer)
 
 ;; Company
 (require 'init-company)
