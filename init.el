@@ -16,7 +16,6 @@
 
 ;; Evil
 (require 'init-evil)
-(require 'init-evil-leader)
 
 ;; Dired
 (require 'init-dired)
