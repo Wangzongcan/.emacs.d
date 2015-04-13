@@ -40,6 +40,7 @@
  scroll-step 1
  scroll-conservatively 10000
  auto-window-vscroll nil
+ font-lock-maximum-decoration t
  )
 
 ;; Default Settings
@@ -64,5 +65,3 @@
 
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
-
-(provide 'init-base)

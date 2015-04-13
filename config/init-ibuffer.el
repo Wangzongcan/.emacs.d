@@ -23,5 +23,3 @@
 
              (ibuffer-auto-mode 1)
              (ibuffer-switch-to-saved-filter-groups "home")))
-
-(provide 'init-ibuffer)

@@ -66,5 +66,3 @@
 
   "ll" 'load-current-file
 )
-
-(provide 'init-evil)

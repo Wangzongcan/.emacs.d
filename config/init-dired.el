@@ -23,5 +23,3 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             (dired-single-toggle-buffer-name)))
-
-(provide 'init-dired)
