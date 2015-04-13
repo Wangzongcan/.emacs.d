@@ -31,7 +31,6 @@
 
 ;; Porjectile
 (require 'init-projectile)
-(require 'init-projectile-rails)
 
 ;; Magit
 (require 'init-magit)
