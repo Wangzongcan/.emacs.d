@@ -3,6 +3,8 @@
 
 (setq ruby-insert-encoding-magic-comment nil)
 
+(define-key ruby-mode-map (kbd "C-c C-r") 'ruby-send-region)
+
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
