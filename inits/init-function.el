@@ -17,3 +17,6 @@
   (interactive)
   (if (yes-or-no-p (format "exit emacs?"))
       (save-buffers-kill-emacs)))
+
+(require 'el-init)
+(el-init-provide)

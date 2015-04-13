@@ -22,3 +22,6 @@
 
 ;; Ruby-Electric
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
+
+(require 'el-init)
+(el-init-provide)

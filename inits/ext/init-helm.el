@@ -18,3 +18,6 @@
 
 ;; Helm-Mt
 (global-set-key (kbd "C-x t") 'helm-mt)
+
+(require 'el-init)
+(el-init-provide)

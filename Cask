@@ -1,66 +1,54 @@
-(source gnu)
 (source melpa)
+(source melpa-stable)
 
+(depends-on "ace-window")
+(depends-on "ag")
+(depends-on "anaphora")
+(depends-on "async")
 (depends-on "cask")
-
-;; el-init
-(depends-on "el-init")
-
-;; Theme
-(depends-on "monokai-theme")
-
-;; Dired
+(depends-on "coffee-mode")
+(depends-on "company")
+(depends-on "dash")
 (depends-on "dired+")
 (depends-on "dired-single")
-
-;; Evil
+(depends-on "el-init")
+(depends-on "emmet-mode")
+(depends-on "epl")
 (depends-on "evil")
 (depends-on "evil-leader")
-
-;; Helm
+(depends-on "expand-region")
+(depends-on "f")
+(depends-on "git-commit-mode")
+(depends-on "git-rebase-mode")
+(depends-on "goto-chg")
+(depends-on "haml-mode")
 (depends-on "helm")
 (depends-on "helm-ag")
 (depends-on "helm-mt")
-
-;; Projectile
+(depends-on "inf-ruby")
+(depends-on "inflections")
+(depends-on "js2-mode")
+(depends-on "magit")
+(depends-on "monokai-theme")
+(depends-on "multi-term")
+(depends-on "nvm")
+(depends-on "nyan-mode")
+(depends-on "package-build")
+(depends-on "pallet")
+(depends-on "pkg-info")
 (depends-on "projectile")
 (depends-on "projectile-rails")
-
-;; Magit
-(depends-on "magit")
-
-;; Commpany
-(depends-on "company")
-
-;; Ace-Window
-(depends-on "ace-window")
-
-;; Quickrun
 (depends-on "quickrun")
-
-;; Expand-Region
-(depends-on "expand-region")
-
-;; Ruby
-(depends-on "rvm")
-(depends-on "inf-ruby")
+(depends-on "rake")
+(depends-on "rich-minority")
 (depends-on "ruby-electric")
-
-;; Web
-(depends-on "web-mode")
-(depends-on "emmet-mode")
-
-;; Javascript
-(depends-on "nvm")
-(depends-on "js2-mode")
-(depends-on "coffee-mode")
-
-;; Css
+(depends-on "rvm")
+(depends-on "s")
 (depends-on "sass-mode")
 (depends-on "scss-mode")
-
-;; Yaml
-(depends-on "yaml-mode")
-
-;; Smartparens
+(depends-on "shut-up")
+(depends-on "smart-mode-line")
 (depends-on "smartparens")
+(depends-on "undo-tree")
+(depends-on "web-mode")
+(depends-on "yaml-mode")

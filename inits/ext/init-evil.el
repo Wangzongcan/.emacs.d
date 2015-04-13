@@ -66,3 +66,6 @@
 
   "ll" 'load-current-file
 )
+
+(require 'el-init)
+(el-init-provide)

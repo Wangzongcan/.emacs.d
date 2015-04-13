@@ -10,3 +10,6 @@
 
 ;; CoffeeScript
 (setq coffee-tab-width 2)
+
+(require 'el-init)
+(el-init-provide)

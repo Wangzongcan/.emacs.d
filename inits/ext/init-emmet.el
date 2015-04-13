@@ -3,3 +3,6 @@
 (add-hook 'scss-mode-hook 'emmet-mode)
 (add-hook 'sass-mode-hook 'emmet-mode)
 (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
+
+(require 'el-init)
+(el-init-provide)

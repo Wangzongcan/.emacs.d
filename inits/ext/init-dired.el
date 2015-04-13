@@ -23,3 +23,6 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             (dired-single-toggle-buffer-name)))
+
+(require 'el-init)
+(el-init-provide)

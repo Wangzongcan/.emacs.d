@@ -5,3 +5,6 @@
                              web-mode))
 
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+
+(require 'el-init)
+(el-init-provide)

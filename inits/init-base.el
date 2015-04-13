@@ -41,6 +41,7 @@
  scroll-conservatively 10000
  auto-window-vscroll nil
  font-lock-maximum-decoration t
+ ad-redefinition-action 'accept
  )
 
 ;; Default Settings
@@ -65,3 +66,6 @@
 
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(require 'el-init)
+(el-init-provide)
