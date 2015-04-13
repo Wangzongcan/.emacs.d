@@ -65,9 +65,4 @@
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(when window-system
-  (require 'server)
-  (unless (server-running-p)
-    (server-start)))
-
 (provide 'init-base)
