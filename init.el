@@ -12,6 +12,8 @@
 
 (require 'init-base)
 (require 'init-font)
+
+;; Theme
 (require 'init-theme)
 
 ;; Evil
@@ -23,14 +25,11 @@
 ;; Helm
 (require 'init-helm)
 
-;; Ibuffer
-(require 'init-ibuffer)
-
-;; Company
-(require 'init-company)
-
 ;; Porjectile
 (require 'init-projectile)
+
+;; Ibuffer
+(require 'init-ibuffer)
 
 ;; Magit
 (require 'init-magit)
