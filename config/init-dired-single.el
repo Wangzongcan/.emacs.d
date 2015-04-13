@@ -1,6 +1,3 @@
-;; Dired Single
-(package-install 'dired-single)
-
 (setq single-use-magic-buffer t
       dired-single-magic-buffer-name "*dired*")
 

@@ -1,8 +1,3 @@
-;; Web Mode
-(package-install 'web-mode)
-
-(require 'web-mode)
-
 (setq-default
  web-mode-markup-indent-offset 2
  web-mode-markup-indent-offset 2

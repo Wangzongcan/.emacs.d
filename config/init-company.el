@@ -1,7 +1,3 @@
-(package-install 'company)
-
-(require 'company)
-
 (setq company-idle-delay nil
       company-auto-complete nil
       company-dabbrev-downcase nil

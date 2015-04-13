@@ -1,6 +1,3 @@
-;; Ibuffer
-(require 'ibuffer)
-
 (setq ibuffer-expert t
       ibuffer-show-empty-filter-groups nil)
 

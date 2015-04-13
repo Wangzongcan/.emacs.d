@@ -1,6 +1,3 @@
-;; SCSS
-(package-install 'scss-mode)
-
 (autoload 'scss-mode "scss-mode")
 
 (setq scss-compile-at-save nil)

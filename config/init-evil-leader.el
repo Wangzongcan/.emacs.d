@@ -1,8 +1,3 @@
-;; Evil Leader
-(package-install 'evil-leader)
-
-(require 'evil-leader)
-
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
 

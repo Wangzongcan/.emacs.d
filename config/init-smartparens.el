@@ -1,8 +1,3 @@
-;; Smartparens
-(package-install 'smartparens)
-
-(require 'smartparens)
-
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
 

@@ -1,6 +1,3 @@
-;; SASS
-(package-install 'sass-mode)
-
 (autoload 'sass-mode "sass-mode")
 
 (add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))

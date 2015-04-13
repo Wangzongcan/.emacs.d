@@ -1,4 +1,3 @@
-;; Ruby
 (autoload 'ruby-mode "ruby-mode" "" t)
 
 (setq ruby-insert-encoding-magic-comment nil)

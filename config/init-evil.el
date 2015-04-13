@@ -1,8 +1,3 @@
-;; Evil
-(package-install 'evil)
-
-(require 'evil)
-
 (evil-mode 1)
 
 (setcdr evil-insert-state-map nil)
