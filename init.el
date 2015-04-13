@@ -1,13 +1,16 @@
 ;; require cl
 (eval-when-compile (require 'cl))
 
+;; cask
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'load-path "~/.emacs.d/config")
 (setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 
 (require 'init-base)
 (require 'init-font)
-(require 'init-package)
 (require 'init-theme)
 
 ;; Evil
