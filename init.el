@@ -19,8 +19,6 @@
 
 ;; Dired
 (require 'init-dired)
-(require 'init-dired+)
-(require 'init-dired-single)
 
 ;; Ibuffer
 (require 'init-ibuffer)
