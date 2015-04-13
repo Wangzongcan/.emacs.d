@@ -3,6 +3,9 @@
 
 (depends-on "cask")
 
+;; el-init
+(depends-on "el-init")
+
 ;; Theme
 (depends-on "monokai-theme")
 
