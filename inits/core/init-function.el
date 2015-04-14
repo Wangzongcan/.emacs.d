@@ -7,11 +7,6 @@
     (load-file current-file)
     (find-file current-file)))
 
-;; projectile helm ag
-(defun projectile-helm-ag ()
-  (interactive)
-  (helm-ag (projectile-project-root)))
-
 (defun exit-emacs ()
   ;; 退出 emacs 时先确认
   (interactive)

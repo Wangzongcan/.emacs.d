@@ -4,6 +4,7 @@
 ;; cask
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
+;; pallet
 (require 'pallet)
 (pallet-mode t)
 
@@ -14,4 +15,6 @@
 
 ;; el-init
 (el-init-load "~/.emacs.d/inits"
-              :subdirectories '("." "ext" "lang"))
+              :subdirectories '("." "core" "ext" "lang")
+              :wrappers '(el-init-require/record-error
+                          el-init-require/record-eval-after-load-error))
