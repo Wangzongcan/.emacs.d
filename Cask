@@ -25,6 +25,7 @@
 (depends-on "haml-mode")
 (depends-on "helm")
 (depends-on "helm-ag")
+(depends-on "helm-company")
 (depends-on "helm-mt")
 (depends-on "inf-ruby")
 (depends-on "inflections")
