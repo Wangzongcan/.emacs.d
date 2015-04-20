@@ -2,5 +2,4 @@
 
 (global-set-key (kbd "C-x o") 'ace-window)
 
-(require 'el-init)
-(el-init-provide)
+(provide 'init-ace-window)

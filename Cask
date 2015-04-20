@@ -1,6 +1,7 @@
 (source melpa)
 (source melpa-stable)
 
+(depends-on "ace-jump-mode")
 (depends-on "ace-window")
 (depends-on "ag")
 (depends-on "anaphora")
@@ -47,6 +48,7 @@
 (depends-on "sass-mode")
 (depends-on "scss-mode")
 (depends-on "shut-up")
+(depends-on "slim-mode")
 (depends-on "smart-mode-line")
 (depends-on "smartparens")
 (depends-on "undo-tree")
