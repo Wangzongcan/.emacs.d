@@ -4,16 +4,18 @@
 
 (setq ibuffer-saved-filter-groups
       '(("home"
-         (".emacs.d" (filename . "/.emacs.d/"))
          ("Ruby" (mode . ruby-mode))
          ("Web" (mode . web-mode))
          ("Yaml" (mode . yaml-mode))
+         ("Dired" (mode . dired-mode))
          ("Magit" (name . "^\*magit"))
-         ("Helm" (name . "^\*helm"))
-         ("Ag" (name . "^\*ag"))
          ("Term" (or
                   (mode . term-mode)
                   (mode . eshell-mode)))
+         ("Helm" (name . "^\*helm"))
+         ("Ag" (name . "^\*ag"))
+
+         (".emacs.d" (filename . "/.emacs.d/"))
          )))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
