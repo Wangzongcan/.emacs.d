@@ -3,7 +3,7 @@
       ibuffer-show-empty-filter-groups nil)
 
 (setq ibuffer-saved-filter-groups
-      '(("Home"
+      '(("home"
          ("Ruby" (mode . ruby-mode))
          ("Web" (mode . web-mode))
          ("Javascript" (mode . js2-mode))
