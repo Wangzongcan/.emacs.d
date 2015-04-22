@@ -1,5 +1,5 @@
 ;; Font
-(set-frame-font "Menlo:pixelsize=13")
+(set-frame-font "Menlo:pixelsize=14")
 (if (display-graphic-p)
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
