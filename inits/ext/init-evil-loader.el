@@ -23,8 +23,8 @@
   "pf" 'projectile-find-file
   "pp" 'projectile-switch-project
   "pb" 'projectile-switch-to-buffer
+  "pB" 'projectile-ibuffer
   "pa" 'projectile-ag
-  "pA" 'projectile-helm-ag
 
   "gs" 'magit-status
 

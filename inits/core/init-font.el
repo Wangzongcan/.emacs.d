@@ -5,5 +5,5 @@
       (set-fontset-font (frame-parameter nil 'font)
                         charset
                         (font-spec :family "Hiragino Sans GB W3" :size 16))))
-(require 'el-init)
-(el-init-provide)
+
+(provide 'init-font)
