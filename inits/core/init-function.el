@@ -4,11 +4,12 @@
   (let ((current-file buffer-file-name))
     (if current-file
         (kill-this-buffer))
-    (load-file current-file)
+    (condition-case err
+        (load-file current-file)
+      (error (message "load-file error: %s" err)))
     (find-file current-file)))
 
 (defun exit-emacs ()
-  ;; 退出 emacs 时先确认
   (interactive)
   (if (yes-or-no-p (format "exit emacs?"))
       (save-buffers-kill-emacs)))
