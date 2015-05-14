@@ -67,4 +67,7 @@
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (provide 'init-base)
