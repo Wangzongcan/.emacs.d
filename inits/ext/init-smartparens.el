@@ -5,6 +5,7 @@
 (setq sp-ignore-modes-list '(minibuffer-inactive-mode
                              web-mode))
 
-(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(dolist (mode '(lisp-mode emacs-lisp-mode lisp-interaction-mode))
+  (sp-local-pair mode "'" nil :actions nil))
 
 (provide 'init-smartparens)
