@@ -24,7 +24,6 @@
  recentf-max-saved-items 5000           ;same up to 5000 recent files
  eval-expression-print-length nil       ;do not truncate printed expressions
  eval-expression-print-level nil        ;print nested expressions
- send-mail-function 'sendmail-send-it
  kill-ring-max 5000                     ;truncate kill ring after 5000 entries
  mark-ring-max 5000                     ;truncate mark ring after 5000 entries
  mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control))) ;make mouse scrolling smooth
@@ -58,7 +57,7 @@
 (show-paren-mode t)          ;visualize()
 (blink-cursor-mode -1)       ;no cursor blinking
 (tool-bar-mode -1)           ;disable the awful toolbar
-(menu-bar-mode -1)            ;no menu, you can toggle it with C-c m
+;; (menu-bar-mode -1)           ;no menu
 (scroll-bar-mode -1)         ;disable the sroll bar
 (global-font-lock-mode t)
 (transient-mark-mode t)
