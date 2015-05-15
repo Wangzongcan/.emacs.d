@@ -4,6 +4,7 @@
 (set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 
+
 ;; General Settings
 (setq
  inhibit-startup-message t
@@ -32,7 +33,7 @@
  enable-recursive-minibuffers t
  custom-unlispify-menu-entries nil      ;M-x customize should not cripple menu entries
  custom-unlispify-tag-names nil         ;M-x customize should not cripple tags
- show-paren-delay 0
+ blink-matching-paren nil
  default-truncate-lines t
  echo-keystrokes 0.1
  whitespace-style '(face tabs empty trailing indendation space-after-tab space-before-tab)
@@ -43,6 +44,16 @@
  ad-redefinition-action 'accept
  )
 
+;; Global Modes
+(global-auto-revert-mode 1)  ;auto revert buffers when changed on disk
+(blink-cursor-mode -1)       ;no cursor blinking
+(tool-bar-mode -1)           ;disable the awful toolbar
+(menu-bar-mode -1)           ;no menu
+(scroll-bar-mode -1)         ;disable the sroll bar
+(global-font-lock-mode t)
+(transient-mark-mode t)
+(global-whitespace-mode 1)
+
 ;; Default Settings
 (setq-default
  tab-width 4
@@ -51,17 +62,6 @@
  c-hungry-delete-key t                  ;delete more than one space
  indicate-empty-lines t
  )
-
-;; Global Modes
-(global-auto-revert-mode 1)  ;auto revert buffers when changed on disk
-(show-paren-mode t)          ;visualize()
-(blink-cursor-mode -1)       ;no cursor blinking
-(tool-bar-mode -1)           ;disable the awful toolbar
-;; (menu-bar-mode -1)           ;no menu
-(scroll-bar-mode -1)         ;disable the sroll bar
-(global-font-lock-mode t)
-(transient-mark-mode t)
-(global-whitespace-mode 1)
 
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
