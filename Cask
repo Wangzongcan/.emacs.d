@@ -5,6 +5,7 @@
 (depends-on "ace-window")
 (depends-on "ag")
 (depends-on "anaphora")
+(depends-on "anzu")
 (depends-on "async")
 (depends-on "avy")
 (depends-on "cask")
