@@ -1,5 +1,4 @@
 (source melpa)
-(source melpa-stable)
 
 (depends-on "ace-jump-mode")
 (depends-on "ace-window")
@@ -19,7 +18,6 @@
 (depends-on "epl")
 (depends-on "evil")
 (depends-on "evil-leader")
-(depends-on "expand-region")
 (depends-on "f")
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
