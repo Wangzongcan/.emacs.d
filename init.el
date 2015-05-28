@@ -8,10 +8,12 @@
 (require 'pallet)
 (pallet-mode t)
 
+;; env
+(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
+(setenv "LANG" "en_US.UTF-8")
+
 ;; path
 (add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'load-path "~/.emacs.d/config")
-(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 
 ;; el-init
 (el-init-load "~/.emacs.d/inits"
