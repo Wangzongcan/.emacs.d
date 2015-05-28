@@ -49,7 +49,7 @@
 
  font-lock-maximum-decoration t
 
- tab-always-indent t
+ tab-always-indent 'complete
 
  default-truncate-lines t
  whitespace-style'
