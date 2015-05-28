@@ -1,6 +1,5 @@
 ;; Encoding
 (prefer-coding-system 'utf-8)
-(setenv "LANG" "en_US.UTF-8")
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -11,6 +10,11 @@
   (setq default-buffer-file-coding-system 'utf-8))
 
 (setq locale-coding-system 'utf-8)
+
+;; Dir
+(defconst emacs-backup-dir (concat user-emacs-directory "backups/"))
+(unless (file-directory-p emacs-backup-dir)
+  (make-directory emacs-backup-dir t))
 
 ;; Global Modes
 (tool-bar-mode -1)
@@ -39,9 +43,18 @@
  auto-revert-verbose nil
 
  backup-by-copying t                   ;; backup
- make-backup-files nil
- auto-save-default nil
- create-lockfiles  nil
+ backup-directory-alist `(("." . ,emacs-backup-dir))
+ delete-old-versions t
+ kept-new-versions 9
+ kept-old-versions 6
+ version-control t
+ auto-save-default t
+ auto-save-interval 128
+ auto-save-timeout 60
+ delete-auto-save-files t
+ delete-by-moving-to-trash nil
+ auto-save-file-name-transforms `((".*" ,emacs-backup-dir))
+ auto-save-list-file-prefix (concat emacs-backup-dir ".auto-saves-")
 
  kill-ring-max 5000                     ;truncate kill ring after 5000 entries
  mark-ring-max 5000                     ;truncate mark ring after 5000 entries
