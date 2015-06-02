@@ -11,11 +11,6 @@
 
 (setq locale-coding-system 'utf-8)
 
-;; Dir
-(defconst emacs-backup-dir (concat user-emacs-directory "backups/"))
-(unless (file-directory-p emacs-backup-dir)
-  (make-directory emacs-backup-dir t))
-
 ;; Global Modes
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -42,19 +37,8 @@
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil
 
- backup-by-copying t                   ;; backup
- backup-directory-alist `(("." . ,emacs-backup-dir))
- delete-old-versions t
- kept-new-versions 9
- kept-old-versions 6
- version-control t
- auto-save-default t
- auto-save-interval 128
- auto-save-timeout 60
- delete-auto-save-files t
- delete-by-moving-to-trash nil
- auto-save-file-name-transforms `((".*" ,emacs-backup-dir))
- auto-save-list-file-prefix (concat emacs-backup-dir ".auto-saves-")
+ make-backup-files nil
+ auto-save-default nil
 
  kill-ring-max 5000                     ;truncate kill ring after 5000 entries
  mark-ring-max 5000                     ;truncate mark ring after 5000 entries
@@ -68,10 +52,12 @@
  whitespace-style'
  '(face tabs empty trailing indendation space-after-tab space-before-tab)
 
- scroll-step 1
- scroll-conservatively 10000
-
  require-final-newline t               ;; auto add newline at the end of file
+
+ scroll-step 1
+ scroll-margin 5
+ scroll-conservatively 10000
+ auto-window-vscroll nil
 
  line-number-mode t                    ;; show line number
  column-number-mode t                  ;; show column number
