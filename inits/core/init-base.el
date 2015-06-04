@@ -49,7 +49,7 @@
  tab-always-indent 'complete
 
  default-truncate-lines t
- whitespace-style'
+ whitespace-style
  '(face tabs empty trailing indendation space-after-tab space-before-tab)
 
  require-final-newline t               ;; auto add newline at the end of file
