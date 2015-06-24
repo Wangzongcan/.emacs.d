@@ -7,3 +7,4 @@ config.el
 url/
 elpa/
 backups/
+.mc-lists.el

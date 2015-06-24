@@ -32,6 +32,7 @@
 (depends-on "magit")
 (depends-on "monokai-theme")
 (depends-on "multi-term")
+(depends-on "multiple-cursors")
 (depends-on "nvm")
 (depends-on "nyan-mode")
 (depends-on "package-build")
