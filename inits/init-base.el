@@ -1,6 +1,3 @@
-(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
-(add-to-list 'exec-path "/usr/local/bin")
-
 ;; Global Modes
 (tool-bar-mode -1)
 (menu-bar-mode -1)
