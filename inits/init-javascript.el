@@ -8,4 +8,7 @@
              (setq tab-width 2
                    js2-basic-offset tab-width)))
 
-(provide 'init-js2)
+;; coffee-mode
+(setq coffee-tab-width 2)
+
+(provide 'init-javascript)

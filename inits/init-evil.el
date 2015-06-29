@@ -1,3 +1,27 @@
+;; Evil
+(evil-mode 1)
+
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map
+  (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
+
+(setq evil-default-cursor t
+      evil-emacs-state-cursor '(bar . 2))
+
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+(define-key evil-motion-state-map (kbd ";") 'evil-ex)
+
+(evil-define-key 'normal global-mode (kbd "j") 'gj)
+(evil-define-key 'normal global-mode (kbd "k") 'kj)
+
+(evil-set-initial-state 'dired-mode 'emacs)
+(evil-set-initial-state 'ibuffer-mode 'emacs)
+(evil-set-initial-state 'git-commit-mode 'emacs)
+(evil-set-initial-state 'ag-mode 'emacs)
+(evil-set-initial-state 'eshell-mode 'emacs)
+(evil-set-initial-state 'quickrun/mode 'emacs)
+
 ;; evil-leader
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
@@ -11,14 +35,6 @@
 
   "<SPC>" 'helm-M-x
   "b"     'helm-buffers-list
-  "hm"    'helm-imenu
-  "ho"    'helm-occur
-
-  "o" 'ace-window
-
-  "ac" 'ace-jump-char-mode
-  "aw" 'ace-jump-word-mode
-  "al" 'ace-jump-line-mode
 
   "pf" 'projectile-find-file
   "pp" 'projectile-switch-project
@@ -38,8 +54,6 @@
   "rV"  'projectile-rails-find-current-view
   "rgf" 'projectile-rails-goto-file-at-point
 
-  "mt"  'helm-mt
-
   "ll" 'load-current-file)
 
-(provide 'init-evil-loader)
+(provide 'init-evil)

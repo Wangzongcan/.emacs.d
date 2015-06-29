@@ -1,22 +1,24 @@
-;; require cl
-(eval-when-compile (require 'cl))
+(add-to-list 'load-path (concat user-emacs-directory "inits"))
 
-;; cask
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
-;; pallet
-(require 'pallet)
-(pallet-mode t)
+(require 'init-cask)
+(require 'init-encoding)
+(require 'init-base)
+(require 'init-font)
+(require 'init-ibuffer)
+(require 'init-dired)
+(require 'init-theme)
+(require 'init-smart-mode-line)
+(require 'init-evil)
+(require 'init-helm)
+(require 'init-magit)
+(require 'init-projectile)
+(require 'init-multiple-cursors)
+(require 'init-emmet)
 
-;; env
-(setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
-(setenv "LANG" "en_US.UTF-8")
+(require 'init-ruby)
+(require 'init-web)
+(require 'init-javascript)
+(require 'init-css)
+(require 'init-yaml)
 
-;; path
-(add-to-list 'exec-path "/usr/local/bin")
-
-;; el-init
-(el-init-load "~/.emacs.d/inits"
-              :subdirectories '("." "core" "ext" "lang")
-              :wrappers '(el-init-require/record-error
-                          el-init-require/record-eval-after-load-error))
+(require 'init-function)

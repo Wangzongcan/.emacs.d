@@ -1,3 +1,6 @@
+;; rvm
+(rvm-use-default)
+
 ;; ruby
 (require 'ruby-mode)
 (autoload 'ruby-mode "ruby-mode" "" t)
@@ -13,5 +16,9 @@
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 (add-hook 'ruby-mode-hook
           (lambda () (rvm-activate-corresponding-ruby)))
+
+;; inf-ruby
+(add-hook 'inf-ruby-mode-hook
+          (lambda () (setq truncate-lines nil)))
 
 (provide 'init-ruby)

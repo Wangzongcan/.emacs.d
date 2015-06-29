@@ -18,6 +18,7 @@
 (depends-on "epl")
 (depends-on "evil")
 (depends-on "evil-leader")
+(depends-on "exec-path-from-shell")
 (depends-on "f")
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
