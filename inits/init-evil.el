@@ -32,6 +32,7 @@
   "2" 'split-window-below
   "3" 'split-window-right
   "k" 'kill-buffer
+  "o" 'other-window
 
   "<SPC>" 'helm-M-x
   "b"     'helm-buffers-list

@@ -13,6 +13,7 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-window-numbering)
 
 (require 'init-ruby)
 (require 'init-web)
@@ -22,6 +23,6 @@
 
 (require 'init-font)
 (require 'init-theme)
-(require 'init-smart-mode-line)
+(require 'init-mode-line)
 
 (require 'init-function)
