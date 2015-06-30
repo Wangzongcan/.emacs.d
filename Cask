@@ -52,6 +52,7 @@
 (depends-on "shut-up")
 (depends-on "slim-mode")
 (depends-on "smart-mode-line")
+(depends-on "smart-mode-line-powerline-theme")
 (depends-on "smartparens")
 (depends-on "undo-tree")
 (depends-on "web-mode")
