@@ -66,4 +66,7 @@
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; theme
+(load-theme 'wombat t)
+
 (provide 'init-base)
