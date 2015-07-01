@@ -22,7 +22,6 @@
 (require 'init-yaml)
 
 (require 'init-font)
-(require 'init-theme)
 (require 'init-mode-line)
 
 (require 'init-function)
