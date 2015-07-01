@@ -26,6 +26,7 @@
 
  make-backup-files nil
  auto-save-default nil
+ create-lockfiles nil          ;; 当编辑文件时会创建一个 .#filename 的文件，取消这个设置
 
  kill-ring-max 5000                     ;truncate kill ring after 5000 entries
  mark-ring-max 5000                     ;truncate mark ring after 5000 entries
