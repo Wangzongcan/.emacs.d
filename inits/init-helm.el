@@ -18,6 +18,8 @@
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
 
+(set-face-attribute 'helm-source-header nil :height 1.1)
+
 (helm-autoresize-mode 1)
 (helm-mode 1)
 
