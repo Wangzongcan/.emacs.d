@@ -13,8 +13,6 @@
 (depends-on "evil")
 (depends-on "evil-leader")
 (depends-on "f")
-(depends-on "git-commit-mode")
-(depends-on "git-rebase-mode")
 (depends-on "goto-chg")
 (depends-on "haml-mode")
 (depends-on "helm")
