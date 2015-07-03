@@ -17,7 +17,7 @@
 
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'emacs)
-(evil-set-initial-state 'git-commit-mode 'emacs)
+(evil-set-initial-state 'magit-mode 'emacs)
 (evil-set-initial-state 'ag-mode 'emacs)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'quickrun/mode 'emacs)

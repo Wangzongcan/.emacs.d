@@ -20,7 +20,6 @@
 (depends-on "inflections")
 (depends-on "js2-mode")
 (depends-on "magit")
-(depends-on "monokai-theme")
 (depends-on "multi-term")
 (depends-on "multiple-cursors")
 (depends-on "nvm")
@@ -43,3 +42,4 @@
 (depends-on "web-mode")
 (depends-on "window-numbering")
 (depends-on "yaml-mode")
+(depends-on "zerodark-theme")
