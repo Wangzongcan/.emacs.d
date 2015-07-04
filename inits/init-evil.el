@@ -22,6 +22,16 @@
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'quickrun/mode 'emacs)
 
+; Set cursor colors depending on mode
+(when (display-graphic-p)
+  (setq evil-emacs-state-cursor '("red" box))
+  (setq evil-normal-state-cursor '("green" box))
+  (setq evil-visual-state-cursor '("orange" box))
+  (setq evil-insert-state-cursor '("red" bar))
+  (setq evil-replace-state-cursor '("red" bar))
+  (setq evil-operator-state-cursor '("red" hollow))
+)
+
 ;; evil-leader
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
@@ -56,5 +66,8 @@
   "rgf" 'projectile-rails-goto-file-at-point
 
   "ll" 'load-current-file)
+
+;; evil-surround
+(global-evil-surround-mode 1)
 
 (provide 'init-evil)
