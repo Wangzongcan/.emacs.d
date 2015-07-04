@@ -39,7 +39,6 @@
                           '(:eval (when buffer-read-only
                                     (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
 
-                          `(vc-mode vc-mode)
-                          ))))))
+                          `(vc-mode vc-mode)))))))
 
 (provide 'init-mode-line)
