@@ -2,7 +2,7 @@
 (defun simple-mode-line-render (left right)
   "Return a string of `window-width' length containing LEFT, and RIGHT
   aligned respectively."
-  (let* ((available-width (- (window-width) (length left) 1)))
+  (let ((available-width (- (window-width) (length left) 1)))
     (format (format " %%s %%%ds" available-width) left right)))
 
 (setq-default mode-line-format
@@ -15,18 +15,7 @@
                           " "
 
                           '(:eval (propertize "%m" 'face 'font-lock-string-face))
-
-                          " "
-
-                          '(:eval
-                            (cond
-                             ((string= evil-state 'visual) "V")
-                             ((string= evil-state 'normal) "N")
-                             ((string= evil-state 'motion) "M")
-                             ((string= evil-state 'insert) "I")
-                             ((string= evil-state 'replace) "R")
-                             ((string= evil-state 'emacs) "E")
-                             ((string= evil-state 'operator) "O")))))
+                          ))
 
                         ;; right
                         (format-mode-line
@@ -38,6 +27,18 @@
 
                           '(:eval (when buffer-read-only
                                     (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
+
+                          " "
+
+                          '(:eval
+                            (cond
+                             ((string= evil-state 'visual) "V")
+                             ((string= evil-state 'normal) "N")
+                             ((string= evil-state 'motion) "M")
+                             ((string= evil-state 'insert) "I")
+                             ((string= evil-state 'replace) "R")
+                             ((string= evil-state 'emacs) "E")
+                             ((string= evil-state 'operator) "O")))
 
                           `(vc-mode vc-mode)))))))
 
