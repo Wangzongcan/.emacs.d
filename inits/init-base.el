@@ -68,6 +68,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; theme
-(load-theme 'zerodark t)
+(load-theme 'spacemacs-dark t)
 
 (provide 'init-base)
