@@ -13,7 +13,9 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-smartparens)
 (require 'init-window-numbering)
+(require 'init-quickrun)
 
 (require 'init-ruby)
 (require 'init-web)
