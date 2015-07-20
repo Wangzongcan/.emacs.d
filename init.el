@@ -16,6 +16,7 @@
 (require 'init-smartparens)
 (require 'init-window-numbering)
 (require 'init-quickrun)
+(require 'init-flycheck)
 
 (require 'init-ruby)
 (require 'init-web)
@@ -25,5 +26,6 @@
 
 (require 'init-font)
 (require 'init-mode-line)
+(require 'init-theme)
 
 (require 'init-function)
