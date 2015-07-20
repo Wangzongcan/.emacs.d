@@ -16,7 +16,6 @@
 (depends-on "evil-leader")
 (depends-on "evil-surround")
 (depends-on "f")
-(depends-on "flycheck")
 (depends-on "git-commit")
 (depends-on "goto-chg")
 (depends-on "haml-mode")
