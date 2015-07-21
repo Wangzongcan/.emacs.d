@@ -10,24 +10,21 @@
                         ;; left
                         (format-mode-line
                          (list
-                          '(:eval (propertize (window-numbering-get-number-string)))
+                          '(:eval (propertize (window-numbering-get-number-string) 'face 'font-lock-keyword-face))
 
                           " "
 
-                          '(:eval (propertize "%b" 'face 'font-lock-keyword-face))
+                          '(:eval (propertize "%b" 'face 'font-lock-string-face))
 
                           " "
 
-                          '(:eval (propertize "%m" 'face 'font-lock-string-face))
-                          ))
+                          '(:eval (propertize "%m" 'face 'font-lock-keyword-face))))
 
                         ;; right
                         (format-mode-line
                          (list
-                          '(:eval (propertize (if overwrite-mode "Ovr" "Ins") 'face 'font-lock-constant-face))
-
                           '(:eval (when (buffer-modified-p)
-                                    (concat ","  (propertize "Mod" 'face 'font-lock-warning-face))))
+                                    (propertize "Mod" 'face 'font-lock-warning-face)))
 
                           '(:eval (when buffer-read-only
                                     (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
