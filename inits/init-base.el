@@ -11,6 +11,8 @@
 
 (electric-indent-mode)
 
+(show-paren-mode t)
+
 ;; General Settings
 (setq
  inhibit-startup-message t

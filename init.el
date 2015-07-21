@@ -13,6 +13,7 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-auto-complete)
 (require 'init-smartparens)
 (require 'init-window-numbering)
 (require 'init-quickrun)

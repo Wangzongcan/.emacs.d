@@ -1,8 +1,10 @@
 (source gnu)
 (source melpa)
 
+(depends-on "ac-helm")
 (depends-on "ag")
 (depends-on "async")
+(depends-on "auto-complete")
 (depends-on "cask")
 (depends-on "coffee-mode")
 (depends-on "company")
