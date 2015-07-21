@@ -10,6 +10,10 @@
                         ;; left
                         (format-mode-line
                          (list
+                          '(:eval (propertize (window-numbering-get-number-string)))
+
+                          " "
+
                           '(:eval (propertize "%b" 'face 'font-lock-keyword-face))
 
                           " "
