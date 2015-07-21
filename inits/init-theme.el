@@ -1,6 +1,3 @@
-(load-theme 'solarized-dark t)
-
-(setq solarized-high-contrast-mode-line t)
-(setq x-underline-at-descent-line t)
+(load-theme 'monokai t)
 
 (provide 'init-theme)
