@@ -18,7 +18,7 @@
 
                           " "
 
-                          '(:eval (propertize "%m" 'face 'font-lock-keyword-face))))
+                          '(:eval (propertize "%m" 'face 'font-lock-constant-face))))
 
                         ;; right
                         (format-mode-line
@@ -31,6 +31,10 @@
 
                           " "
 
+                          '(:eval (propertize (magit-get-current-branch) 'face 'font-lock-type-face))
+
+                          " "
+
                           '(:eval
                             (cond
                              ((string= evil-state 'visual) (propertize "V" 'face '(foreground-color . "orange")))
@@ -39,8 +43,6 @@
                              ((string= evil-state 'insert) (propertize "I" 'face '(foreground-color . "red")))
                              ((string= evil-state 'replace) (propertize "R" 'face '(foreground-color . "red")))
                              ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "red")))
-                             ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))
-
-                          `(vc-mode vc-mode)))))))
+                             ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))))))))
 
 (provide 'init-mode-line)
