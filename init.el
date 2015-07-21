@@ -16,7 +16,7 @@
 (require 'init-smartparens)
 (require 'init-window-numbering)
 (require 'init-quickrun)
-(require 'init-flycheck)
+(require 'init-rainbow-delimiters)
 
 (require 'init-ruby)
 (require 'init-web)

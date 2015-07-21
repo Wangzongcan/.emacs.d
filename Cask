@@ -35,6 +35,7 @@
 (depends-on "projectile")
 (depends-on "projectile-rails")
 (depends-on "quickrun")
+(depends-on "rainbow-delimiters")
 (depends-on "rake")
 (depends-on "rubocop")
 (depends-on "rvm")
