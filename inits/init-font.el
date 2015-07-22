@@ -34,6 +34,7 @@
         (set-fontset-font (frame-parameter nil 'font) charset
                           (font-spec :family chinese :size (cdr size-pair))))))
 
-(set-font emacs-english-font emacs-cjk-font emacs-font-size-pair)
+(when (window-system)
+  (set-font emacs-english-font emacs-cjk-font emacs-font-size-pair))
 
 (provide 'init-font)

@@ -9,10 +9,4 @@
       (error (message "load-file error: %s" err)))
     (find-file current-file)))
 
-(defun exit-emacs ()
-  (interactive)
-  (if (yes-or-no-p (format "exit emacs?"))
-      (save-buffers-kill-emacs)))
-(global-set-key (kbd "C-x C-c") 'exit-emacs)
-
 (provide 'init-function)

@@ -40,6 +40,9 @@
                           '(:eval (when buffer-read-only
                                     (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
 
-                          '(:eval (propertize (concat " " (magit-get-current-branch)) 'face 'font-lock-type-face))))))))
+                          '(:eval (unless (eq (magit-get-current-branch) nil)
+                                      (propertize (concat " " (magit-get-current-branch)) 'face 'font-lock-type-face)))
+
+                          '(:eval (unless window-system "  "))))))))
 
 (provide 'init-mode-line)
