@@ -20,4 +20,12 @@
 (add-hook 'inf-ruby-mode-hook
           (lambda () (setq truncate-lines nil)))
 
+(define-key ruby-mode-map (kbd "<f5>")
+  '(lambda ()
+     (interactive)
+     (if (> (length (thing-at-point 'line)) 1)
+       (progn
+         (end-of-line) (newline)))
+     (insert "binding.pry")))
+
 (provide 'init-ruby)

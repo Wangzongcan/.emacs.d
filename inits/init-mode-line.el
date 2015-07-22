@@ -1,4 +1,4 @@
- ;; write a function to do the spacing
+;; write a function to do the spacing
 (defun simple-mode-line-render (left right)
   "Return a string of `window-width' length containing LEFT, and RIGHT
   aligned respectively."
