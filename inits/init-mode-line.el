@@ -1,4 +1,4 @@
-;; write a function to do the spacing
+ ;; write a function to do the spacing
 (defun simple-mode-line-render (left right)
   "Return a string of `window-width' length containing LEFT, and RIGHT
   aligned respectively."
@@ -12,28 +12,17 @@
                          (list
                           '(:eval (propertize (window-numbering-get-number-string) 'face 'font-lock-keyword-face))
 
-                          " "
+                          '(:eval (propertize " %b" 'face 'font-lock-string-face))
 
-                          '(:eval (propertize "%b" 'face 'font-lock-string-face))
+                          '(:eval (propertize " %m" 'face 'font-lock-constant-face))
 
-                          " "
-
-                          '(:eval (propertize "%m" 'face 'font-lock-constant-face))))
+                          '(:eval (when (projectile-project-p)
+                                    (propertize (concat " " (projectile-project-name)) 'face 'font-lock-keyword-face)))
+                          ))
 
                         ;; right
                         (format-mode-line
                          (list
-                          '(:eval (when (buffer-modified-p)
-                                    (propertize "Mod" 'face 'font-lock-warning-face)))
-
-                          '(:eval (when buffer-read-only
-                                    (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
-
-                          " "
-
-                          '(:eval (propertize (magit-get-current-branch) 'face 'font-lock-type-face))
-
-                          " "
 
                           '(:eval
                             (cond
@@ -43,6 +32,14 @@
                              ((string= evil-state 'insert) (propertize "I" 'face '(foreground-color . "red")))
                              ((string= evil-state 'replace) (propertize "R" 'face '(foreground-color . "red")))
                              ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "red")))
-                             ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))))))))
+                             ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))
+
+                          '(:eval (when (buffer-modified-p)
+                                    (concat "," (propertize "Mod" 'face 'font-lock-warning-face))))
+
+                          '(:eval (when buffer-read-only
+                                    (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
+
+                          '(:eval (propertize (concat " " (magit-get-current-branch)) 'face 'font-lock-type-face))))))))
 
 (provide 'init-mode-line)
