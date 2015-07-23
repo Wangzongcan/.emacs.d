@@ -24,6 +24,7 @@
 (helm-mode 1)
 
 ;; helm-gtags
+(require 'helm-gtags)
 
 (add-hook 'ruby-mode-hook 'helm-gtags-mode)
 
