@@ -24,6 +24,19 @@
                         (format-mode-line
                          (list
 
+                          '(:eval (when (buffer-modified-p)
+                                    (propertize "Mod" 'face 'font-lock-warning-face)))
+
+                          " "
+
+                          '(:eval (when buffer-read-only
+                                    (propertize "RO" 'face 'font-lock-type-face)))
+
+                          " "
+
+                          '(:eval (unless (eq (magit-get-current-branch) nil)
+                                      (propertize (concat (magit-get-current-branch) " ") 'face 'font-lock-type-face)))
+
                           '(:eval
                             (cond
                              ((string= evil-state 'visual) (propertize "V" 'face '(foreground-color . "orange")))
@@ -33,15 +46,6 @@
                              ((string= evil-state 'replace) (propertize "R" 'face '(foreground-color . "red")))
                              ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "red")))
                              ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))
-
-                          '(:eval (when (buffer-modified-p)
-                                    (concat "," (propertize "Mod" 'face 'font-lock-warning-face))))
-
-                          '(:eval (when buffer-read-only
-                                    (concat ","  (propertize "RO" 'face 'font-lock-type-face))))
-
-                          '(:eval (unless (eq (magit-get-current-branch) nil)
-                                      (propertize (concat " " (magit-get-current-branch)) 'face 'font-lock-type-face)))
 
                           '(:eval (unless window-system "  "))))))))
 

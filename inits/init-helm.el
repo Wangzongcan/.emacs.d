@@ -23,4 +23,15 @@
 (helm-autoresize-mode 1)
 (helm-mode 1)
 
+;; helm-gtags
+
+(add-hook 'ruby-mode-hook 'helm-gtags-mode)
+
+(setq helm-gtags-path-style 'relative
+      helm-gtags-ignore-case t
+      helm-gtags-auto-update t)
+
+(define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
+(define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+
 (provide 'init-helm)
