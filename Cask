@@ -23,6 +23,7 @@
 (depends-on "helm")
 (depends-on "helm-core")
 (depends-on "helm-gtags")
+(depends-on "helm-swoop")
 (depends-on "inf-ruby")
 (depends-on "inflections")
 (depends-on "js2-mode")
