@@ -2,7 +2,7 @@
 (defun simple-mode-line-render (left right)
   "Return a string of `window-width' length containing LEFT, and RIGHT
   aligned respectively."
-  (let ((available-width (- (window-width) (length left) 1)))
+  (let ((available-width (- (window-width) (length left) -2)))
     (format (format " %%s %%%ds" available-width) left right)))
 
 (setq-default mode-line-format

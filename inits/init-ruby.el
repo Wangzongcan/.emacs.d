@@ -12,11 +12,10 @@
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
-(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-(add-hook 'ruby-mode-hook
-          (lambda () (rvm-activate-corresponding-ruby)))
-
 ;; inf-ruby
+(require 'inf-ruby)
+
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 (add-hook 'inf-ruby-mode-hook
           (lambda () (setq truncate-lines nil)))
 
@@ -27,5 +26,14 @@
        (progn
          (end-of-line) (newline)))
      (insert "binding.pry")))
+
+;; robe
+(require 'robe)
+
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook 'ac-robe-setup)
+
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  (rvm-activate-corresponding-ruby))
 
 (provide 'init-ruby)
