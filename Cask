@@ -32,6 +32,7 @@
 (depends-on "monokai-theme")
 (depends-on "multi-term")
 (depends-on "multiple-cursors")
+(depends-on "nlinum")
 (depends-on "nvm")
 (depends-on "package-build")
 (depends-on "pallet")

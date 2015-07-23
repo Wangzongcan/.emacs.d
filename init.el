@@ -18,6 +18,7 @@
 (require 'init-window-numbering)
 (require 'init-quickrun)
 (require 'init-rainbow-delimiters)
+(require 'init-nlinum)
 
 (require 'init-ruby)
 (require 'init-web)
