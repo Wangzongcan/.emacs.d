@@ -5,6 +5,7 @@
 (require 'init-base)
 (require 'init-ibuffer)
 (require 'init-dired)
+(require 'init-linum)
 
 (require 'init-evil)
 (require 'init-emmet)
@@ -18,7 +19,6 @@
 (require 'init-window-numbering)
 (require 'init-quickrun)
 (require 'init-rainbow-delimiters)
-(require 'init-nlinum)
 
 (require 'init-ruby)
 (require 'init-web)

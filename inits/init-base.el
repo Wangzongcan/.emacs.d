@@ -52,6 +52,8 @@
  line-number-mode t                    ;; show line number
  column-number-mode t                  ;; show column number
 
+ linum-format "%3i"
+
  echo-keystrokes 0.1                   ;; minibuffer
  enable-recursive-minibuffers t
  minibuffer-prompt-properties

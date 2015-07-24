@@ -21,6 +21,7 @@
 (evil-set-initial-state 'ag-mode 'emacs)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'quickrun/mode 'emacs)
+(evil-set-initial-state 'help-mode 'emacs)
 
 ; Set cursor colors depending on mode
 (when (display-graphic-p)
