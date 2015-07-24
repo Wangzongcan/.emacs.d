@@ -5,7 +5,6 @@
 (require 'init-base)
 (require 'init-ibuffer)
 (require 'init-dired)
-(require 'init-linum)
 
 (require 'init-evil)
 (require 'init-emmet)
@@ -29,5 +28,6 @@
 (require 'init-font)
 (require 'init-mode-line)
 (require 'init-theme)
+(require 'init-nlinum)
 
 (require 'init-function)
