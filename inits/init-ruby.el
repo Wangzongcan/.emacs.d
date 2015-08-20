@@ -1,39 +1,12 @@
-;; rvm
-(rvm-use-default)
-
-;; ruby
-(require 'ruby-mode)
-(autoload 'ruby-mode "ruby-mode" "" t)
-
-(setq ruby-insert-encoding-magic-comment nil)
-
-(define-key ruby-mode-map (kbd "C-c C-r") 'ruby-send-region)
-
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-
-;; inf-ruby
-(require 'inf-ruby)
-
-(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-(add-hook 'inf-ruby-mode-hook
-          (lambda () (setq truncate-lines nil)))
-
-(define-key ruby-mode-map (kbd "<f5>")
-  '(lambda ()
-     (interactive)
-     (if (> (length (thing-at-point 'line)) 1)
-       (progn
-         (end-of-line) (newline)))
-     (insert "binding.pry")))
-
-;; robe
-(require 'robe)
-
-(add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
-
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
+;; enh-ruby-mode
+(use-package enh-ruby-mode
+  :defer t
+  :mode
+  (("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
+   ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
+  :config
+  (progn
+    (setq enh-ruby-deep-indent-paren nil
+          enh-ruby-hanging-paren-deep-indent-level 2)))
 
 (provide 'init-ruby)

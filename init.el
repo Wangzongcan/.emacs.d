@@ -1,6 +1,6 @@
 (add-to-list 'load-path (concat user-emacs-directory "inits"))
 
-(require 'init-cask)
+(require 'init-use-package)
 (require 'init-encoding)
 (require 'init-base)
 (require 'init-ibuffer)
@@ -8,7 +8,7 @@
 
 (require 'init-evil)
 (require 'init-emmet)
-(require 'init-multiple-cursors)
+;;(require 'init-multiple-cursors)
 
 (require 'init-helm)
 (require 'init-magit)

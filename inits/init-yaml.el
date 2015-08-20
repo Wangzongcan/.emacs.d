@@ -1,4 +1,7 @@
 ;; yaml-mode
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(use-package yaml-mode
+  :defer t
+  :mode
+  ("\\.yml\\'" . yaml-mode))
 
 (provide 'init-yaml)

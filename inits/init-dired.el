@@ -8,20 +8,21 @@
             (hl-line-mode t)
             (dired-single-toggle-buffer-name)))
 ;; dired+
-(require 'dired+)
-
-(setq diredp-hide-details-initially-flag nil
-      diredp-hide-details-propagate-flag nil)
+(use-package dired+
+  :defer t
+  :config
+  (progn
+    (setq diredp-hide-details-initially-flag nil
+          diredp-hide-details-propagate-flag nil)))
 
 ;; dired-single
-(setq single-use-magic-buffer t
-      dired-single-magic-buffer-name "*dired*")
+(use-package dired-single
+  :defer t
+  :config
+  (progn
+    (bind-key "RET" 'dired-single-buffer dired-mode-map)
 
-(define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
-(define-key dired-mode-map (kbd "C-j") 'dired-single-buffer)
-(define-key dired-mode-map (kbd "C-l")
-  (lambda ()
-    (interactive)
-    (dired-single-buffer "..")))
+    (setq single-use-magic-buffer t
+          dired-single-magic-buffer-name "*dired*")))
 
 (provide 'init-dired)

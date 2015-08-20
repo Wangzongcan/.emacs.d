@@ -1,74 +1,66 @@
 ;; Evil
-(evil-mode 1)
+(use-package evil
+  :init
+  (progn
+    (evil-mode 1))
+  :config
+  (progn
+    (setcdr evil-insert-state-map nil)
 
-(setcdr evil-insert-state-map nil)
-(define-key evil-insert-state-map
-  (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
+    (bind-key [escape] 'evil-normal-state evil-insert-state-map)
+    (bind-key (read-kbd-macro evil-toggle-key) 'evil-emacs-state evil-insert-state-map)
+    (bind-key ";" 'evil-ex evil-motion-state-map)
 
-(setq evil-default-cursor t
-      evil-emacs-state-cursor '(bar . 2))
+    (evil-define-key 'normal global-mode (kbd "j") 'gj)
+    (evil-define-key 'normal global-mode (kbd "k") 'gk)
 
-(define-key evil-insert-state-map [escape] 'evil-normal-state)
-
-(define-key evil-motion-state-map (kbd ";") 'evil-ex)
-
-(evil-define-key 'normal global-mode (kbd "j") 'gj)
-(evil-define-key 'normal global-mode (kbd "k") 'kj)
-
-(evil-set-initial-state 'dired-mode 'emacs)
-(evil-set-initial-state 'ibuffer-mode 'emacs)
-(evil-set-initial-state 'magit-mode 'emacs)
-(evil-set-initial-state 'ag-mode 'emacs)
-(evil-set-initial-state 'eshell-mode 'emacs)
-(evil-set-initial-state 'quickrun/mode 'emacs)
-(evil-set-initial-state 'help-mode 'emacs)
-
-; Set cursor colors depending on mode
-(when (display-graphic-p)
-  (setq evil-emacs-state-cursor '("red" box))
-  (setq evil-normal-state-cursor '("green" box))
-  (setq evil-visual-state-cursor '("orange" box))
-  (setq evil-insert-state-cursor '("red" box))
-  (setq evil-replace-state-cursor '("red" box))
-  (setq evil-operator-state-cursor '("red" hollow))
-)
+    (evil-set-initial-state 'dired-mode 'emacs)
+    (evil-set-initial-state 'ibuffer-mode 'emacs)
+    (evil-set-initial-state 'magit-mode 'emacs)
+    (evil-set-initial-state 'ag-mode 'emacs)
+    (evil-set-initial-state 'eshell-mode 'emacs)
+    (evil-set-initial-state 'quickrun/mode 'emacs)
+    (evil-set-initial-state 'help-mode 'emacs)))
 
 ;; evil-leader
-(global-evil-leader-mode)
-(evil-leader/set-leader "<SPC>")
+(use-package evil-leader
+  :defer t
+  :init
+  (progn
+    (global-evil-leader-mode))
+  :config
+  (progn
+    (evil-leader/set-leader "<SPC>")
 
-(evil-leader/set-key
-  "0" 'delete-window
-  "1" 'delete-other-windows
-  "2" 'split-window-below
-  "3" 'split-window-right
-  "k" 'kill-buffer
-  "o" 'other-window
+    (evil-leader/set-key
+     "0" 'delete-window
+     "1" 'delete-other-windows
+     "2" 'split-window-below
+     "3" 'split-window-right
+     "k" 'kill-buffer
+     "o" 'other-window
 
-  "<SPC>" 'helm-M-x
-  "b"     'helm-buffers-list
+     "<SPC>" 'helm-M-x
+     "b"     'helm-buffers-list
 
-  "pf" 'projectile-find-file
-  "pp" 'projectile-switch-project
-  "pb" 'projectile-switch-to-buffer
-  "pB" 'projectile-ibuffer
-  "pa" 'projectile-ag
+     "pf" 'projectile-find-file
+     "pp" 'projectile-switch-project
+     "pb" 'projectile-switch-to-buffer
+     "pB" 'projectile-ibuffer
+     "pa" 'projectile-ag
 
-  "gs" 'magit-status
+     "gs" 'magit-status
 
-  "rc"  'projectile-rails-find-controller
-  "rC"  'projectile-rails-find-current-controller
-  "rm"  'projectile-rails-find-model
-  "rM"  'projectile-rails-find-current-model
-  "rh"  'projectile-rails-find-helper
-  "rH"  'projectile-rails-find-current-helper
-  "rv"  'projectile-rails-find-view
-  "rV"  'projectile-rails-find-current-view
-  "rgf" 'projectile-rails-goto-file-at-point
+     "rc"  'projectile-rails-find-controller
+     "rC"  'projectile-rails-find-current-controller
+     "rm"  'projectile-rails-find-model
+     "rM"  'projectile-rails-find-current-model
+     "rh"  'projectile-rails-find-helper
+     "rH"  'projectile-rails-find-current-helper
+     "rv"  'projectile-rails-find-view
+     "rV"  'projectile-rails-find-current-view
+     "rgf" 'projectile-rails-goto-file-at-point
 
-  "ll" 'load-current-file)
-
-;; evil-surround
-(global-evil-surround-mode 1)
+     "ll" 'load-current-file)))
 
 (provide 'init-evil)

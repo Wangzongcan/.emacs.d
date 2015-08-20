@@ -1,7 +1,7 @@
-(defvar emacs-english-font "Menlo")
+(defvar emacs-english-font "Source Code Pro")
 (defvar emacs-cjk-font "Hiragino Sans GB W3")
 
-(if (not (find-font (font-spec :name "Menlo")))
+(if (not (find-font (font-spec :name "Source Code Pro")))
     (setq emacs-cjk-font ""))
 
 (if (not (find-font (font-spec :name "Hiragino Sans GB W3")))
