@@ -25,13 +25,13 @@
                          (list
 
                           '(:eval (when (buffer-modified-p)
-                                   (concat (propertize "Mod" 'face 'font-lock-warning-face) " ")))
+                                    (concat (propertize "Mod" 'face 'font-lock-warning-face) " ")))
 
                           '(:eval (when buffer-read-only
-                                  (concat (propertize "RO" 'face 'font-lock-type-face) " ")))
+                                    (concat (propertize "RO" 'face 'font-lock-type-face) " ")))
 
                           '(:eval (unless (eq (magit-get-current-branch) nil)
-                                      (propertize (concat (magit-get-current-branch) " ") 'face 'font-lock-type-face)))
+                                    (propertize (concat (magit-get-current-branch) " ") 'face 'font-lock-type-face)))
 
                           '(:eval
                             (cond
