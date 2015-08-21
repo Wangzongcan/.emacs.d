@@ -3,10 +3,18 @@
   :defer t
   :init
   (progn
-    (ac-config-default))
+    (setq ac-auto-start nil
+          ac-delay 0.2
+          ac-use-fuzzy t
+          ac-fuzzy-enable t
+          tab-always-indent 'complete))
+  (global-auto-complete-mode t)
   :config
   (progn
-    (setq ac-auto-start nil)))
+    (ac-config-default)
+    (setq-default ac-sources '(ac-source-abbrev
+                               ac-source-dictionary
+                               ac-source-words-in-same-mode-buffers))))
 
 ;; ac-helm
 (use-package ac-helm
@@ -14,6 +22,6 @@
   :bind
   ("C-;" . ac-complete-with-helm)
   :config
-   (bind-key "C-;" 'ac-complete-with-helm ac-complete-mode-map))
+  (bind-key "C-;" 'ac-complete-with-helm ac-complete-mode-map))
 
 (provide 'init-auto-complete)
