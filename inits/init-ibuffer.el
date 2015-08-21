@@ -4,7 +4,9 @@
 
 (setq ibuffer-saved-filter-groups
       '(("home"
-         ("Ruby" (mode . ruby-mode))
+         ("Ruby" (or
+                  (mode . ruby-mode)
+                  (mode . enh-ruby-mode)))
          ("Web" (mode . web-mode))
          ("Javascript" (mode . js2-mode))
          ("Coffee" (mode . coffee-mode))
