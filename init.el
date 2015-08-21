@@ -10,7 +10,7 @@
 
 (require 'init-evil)
 (require 'init-emmet)
-;; (require 'init-multiple-cursors)
+(require 'init-multiple-cursors)
 
 (require 'init-helm)
 (require 'init-magit)
