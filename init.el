@@ -15,6 +15,7 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-ag)
+(require 'init-ggtags)
 (require 'init-projectile)
 (require 'init-auto-complete)
 (require 'init-smartparens)

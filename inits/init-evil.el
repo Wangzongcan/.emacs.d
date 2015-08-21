@@ -49,7 +49,11 @@
      "pB" 'projectile-ibuffer
      "pa" 'projectile-ag
 
+     ;; magit
      "gs" 'magit-status
+
+     ;; gtags
+     "gt" 'helm-gtags-find-tag
 
      "rc"  'projectile-rails-find-controller
      "rC"  'projectile-rails-find-current-controller
