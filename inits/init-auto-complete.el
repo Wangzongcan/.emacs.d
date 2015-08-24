@@ -8,10 +8,13 @@
           ac-use-fuzzy t
           ac-fuzzy-enable t
           tab-always-indent 'complete))
-  (global-auto-complete-mode t)
   :config
   (progn
+    (global-auto-complete-mode t)
+
+    (require 'auto-complete-config)
     (ac-config-default)
+
     (setq-default ac-sources '(ac-source-abbrev
                                ac-source-dictionary
                                ac-source-words-in-same-mode-buffers))))
