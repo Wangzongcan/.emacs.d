@@ -11,8 +11,9 @@
     (bind-key (read-kbd-macro evil-toggle-key) 'evil-emacs-state evil-insert-state-map)
     (bind-key ";" 'evil-ex evil-motion-state-map)
 
-    (evil-define-key 'normal global-mode (kbd "j") 'gj)
-    (evil-define-key 'normal global-mode (kbd "k") 'gk)
+    ;; normal
+    (bind-key "j" 'evil-next-visual-line evil-normal-state-map)
+    (bind-key "k" 'evil-previous-visual-line evil-normal-state-map)
 
     (evil-set-initial-state 'dired-mode 'emacs)
     (evil-set-initial-state 'ibuffer-mode 'emacs)
@@ -55,15 +56,21 @@
      ;; gtags
      "gt" 'helm-gtags-find-tag
 
-     "rc"  'projectile-rails-find-controller
-     "rC"  'projectile-rails-find-current-controller
-     "rm"  'projectile-rails-find-model
-     "rM"  'projectile-rails-find-current-model
-     "rh"  'projectile-rails-find-helper
-     "rH"  'projectile-rails-find-current-helper
-     "rv"  'projectile-rails-find-view
-     "rV"  'projectile-rails-find-current-view
-     "rgf" 'projectile-rails-goto-file-at-point
+     "rc" 'projectile-rails-find-controller
+     "rC" 'projectile-rails-find-current-controller
+     "rm" 'projectile-rails-find-model
+     "rM" 'projectile-rails-find-current-model
+     "rh" 'projectile-rails-find-helper
+     "rH" 'projectile-rails-find-current-helper
+     "rv" 'projectile-rails-find-view
+     "rV" 'projectile-rails-find-current-view
+     "rj" 'projectile-rails-find-javascript
+     "rJ" 'projectile-rails-find-current-javascript
+     "rs" 'projectile-rails-find-stylesheet
+     "rS" 'projectile-rails-find-current-stylesheet
+     "rt" 'projectile-rails-find-spec
+     "rT" 'projectile-rails-find-current-spec
+     "rg" 'projectile-rails-goto-file-at-point
 
      "ll" 'load-current-file)))
 
