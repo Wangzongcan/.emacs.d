@@ -9,4 +9,9 @@
     (setq enh-ruby-deep-indent-paren nil
           enh-ruby-hanging-paren-deep-indent-level 2)))
 
+;; chruby
+(use-package chruby
+  :init
+  (chruby "ruby"))
+
 (provide 'init-ruby)
