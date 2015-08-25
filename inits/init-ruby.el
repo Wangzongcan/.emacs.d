@@ -14,4 +14,7 @@
   :init
   (chruby "ruby"))
 
+;; rspec-mode
+(use-package rspec-mode)
+
 (provide 'init-ruby)
