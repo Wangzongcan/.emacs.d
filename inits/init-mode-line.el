@@ -35,12 +35,12 @@
 
                           '(:eval
                             (cond
-                             ((string= evil-state 'visual) (propertize "V" 'face '(foreground-color . "orange")))
-                             ((string= evil-state 'normal) (propertize "N" 'face '(foreground-color . "green")))
+                             ((string= evil-state 'visual) (propertize "V" 'face '(foreground-color . "gray")))
+                             ((string= evil-state 'normal) (propertize "N" 'face '(foreground-color . "DarkGoldenrod2")))
                              ((string= evil-state 'motion) "M")
-                             ((string= evil-state 'insert) (propertize "I" 'face '(foreground-color . "red")))
+                             ((string= evil-state 'insert) (propertize "I" 'face '(foreground-color . "chartreuse3")))
                              ((string= evil-state 'replace) (propertize "R" 'face '(foreground-color . "red")))
-                             ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "red")))
+                             ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "SkyBlue2")))
                              ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))
 
                           '(:eval (unless window-system "  "))))))))
