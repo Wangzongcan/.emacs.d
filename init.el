@@ -30,6 +30,8 @@
 (require 'init-css)
 (require 'init-yaml)
 
+(require 'init-swift)
+
 (require 'init-font)
 (require 'init-mode-line)
 (require 'init-theme)
