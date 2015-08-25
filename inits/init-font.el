@@ -1,13 +1,14 @@
-(defvar emacs-english-font "Source Code Pro")
+;; (defvar emacs-english-font "Source Code Pro")
+(defvar emacs-english-font "M+ 1m")
 (defvar emacs-cjk-font "Hiragino Sans GB W3")
 
-(if (not (find-font (font-spec :name "Source Code Pro")))
+(if (not (find-font (font-spec :name "M+ 1m")))
     (setq emacs-cjk-font ""))
 
 (if (not (find-font (font-spec :name "Hiragino Sans GB W3")))
     (setq emacs-cjk-font ""))
 
-(defvar emacs-font-size-pair '(12 . 14))
+(defvar emacs-font-size-pair '(13 . 16))
 
 (defvar emacs-font-size-pair-list
   '(( 5 .  6) (10 . 12)
