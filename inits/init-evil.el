@@ -15,6 +15,9 @@
     (bind-key "j" 'evil-next-visual-line evil-normal-state-map)
     (bind-key "k" 'evil-previous-visual-line evil-normal-state-map)
 
+    ;; evil-ex-define-cmd
+    (evil-ex-define-cmd "nu" 'toggle-nlinum)
+
     (add-hook 'post-command-hook 'evil-refresh-cursor)
 
     (setq evil-normal-state-cursor `(,"DarkGoldenrod2" box))
