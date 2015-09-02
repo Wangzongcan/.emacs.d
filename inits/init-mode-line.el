@@ -30,7 +30,7 @@
                           '(:eval (when buffer-read-only
                                     (concat (propertize "RO" 'face 'font-lock-type-face) " ")))
 
-                          '(:eval (unless (eq (magit-get-current-branch) nil)
+                          '(:eval (unless (eq (magit-toplevel) nil)
                                     (propertize (concat (magit-get-current-branch) " ") 'face 'font-lock-type-face)))
 
                           '(:eval

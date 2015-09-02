@@ -54,10 +54,12 @@
      "b"     'helm-buffers-list
 
      "pf" 'projectile-find-file
+     "pF" 'projectile-find-file-in-known-projects
      "pp" 'projectile-switch-project
      "pb" 'projectile-switch-to-buffer
      "pB" 'projectile-ibuffer
      "pa" 'projectile-ag
+     "pd" 'projectile-find-dir
 
      ;; magit
      "gs" 'magit-status

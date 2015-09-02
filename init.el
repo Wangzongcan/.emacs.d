@@ -1,3 +1,8 @@
+;; Package
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(package-initialize)
+
 (add-to-list 'load-path (concat user-emacs-directory "inits"))
 
 (require 'init-use-package)
@@ -7,34 +12,31 @@
 (require 'init-exec-path)
 (require 'init-ibuffer)
 (require 'init-dired)
+(require 'init-font)
+(require 'init-mode-line)
 
 (require 'init-evil)
 (require 'init-emmet)
 (require 'init-multiple-cursors)
-
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-ag)
 (require 'init-ggtags)
 (require 'init-projectile)
-;; (require 'init-auto-complete)
 (require 'init-company)
 (require 'init-smartparens)
 (require 'init-window-numbering)
 (require 'init-quickrun)
 (require 'init-rainbow-delimiters)
+(require 'init-nlinum)
+(require 'init-theme)
+;; (require 'init-auto-complete)
 
 (require 'init-ruby)
+(require 'init-swift)
 (require 'init-web)
 (require 'init-javascript)
 (require 'init-css)
 (require 'init-yaml)
-
-(require 'init-swift)
-
-(require 'init-font)
-(require 'init-mode-line)
-(require 'init-theme)
-(require 'init-nlinum)
 
 (require 'init-function)
