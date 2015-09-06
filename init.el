@@ -1,3 +1,5 @@
+(eval-when-compile (require 'cl))
+
 ;; Package
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -25,12 +27,10 @@
 (require 'init-projectile)
 (require 'init-company)
 (require 'init-smartparens)
-(require 'init-window-numbering)
 (require 'init-quickrun)
 (require 'init-rainbow-delimiters)
 (require 'init-nlinum)
 (require 'init-theme)
-;; (require 'init-auto-complete)
 
 (require 'init-ruby)
 (require 'init-swift)

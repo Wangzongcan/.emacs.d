@@ -2,7 +2,7 @@
 (defun simple-mode-line-render (left right)
   "Return a string of `window-width' length containing LEFT, and RIGHT
   aligned respectively."
-  (let* ((space-length (if (derived-mode-p 'prog-mode 'web-mode 'enh-ruby-mode) -4 1))
+  (let* ((space-length (if (derived-mode-p 'prog-mode 'web-mode 'enh-ruby-mode) 0 1))
          (available-width (- (window-width) (length left) space-length)))
     (format (format " %%s %%%ds" available-width) left right)))
 
@@ -11,9 +11,7 @@
                         ;; left
                         (format-mode-line
                          (list
-                          '(:eval (propertize (window-numbering-get-number-string) 'face 'font-lock-keyword-face))
-
-                          '(:eval (propertize " %b" 'face 'font-lock-string-face))
+                          '(:eval (propertize "%b" 'face 'font-lock-string-face))
 
                           '(:eval (propertize " %m" 'face 'font-lock-constant-face))
 
