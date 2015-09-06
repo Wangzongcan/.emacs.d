@@ -1,7 +1,6 @@
 ;; monokai
-(use-package monokai-theme
-  :init
-  (progn
-    (load-theme 'monokai t)))
+(if window-system
+    (use-package aurora-theme)
+  (use-package monokai-theme))
 
 (provide 'init-theme)
