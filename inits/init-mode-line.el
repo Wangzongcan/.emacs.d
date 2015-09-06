@@ -15,7 +15,7 @@
 
                           '(:eval (propertize " %m" 'face 'font-lock-constant-face))
 
-                          '(:eval (when (projectile-project-p)
+                          '(:eval (if (ignore-errors (projectile-project-root))
                                     (propertize (concat " " (projectile-project-name)) 'face 'font-lock-keyword-face)))))
 
                         ;; right
@@ -28,8 +28,8 @@
                           '(:eval (when buffer-read-only
                                     (concat (propertize "RO" 'face 'font-lock-type-face) " ")))
 
-                          '(:eval (unless (eq (magit-toplevel) nil)
-                                    (propertize (concat (magit-get-current-branch) " ") 'face 'font-lock-type-face)))
+                          '(:eval (if (ignore-errors (magit-get-current-branch))
+                                      (propertize (concat (magit-get-current-branch) " ") 'face 'font-lock-type-face)))
 
                           '(:eval
                             (cond

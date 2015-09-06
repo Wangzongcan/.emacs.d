@@ -1,6 +1,5 @@
 ;; magit
 (use-package magit
-  :defer t
   :config
   (progn
     (setq
