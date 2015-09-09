@@ -1,6 +1,6 @@
-;; monokai
-(if window-system
-    (use-package aurora-theme)
-  (use-package monokai-theme))
+;; spacemacs
+(use-package spacemacs-theme
+  :init
+  (load-theme 'spacemacs-dark t))
 
 (provide 'init-theme)

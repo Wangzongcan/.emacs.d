@@ -39,18 +39,4 @@
           helm-swoop-move-to-line-cycle t
           helm-swoop-use-line-number-face t)))
 
-;; helm-gtags
-(use-package helm-gtags
-  :defer t
-  :init
-  (setq
-   helm-gtags-path-style 'relative
-   helm-gtags-ignore-case t
-   helm-gtags-auto-update t
-   helm-gtags-use-input-at-cursor t
-   helm-gtags-pulse-at-cursor t
-   helm-gtags-suggested-key-mapping t)
-
-  (add-hook 'projectile-mode-hook 'helm-gtags-mode))
-
 (provide 'init-helm)
