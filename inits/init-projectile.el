@@ -3,10 +3,8 @@
   :defer t
   :init
   (progn
-    (projectile-global-mode))
-  :config
-  (progn
-    (setq projectile-completion-system 'helm)))
+    (projectile-global-mode)
+    (setq projectile-completion-system 'ivy)))
 
 ;; projectile-rails
 (use-package projectile-rails

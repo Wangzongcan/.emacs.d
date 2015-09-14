@@ -5,7 +5,6 @@
 (blink-cursor-mode -1)
 
 (transient-mark-mode t)
-(global-font-lock-mode t)
 (global-whitespace-mode t)
 (global-auto-revert-mode t)
 
@@ -32,7 +31,6 @@
 
  kill-ring-max 5000                     ;truncate kill ring after 5000 entries
  mark-ring-max 5000                     ;truncate mark ring after 5000 entries
- recentf-max-saved-items 5000           ;same up to 5000 recent files
 
  font-lock-maximum-decoration t
 
@@ -48,9 +46,6 @@
  scroll-margin 5
  scroll-conservatively 10000
  auto-window-vscroll nil
-
- line-number-mode t                    ;; show line number
- column-number-mode t                  ;; show column number
 
  echo-keystrokes 0.1                   ;; minibuffer
  enable-recursive-minibuffers t

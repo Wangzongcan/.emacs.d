@@ -16,7 +16,7 @@
     (bind-key "k" 'evil-previous-visual-line evil-normal-state-map)
 
     ;; evil-ex-define-cmd
-    (evil-ex-define-cmd "nu" 'toggle-nlinum)
+    (evil-ex-define-cmd "nu" 'toggle-linum)
 
     (add-hook 'post-command-hook 'evil-refresh-cursor)
 
@@ -53,8 +53,7 @@
      "k" 'kill-buffer
      "o" 'other-window
 
-     "<SPC>" 'helm-M-x
-     "b"     'helm-buffers-list
+     "SPC" 'execute-extended-command
 
      "pf" 'projectile-find-file
      "pF" 'projectile-find-file-in-known-projects
@@ -66,9 +65,6 @@
 
      ;; magit
      "gs" 'magit-status
-
-     ;; gtags
-     "gt" 'helm-gtags-find-tag
 
      "rc" 'projectile-rails-find-controller
      "rC" 'projectile-rails-find-current-controller

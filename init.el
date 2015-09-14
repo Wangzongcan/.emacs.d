@@ -12,23 +12,16 @@
 (require 'init-base)
 (require 'init-osx)
 (require 'init-exec-path)
-(require 'init-ibuffer)
 (require 'init-dired)
 (require 'init-font)
-(require 'init-mode-line)
 
 (require 'init-evil)
-(require 'init-emmet)
-(require 'init-multiple-cursors)
-(require 'init-helm)
 (require 'init-magit)
+(require 'init-counsel)
 (require 'init-ag)
 (require 'init-projectile)
 (require 'init-company)
-(require 'init-smartparens)
-(require 'init-quickrun)
 (require 'init-rainbow-delimiters)
-(require 'init-nlinum)
 (require 'init-theme)
 
 (require 'init-ruby)
@@ -36,6 +29,21 @@
 (require 'init-web)
 (require 'init-javascript)
 (require 'init-css)
+(require 'init-emmet)
 (require 'init-yaml)
 
 (require 'init-function)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yaml-mode web-mode use-package swift-mode spacemacs-theme smex smartparens scss-mode sass-mode rspec-mode rainbow-delimiters quickrun projectile-rails nlinum multiple-cursors magit js2-mode ido-vertical-mode ido-ubiquitous helm-swoop flx-ido evil-leader emmet-mode dired-single dired+ counsel company coffee-mode chruby ag))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
