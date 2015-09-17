@@ -1,4 +1,5 @@
 ;; Global Modes
+
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -20,7 +21,7 @@
  visible-bell nil
  ring-bell-function #'ignore
 
- default-major-mode 'text-mode         ;; use text mode per default
+ major-mode 'text-mode         ;; use text mode per default
 
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil
@@ -36,7 +37,7 @@
 
  tab-always-indent 'complete
 
- default-truncate-lines t
+ truncate-lines t
  whitespace-style
  '(face tabs empty trailing indendation space-after-tab space-before-tab)
 
@@ -54,7 +55,8 @@
 
  confirm-nonexistent-file-or-buffer nil ;don't ask to create a buffer
 
- ad-redefinition-action 'accept
+ ;; ad-redefinition-action 'accept
+ gc-cons-threshold 100000000
  )
 
 ;; Default Settings

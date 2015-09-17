@@ -40,7 +40,7 @@
   :defer t
   :init
   (progn
-    (global-evil-leader-mode))
+    (global-evil-leader-mode t))
   :config
   (progn
     (evil-leader/set-leader "<SPC>")
@@ -52,6 +52,8 @@
      "3" 'split-window-right
      "k" 'kill-buffer
      "o" 'other-window
+
+     "b" 'ivy-switch-buffer
 
      "SPC" 'execute-extended-command
 
