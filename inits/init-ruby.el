@@ -27,4 +27,6 @@
 ;; rspec-mode
 (use-package rspec-mode)
 
+(use-package rubocop)
+
 (provide 'init-ruby)

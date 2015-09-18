@@ -1,11 +1,9 @@
 ;; dired
 (setq insert-directory-program "ls"
-      dired-listing-switches "-aBhl --group-directories-first"
-      dired-use-ls-dired t)
+      dired-listing-switches "-aBhl --group-directories-first")
 
 (add-hook 'dired-mode-hook
           (lambda ()
-            (hl-line-mode t)
             (dired-single-toggle-buffer-name)))
 
 (use-package dired+)

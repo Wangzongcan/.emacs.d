@@ -37,8 +37,8 @@
 ;; (when (window-system)
 ;;   (set-font emacs-english-font emacs-cjk-font emacs-font-size-pair))
 
-(add-to-list 'default-frame-alist '(font . "M+ 1m-12"))
-(set-face-attribute 'default t :font "M+ 1m-12")
-(set-frame-font "M+ 1m-12" nil t)
+(add-to-list 'default-frame-alist '(font . "M+ 1m-14"))
+(set-face-attribute 'default t :font "M+ 1m-14")
+(set-frame-font "M+ 1m-14" nil t)
 
 (provide 'init-font)
