@@ -1,6 +1,5 @@
-;; spacemacs
-(use-package spacemacs-theme
+(use-package monokai-theme
   :init
-  (load-theme 'spacemacs-dark t))
+  (load-theme 'monokai t))
 
 (provide 'init-theme)
