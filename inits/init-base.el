@@ -19,6 +19,9 @@
  initial-scratch-message nil
  initial-major-mode 'text-mode
 
+ use-dialog-box nil
+ use-file-dialog nil
+
  make-backup-files nil
  auto-save-default nil
  create-lockfiles nil          ;; 当编辑文件时会创建一个 .#filename 的文件，取消这个设置

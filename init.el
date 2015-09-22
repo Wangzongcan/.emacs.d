@@ -11,6 +11,7 @@
 (require 'init-exec-path)
 (require 'init-use-package)
 (require 'init-counsel)
+(require 'init-avy)
 (require 'init-evil)
 (require 'init-dired)
 (require 'init-company)
@@ -22,6 +23,7 @@
 (require 'init-web)
 (require 'init-javascript)
 (require 'init-css)
+(require 'init-emmet)
 (require 'init-yaml)
 
 (require 'init-theme)

@@ -18,15 +18,6 @@
     ;; evil-ex-define-cmd
     (evil-ex-define-cmd "nu" 'toggle-linum)
 
-    (add-hook 'post-command-hook 'evil-refresh-cursor)
-
-    (setq evil-normal-state-cursor `(,"DarkGoldenrod2" box))
-    (setq evil-emacs-state-cursor `(,"SkyBlue2" box))
-    (setq evil-insert-state-cursor `(,"chartreuse3" (bar . 2)))
-    (setq evil-visual-state-cursor `(,"gray" (hbar . 2)))
-    (setq evil-motion-state-cursor `(,"plum3" box))
-    (setq evil-replace-state-cursor `(,"red" (hbar . 2)))
-
     (evil-set-initial-state 'dired-mode 'emacs)
     (evil-set-initial-state 'ibuffer-mode 'emacs)
     (evil-set-initial-state 'magit-mode 'emacs)
@@ -55,7 +46,7 @@
 
      "b" 'ivy-switch-buffer
 
-     "SPC" 'execute-extended-command
+     "SPC" 'counsel-M-x
 
      "pf" 'projectile-find-file
      "pF" 'projectile-find-file-in-known-projects
