@@ -48,6 +48,11 @@
 
      "SPC" 'counsel-M-x
 
+     ;; avy
+     "ac" 'avy-goto-char
+     "aw" 'avy-goto-word-0
+     "al" 'avy-goto-line
+
      "pf" 'projectile-find-file
      "pF" 'projectile-find-file-in-known-projects
      "pp" 'projectile-switch-project

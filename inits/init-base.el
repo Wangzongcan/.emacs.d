@@ -33,6 +33,8 @@
 
  echo-keystrokes 0.1                   ;; minibuffer
  enable-recursive-minibuffers t
+ line-number-mode t
+ column-number-mode t
 
  confirm-nonexistent-file-or-buffer nil ;don't ask to create a buffer
  )
@@ -40,6 +42,7 @@
 (setq-default
  indent-tabs-mode nil                   ;use spaces instead of tabs
  default-tab-width 2
+ show-trailing-whitespace t
  )
 
 ;; Yes or No
