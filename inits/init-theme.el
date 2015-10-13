@@ -1,5 +1,7 @@
-(use-package monokai-theme
+;; Theme
+
+(use-package material-theme
   :init
-  (load-theme 'monokai t))
+  (load-theme 'material t))
 
 (provide 'init-theme)
