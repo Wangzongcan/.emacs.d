@@ -8,8 +8,10 @@
 (add-to-list 'load-path (concat user-emacs-directory "inits"))
 
 (require 'init-base)
-(require 'init-exec-path)
 (require 'init-use-package)
+(require 'init-theme)
+(require 'init-spaceline)
+(require 'init-exec-path-from-shell)
 (require 'init-counsel)
 (require 'init-avy)
 (require 'init-evil)
@@ -26,4 +28,4 @@
 (require 'init-emmet)
 (require 'init-yaml)
 
-(require 'init-theme)
+(require 'init-function)
