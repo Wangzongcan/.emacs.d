@@ -2,6 +2,11 @@
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 
+;; osx
+(when (string-equal system-type "darwin")
+  (setq mac-command-modifier 'super
+        mac-option-modifier 'meta))
+
 ;; Global Modes
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
