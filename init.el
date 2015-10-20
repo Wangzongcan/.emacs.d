@@ -10,8 +10,6 @@
 (require 'init-base)
 (require 'init-use-package)
 (require 'init-theme)
-(require 'init-spaceline)
-(require 'init-exec-path-from-shell)
 (require 'init-counsel)
 (require 'init-avy)
 (require 'init-evil)
