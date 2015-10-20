@@ -10,7 +10,8 @@
   :init
   (progn
     (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t
+    (setq ivy-display-style 'fancy
+          ivy-use-virtual-buffers t
           counsel-yank-pop-truncate t)))
 
 (provide 'init-counsel)

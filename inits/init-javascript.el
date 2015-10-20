@@ -7,8 +7,7 @@
     (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
     (add-hook 'js2-mode-hook
               '(lambda ()
-                 (setq tab-width 2
-                       js2-basic-offset tab-width)))))
+                 (setq-default js2-basic-offset 2)))))
 
 ;; coffee-mode
 (use-package coffee-mode
