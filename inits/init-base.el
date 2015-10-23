@@ -2,6 +2,9 @@
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 
+;; path
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;; osx
 (when (string-equal system-type "darwin")
   (setq mac-command-modifier 'super
@@ -17,6 +20,7 @@
 (global-whitespace-mode t)
 (global-auto-revert-mode t)
 (global-whitespace-mode -1)
+(global-linum-mode)
 
 ;; General Settings
 (setq
@@ -33,13 +37,18 @@
 
  tab-always-indent 'complete
 
+ redisplay-dont-pause t
  scroll-step 1
- scroll-margin 5
+ scroll-margin 1
+ scroll-conservatively 10000
+ scroll-preserve-screen-position 1
 
  echo-keystrokes 0.1                   ;; minibuffer
  enable-recursive-minibuffers t
  line-number-mode t
  column-number-mode t
+
+ linum-format "%4d \u2502"
 
  confirm-nonexistent-file-or-buffer nil ;don't ask to create a buffer
  )

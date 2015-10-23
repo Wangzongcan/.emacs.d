@@ -1,5 +1,5 @@
 ;; dired
-(setq insert-directory-program "ls"
+(setq insert-directory-program "/usr/local/bin/gls"
       dired-listing-switches "-aBhl --group-directories-first")
 
 (add-hook 'dired-mode-hook
