@@ -3,7 +3,6 @@
   :init
   (chruby "ruby"))
 
-
 (use-package ruby-mode
           :defer t
           :mode

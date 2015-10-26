@@ -9,6 +9,7 @@
 
 (require 'init-base)
 (require 'init-use-package)
+(require 'init-nlinum)
 (require 'init-theme)
 (require 'init-counsel)
 (require 'init-avy)

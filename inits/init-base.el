@@ -20,7 +20,6 @@
 (global-whitespace-mode t)
 (global-auto-revert-mode t)
 (global-whitespace-mode -1)
-(global-linum-mode)
 
 ;; General Settings
 (setq
@@ -47,8 +46,6 @@
  enable-recursive-minibuffers t
  line-number-mode t
  column-number-mode t
-
- linum-format "%4d \u2502"
 
  confirm-nonexistent-file-or-buffer nil ;don't ask to create a buffer
  )
