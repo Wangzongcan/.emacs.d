@@ -15,11 +15,9 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+(show-paren-mode 1)
 (blink-cursor-mode -1)
-(show-paren-mode t)
-(global-whitespace-mode t)
-(global-auto-revert-mode t)
-(global-whitespace-mode -1)
+(global-auto-revert-mode 1)
 
 ;; General Settings
 (setq
