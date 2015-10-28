@@ -1,7 +1,4 @@
 ;; dired
-(setq insert-directory-program "/usr/local/bin/gls"
-      dired-listing-switches "-aBhl --group-directories-first")
-
 (add-hook 'dired-mode-hook
           (lambda ()
             (dired-single-toggle-buffer-name)))
