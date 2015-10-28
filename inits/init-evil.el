@@ -13,18 +13,7 @@
 
     ;; normal
     (bind-key "j" 'evil-next-visual-line evil-normal-state-map)
-    (bind-key "k" 'evil-previous-visual-line evil-normal-state-map)
-
-    ;; evil-ex-define-cmd
-    (evil-ex-define-cmd "nu" 'toggle-linum)
-
-    (evil-set-initial-state 'dired-mode 'emacs)
-    (evil-set-initial-state 'ibuffer-mode 'emacs)
-    (evil-set-initial-state 'magit-mode 'emacs)
-    (evil-set-initial-state 'ag-mode 'emacs)
-    (evil-set-initial-state 'eshell-mode 'emacs)
-    (evil-set-initial-state 'quickrun/mode 'emacs)
-    (evil-set-initial-state 'help-mode 'emacs)))
+    (bind-key "k" 'evil-previous-visual-line evil-normal-state-map)))
 
 ;; evil-leader
 (use-package evil-leader
