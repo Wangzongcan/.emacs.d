@@ -1,23 +1,16 @@
-(eval-when-compile (require 'cl))
-
-;; Package
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
-
+;; load-path
 (add-to-list 'load-path (concat user-emacs-directory "inits"))
 
+(require 'cl)
+(require 'init-cask)
 (require 'init-base)
-(require 'init-use-package)
-(require 'init-nlinum)
+(require 'init-evil)
 (require 'init-theme)
 (require 'init-counsel)
-(require 'init-avy)
-(require 'init-evil)
 (require 'init-dired)
+(require 'init-magit)
 (require 'init-company)
 (require 'init-projectile)
-(require 'init-magit)
 (require 'init-ag)
 
 (require 'init-ruby)

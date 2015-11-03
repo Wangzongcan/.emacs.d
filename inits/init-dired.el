@@ -5,19 +5,16 @@
       dired-use-ls-dired nil
       ls-lisp-use-insert-directory-program nil)
 
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (dired-single-toggle-buffer-name)))
-
-(use-package dired+)
+;; dired+
+(require 'dired+)
 
 ;; dired-single
-(use-package dired-single
-  :defer t
-  :init
-  (setq single-use-magic-buffer t
-        dired-single-magic-buffer-name "*dired*")
-  :config
-  (bind-key "RET" 'dired-single-buffer dired-mode-map))
+(require 'dired-single)
+(setq single-use-magic-buffer t
+      dired-single-magic-buffer-name "*dired*")
+
+(define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
+
+(add-hook 'dired-mode-hook #'dired-single-toggle-buffer-name)
 
 (provide 'init-dired)

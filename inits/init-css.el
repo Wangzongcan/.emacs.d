@@ -2,17 +2,12 @@
 (defvar css-indent-offset 2)
 
 ;; sass-mode
-(use-package sass-mode
-  :defer t
-  :mode
-  ("\\.sass\\'" . sass-mode))
+(require 'sass-mode)
+(add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 
 ;; scss-mode
-(use-package scss-mode
-  :defer t
-  :mode
-  ("\\.scss\\'" . scss-mode)
-  :config
-  (setq scss-compile-at-save nil))
+(require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+(setq scss-compile-at-save nil)
 
 (provide 'init-css)

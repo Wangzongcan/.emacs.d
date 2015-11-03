@@ -9,10 +9,10 @@
       (error (message "load-file error: %s" err)))
     (find-file current-file)))
 
-(defun toggle-linum()
+(defun toggle-nlinum()
   (interactive)
-  (if (bound-and-true-p linum-mode)
-      (global-linum-mode -1)
-    (global-linum-mode 1)))
+  (if (bound-and-true-p nlinum-mode)
+      (global-nlinum-mode -1)
+    (global-nlinum-mode 1)))
 
 (provide 'init-function)

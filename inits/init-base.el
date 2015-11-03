@@ -49,8 +49,9 @@
  )
 
 (setq-default
- indent-tabs-mode nil                   ;use spaces instead of tabs
  default-tab-width 2
+ indent-tabs-mode nil                   ;use spaces instead of tabs
+ indicate-empty-lines t
  show-trailing-whitespace t
  )
 

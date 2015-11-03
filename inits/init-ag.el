@@ -1,5 +1,4 @@
 ;; ag
-(use-package ag
-  :defer t)
+(require 'ag)
 
 (provide 'init-ag)
