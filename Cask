@@ -3,6 +3,7 @@
 
 (depends-on "ag")
 (depends-on "alect-themes")
+(depends-on "async")
 (depends-on "cask")
 (depends-on "chruby")
 (depends-on "coffee-mode")

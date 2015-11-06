@@ -18,6 +18,7 @@
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 (global-auto-revert-mode 1)
+(which-func-mode 1)
 
 ;; General Settings
 (setq
