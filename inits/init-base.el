@@ -18,7 +18,6 @@
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 (global-auto-revert-mode 1)
-(which-func-mode 1)
 
 ;; General Settings
 (setq
@@ -50,11 +49,11 @@
  )
 
 (setq-default
+ truncate-lines t
  default-tab-width 2
  indent-tabs-mode nil                   ;use spaces instead of tabs
  indicate-empty-lines t
- show-trailing-whitespace t
- )
+ show-trailing-whitespace t)
 
 ;; Yes or No
 (fset 'yes-or-no-p 'y-or-n-p)
