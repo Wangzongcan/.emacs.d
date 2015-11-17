@@ -28,6 +28,8 @@
  use-dialog-box nil
  use-file-dialog nil
 
+ confirm-kill-emacs 'yes-or-no-p  ;; 确认是否退出
+
  make-backup-files nil
  auto-save-default nil
  create-lockfiles nil          ;; 当编辑文件时会创建一个 .#filename 的文件，取消这个设置

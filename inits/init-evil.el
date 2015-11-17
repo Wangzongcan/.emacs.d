@@ -20,11 +20,13 @@
  "k" 'kill-buffer
  "o" 'other-window
 
+ ;; counsel
+ "SPC" 'counsel-M-x
+ "cg" 'counsel-git-grep
+ "ca" 'counsel-ag
+
  "b" 'ivy-switch-buffer
 
- "SPC" 'counsel-M-x
-
- ;; avy
  "ac" 'avy-goto-char
  "aw" 'avy-goto-word-0
  "al" 'avy-goto-line
