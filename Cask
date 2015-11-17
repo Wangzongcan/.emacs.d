@@ -2,8 +2,8 @@
 (source melpa)
 
 (depends-on "ag")
-(depends-on "alect-themes")
 (depends-on "async")
+(depends-on "avy")
 (depends-on "cask")
 (depends-on "chruby")
 (depends-on "coffee-mode")
@@ -12,6 +12,7 @@
 (depends-on "dash")
 (depends-on "dired+")
 (depends-on "dired-single")
+(depends-on "dracula-theme")
 (depends-on "emmet-mode")
 (depends-on "epl")
 (depends-on "evil")
@@ -39,3 +40,4 @@
 (depends-on "web-mode")
 (depends-on "with-editor")
 (depends-on "yaml-mode")
+(depends-on "zenburn-theme")

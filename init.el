@@ -7,6 +7,7 @@
 (require 'init-evil)
 (require 'init-theme)
 (require 'init-counsel)
+(require 'init-avy)
 (require 'init-dired)
 (require 'init-magit)
 (require 'init-company)
