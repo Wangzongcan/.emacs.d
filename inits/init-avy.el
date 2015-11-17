@@ -1,3 +1,3 @@
 (avy-setup-default)
 
-(provide init-avy)
+(provide 'init-avy)
