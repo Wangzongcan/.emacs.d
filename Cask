@@ -19,7 +19,6 @@
 (depends-on "evil")
 (depends-on "evil-leader")
 (depends-on "f")
-(depends-on "hydra")
 (depends-on "js2-mode")
 (depends-on "magit")
 (depends-on "magit-popup")

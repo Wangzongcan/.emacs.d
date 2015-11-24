@@ -8,8 +8,6 @@
   (bind-key "j" 'evil-next-visual-line evil-normal-state-map)
   (bind-key "k" 'evil-previous-visual-line evil-normal-state-map)
 
-  (bind-key "SPC" 'hydra-master/body evil-normal-state-map)
-
   (evil-mode 1))
 
 (provide 'init-evil)
