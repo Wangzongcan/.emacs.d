@@ -13,4 +13,12 @@
       (error (message "load-file error: %s" err)))
     (find-file current-file)))
 
+(defun delete-current-file()
+  ;; 删除当前文件
+  (interactive)
+  (when (yes-or-no-p "delete current file?")
+    (progn
+      (delete-file buffer-file-name)
+      (kill-this-buffer))))
+
 (provide 'init-functions)
