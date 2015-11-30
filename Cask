@@ -33,4 +33,5 @@
 (depends-on "swiper")
 (depends-on "use-package")
 (depends-on "web-mode")
+(depends-on "with-editor")
 (depends-on "yaml-mode")

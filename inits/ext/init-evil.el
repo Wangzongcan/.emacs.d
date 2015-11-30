@@ -10,4 +10,24 @@
 
   (evil-mode 1))
 
+(use-package evil-leader
+  :ensure t
+  :init
+  (global-evil-leader-mode t)
+  :config
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+    "0" 'delete-window
+    "1" 'delete-other-windows
+    "2" 'split-window-below
+    "3" 'split-window-right
+    "o" 'other-window
+
+    "SPC" 'counsel-M-x
+
+    "pp" 'projectile-switch-project
+    "pf" 'projectile-find-file
+
+    "ll" 'load-current-file))
+
 (provide 'init-evil)
