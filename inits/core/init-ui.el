@@ -16,13 +16,15 @@
 
  show-paren-style 'expression
 
+ line-number-mode t
+ column-number-mode t
+
  frame-resize-pixelwise t                           ;; Mac 下全屏的时候会留一点空隙，取消这个设置
  )
 
 (setq-default
  truncate-lines t
  indent-tabs-mode nil
- indicate-empty-lines t
  )
 
 ;; 设置字体，中文字体等宽
