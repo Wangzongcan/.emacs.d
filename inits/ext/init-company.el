@@ -20,7 +20,8 @@
 (use-package company-flx
   :ensure t
   :defer t
-  :init
-  (company-flx-mode))
+  :config
+  (with-eval-after-load 'company
+    (company-flx-mode)))
 
 (provide 'init-company)
