@@ -9,6 +9,7 @@
 (show-paren-mode t)
 
 (setq
+ ring-bell-function 'ignore
  inhibit-startup-message t
  initial-scratch-message nil
 
