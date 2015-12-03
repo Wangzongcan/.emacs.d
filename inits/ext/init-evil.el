@@ -24,6 +24,7 @@
     "o" 'other-window
 
     "SPC" 'counsel-M-x
+    "y" 'counsel-yank-pop
 
     "pp" 'projectile-switch-project
     "pf" 'projectile-find-file
