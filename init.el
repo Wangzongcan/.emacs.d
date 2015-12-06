@@ -1,15 +1,18 @@
 (require 'cask)
 (cask-initialize)
 
-(require 'pallet)
-(pallet-mode t)
+(require 'use-package)
 
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
+(use-package bind-key
+  :ensure t)
 
-(require 'el-init)
-(el-init-load
-  (expand-file-name "inits/" user-emacs-directory)
-  :subdirectories '("core" "ext" "lang"))
+(use-package pallet
+  :config
+  (pallet-mode t))
+
+(use-package el-init
+  :ensure t
+  :init
+  (el-init-load
+   (expand-file-name "inits/" user-emacs-directory)
+   :subdirectories '("core" "ext" "lang")))

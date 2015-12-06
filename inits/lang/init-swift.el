@@ -1,5 +1,4 @@
 (use-package swift-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 (provide 'init-swift)

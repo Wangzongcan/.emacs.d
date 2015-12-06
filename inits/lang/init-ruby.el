@@ -1,5 +1,4 @@
 (use-package ruby-mode
-  :defer t
   :mode (("\\.rb$'" . ruby-mode)
          ("Gemfile$" . ruby-mode))
   :interpreter "ruby"

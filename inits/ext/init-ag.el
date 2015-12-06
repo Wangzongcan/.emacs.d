@@ -1,4 +1,4 @@
 (use-package ag
-  :defer t)
+  :ensure t)
 
 (provide 'init-ag)

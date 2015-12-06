@@ -17,18 +17,18 @@
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
-    "0" 'delete-window
-    "1" 'delete-other-windows
-    "2" 'split-window-below
-    "3" 'split-window-right
-    "o" 'other-window
+   "0" 'delete-window
+   "1" 'delete-other-windows
+   "2" 'split-window-below
+   "3" 'split-window-right
+   "o" 'other-window
 
-    "SPC" 'counsel-M-x
-    "y" 'counsel-yank-pop
+   "SPC" 'counsel-M-x
+   "y" 'counsel-yank-pop
 
-    "pp" 'projectile-switch-project
-    "pf" 'projectile-find-file
+   "pp" 'projectile-switch-project
+   "pf" 'projectile-find-file
 
-    "ll" 'load-current-file))
+   "ll" 'load-current-file))
 
 (provide 'init-evil)

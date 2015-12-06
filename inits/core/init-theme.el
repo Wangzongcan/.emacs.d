@@ -1,6 +1,6 @@
-(use-package dracula-theme
+(use-package monokai-theme
   :ensure t
-  :init
-  (load-theme 'dracula t))
+  :config
+  (load-theme 'monokai t))
 
 (provide 'init-theme)

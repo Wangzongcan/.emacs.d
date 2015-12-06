@@ -1,6 +1,5 @@
 (use-package company
   :ensure t
-  :defer t
   :init
   (setq company-idle-delay 0.1
         company-require-match nil
@@ -10,6 +9,7 @@
         company-dabbrev-code-everywhere t
         company-dabbrev-code-ignore-case t
         company-frontends '(company-pseudo-tooltip-frontend))
+
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (let ((map company-active-map))
@@ -19,7 +19,6 @@
 
 (use-package company-flx
   :ensure t
-  :defer t
   :config
   (with-eval-after-load 'company
     (company-flx-mode)))

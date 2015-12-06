@@ -17,6 +17,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)            ;; 使用 y 和 n
 
 (add-hook 'prog-mode-hook (lambda ()
+                            (linum-on)
                             (setq show-trailing-whitespace t)))
 
 (provide 'init-misc)
