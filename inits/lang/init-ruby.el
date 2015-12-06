@@ -1,9 +1,17 @@
-(use-package ruby-mode
-  :mode (("\\.rb$'" . ruby-mode)
-         ("Gemfile$" . ruby-mode))
+(use-package enh-ruby-mode
+  :ensure t
+  :mode (("\\.rb$". enh-ruby-mode)
+         ("Gemfile". enh-ruby-mode))
   :interpreter "ruby"
+  :config
+  (setq ruby-insert-encoding-magic-comment nil
+        enh-ruby-add-encoding-comment-on-save nil))
+
+(use-package robe
+  :ensure t
   :init
-  (setq ruby-use-encoding-map nil
-        ruby-insert-encoding-magic-comment nil))
+  (add-hook 'enh-ruby-mode-hook 'robe-mode)
+  (eval-after-load 'company
+    '(push 'company-robe company-backends)))
 
 (provide 'init-ruby)
