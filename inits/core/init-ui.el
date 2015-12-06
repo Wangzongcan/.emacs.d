@@ -14,6 +14,8 @@
  initial-scratch-message nil
 
  scroll-step 1
+ scroll-margin 5
+ scroll-conservatively 5
 
  show-paren-style 'expression
 
