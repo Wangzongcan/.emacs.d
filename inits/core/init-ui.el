@@ -19,6 +19,8 @@
 
  show-paren-style 'expression
 
+ linum-format "%4d "
+
  line-number-mode t
  column-number-mode t
 

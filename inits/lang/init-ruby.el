@@ -1,3 +1,8 @@
+(use-package chruby
+  :ensure t
+  :init
+  (chruby "ruby-2.2.3"))
+
 (use-package enh-ruby-mode
   :ensure t
   :mode (("\\.rb$". enh-ruby-mode)
@@ -13,5 +18,10 @@
   (add-hook 'enh-ruby-mode-hook 'robe-mode)
   (eval-after-load 'company
     '(push 'company-robe company-backends)))
+
+(use-package inf-ruby
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'inf-ruby-switch-setup))
 
 (provide 'init-ruby)

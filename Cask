@@ -3,6 +3,7 @@
 
 (depends-on "ag")
 (depends-on "cask")
+(depends-on "chruby")
 (depends-on "coffee-mode")
 (depends-on "company")
 (depends-on "company-flx")
@@ -15,8 +16,8 @@
 (depends-on "evil")
 (depends-on "evil-leader")
 (depends-on "js2-mode")
-(depends-on "linum-relative")
 (depends-on "magit")
+(depends-on "magit-popup")
 (depends-on "monokai-theme")
 (depends-on "pallet")
 (depends-on "projectile")

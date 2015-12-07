@@ -1,3 +1,4 @@
+(electric-pair-mode t)
 (global-auto-revert-mode 1)             ;; 自动加载改动
 
 (setq
@@ -17,7 +18,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)            ;; 使用 y 和 n
 
 (add-hook 'prog-mode-hook (lambda ()
-                            (linum-on)
+                            (linum-mode 1)
                             (setq show-trailing-whitespace t)))
 
 (provide 'init-misc)
