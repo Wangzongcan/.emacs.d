@@ -21,4 +21,12 @@
       (delete-file buffer-file-name)
       (kill-this-buffer))))
 
+(defun run-open()
+  ;; 使用系统 open 命令打开文件或文件夹
+  (interactive)
+  (let ((current (or buffer-file-name dired-directory)))
+    (message current)
+    (when current
+      (shell-command (format "open %s" current)))))
+
 (provide 'init-functions)
