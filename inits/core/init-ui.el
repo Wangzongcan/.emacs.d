@@ -33,6 +33,6 @@
  )
 
 ;; 设置字体，中文字体等宽
-(set-face-attribute 'default nil :font "M+ 1m 12")
+(set-face-attribute 'default nil :font "m+ 1m 12" :weight 'light)
 
 (provide 'init-ui)
