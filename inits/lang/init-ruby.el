@@ -3,14 +3,13 @@
   :init
   (chruby "ruby-2.2.3"))
 
-(use-package enh-ruby-mode
+(use-package ruby-mode
   :ensure t
-  :mode (("\\.rb$". enh-ruby-mode)
-         ("Gemfile". enh-ruby-mode))
+  :mode (("\\.rb$". ruby-mode)
+         ("Gemfile". ruby-mode))
   :interpreter "ruby"
   :config
-  (setq ruby-insert-encoding-magic-comment nil
-        enh-ruby-add-encoding-comment-on-save nil))
+  (setq ruby-insert-encoding-magic-comment nil))
 
 (use-package robe
   :ensure t
