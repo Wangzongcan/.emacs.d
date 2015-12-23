@@ -4,6 +4,7 @@
          ("C-x C-f" . counsel-find-file)))
 
 (use-package ivy
+  :diminish ivy-mode
   :init
   (setq ivy-use-virtual-buffers t)
   :config

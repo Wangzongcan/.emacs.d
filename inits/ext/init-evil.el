@@ -28,7 +28,8 @@
    "k" 'kill-buffer
 
    "SPC" 'counsel-M-x
-   "y" 'counsel-yank-pop
+   "cy" 'counsel-yank-pop
+   "ci" 'counsel-imenu
 
    "gs" 'magit-status
 
@@ -36,5 +37,9 @@
    "pf" 'projectile-find-file
 
    "ll" 'load-current-file))
+
+(use-package undo-tree
+  :ensure undo-tree
+  :diminish undo-tree-mode)
 
 (provide 'init-evil)

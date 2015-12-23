@@ -1,4 +1,5 @@
 (use-package company
+  :diminish company-mode
   :ensure t
   :init
   (setq company-idle-delay 0.1
