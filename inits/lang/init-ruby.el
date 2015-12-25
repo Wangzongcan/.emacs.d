@@ -14,7 +14,7 @@
 (use-package robe
   :ensure t
   :init
-  (add-hook 'enh-ruby-mode-hook 'robe-mode)
+  (add-hook 'ruby-mode-hook 'robe-mode)
   (eval-after-load 'company
     '(push 'company-robe company-backends)))
 
