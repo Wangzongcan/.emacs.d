@@ -1,5 +1,6 @@
 (require 'cask)
 (cask-initialize)
+(add-to-list 'auto-mode-alist '("Cask" . lisp-mode))
 
 (require 'use-package)
 
