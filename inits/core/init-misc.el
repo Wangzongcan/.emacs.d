@@ -1,4 +1,3 @@
-(electric-pair-mode t)
 (global-auto-revert-mode 1)             ;; 自动加载改动
 
 (setq
