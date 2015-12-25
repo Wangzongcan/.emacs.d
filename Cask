@@ -29,7 +29,6 @@
 (depends-on "inf-ruby")
 (depends-on "inflections")
 (depends-on "js2-mode")
-(depends-on "linum-relative")
 (depends-on "magit")
 (depends-on "magit-popup")
 (depends-on "markdown-mode")
