@@ -35,6 +35,7 @@
 
    "pp" 'projectile-switch-project
    "pf" 'projectile-find-file
+   "pd" 'projectile-find-dir
 
    "ll" 'load-current-file))
 
