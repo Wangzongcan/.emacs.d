@@ -25,6 +25,7 @@
    "3" 'split-window-right
    "o" 'other-window
 
+   "b" 'switch-to-buffer
    "k" 'kill-buffer
 
    "SPC" 'counsel-M-x
@@ -36,6 +37,7 @@
    "pp" 'projectile-switch-project
    "pf" 'projectile-find-file
    "pd" 'projectile-find-dir
+   "pb" 'projectile-switch-to-buffer
 
    "ll" 'load-current-file))
 
