@@ -5,9 +5,6 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 
-;; 匹配括号
-(show-paren-mode t)
-
 (setq
  ring-bell-function 'ignore
  inhibit-startup-message t
@@ -28,11 +25,11 @@
  )
 
 (setq-default
- truncate-lines t
- indent-tabs-mode nil
- )
+ indent-tabs-mode nil)
 
-;; 设置字体，中文字体等宽
-(set-face-attribute 'default nil :font "m+ 1m 12" :weight 'light)
+
+(when window-system
+  ;; 设置字体，中文字体等宽
+  (set-face-attribute 'default nil :font "m+ 1m 12" :weight 'light))
 
 (provide 'init-ui)
