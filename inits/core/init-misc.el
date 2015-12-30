@@ -12,6 +12,8 @@
  create-lockfiles nil                    ;; 编辑文件时，会创建一个 .#filename 的文件，取消这个设置
 
  confirm-nonexistent-file-or-buffer nil  ;; 创建 file 或 buffer 时不需要确认
+
+ vc-follow-symlinks t
  )
 
 (fset 'yes-or-no-p 'y-or-n-p)            ;; 使用 y 和 n
