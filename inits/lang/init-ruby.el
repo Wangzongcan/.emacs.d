@@ -23,4 +23,9 @@
   :init
   (add-hook 'after-init-hook 'inf-ruby-switch-setup))
 
+(use-package rubocop
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook #'rubocop-mode))
+
 (provide 'init-ruby)
