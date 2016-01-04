@@ -42,7 +42,7 @@
    "ll" 'load-current-file))
 
 (use-package undo-tree
-  :ensure undo-tree
+  :ensure t
   :diminish undo-tree-mode)
 
 (provide 'init-evil)
