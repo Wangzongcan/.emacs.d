@@ -14,6 +14,8 @@
  confirm-nonexistent-file-or-buffer nil  ;; 创建 file 或 buffer 时不需要确认
 
  vc-follow-symlinks t
+
+ gc-cons-threshold (* 128 1024 1024)
  )
 
 (fset 'yes-or-no-p 'y-or-n-p)            ;; 使用 y 和 n
