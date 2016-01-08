@@ -1,19 +1,20 @@
-(require 'cask)
-(cask-initialize)
-(add-to-list 'auto-mode-alist '("Cask" . lisp-mode))
+(add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
-(require 'use-package)
+(require 'variable-settings)
+(require 'system-settings)
+(require 'general-settings)
+(require 'interface-settings)
 
-(use-package bind-key
-  :ensure t)
+(require 'cask-settings)
+(require 'theme-settings)
+(require 'dired-settings)
+(require 'evil-settings)
+(require 'counsel-settings)
+(require 'projectile-settings)
+(require 'company-settings)
+(require 'ag-settings)
 
-(use-package pallet
-  :config
-  (pallet-mode t))
-
-(use-package el-init
-  :ensure t
-  :init
-  (el-init-load
-   (expand-file-name "inits/" user-emacs-directory)
-   :subdirectories '("core" "ext" "lang")))
+(require 'ruby-settings)
+(require 'web-settings)
+(require 'javascript-settings)
+(require 'css-settings)
