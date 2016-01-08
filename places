@@ -1,0 +1,41 @@
+;;; -*- coding: utf-8 -*-
+(("/Users/wangzongcan/Work/leaf/app/models/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app/models/clazz.rb"))
+ ("/Users/wangzongcan/"
+  (dired-filename . "/Users/wangzongcan/Work"))
+ ("/Users/wangzongcan/Work/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf"))
+ ("/Users/wangzongcan/Work/leaf/app/workers/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app/workers/.."))
+ ("/Users/wangzongcan/Work/leaf/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app"))
+ ("/Users/wangzongcan/Work/leaf/app/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app/views"))
+ ("/Users/wangzongcan/Work/leaf/app/views/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app/views/teacher_center"))
+ ("/Users/wangzongcan/Work/leaf/app/views/teacher_center/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app/views/teacher_center/homeworks"))
+ ("/Users/wangzongcan/Work/leaf/app/views/teacher_center/homeworks/"
+  (dired-filename . "/Users/wangzongcan/Work/leaf/app/views/teacher_center/homeworks/show.html.erb"))
+ ("/Users/wangzongcan/Work/leaf/app/views/teacher_center/homeworks/show.html.erb" . 1476)
+ ("/Users/wangzongcan/.emacs.d/recentf" . 1222)
+ ("/Users/wangzongcan/.bash_profile" . 111)
+ ("/Users/wangzongcan/.dotfiles/runcom/"
+  (dired-filename . "/Users/wangzongcan/.dotfiles/runcom/.bash_profile.symlink"))
+ ("/Users/wangzongcan/.dotfiles/"
+  (dired-filename . "/Users/wangzongcan/.dotfiles/git"))
+ ("/Users/wangzongcan/.emacs.d/"
+  (dired-filename . "/Users/wangzongcan/.emacs.d/custom"))
+ ("/Users/wangzongcan/.emacs.d/custom/"
+  (dired-filename . "/Users/wangzongcan/.emacs.d/custom/setup-programming.el"))
+ ("/Users/wangzongcan/.emacs.d/custom/setup-programming.el" . 183)
+ ("/Users/wangzongcan/.dotfiles/runcom/.bash_profile.symlink" . 112)
+ ("/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.15/share/emacs/24.5/lisp/loaddefs.el" . 621365)
+ ("/Users/wangzongcan/Work/leaf/Gemfile" . 2260)
+ ("/Users/wangzongcan/.emacs.d/custom/setup-faces-and-ui.el" . 326)
+ ("/Users/wangzongcan/.emacs.d/custom/setup-files.el" . 786)
+ ("/Users/wangzongcan/.emacs.d/custom/setup-environment.el" . 310)
+ ("/Users/wangzongcan/.emacs.d/custom/setup-local.el" . 23)
+ ("/Users/wangzongcan/.emacs.d/config/"
+  (dired-filename . "/Users/wangzongcan/.emacs.d/config/.."))
+ ("/Users/wangzongcan/.emacs.d/custom/setup-help.el" . 22))

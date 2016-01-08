@@ -13,7 +13,7 @@
  auto-save-default nil
  make-backup-files nil
  create-lockfiles nil
-  
+
  vc-follow-symlinks t
 
  gc-cons-threshold (* 128 1024 1024)

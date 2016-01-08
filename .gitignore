@@ -4,6 +4,6 @@ ac-comphist.dat
 config.el
 url/
 elpa/
-backups/
+.backup/
 cache/
 .mc-lists.el
