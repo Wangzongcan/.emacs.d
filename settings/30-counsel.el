@@ -5,6 +5,7 @@
 
 (use-package ivy
   :diminish ivy-mode
+  :bind (("C-x C-r" . ivy-recentf))
   :init
   (ivy-mode 1)
   :config

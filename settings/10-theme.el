@@ -2,6 +2,7 @@
   :ensure t
   :init
   (load-theme 'monokai t)
+
   (set-face-attribute 'default nil :background "black")
   (set-face-attribute 'fringe nil :background "black"))
 

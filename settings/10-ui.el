@@ -17,4 +17,6 @@
 
 (setq default-frame-alist '((font . "m+ 1m-12")))
 
+(setq linum-format " %4d ")
+
 (provide '10-ui)
