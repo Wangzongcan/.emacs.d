@@ -8,14 +8,14 @@
 ;; Tab
 (setq tab-always-indent 'complete)
 (setq-default tab-width 4
-			  indent-tabs-mode nil)
+              indent-tabs-mode nil)
 
 (setq global-mark-ring-max 5000
       mark-ring-max 5000
       require-final-newline t)
 
 (setq kill-ring-max 5000
-	  kill-whole-line t)
+      kill-whole-line t)
 
 (setq echo-keystrokes 0.1)
 
@@ -24,5 +24,7 @@
 (set-language-environment "UTF-8")
 
 (global-auto-revert-mode)
+
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
 (provide '10-core)
