@@ -1,9 +1,6 @@
 .cask/
-auto-save-list
-ac-comphist.dat
-config.el
-url/
-elpa/
-.backup/
-cache/
-.mc-lists.el
+.backups/
+auto-save-list/
+recentf
+projectile.cache
+projectile-bookmarks.eld

@@ -1,21 +1,8 @@
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
+(defconst emacs-settings-directory
+  (concat user-emacs-directory "settings"))
 
-(add-to-list 'load-path (concat user-emacs-directory "custom/"))
+(add-to-list 'load-path emacs-settings-directory)
 
-(require 'setup-applications)
-(require 'setup-communication)
-(require 'setup-convenience)
-(require 'setup-data)
-(require 'setup-development)
-(require 'setup-editing)
-(require 'setup-environment)
-(require 'setup-external)
-(require 'setup-faces-and-ui)
-(require 'setup-files)
-(require 'setup-help)
-(require 'setup-programming)
-(require 'setup-text)
-(require 'setup-local)
+(let ((setting-files (directory-files emacs-settings-directory t ".el$")))
+  (dolist (file setting-files)
+    (require (intern (file-name-base file)))))

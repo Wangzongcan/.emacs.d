@@ -8,13 +8,13 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
-(size-indication-mode t)
-
 (setq frame-title-format
       '("" invocation-name " - " (:eval (if (buffer-file-name)
                                             (abbreviate-file-name (buffer-file-name))
                                           "%b"))))
 
+(setq frame-resize-pixelwise t)
+
 (setq default-frame-alist '((font . "m+ 1m-12")))
 
-(provide 'setup-faces-and-ui)
+(provide '10-ui)
