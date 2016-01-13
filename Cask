@@ -15,6 +15,7 @@
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "projectile")
+(depends-on "projectile-rails")
 (depends-on "recentf-ext")
 (depends-on "sass-mode")
 (depends-on "scss-mode")
