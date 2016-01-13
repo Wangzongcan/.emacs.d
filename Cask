@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "ag")
+(depends-on "bind-key")
 (depends-on "cask")
 (depends-on "company")
 (depends-on "counsel")
@@ -11,6 +12,7 @@
 (depends-on "flx")
 (depends-on "js2-mode")
 (depends-on "monokai-theme")
+(depends-on "package-build")
 (depends-on "pallet")
 (depends-on "projectile")
 (depends-on "recentf-ext")
