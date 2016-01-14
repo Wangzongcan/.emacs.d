@@ -19,6 +19,8 @@
 
 (setq echo-keystrokes 0.1)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Encoding
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
