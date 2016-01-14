@@ -9,7 +9,7 @@
     (sp-local-pair "<%= " " %>")
     (sp-local-tag "%" "<% "  " %>")
     (sp-local-tag "=" "<%= " " %>"))
-  
+
   (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode))
 
 (provide '30-smartparens)
