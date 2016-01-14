@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "ag")
+(depends-on "avy")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "company")
