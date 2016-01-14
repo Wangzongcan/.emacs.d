@@ -1,5 +1,3 @@
-(setq create-lockfiles nil)
-
 (setq
  make-backup-files t
  backup-directory-alist `((".*" . ,backup-directory))
@@ -11,9 +9,9 @@
 
 (setq
  auto-save-default t
-  auto-save-timeout 20
+ auto-save-timeout 20
  auto-save-interval 200
  auto-save-list-file-prefix
- (concat cache-directory "auto-save-list/.saves-"))
+ (concat backup-directory "auto-save-list/.saves-"))
 
 (provide '10-backup)

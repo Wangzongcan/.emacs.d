@@ -1,6 +1,8 @@
 (setq gc-cons-threshold (* 100 1024 1024))
 (setq load-prefer-newer t)
 
+(setq create-lockfiles nil)
+
 (setq inhibit-startup-screen t)
 
 (setq visible-bell t
