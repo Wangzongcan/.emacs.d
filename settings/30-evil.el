@@ -4,13 +4,14 @@
   (evil-mode 1)
   :config
   (setcdr evil-insert-state-map nil)
-  (bind-key "ESC" 'evil-normal-state evil-insert-state-map)
-  (bind-key (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
+  (bind-keys :map evil-insert-state-map
+             ([escape] . evil-normal-state)
+             ((read-kbd-macro evil-toggle-key) . evil-emacs-state))
 
-
-  (bind-key ";" 'evil-ex evil-normal-state-map)
-  (bind-key "j" 'evil-next-visual-line evil-normal-state-map)
-  (bind-key "k" 'evil-previous-visual-line evil-normal-state-map))
+  (bind-keys :map evil-normal-state-map
+             (";" . evil-ex)
+             ("j" . evil-next-line)
+             ("k" . evil-previous-visual-line)))
 
 (use-package evil-leader
   :ensure t
@@ -23,6 +24,7 @@
    "3" 'split-window-right
    "o" 'other-window
    "b" 'switch-to-buffer
+   "k" 'kill-buffer
 
    ;; Counsel
    "SPC" 'counsel-M-x
