@@ -1,5 +1,6 @@
 .cask/
-.backups/
+.backup/
+.cache/
 auto-save-list/
 recentf
 projectile.cache
