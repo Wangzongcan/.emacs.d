@@ -21,6 +21,7 @@
 (depends-on "sass-mode")
 (depends-on "scss-mode")
 (depends-on "smartparens")
+(depends-on "spaceline")
 (depends-on "swiper")
 (depends-on "use-package")
 (depends-on "web-mode")
