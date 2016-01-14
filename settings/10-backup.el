@@ -1,4 +1,3 @@
-;; Back Up
 (defvar backup-directory (expand-file-name ".backups" user-emacs-directory))
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))

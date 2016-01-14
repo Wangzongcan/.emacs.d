@@ -9,7 +9,7 @@
   (setq ls-lisp-dirs-first t
         ls-lisp-ignore-case t
         ls-lisp-use-insert-directory-program nil
-        
+
         dired-use-ls-dired nil))
 
 (provide '10-dired)
