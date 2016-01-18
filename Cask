@@ -7,6 +7,7 @@
 (depends-on "cask")
 (depends-on "company")
 (depends-on "counsel")
+(depends-on "dracula-theme")
 (depends-on "emmet-mode")
 (depends-on "evil")
 (depends-on "evil-leader")
