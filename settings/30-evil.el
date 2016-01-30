@@ -31,11 +31,13 @@
    "cy" 'counsel-yank-pop
    "ci" 'counsel-imenu
    "cg" 'counsel-git
+   "ca" 'counsel-ag
 
    ;; Projectile
    "pp" 'projectile-switch-project
    "pf" 'projectile-find-file
    "pb" 'projectile-switch-to-buffer
+   "pd" 'projectile-find-dir
 
    ;; Projectile Rails
    "r RET" 'projectile-rails-goto-file-at-point
