@@ -1,3 +1,5 @@
+(package-initialize)
+
 (defconst emacs-settings-directory
   (concat user-emacs-directory "settings"))
 
