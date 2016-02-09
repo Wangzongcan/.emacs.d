@@ -10,7 +10,7 @@
 
   (bind-keys :map evil-normal-state-map
              (";" . evil-ex)
-             ("j" . evil-next-line)
+             ("j" . evil-next-visual-line)
              ("k" . evil-previous-visual-line)))
 
 (use-package evil-leader
