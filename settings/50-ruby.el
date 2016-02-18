@@ -7,7 +7,6 @@
   (add-hook 'ruby-mode-hook 'my/ruby-mode-hooks))
 
 (defun my/ruby-mode-hooks ()
-  (subword-mode 1)
-  (linum-mode 1))
+  (subword-mode 1))
 
 (provide '50-ruby)

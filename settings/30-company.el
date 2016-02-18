@@ -11,16 +11,6 @@
         company-dabbrev-code-everywhere t
         company-dabbrev-code-ignore-case t)
 
-  (setq company-backends
-        '(company-elisp company-css
-          (company-dabbrev-code company-keywords)
-          company-files
-          company-dabbrev))
-
-  (setq company-frontends
-        '(company-pseudo-tooltip-unless-just-one-frontend
-          company-preview-if-just-one-frontend))
-
   (bind-keys :map company-active-map
              ("C-n" . company-select-next)
              ("C-p" . company-select-previous)))

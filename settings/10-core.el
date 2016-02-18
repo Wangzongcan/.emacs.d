@@ -32,4 +32,7 @@
 
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file)
+
 (provide '10-core)
