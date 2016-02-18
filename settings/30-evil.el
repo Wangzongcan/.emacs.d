@@ -26,6 +26,9 @@
    "b" 'switch-to-buffer
    "k" 'kill-buffer
 
+   ;; Magit
+   "gs" 'magit-status
+
    ;; Counsel
    "SPC" 'counsel-M-x
    "cy" 'counsel-yank-pop
@@ -49,7 +52,6 @@
    "rV" 'projectile-rails-find-current-view
    )
 
-  (global-evil-leader-mode t)
-  )
+  (global-evil-leader-mode t))
 
 (provide '30-evil)

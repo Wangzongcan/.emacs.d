@@ -14,6 +14,7 @@
 (depends-on "evil-leader")
 (depends-on "flx")
 (depends-on "js2-mode")
+(depends-on "magit")
 (depends-on "monokai-theme")
 (depends-on "package-build")
 (depends-on "pallet")
