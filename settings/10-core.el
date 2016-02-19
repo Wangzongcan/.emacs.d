@@ -32,6 +32,9 @@
 
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
+(electric-pair-mode)
+(delete-selection-mode)
+
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 
