@@ -4,7 +4,8 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (setq company-idle-delay 0.1
+  (setq company-echo-delay 0
+        company-idle-delay 0.1
         company-dabbrev-downcase nil
         company-dabbrev-ignore-case t
         company-minimum-prefix-length 1
