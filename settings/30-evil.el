@@ -33,7 +33,7 @@
    "SPC" 'counsel-M-x
    "cy" 'counsel-yank-pop
    "ci" 'counsel-imenu
-   "cg" 'counsel-git
+   "cgg" 'counsel-git-grep
    "ca" 'counsel-ag
 
    ;; Projectile
