@@ -15,6 +15,7 @@
 (depends-on "evil")
 (depends-on "evil-leader")
 (depends-on "flx")
+(depends-on "fullframe")
 (depends-on "inf-ruby")
 (depends-on "js2-mode")
 (depends-on "magit")
