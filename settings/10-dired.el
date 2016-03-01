@@ -1,4 +1,6 @@
 (use-package dired
+  :init
+  (setq dired-dwim-target t)
   :config
   (add-hook 'dired-mode-hook 'dired-hide-details-mode))
 
