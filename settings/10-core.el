@@ -29,6 +29,7 @@
 (set-language-environment "UTF-8")
 
 (global-auto-revert-mode)
+(setq global-auto-revert-non-file-buffers t)
 
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
