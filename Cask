@@ -19,6 +19,7 @@
 (depends-on "inf-ruby")
 (depends-on "js2-mode")
 (depends-on "magit")
+(depends-on "magit-popup")
 (depends-on "monokai-theme")
 (depends-on "nyan-mode")
 (depends-on "package-build")
@@ -35,3 +36,4 @@
 (depends-on "web-mode")
 (depends-on "with-editor")
 (depends-on "yaml-mode")
+(depends-on "yasnippet")
