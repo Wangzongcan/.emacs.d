@@ -29,4 +29,9 @@
              ("C-n" . company-select-next)
              ("C-p" . company-select-previous)))
 
+(use-package company-tern
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-tern))
+
 (provide '30-company)
