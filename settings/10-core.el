@@ -3,6 +3,8 @@
 
 (setq create-lockfiles nil)
 
+(setq ns-use-srgb-colorspace nil)
+
 (setq inhibit-startup-screen t)
 
 (setq visible-bell t
