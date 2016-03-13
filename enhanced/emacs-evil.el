@@ -26,9 +26,6 @@
    "b" 'switch-to-buffer
    "k" 'kill-buffer
 
-   ;; Magit
-   "gs" 'magit-status
-
    ;; Counsel
    "SPC" 'counsel-M-x
    "cy" 'counsel-yank-pop
@@ -54,4 +51,4 @@
 
   (global-evil-leader-mode t))
 
-(provide '30-evil)
+(provide 'emacs-evil)

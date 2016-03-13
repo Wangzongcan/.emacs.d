@@ -4,5 +4,4 @@
         uniquify-after-kill-buffer-p t
         uniquify-ignore-buffers-re "^\\*"))
 
-
-(provide '10-uniquify)
+(provide 'emacs-uniquify)

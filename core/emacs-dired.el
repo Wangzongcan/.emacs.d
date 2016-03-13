@@ -1,7 +1,7 @@
 (use-package dired
-  :init
-  (setq dired-dwim-target t)
   :config
+  (setq dired-dwim-target t)
+  
   (add-hook 'dired-mode-hook 'dired-hide-details-mode))
 
 (use-package dired-x)
@@ -10,8 +10,6 @@
   :config
   (setq ls-lisp-dirs-first t
         ls-lisp-ignore-case t
-        ls-lisp-use-insert-directory-program nil
+        ls-lisp-use-insert-directory-program nil))
 
-        dired-use-ls-dired nil))
-
-(provide '10-dired)
+(provide 'emacs-dired)

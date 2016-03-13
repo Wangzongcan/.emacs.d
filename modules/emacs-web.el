@@ -10,4 +10,4 @@
         web-mode-markup-indent-offset 2
         web-mode-enable-auto-pairing t))
 
-(provide '50-web)
+(provide 'emacs-web)

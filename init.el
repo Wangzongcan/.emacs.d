@@ -1,10 +1,32 @@
+;; GC
+(setq gc-cons-threshold (* 200 1024 1024))
+
+;; cask
+(require 'cask)
+(cask-initialize)
+(add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
+
+(require 'pallet)
+(pallet-mode t)
+
+;; package
 (package-initialize)
 
-(defconst emacs-settings-directory
-  (concat user-emacs-directory "settings"))
+;; use-package
+(when (not (package-installed-p 'use-package))
+  (package-install 'use-package))
 
-(add-to-list 'load-path emacs-settings-directory)
+;; custom.el
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(if (file-exists-p custom-file)
+    (load custom-file)
+  (write-region "" nil custom-file))
 
-(let ((setting-files (directory-files emacs-settings-directory t ".el$")))
-  (dolist (file setting-files)
-    (require (intern (file-name-base file)))))
+;; load-path
+(add-to-list 'load-path (concat user-emacs-directory "core/"))
+(add-to-list 'load-path (concat user-emacs-directory "enhanced/"))
+(add-to-list 'load-path (concat user-emacs-directory "modules/"))
+
+(load-file (concat user-emacs-directory "core/emacs-core.el"))
+(load-file (concat user-emacs-directory "enhanced/emacs-enhanced.el"))
+(load-file (concat user-emacs-directory "modules/emacs-modules.el"))

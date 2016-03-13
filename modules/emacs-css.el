@@ -12,4 +12,4 @@
   :config
   (setq scss-compile-at-save nil))
 
-(provide '50-css)
+(provide 'emacs-css)

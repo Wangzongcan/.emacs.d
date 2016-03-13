@@ -14,4 +14,4 @@
 (use-package swiper
   :bind ("C-s" . swiper))
 
-(provide '30-counsel)
+(provide 'emacs-counsel)
