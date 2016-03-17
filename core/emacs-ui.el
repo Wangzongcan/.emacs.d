@@ -11,9 +11,10 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
-(line-number-mode t)
-(column-number-mode t)
-(size-indication-mode t)
+(line-number-mode 1)
+(column-number-mode 1)
+(size-indication-mode 1)
+(global-hl-line-mode 1)
 
 ;; font
 (add-to-list 'default-frame-alist '(font . "M+ 1m-12"))

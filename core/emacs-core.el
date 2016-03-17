@@ -5,6 +5,7 @@
 (require 'emacs-ui)
 (require 'emacs-editor)
 (require 'emacs-dired)
+(require 'emacs-ibuffer)
 (require 'emacs-recentf)
 (require 'emacs-saveplace)
 (require 'emacs-uniquify)

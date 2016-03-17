@@ -7,6 +7,7 @@
   :config
   (setq js-indent-level 2
         js2-indent-level 2
-        js2-basic-offset 2))
+        js2-basic-offset 2)
+  (add-hook 'js2-mode-hook #'smartparens-mode))
 
 (provide 'emacs-javascript)
