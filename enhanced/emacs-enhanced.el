@@ -7,5 +7,6 @@
 (require 'emacs-projectile)
 (require 'emacs-spaceline)
 (require 'emacs-quickrun)
+(require 'emacs-emmet)
 
 (provide 'emacs-enhanced)
