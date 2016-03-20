@@ -1,6 +1,6 @@
-(use-package spacemacs-theme
+(use-package dracula-theme
   :ensure t
   :init
-  (load-theme 'spacemacs-dark t))
+  (load-theme 'dracula t))
 
 (provide 'emacs-theme)

@@ -11,7 +11,13 @@
   (bind-keys :map evil-normal-state-map
              (";" . evil-ex)
              ("j" . evil-next-visual-line)
-             ("k" . evil-previous-visual-line)))
+             ("k" . evil-previous-visual-line))
+  (setq
+   evil-normal-state-cursor '("medium sea green" box)
+   evil-visual-state-cursor '("dark cyan" hbar)
+   evil-insert-state-cursor '("maroon" bar)
+   evil-replace-state-cursor '("purple" hbar)
+   evil-operator-state-cursor '("darkred" hollow)))
 
 (use-package evil-leader
   :ensure t
