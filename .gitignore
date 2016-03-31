@@ -1,7 +1,5 @@
 .cask/
-.backup/
 .cache/
+backup/
+savefile/
 auto-save-list/
-recentf
-projectile.cache
-projectile-bookmarks.eld

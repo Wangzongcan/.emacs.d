@@ -1,32 +1,25 @@
-;; GC
-(setq gc-cons-threshold (* 200 1024 1024))
-
-;; cask
 (require 'cask)
 (cask-initialize)
-(add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
 
 (require 'pallet)
 (pallet-mode t)
 
-;; package
 (package-initialize)
 
 ;; use-package
 (when (not (package-installed-p 'use-package))
   (package-install 'use-package))
 
-;; custom.el
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(if (file-exists-p custom-file)
-    (load custom-file)
-  (write-region "" nil custom-file))
+(defconst emacs-savefile-directory
+  (file-name-as-directory (concat user-emacs-directory "savefile")))
+(make-directory emacs-savefile-directory t)
 
-;; load-path
-(add-to-list 'load-path (concat user-emacs-directory "core/"))
-(add-to-list 'load-path (concat user-emacs-directory "enhanced/"))
-(add-to-list 'load-path (concat user-emacs-directory "modules/"))
+(defconst emacs-backup-directory
+  (file-name-as-directory (concat user-emacs-directory "backup")))
+(make-directory emacs-backup-directory t)
 
-(load-file (concat user-emacs-directory "core/emacs-core.el"))
-(load-file (concat user-emacs-directory "enhanced/emacs-enhanced.el"))
-(load-file (concat user-emacs-directory "modules/emacs-modules.el"))
+(use-package el-init
+  :ensure t
+  :init
+  (el-init-load (expand-file-name "inits" user-emacs-directory)
+                :subdirectories '("." "core" "ext" "lang")))
