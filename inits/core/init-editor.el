@@ -14,12 +14,6 @@
 
 (delete-selection-mode t)
 
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist
-      `((".*" . ,emacs-backup-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,emacs-backup-directory t)))
-
 ;; auto revert
 (global-auto-revert-mode 1)
 (setq auto-revert-verbose nil
