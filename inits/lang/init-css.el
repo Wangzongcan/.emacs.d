@@ -18,7 +18,7 @@
 
 (defun my/css-mode-hook()
   (smartparens-mode)
-  (indent-guide-mode)
-  (rainbow-delimiters-mode))
+  (rainbow-delimiters-mode)
+  (highlight-indentation-current-column-mode))
 
 (provide 'init-css)

@@ -13,7 +13,7 @@
   (add-hook 'web-mode-hook 'my/web-mode-hook))
 
 (defun my/web-mode-hook ()
-  (indent-guide-mode)
-  (rainbow-delimiters-mode))
+  (rainbow-delimiters-mode)
+  (highlight-indentation-current-column-mode))
 
 (provide 'init-web)

@@ -19,7 +19,7 @@
 (defun my/ruby-mode-hook()
   (flycheck-mode)
   (smartparens-mode)
-  (indent-guide-mode)
-  (rainbow-delimiters-mode))
+  (rainbow-delimiters-mode)
+  (highlight-indentation-current-column-mode))
 
 (provide 'init-ruby)

@@ -24,7 +24,7 @@
 (depends-on "git-commit")
 (depends-on "goto-chg")
 (depends-on "haml-mode")
-(depends-on "indent-guide")
+(depends-on "highlight-indentation")
 (depends-on "inf-ruby")
 (depends-on "inflections")
 (depends-on "js2-mode")
