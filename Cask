@@ -39,6 +39,7 @@
 (depends-on "projectile-rails")
 (depends-on "rainbow-delimiters")
 (depends-on "rake")
+(depends-on "robe")
 (depends-on "s")
 (depends-on "sass-mode")
 (depends-on "scss-mode")
