@@ -12,6 +12,7 @@
 
 (use-package robe
   :ensure t
+  :diminish robe-mode
   :config
   (add-hook 'ruby-mode-hook 'robe-mode)
   (push 'company-robe company-backends))
