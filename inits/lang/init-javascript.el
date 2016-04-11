@@ -14,7 +14,13 @@
         js2-basic-offset 2)
   (add-hook 'js2-mode-hook 'my/js2-mode-hook))
 
+(use-package company-tern
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-tern))
+
 (defun my/js2-mode-hook()
+  (tern-mode)
   (smartparens-mode)
   (rainbow-delimiters-mode)
   (highlight-indentation-current-column-mode)

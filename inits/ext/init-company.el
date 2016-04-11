@@ -10,7 +10,8 @@
          company-dabbrev-ignore-case t
          company-minimum-prefix-length 1
          company-dabbrev-code-everywhere t
-         company-dabbrev-code-ignore-case t)
+         company-dabbrev-code-ignore-case t
+         company-begin-commands '(self-insert-command))
 
    (bind-keys :map global-map
               ("C-i" . company-indent-or-complete-common))

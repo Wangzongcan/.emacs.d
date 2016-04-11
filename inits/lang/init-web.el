@@ -15,6 +15,13 @@
 (use-package emmet-mode
   :ensure t)
 
+(use-package company-web-html
+  :ensure company-web
+  :config
+  (add-to-list 'company-backends 'company-web-html)
+  (add-to-list 'company-backends 'company-web-jade)
+  (add-to-list 'company-backends 'company-web-slim))
+
 (defun my/web-mode-hook ()
   (emmet-mode)
   (rainbow-delimiters-mode)
