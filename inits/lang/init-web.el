@@ -13,11 +13,10 @@
   (add-hook 'web-mode-hook 'my/web-mode-hook))
 
 (use-package emmet-mode
-  :ensure t
-  :config
-  (add-hook 'web-mode-hook 'emmet-mode))
+  :ensure t)
 
 (defun my/web-mode-hook ()
+  (emmet-mode)
   (rainbow-delimiters-mode)
   (highlight-indentation-current-column-mode))
 
