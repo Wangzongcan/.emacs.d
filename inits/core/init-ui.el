@@ -12,6 +12,8 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 
+(setq linum-format "%4d \u2502 ")
+
 ;; fullframe
 (setq frame-resize-pixelwise t)
 

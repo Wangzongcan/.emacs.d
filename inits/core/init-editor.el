@@ -2,6 +2,8 @@
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 
+(setq load-prefer-newer t)
+
 (setq visible-bell t
       ring-bell-function #'ignore)
 

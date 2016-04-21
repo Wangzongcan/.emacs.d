@@ -54,6 +54,7 @@
 (use-package evil-surround
   :ensure t
   :config
-  (global-evil-leader-mode 1))
+  (global-evil-surround-mode 1))
+
 
 (provide 'init-evil)
