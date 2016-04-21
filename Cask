@@ -26,7 +26,6 @@
 (depends-on "goto-chg")
 (depends-on "haml-mode")
 (depends-on "highlight-indentation")
-(depends-on "hydra")
 (depends-on "inf-ruby")
 (depends-on "inflections")
 (depends-on "js2-mode")
