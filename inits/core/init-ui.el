@@ -1,8 +1,8 @@
 (setq ns-use-srgb-colorspace nil)
 
 ;; font
-(add-to-list 'default-frame-alist '(font . "M+ 1m-12"))
-(set-face-attribute 'default nil :font "M+ 1m-12")
+;; (add-to-list 'default-frame-alist '(font . "Source Code Pro-12"))
+;; (set-face-attribute 'default nil :font "Source Code Pro-12")
 
 ;; startup
 (setq inhibit-startup-screen t)
