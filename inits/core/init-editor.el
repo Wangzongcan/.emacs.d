@@ -7,6 +7,9 @@
 (setq visible-bell t
       ring-bell-function #'ignore)
 
+;; enable clipboard in emacs
+(setq x-select-enable-clipboard t)
+
 ;; tab
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)

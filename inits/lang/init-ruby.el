@@ -19,6 +19,7 @@
 
 (defun my/ruby-mode-hook()
   (flycheck-mode)
+  (superword-mode)
   (smartparens-mode)
   (rainbow-delimiters-mode)
   (highlight-indentation-current-column-mode))
