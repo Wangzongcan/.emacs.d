@@ -6,21 +6,25 @@
 
 ;;; Code:
 
-(defvar emacs-english-font "Source Code Pro"
+
+;; (add-to-list 'default-frame-alist '(font . "M+ 1m-11"))
+;; (set-face-attribute 'default nil :font "M+ 1m-11")
+
+(defvar emacs-english-font "M+ 1m"
   "The font name of English.")
 
 (defvar emacs-cjk-font "PingFang TC"
   "The font name for CJK.")
 
-(defvar emacs-font-size-pair '(12 . 14)
+(defvar emacs-font-size-pair '(10 . 10)
   "Default font size pair for (english . chinese).")
 
 (defvar emacs-font-size-pair-list
-  '(( 5 .  6) (10 . 12) (12 . 14)
-    (13 . 16) (15 . 18) (17 . 20)
-    (19 . 22) (20 . 24) (21 . 26)
-    (24 . 28) (26 . 32) (28 . 34)
-    (30 . 36) (34 . 40) (36 . 44))
+  '(( 6 .  6) (8 . 8) (10 . 10)
+    (12 . 12) (14 . 14) (16 . 16)
+    (18 . 18) (20 . 20) (22 . 22)
+    (24 . 24) (26 . 26) (28 . 28)
+    (30 . 30) (32 . 32) (34 . 34))
   "This list is used to store matching (englis . chinese) font-size.")
 
 (defun font-exist-p (fontname)
