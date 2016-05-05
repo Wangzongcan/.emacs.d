@@ -28,6 +28,7 @@
 (depends-on "highlight-indentation")
 (depends-on "inf-ruby")
 (depends-on "inflections")
+(depends-on "ivy")
 (depends-on "js2-mode")
 (depends-on "magit")
 (depends-on "magit-popup")

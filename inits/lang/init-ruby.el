@@ -1,7 +1,7 @@
 (use-package chruby
   :ensure t
   :config
-  (chruby "ruby-2.3.0"))
+  (chruby "ruby-2.3.1"))
 
 (use-package ruby-mode
   :mode (("\\.rb$" . ruby-mode))

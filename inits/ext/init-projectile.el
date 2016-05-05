@@ -13,6 +13,7 @@
 
 (use-package projectile-rails
   :ensure t
+  :diminish projectile-rails-mode
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
