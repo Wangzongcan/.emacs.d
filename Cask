@@ -12,6 +12,7 @@
 (depends-on "company-tern")
 (depends-on "company-web")
 (depends-on "counsel")
+(depends-on "darkokai-theme")
 (depends-on "dash")
 (depends-on "diminish")
 (depends-on "el-init")
