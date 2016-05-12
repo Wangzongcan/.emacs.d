@@ -15,6 +15,7 @@
 (depends-on "darkokai-theme")
 (depends-on "dash")
 (depends-on "diminish")
+(depends-on "dracula-theme")
 (depends-on "el-init")
 (depends-on "emmet-mode")
 (depends-on "epl")
