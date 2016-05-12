@@ -3,7 +3,7 @@
 (use-package dracula-theme
   :ensure t
   :defer t
-  :init
+  :config
   (set-face-attribute 'font-lock-type-face nil :foreground "#8be9fd")
   (set-face-attribute 'font-lock-variable-name-face nil :foreground "#bd93f9"))
 (use-package darkokai-theme
