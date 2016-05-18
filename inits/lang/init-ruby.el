@@ -10,16 +10,10 @@
   (setq ruby-insert-encoding-magic-comment nil)
   (add-hook 'ruby-mode-hook 'my/ruby-mode-hook))
 
-(use-package robe
-  :ensure t
-  :diminish robe-mode
-  :config
-  (add-hook 'ruby-mode-hook 'robe-mode)
-  (push 'company-robe company-backends))
-
 (defun my/ruby-mode-hook()
   (flycheck-mode)
   (superword-mode)
+  (whitespace-mode)
   (smartparens-mode)
   (rainbow-delimiters-mode)
   (highlight-indentation-current-column-mode))

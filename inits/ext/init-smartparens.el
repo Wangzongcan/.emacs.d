@@ -1,9 +1,6 @@
-(use-package smartparens
-  :ensure t
-  :diminish smartparens-mode
-  :init
-  (require 'smartparens-config)
-  (show-smartparens-global-mode))
+(use-package smartparens-config
+  :ensure smartparens
+  :init (add-hook 'after-init-hook #'show-smartparens-global-mode))
 
 (use-package smartparens-ruby)
 

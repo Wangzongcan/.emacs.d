@@ -6,10 +6,6 @@
 
 ;;; Code:
 
-
-;; (add-to-list 'default-frame-alist '(font . "M+ 1m-11"))
-;; (set-face-attribute 'default nil :font "M+ 1m-11")
-
 (defvar emacs-english-font "M+ 1m"
   "The font name of English.")
 

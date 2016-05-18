@@ -1,8 +1,7 @@
 (use-package whitespace
-  :diminish whitespace-mode
+  :init
+  (add-hook 'before-save-hook 'whitespace-cleanup)
   :config
-  (setq whitespace-style '(face tab-mark trailing empty))
-
-  (add-hook 'before-save-hook 'whitespace-cleanup))
+  (setq whitespace-style '(face tab-mark trailing empty)))
 
 (provide 'init-whitespace)

@@ -1,8 +1,10 @@
 (use-package dired
+  :init
+  (add-hook 'dired-mode-hook 'dired-hide-details-mode)
   :config
-  (setq dired-dwim-target t)
-  
-  (add-hook 'dired-mode-hook 'dired-hide-details-mode))
+  (setq dired-dwim-target t
+        dired-auto-revert-buffer t
+        dired-recursive-copies 'always))
 
 (use-package dired-x)
 

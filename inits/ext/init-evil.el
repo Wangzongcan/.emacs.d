@@ -15,6 +15,7 @@
 
 (use-package evil-leader
   :ensure t
+  :init (global-evil-leader-mode 1)
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
@@ -47,14 +48,11 @@
    "rM" 'projectile-rails-find-current-model
    "rv" 'projectile-rails-find-view
    "rV" 'projectile-rails-find-current-view
-   )
-
-  (global-evil-leader-mode 1))
+   ))
 
 (use-package evil-surround
   :ensure t
-  :config
-  (global-evil-surround-mode 1))
+  :init (global-evil-surround-mode 1))
 
 
 (provide 'init-evil)

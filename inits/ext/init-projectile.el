@@ -1,20 +1,12 @@
 (use-package projectile
   :ensure t
-  :init
-  (setq projectile-known-projects-file
-        (expand-file-name "projectile-bookmarks.eld" emacs-savefile-directory))
+  :init (add-hook 'after-init-hook #'projectile-global-mode)
   :config
-  (setq projectile-enable-cacheing t
-        projectile-completion-system 'ivy
-        projectile-cache-file
-        (expand-file-name "projectile.cache" emacs-savefile-directory))
-
-  (projectile-global-mode))
+  (setq projectile-completion-system 'ivy))
 
 (use-package projectile-rails
   :ensure t
-  :diminish projectile-rails-mode
-  :config
+  :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
 (provide 'init-projectile)

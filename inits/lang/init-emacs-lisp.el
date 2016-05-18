@@ -2,6 +2,7 @@
 
 (defun my/emacs-lisp-mode-hook()
   (flycheck-mode)
+  (whitespace-mode)
   (smartparens-mode)
   (rainbow-delimiters-mode)
   (highlight-indentation-current-column-mode))

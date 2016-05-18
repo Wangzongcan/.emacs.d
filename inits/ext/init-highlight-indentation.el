@@ -1,5 +1,3 @@
-(use-package highlight-indentation
-  :ensure t
-  :diminish highlight-indentation-current-column-mode)
+(use-package highlight-indentation :ensure t :defer t)
 
 (provide 'init-highlight-indentation)

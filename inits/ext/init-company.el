@@ -1,5 +1,4 @@
 (use-package company
-   :diminish company-mode
    :ensure t
    :init
    (add-hook 'after-init-hook 'global-company-mode)

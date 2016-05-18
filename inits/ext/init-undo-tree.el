@@ -1,6 +1,3 @@
-(use-package undo-tree
-  :ensure t
-  :defer t
-  :diminish undo-tree-mode)
+(use-package undo-tree :ensure t :defer t)
 
 (provide 'init-undo-tree)
