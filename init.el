@@ -10,13 +10,9 @@
 (when (not (package-installed-p 'use-package))
   (package-install 'use-package))
 
-(defconst emacs-savefile-directory
-  (file-name-as-directory (concat user-emacs-directory "savefile")))
-(make-directory emacs-savefile-directory t)
-
-(defconst emacs-backup-directory
-  (file-name-as-directory (concat user-emacs-directory "backup")))
-(make-directory emacs-backup-directory t)
+(defconst my/cache-directory
+  (file-name-as-directory (concat user-emacs-directory ".cache")))
+(make-directory my/cache-directory t)
 
 (use-package el-init
   :ensure t
