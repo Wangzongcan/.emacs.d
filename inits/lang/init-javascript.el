@@ -1,3 +1,11 @@
+(use-package nvm
+  :ensure t
+  :config
+  (let* ((current-nvm-dir (car (cdar (nvm--installed-versions))))
+         (nvm-path (format "%s/bin" current-nvm-dir)))
+    (setenv "PATH" (concat nvm-path ":" (getenv "PATH")))
+    (setq exec-path (append (list nvm-path) exec-path))))
+
 (use-package js2-mode
   :ensure t
   :mode (("\\.js\\'" . js2-mode)
