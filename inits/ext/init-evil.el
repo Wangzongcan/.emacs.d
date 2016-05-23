@@ -34,6 +34,9 @@
    "cgg" 'counsel-git-grep
    "ca" 'counsel-ag
 
+   ;; Magit
+   "gs" 'magit-status
+
    ;; Projectile
    "pp" 'projectile-switch-project
    "pf" 'projectile-find-file
