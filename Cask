@@ -35,6 +35,7 @@
 (depends-on "magit")
 (depends-on "magit-popup")
 (depends-on "monokai-theme")
+(depends-on "nvm")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "pkg-info")
