@@ -13,6 +13,8 @@
 (setq visible-bell t
       ring-bell-function #'ignore)
 
+(setq-default truncate-lines t)
+
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 
