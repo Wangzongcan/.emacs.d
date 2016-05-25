@@ -1,16 +1,14 @@
 (use-package company
    :ensure t
    :init
-   (add-hook 'after-init-hook 'global-company-mode)
+   (add-hook 'after-init-hook #'global-company-mode)
    :config
-   (setq company-echo-delay 0
-         company-idle-delay 0
+   (setq company-idle-delay nil
+         company-auto-complete nil
          company-dabbrev-downcase nil
          company-dabbrev-ignore-case t
-         company-minimum-prefix-length 1
          company-dabbrev-code-everywhere t
-         company-dabbrev-code-ignore-case t
-         company-begin-commands '(self-insert-command))
+         company-dabbrev-code-ignore-case t)
 
    (bind-keys :map global-map
               ("C-i" . company-indent-or-complete-common))
