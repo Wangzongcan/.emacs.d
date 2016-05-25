@@ -1,4 +1,5 @@
 ;;; Code:
+(setq gc-cons-threshold 20000000)
 
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
