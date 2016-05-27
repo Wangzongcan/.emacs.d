@@ -60,3 +60,4 @@
 (depends-on "web-mode")
 (depends-on "with-editor")
 (depends-on "yaml-mode")
+(depends-on "yasnippet")

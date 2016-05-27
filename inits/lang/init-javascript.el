@@ -29,12 +29,7 @@
 
 (defun my/js2-mode-hook()
   (tern-mode)
-  (whitespace-mode)
-  (smartparens-mode)
-  (rainbow-delimiters-mode)
-  (highlight-indentation-current-column-mode)
 
-  (flycheck-mode)
   (let ((local-eslint (flycheck-locate-config-file-ancestor-directories
                        "node_modules/.bin/eslint"
                        nil)))

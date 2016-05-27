@@ -5,6 +5,7 @@
   :config
   (setq web-mode-style-padding 2
         web-mode-css-indent-offset 2
+        web-mode-html-offset 2
         web-mode-script-padding 2
         web-mode-attr-indent-offset 2
         web-mode-code-indent-offset 2
@@ -25,8 +26,9 @@
 
 (defun my/web-mode-hook ()
   (emmet-mode)
-  (whitespace-mode)
-  (rainbow-delimiters-mode)
-  (highlight-indentation-current-column-mode))
+  ;; (whitespace-mode)
+  ;; (rainbow-delimiters-mode)
+  ;; (highlight-indentation-current-column-mode)
+  )
 
 (provide 'init-web)
