@@ -26,9 +26,6 @@
 
 (defun my/web-mode-hook ()
   (emmet-mode)
-  ;; (whitespace-mode)
-  ;; (rainbow-delimiters-mode)
-  ;; (highlight-indentation-current-column-mode)
-  )
+  (smartparens-mode -1))
 
 (provide 'init-web)
