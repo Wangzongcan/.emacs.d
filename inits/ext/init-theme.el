@@ -12,5 +12,5 @@
   :init
   (setq darkokai-mode-line-padding 1))
 
-(load-theme 'dracula t)
+(load-theme 'spacemacs-dark t)
 (provide 'init-theme)

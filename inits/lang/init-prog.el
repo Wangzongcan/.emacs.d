@@ -3,6 +3,7 @@
   (add-hook 'prog-mode-hook 'my/prog-mode-hook))
 
 (defun my/prog-mode-hook ()
+  (nlinum-mode)
   (flycheck-mode)
   (yas-minor-mode)
   (whitespace-mode)
