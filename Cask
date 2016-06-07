@@ -41,6 +41,7 @@
 (depends-on "nvm")
 (depends-on "package-build")
 (depends-on "pallet")
+(depends-on "pbcopy")
 (depends-on "pkg-info")
 (depends-on "powerline")
 (depends-on "projectile")
