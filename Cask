@@ -8,6 +8,7 @@
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "chruby")
+(depends-on "coffee-mode")
 (depends-on "company")
 (depends-on "company-tern")
 (depends-on "company-web")
