@@ -55,6 +55,7 @@
 (depends-on "scss-mode")
 (depends-on "shut-up")
 (depends-on "smartparens")
+(depends-on "smooth-scrolling")
 (depends-on "spaceline")
 (depends-on "spacemacs-theme")
 (depends-on "swiper")

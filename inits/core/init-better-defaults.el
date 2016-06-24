@@ -19,10 +19,6 @@
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 
-(setq scroll-margin 5
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
-
 (setq echo-keystrokes 0.1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
