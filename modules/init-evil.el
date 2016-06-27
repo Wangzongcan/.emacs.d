@@ -1,7 +1,7 @@
 (use-package evil
   :ensure t
   :init
-  (evil-mode 1)
+  (add-hook 'after-init-hook #'evil-mode)
   :config
   (setcdr evil-insert-state-map nil)
   (bind-keys :map evil-insert-state-map
@@ -15,7 +15,8 @@
 
 (use-package evil-leader
   :ensure t
-  :init (global-evil-leader-mode 1)
+  :init
+  (add-hook 'after-init-hook #'global-evil-leader-mode)
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
@@ -55,7 +56,7 @@
 
 (use-package evil-surround
   :ensure t
-  :init (global-evil-surround-mode 1))
-
+  :init
+  (add-hook 'after-init-hook #'global-evil-surround-mode))
 
 (provide 'init-evil)

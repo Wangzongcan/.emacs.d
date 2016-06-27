@@ -1,6 +1,4 @@
-.cask/
-.cache/
+elpa/
+var/
 backup/
-savefile/
-auto-save-list/
 custom.el

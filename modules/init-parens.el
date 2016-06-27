@@ -4,4 +4,6 @@
 
 (use-package smartparens-ruby)
 
-(provide 'init-smartparens)
+(use-package rainbow-delimiters :ensure t)
+
+(provide 'init-parens)

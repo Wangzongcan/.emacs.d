@@ -1,5 +1,6 @@
 (use-package flycheck
   :ensure t
+  :defer t
   :config
   (define-fringe-bitmap 'my-flycheck-fringe-indicator
     (vector #b00000000

@@ -9,8 +9,15 @@
 (use-package darkokai-theme
   :ensure t
   :defer t
-  :init
+  :config
   (setq darkokai-mode-line-padding 1))
+(use-package solarized-theme
+  :ensure t
+  :defer t
+  :config
+  (setq x-underline-at-descent-line t))
+(use-package zenburn-theme :ensure t :defer t)
 
 (load-theme 'spacemacs-dark t)
-(provide 'init-theme)
+
+(provide 'init-themes)

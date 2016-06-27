@@ -4,9 +4,10 @@
          ("M-x" . counsel-M-x)))
 
 (use-package ivy
-  :bind (("C-x C-r" . ivy-recentf))
+  :bind (("C-x C-r" . ivy-recentf)
+         ("C-c C-r" . ivy-resume))
   :init
-  (ivy-mode 1)
+  (add-hook 'after-init-hook #'ivy-mode)
   :config
   (setq ivy-use-virtual-buffers t))
 

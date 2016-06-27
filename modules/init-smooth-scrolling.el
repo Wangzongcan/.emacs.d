@@ -1,6 +1,6 @@
 (use-package smooth-scrolling
   :ensure t
   :init
-  (smooth-scrolling-mode))
+  (add-hook 'after-init-hook #'smooth-scrolling-mode))
 
 (provide 'init-smooth-scrolling)

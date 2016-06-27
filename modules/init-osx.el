@@ -3,4 +3,4 @@
   :if (not (window-system))
   :init (turn-on-pbcopy))
 
-(provide 'init-pbcopy)
+(provide 'init-osx)

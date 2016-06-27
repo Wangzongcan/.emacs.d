@@ -1,7 +1,7 @@
 (use-package web-mode
   :ensure t
-  :mode (("\\.html$" . web-mode)
-         ("\\.erb$" . web-mode))
+  :mode (("\\.html\\'" . web-mode)
+         ("\\.erb\\'" . web-mode))
   :config
   (setq web-mode-style-padding 2
         web-mode-css-indent-offset 2
