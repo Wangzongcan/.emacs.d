@@ -1,7 +1,7 @@
-(use-package chruby
+(use-package rbenv
   :ensure t
-  :config
-  (chruby "ruby-2.3.1"))
+  :init
+  (global-rbenv-mode))
 
 (use-package ruby-mode
   :mode (("\\.rb$" . ruby-mode))
