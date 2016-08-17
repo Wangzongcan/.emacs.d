@@ -52,6 +52,8 @@
    "rM" 'projectile-rails-find-current-model
    "rv" 'projectile-rails-find-view
    "rV" 'projectile-rails-find-current-view
+   "rh" 'projectile-rails-find-helper
+   "rH" 'projectile-rails-find-current-helper
    ))
 
 (use-package evil-surround
