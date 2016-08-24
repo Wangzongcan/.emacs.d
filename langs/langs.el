@@ -5,5 +5,6 @@
 (require 'init-css)
 (require 'init-yaml)
 (require 'init-markdown)
+(require 'init-dockerfile)
 
 (provide 'langs)
