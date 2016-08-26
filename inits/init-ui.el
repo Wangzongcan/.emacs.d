@@ -24,4 +24,6 @@
 (column-number-mode t)
 (size-indication-mode t)
 
+(global-hl-line-mode t)
+
 (provide 'init-ui)
