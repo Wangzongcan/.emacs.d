@@ -7,6 +7,7 @@
 (require 'init-no-littering)
 (require 'init-spaceline)
 (require 'init-evil)
+(require 'init-fullframe)
 (require 'init-ag)
 (require 'init-company)
 (require 'init-rainbow-delimiters)
@@ -15,6 +16,7 @@
 (require 'init-yasnippet)
 (require 'init-projectile)
 (require 'init-smooth-scrolling)
+(require 'init-git)
 (require 'init-parens)
 
 (provide 'modules)
