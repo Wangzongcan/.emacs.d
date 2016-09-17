@@ -35,6 +35,9 @@
 (defun my/js2-mode-hook()
   (tern-mode)
 
+  (set (make-local-variable 'company-backends)
+       (add-to-list 'company-backends 'company-css))
+
   (let ((local-eslint (flycheck-locate-config-file-ancestor-directories
                        "node_modules/.bin/eslint"
                        nil)))

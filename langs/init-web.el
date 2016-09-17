@@ -17,18 +17,15 @@
 
   (add-hook 'web-mode-hook 'my/web-mode-hook))
 
-(use-package emmet-mode
-  :ensure t)
+(use-package emmet-mode :ensure t)
 
-(use-package company-web-html
-  :ensure company-web
-  :config
-  (add-to-list 'company-backends 'company-web-html)
-  (add-to-list 'company-backends 'company-web-jade)
-  (add-to-list 'company-backends 'company-web-slim))
+(use-package company-web-html :ensure company-web)
 
 (defun my/web-mode-hook ()
   (emmet-mode)
-  (smartparens-mode -1))
+  (smartparens-mode -1)
+
+  (set (make-local-variable 'company-backends)
+       (add-to-list 'company-backends 'company-web-html)))
 
 (provide 'init-web)

@@ -2,6 +2,7 @@
 (setq-default indent-tabs-mode nil)
 
 (setq require-final-newline t)
+(setq-default truncate-lines t)
 
 (delete-selection-mode t)
 
