@@ -16,6 +16,7 @@
 (require 'init-yasnippet)
 (require 'init-projectile)
 (require 'init-smooth-scrolling)
+(require 'init-color-identifiers)
 (require 'init-git)
 (require 'init-parens)
 
