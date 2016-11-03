@@ -4,6 +4,7 @@
          ("M-x" . counsel-M-x)))
 
 (use-package ivy
+  :ensure t
   :bind (("C-x C-r" . ivy-recentf)
          ("C-c C-r" . ivy-resume))
   :init
@@ -11,6 +12,8 @@
   :config
   (setq ivy-use-virtual-buffers t))
 
-(use-package swiper :bind ("C-s" . swiper))
+(use-package swiper
+  :ensure t
+  :bind ("C-s" . swiper))
 
 (provide 'init-counsel)
