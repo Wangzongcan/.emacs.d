@@ -9,6 +9,7 @@
 (require 'init-evil)
 (require 'init-fullframe)
 (require 'init-ag)
+(require 'init-flx)
 (require 'init-company)
 (require 'init-rainbow-delimiters)
 (require 'init-counsel)

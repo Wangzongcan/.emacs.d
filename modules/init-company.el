@@ -26,4 +26,9 @@
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous)))
 
+(use-package company-flx
+  :ensure t
+  :config
+  (company-flx-mode 1))
+
 (provide 'init-company)

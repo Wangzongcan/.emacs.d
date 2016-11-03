@@ -5,12 +5,12 @@
 
 (use-package ivy
   :ensure t
-  :bind (("C-x C-r" . ivy-recentf)
-         ("C-c C-r" . ivy-resume))
   :init
   (add-hook 'after-init-hook #'ivy-mode)
   :config
-  (setq ivy-use-virtual-buffers t))
+  (setq ivy-use-virtual-buffers t
+        ivy-initial-inputs-alist nil
+        ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
 
 (use-package swiper
   :ensure t
