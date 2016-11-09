@@ -9,8 +9,7 @@
   (add-hook 'after-init-hook #'ivy-mode)
   :config
   (setq ivy-use-virtual-buffers t
-        ivy-initial-inputs-alist nil
-        ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
+        ivy-initial-inputs-alist nil))
 
 (use-package swiper
   :ensure t
