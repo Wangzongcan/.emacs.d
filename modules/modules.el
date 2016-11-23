@@ -1,4 +1,3 @@
-(require 'init-packages)
 (when (string-equal system-type "darwin")
   (require 'init-osx))
 (when (string-equal system-type "gnu/linux")

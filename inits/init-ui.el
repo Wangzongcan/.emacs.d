@@ -3,6 +3,10 @@
 (when (featurep 'scroll-bar) (scroll-bar-mode -1))
 (blink-cursor-mode -1)
 
+(let ((no-border '(internal-border-width . 0)))
+  (add-to-list 'default-frame-alist no-border)
+  (add-to-list 'initial-frame-alist no-border))
+
 (setq frame-resize-pixelwise t)
 
 (setq ns-use-srgb-colorspace nil)
