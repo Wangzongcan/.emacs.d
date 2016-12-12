@@ -1,8 +1,8 @@
 (use-package css-mode
-  :init
-  (add-hook 'css-mode-hook 'my/css-mode-hook)
   :config
-  (setq css-indent-offset 2))
+  (setq css-indent-offset 2)
+
+  (add-hook 'css-mode-hook 'my/css-mode-hook))
 
 (use-package sass-mode
   :ensure t

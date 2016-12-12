@@ -1,6 +1,8 @@
-(when (featurep 'tool-bar) (tool-bar-mode -1))
-(when (featurep 'menu-bar) (menu-bar-mode -1))
-(when (featurep 'scroll-bar) (scroll-bar-mode -1))
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+(tooltip-mode -1)
 (blink-cursor-mode -1)
 
 (let ((no-border '(internal-border-width . 0)))
@@ -9,7 +11,9 @@
 
 (setq frame-resize-pixelwise t)
 
-(setq ns-use-srgb-colorspace nil)
+;; (set-face-attribute 'default nil :font "Monaco 12")
+(dolist (charset '(kana han cjk-misc bopomofo gb18030))
+  (set-fontset-font "fontset-default" charset "PingFang SC 14"))
 
 (setq inhibit-startup-screen t
       initial-scratch-message "")
@@ -18,16 +22,10 @@
       ring-bell-function #'ignore)
 
 (setq echo-keystrokes 0.1)
+(setq minibuffer-prompt-properties
+      '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
-(set-face-attribute 'default nil :font "M+ 1m-12")
-(add-to-list 'default-frame-alist '(font . "M+ 1m-12"))
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(line-number-mode t)
-(column-number-mode t)
-(size-indication-mode t)
-
-(global-hl-line-mode t)
+(line-number-mode 1)
+(column-number-mode 1)
 
 (provide 'init-ui)

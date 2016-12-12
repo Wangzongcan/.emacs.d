@@ -1,9 +1,15 @@
 (use-package projectile
   :ensure t
   :init
-  (add-hook 'after-init-hook #'projectile-global-mode)
+  (setq projectile-known-projects-file
+        (expand-file-name "projectile-bookmarks.eld" user-cache-directory))
   :config
-  (setq projectile-completion-system 'ivy))
+  (projectile-mode)
+  (setq projectile-switch-project-action 'projectile-dired)
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-enable-caching t
+        projectile-cache-file
+        (expand-file-name "projectile.cache" user-cache-directory)))
 
 (use-package projectile-rails :ensure t)
 

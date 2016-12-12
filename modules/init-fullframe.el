@@ -1,6 +1,3 @@
-(use-package fullframe
-  :ensure t
-  :config
-  (fullframe magit-status magit-mode-quit-window))
+(use-package fullframe :ensure t :defer t)
 
 (provide 'init-fullframe)

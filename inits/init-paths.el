@@ -1,11 +1,11 @@
 (defconst inits-directory
-  (expand-file-name (concat user-emacs-directory "inits/")))
+  (file-name-as-directory (concat user-emacs-directory "inits")))
 
 (defconst modules-directory
-  (expand-file-name (concat user-emacs-directory "modules/")))
+  (file-name-as-directory (concat user-emacs-directory "modules")))
 
 (defconst langs-directory
-  (expand-file-name (concat user-emacs-directory "langs/")))
+  (file-name-as-directory (concat user-emacs-directory "langs")))
 
 ;; load path
 (add-to-list 'load-path inits-directory)

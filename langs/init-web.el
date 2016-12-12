@@ -1,5 +1,4 @@
 (use-package emmet-mode :ensure t)
-(use-package company-web-html :ensure company-web)
 
 (use-package web-mode
   :ensure t
@@ -11,7 +10,9 @@
         web-mode-css-indent-offset 2
         web-mode-attr-indent-offset 2
         web-mode-code-indent-offset 2
-        web-mode-markup-indent-offset 2)
+        web-mode-markup-indent-offset 2
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-current-column-highlight t)
 
   (unless window-system
     (setq web-mode-enable-auto-pairing t
@@ -22,9 +23,6 @@
 
 (defun my/web-mode-hook ()
   (emmet-mode)
-  (smartparens-mode -1)
-
-  (set (make-local-variable 'company-backends)
-       (add-to-list 'company-backends 'company-web-html)))
+  (smartparens-mode -1))
 
 (provide 'init-web)

@@ -1,10 +1,8 @@
 (use-package nvm
   :ensure t
-  :config
-  (let* ((current-nvm-dir (car (cdar (nvm--installed-versions))))
-         (nvm-path (format "%s/bin" current-nvm-dir)))
-    (setenv "PATH" (concat nvm-path ":" (getenv "PATH")))
-    (setq exec-path (append (list nvm-path) exec-path))))
+  :config (nvm-use (caar (last (nvm--installed-versions)))))
+
+(use-package coffee-mode :ensure t :mode "\\.coffee\\'")
 
 (use-package js2-mode
   :ensure t
@@ -13,34 +11,18 @@
          ("\\.jsx\\'" . js2-jsx-mode))
   :interpreter (("node" . js2-mode))
   :config
-  (setq-default flycheck-disabled-checkers
-                (append flycheck-disabled-checkers
-                        '(javascript-jshint)))
+  (setq-default js2-indent-level 2)
 
   (setq js-indent-level 2
-        js2-indent-level 2
-        js2-basic-offset 2)
+        js2-basic-offset 2
+        js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil)
+
   (add-hook 'js2-mode-hook 'my/js2-mode-hook))
 
-
-(use-package coffee-mode
-  :ensure t
-  :mode "\\.coffee\\'")
-
-(use-package company-tern
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-tern))
-
 (defun my/js2-mode-hook()
-  (tern-mode)
-
-  (set (make-local-variable 'company-backends)
-       (add-to-list 'company-backends 'company-css))
-
   (let ((local-eslint (flycheck-locate-config-file-ancestor-directories
-                       "node_modules/.bin/eslint"
-                       nil)))
+                       "node_modules/.bin/eslint" nil)))
     (if (file-exists-p local-eslint)
         (setq-local flycheck-javascript-eslint-executable local-eslint))))
 

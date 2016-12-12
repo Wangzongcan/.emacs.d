@@ -3,6 +3,6 @@
 (use-package dracula-theme :ensure t :defer t)
 (use-package zenburn-theme :ensure t :defer t)
 
-(load-theme 'monokai t)
+(load-theme 'dracula t)
 
 (provide 'init-themes)

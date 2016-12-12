@@ -1,17 +1,18 @@
-(require 'dired)
-
-(setq dired-dwim-target t
-      dired-auto-revert-buffer t
-      dired-recursive-copies 'always)
-
-(add-hook 'dired-mode-hook 'dired-hide-details-mode)
-
 (require 'dired-x)
 
-(require 'ls-lisp)
+(add-hook 'dired-mode-hook 'my/dired-mode-hook)
 
-(setq ls-lisp-dirs-first t
-      ls-lisp-ignore-case t
-      ls-lisp-use-insert-directory-program nil)
+(defun my/dired-mode-hook ()
+  (require 'ls-lisp)
+  
+  (dired-hide-details-mode t)
+  
+  (setq dired-dwim-target t
+        dired-auto-revert-buffer t
+        dired-recursive-copies 'always
+  
+        ls-lisp-dirs-first t
+        ls-lisp-ignore-case t
+        ls-lisp-use-insert-directory-program nil))
 
 (provide 'init-dired)

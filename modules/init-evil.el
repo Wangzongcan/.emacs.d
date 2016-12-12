@@ -1,8 +1,8 @@
 (use-package evil
   :ensure t
-  :init
-  (add-hook 'after-init-hook #'evil-mode)
   :config
+  (evil-mode 1)
+
   (setcdr evil-insert-state-map nil)
   (bind-keys :map evil-insert-state-map
              ([escape] . evil-normal-state)
@@ -15,9 +15,9 @@
 
 (use-package evil-leader
   :ensure t
-  :init
-  (add-hook 'after-init-hook #'global-evil-leader-mode)
   :config
+  (global-evil-leader-mode 1)
+
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
    "0" 'delete-window
@@ -53,12 +53,11 @@
    "rv" 'projectile-rails-find-view
    "rV" 'projectile-rails-find-current-view
    "rh" 'projectile-rails-find-helper
-   "rH" 'projectile-rails-find-current-helper
-   ))
+   "rH" 'projectile-rails-find-current-helper))
 
 (use-package evil-surround
   :ensure t
-  :init
-  (add-hook 'after-init-hook #'global-evil-surround-mode))
+  :config
+  (global-evil-surround-mode 1))
 
 (provide 'init-evil)

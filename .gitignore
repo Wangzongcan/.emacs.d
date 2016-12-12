@@ -1,4 +1,2 @@
+.cache/
 elpa/
-var/
-backup/
-custom.el

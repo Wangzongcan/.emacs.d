@@ -1,16 +1,17 @@
 (use-package rbenv
   :ensure t
-  :init
-  (global-rbenv-mode))
+  :config
+  (global-rbenv-mode 1))
 
 (use-package ruby-mode
   :mode (("\\.rb$" . ruby-mode))
   :interpreter (("ruby" . ruby-mode))
   :config
   (setq ruby-insert-encoding-magic-comment nil)
+
   (add-hook 'ruby-mode-hook 'my/ruby-mode-hook))
 
 (defun my/ruby-mode-hook()
-  (superword-mode))
+  (use-package smartparens-ruby))
 
 (provide 'init-ruby)
