@@ -5,6 +5,7 @@
 (defun my/prog-mode-hook ()
   (color-identifiers-mode 1)
   (flycheck-mode 1)
+  (nlinum-mode 1)
   (rainbow-delimiters-mode 1)
   (smartparens-mode 1)
   (subword-mode 1)

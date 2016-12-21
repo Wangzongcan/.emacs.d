@@ -4,11 +4,11 @@
          ("M-x" . counsel-M-x))
 
   :ensure t
+  :init
+  (ivy-mode 1)
   :config
   (setq ivy-use-virtual-buffers t
-        ivy-initial-inputs-alist nil)
-
-  (ivy-mode 1))
+        ivy-initial-inputs-alist nil))
 
 (use-package swiper
   :ensure t

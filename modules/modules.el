@@ -10,6 +10,7 @@
 (require 'init-expand-region)
 (require 'init-fullframe)
 (require 'init-iedit)
+(require 'init-nlinum)
 (require 'init-hungry-delete)
 (require 'init-rainbow-delimiters)
 (require 'init-smooth-scrolling)
