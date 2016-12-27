@@ -26,7 +26,8 @@
    "3" 'split-window-right
    "o" 'other-window
    "b" 'switch-to-buffer
-   "k" 'kill-buffer))
+   "k" 'kill-buffer
+   "K" 'kill-this-buffer))
 
 (use-package evil-surround
   :ensure t
