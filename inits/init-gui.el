@@ -11,7 +11,7 @@
 
 (setq frame-resize-pixelwise t)
 
-;; (set-face-attribute 'default nil :font "Monaco 12")
+(set-face-attribute 'default nil :font "Monaco 12")
 (dolist (charset '(kana han cjk-misc bopomofo gb18030))
   (set-fontset-font "fontset-default" charset "PingFang SC 14"))
 
@@ -28,4 +28,4 @@
 (line-number-mode 1)
 (column-number-mode 1)
 
-(provide 'init-ui)
+(provide 'init-gui)

@@ -1,5 +1,3 @@
-(use-package company-web-html :ensure company-web)
-
 (use-package company
    :ensure t
    :init
@@ -13,9 +11,6 @@
          company-dabbrev-code-everywhere t
          company-dabbrev-code-ignore-case t
          company-begin-commands '(self-insert-command))
-
-   (add-to-list 'company-backends 'company-web-html)
-   (add-to-list 'company-backends 'company-tern)
 
    (bind-keys :map global-map
               ("C-i" . company-indent-or-complete-common))

@@ -1,6 +1,8 @@
 (setq custom-file
       (expand-file-name "custom.el" user-cache-directory))
 
+(setq load-prefer-newer t)
+
 (setq whitespace-style '(face empty tabs trailing))
 
 (setq-default
@@ -39,15 +41,9 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; minibuffer
-(defun my-minibuffer-setup-hook ()
-  (setq gc-cons-threshold most-positive-fixnum))
+(add-hook 'minibuffer-setup-hook #'max-gc-cons-threshold)
+(add-hook 'minibuffer-exit-hook #'default-gc-cons-threshold)
 
-(defun my-minibuffer-exit-hook ()
-  (setq gc-cons-threshold 800000))
-
-(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
-(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
-
-(add-hook 'after-save-hook #'whitespace-cleanup)
+(add-hook 'after-save-hook #'delete-trailing-whitespace)
 
 (provide 'init-editing)

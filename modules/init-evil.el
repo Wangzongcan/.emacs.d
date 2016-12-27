@@ -26,34 +26,7 @@
    "3" 'split-window-right
    "o" 'other-window
    "b" 'switch-to-buffer
-   "k" 'kill-buffer
-
-   ;; Counsel
-   "SPC" 'counsel-M-x
-   "cy" 'counsel-yank-pop
-   "ci" 'counsel-imenu
-   "cgg" 'counsel-git-grep
-   "ca" 'counsel-ag
-
-   ;; Magit
-   "gs" 'magit-status
-
-   ;; Projectile
-   "pp" 'projectile-switch-project
-   "pf" 'projectile-find-file
-   "pb" 'projectile-switch-to-buffer
-   "pd" 'projectile-find-dir
-
-   ;; Projectile Rails
-   "r RET" 'projectile-rails-goto-file-at-point
-   "rc" 'projectile-rails-find-controller
-   "rC" 'projectile-rails-find-current-controller
-   "rm" 'projectile-rails-find-model
-   "rM" 'projectile-rails-find-current-model
-   "rv" 'projectile-rails-find-view
-   "rV" 'projectile-rails-find-current-view
-   "rh" 'projectile-rails-find-helper
-   "rH" 'projectile-rails-find-current-helper))
+   "k" 'kill-buffer))
 
 (use-package evil-surround
   :ensure t
