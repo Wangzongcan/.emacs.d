@@ -1,6 +1,9 @@
 ;; (package-initialize)
 (setq load-prefer-newer t)
 
+(setq user-full-name "Wangzongcan")
+(setq user-mail-address "wang.zongcan@gmail.com")
+
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'init-variables)
@@ -12,6 +15,7 @@
 (require 'init-package)
 (require 'init-gui-frames)
 (require 'init-editing)
+(require 'init-org)
 (require 'init-whitespace)
 (require 'init-uniquify)
 (require 'init-dired)

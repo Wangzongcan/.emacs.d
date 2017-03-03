@@ -15,9 +15,9 @@
 (setq use-file-dialog nil)
 
 (when window-system
-  (set-face-attribute 'default nil :font "Monaco 12")
+  (set-face-attribute 'default nil :font "M+ 1m 12")
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
-                      charset (font-spec :family "PingFang SC" :size 14))))
+                      charset (font-spec :family "PingFang SC" :size 12))))
 
 (provide 'init-gui-frames)
