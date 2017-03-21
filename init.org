@@ -164,23 +164,16 @@ package 管理
   (use-package rainbow-delimiters :ensure t :defer t)
 #+END_SRC
 
-** Spaceline
-#+BEGIN_SRC emacs-lisp
-  (use-package spaceline-config
-    :ensure spaceline
-    :config
-    (setq powerline-default-separator nil)
-    (spaceline-spacemacs-theme)
-    (spaceline-toggle-minor-modes-off)
-    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state))
-#+END_SRC
-
 ** Startup Screen
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-screen t
         initial-scratch-message "")
 #+END_SRC
 
+** Mode Line
+#+BEGIN_SRC emacs-lisp
+  (setq column-number-mode t)
+#+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
   (use-package monokai-theme :ensure t :defer t)
@@ -189,11 +182,10 @@ package 管理
 #+END_SRC
 
 * Dired
+** Dired mode
 #+BEGIN_SRC emacs-lisp
   (use-package dired
     :defer t
-    :init
-    (use-package dired+ :ensure t)
     :config
     (use-package ls-lisp)
 
@@ -203,6 +195,14 @@ package 管理
           dired-recursive-copies 'always
           ls-lisp-use-insert-directory-program nil
           dired-hide-details-hide-symlink-targets nil))
+#+END_SRC
+
+** Dired+
+#+BEGIN_SRC emacs-lisp
+  (use-package dired+
+    :defer t
+    :ensure t
+    :bind ("C-x C-j" . dired-jump))
 #+END_SRC
 
 * Minibuffer
@@ -216,9 +216,24 @@ package 管理
                '(read-only t cursor-intangible t face minibuffer-prompt))
 #+END_SRC
 
+minibuffer setup hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'minibuffer-setup-hook
+            (lambda ()
+              (setq gc-cons-threshold most-positive-fixnum)))
+#+END_SRC
+
+minibuffer exit hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'minibuffer-exit-hook
+            (lambda ()
+              (setq gc-cons-threshold 800000)))
+#+END_SRC
+
 ** Counsel
 #+BEGIN_SRC emacs-lisp
   (use-package counsel
+    :defer t
     :ensure t
     :bind ("M-x" . counsel-M-x)
     :config (evil-leader/set-key
@@ -264,6 +279,7 @@ Isearch with an overview.
 ** Basic
 #+BEGIN_SRC emacs-lisp
   (use-package org
+    :defer t
     :ensure org-plus-contrib
     :pin org
     :config
@@ -278,7 +294,14 @@ Isearch with an overview.
 ** ox-publish
 #+BEGIN_SRC emacs-lisp
   (use-package ox-publish
+    :defer t
+    :commands publish-blog
     :config
+
+    (defun publish-blog()
+      "publish my blog"
+      (interactive)
+      (org-publish-project "blog"))
 
     (setq
      org-publish-use-timestamps-flag nil
@@ -340,7 +363,9 @@ Isearch with an overview.
 * Deft
 #+BEGIN_SRC emacs-lisp
   (use-package deft
+    :defer t
     :ensure t
+    :commands deft
     :config
     (setq deft-recursive t
           deft-extensions '("org")
