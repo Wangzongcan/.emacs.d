@@ -9,6 +9,15 @@
         user-mail-address "wang.zongcan@gmail.com")
 #+END_SRC
 
+* Startup
+加快配置文件的加载速度
+#+BEGIN_SRC emacs-lisp
+  (setq gc-cons-threshold most-positive-fixnum)
+  (add-hook 'after-init-hook
+            (lambda ()
+              (setq gc-cons-threshold 800000)))
+#+END_SRC
+
 * Packages Management
 package 管理
 ** Package.el
@@ -31,14 +40,20 @@ package 管理
   (eval-when-compile
     (require 'use-package))
 
-  (use-package bind-key :ensure t)
+  (require 'bind-key)
+  (require 'diminish)
 #+END_SRC
 
 * Envionment Variables
+** Load newest
+#+BEGIN_SRC emacs-lisp
+  (setq load-prefer-newer t)
+#+END_SRC
+
 ** PATH
- #+BEGIN_SRC emacs-lisp
-   (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
- #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+#+END_SRC
 
 ** Encoding
 #+BEGIN_SRC emacs-lisp
@@ -50,12 +65,11 @@ package 管理
 自动恢复
 #+BEGIN_SRC emacs-lisp
   (use-package autorevert
-    :init (global-auto-revert-mode t)
     :config
-    (setq auto-revert-interval 1
-          auto-revert-check-vc-info t
+    (setq auto-revert-check-vc-info t
           auto-revert-verbose nil
-          global-auto-revert-non-file-buffers t))
+          global-auto-revert-non-file-buffers t)
+    (global-auto-revert-mode t))
 #+END_SRC
 
 ** No Custom File
@@ -85,7 +99,7 @@ package 管理
 ** Ibuffer
 #+BEGIN_SRC emacs-lisp
   (use-package ibuffer
-    :bind ("C-x C-b" . ibuffer))
+    :bind* ("C-x C-b" . ibuffer))
 #+END_SRC
 
 ** Quietly
@@ -199,10 +213,7 @@ package 管理
 
 ** Dired+
 #+BEGIN_SRC emacs-lisp
-  (use-package dired+
-    :defer t
-    :ensure t
-    :bind ("C-x C-j" . dired-jump))
+  (use-package dired+ :ensure t)
 #+END_SRC
 
 * Minibuffer
@@ -235,10 +246,8 @@ minibuffer exit hook
   (use-package counsel
     :defer t
     :ensure t
-    :bind ("M-x" . counsel-M-x)
-    :config (evil-leader/set-key
-             "SPC" 'counsel-M-x))
-#+END_SRC
+    :bind* ("M-x" . counsel-M-x))
+ #+END_SRC
 
 ** Ivy
 #+BEGIN_SRC emacs-lisp
@@ -259,7 +268,7 @@ Isearch with an overview.
 #+BEGIN_SRC emacs-lisp
   (use-package swiper
     :ensure t
-    :bind ("C-s" . swiper))
+    :bind* ("C-s" . swiper))
 #+END_SRC
 
 ** Iedit
@@ -283,19 +292,21 @@ Isearch with an overview.
     :ensure org-plus-contrib
     :pin org
     :config
-    (setq org-src-fontify-natively t)
+    (setq org-indent-mode t
+          org-startup-indented t
+          org-src-fontify-natively t)
 
     (add-hook 'org-mode-hook
               (lambda ()
-                (dolist (attr '(org-level-1 org-level-2 org-level-3))
+                (dolist (attr '(org-level-1 org-level-2 org-level-3 org-level-4))
                   (set-face-attribute attr nil :height 1)))))
 #+END_SRC
 
-** ox-publish
+** Publish
 #+BEGIN_SRC emacs-lisp
   (use-package ox-publish
     :defer t
-    :commands publish-blog
+    :commands (org-publish-project publish-blog)
     :config
 
     (defun publish-blog()
@@ -360,6 +371,13 @@ Isearch with an overview.
              :recursive t))))
 #+END_SRC
 
+** Tangle
+#+BEGIN_SRC emacs-lisp
+  (use-package ob-tangle
+    :defer t
+    :commands org-babel-tangle-file)
+#+END_SRC
+
 * Deft
 #+BEGIN_SRC emacs-lisp
   (use-package deft
@@ -372,14 +390,21 @@ Isearch with an overview.
           deft-directory "~/Dropbox/Notes"))
 #+END_SRC
 
+* QuickRun
+#+BEGIN_SRC emacs-lisp
+  (use-package quickrun
+    :ensure t
+    :bind* ("s-r" . quickrun))
+#+END_SRC
+
 * Programming Language
 ** Prog Hook
 #+BEGIN_SRC emacs-lisp
   (add-hook 'prog-mode-hook
-            '(lambda ()
-               (whitespace-mode)
-               (rainbow-delimiters-mode)
-               (smartparens-mode)))
+            (lambda ()
+              (whitespace-mode)
+              (rainbow-delimiters-mode)
+              (smartparens-mode)))
 #+END_SRC
 
 ** Web
@@ -502,6 +527,21 @@ Isearch with an overview.
     :mode ("\\.yml$" . yaml-mode))
 #+END_SRC
 
+** Markdown
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode)))
+#+END_SRC
+
+** Groovy
+#+BEGIN_SRC emacs-lisp
+  (use-package groovy-mode :ensure t :defer t)
+#+END_SRC
+
 * Project Management
 ** Projectile
 #+BEGIN_SRC emacs-lisp
@@ -547,7 +587,7 @@ Isearch with an overview.
   (use-package magit
     :ensure t
     :defer t
-    :bind ("C-x g" . magit-status))
+    :bind* ("C-x g" . magit-status))
 #+END_SRC
 
 * Vim Emulation
@@ -555,9 +595,9 @@ Isearch with an overview.
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :ensure t
-    :config
+    :init
     (evil-mode 1)
-
+    :config
     (setcdr evil-insert-state-map nil)
     (bind-keys
      :map evil-insert-state-map
@@ -592,8 +632,13 @@ Isearch with an overview.
   (defconst el/emacs-config-file
     (expand-file-name "init.el" user-emacs-directory))
 
+  (defconst elc/emacs-config-file
+    (expand-file-name "init.elc" user-emacs-directory))
+
   (defun reload()
     (interactive)
     (org-babel-tangle-file org/emacs-config-file)
-    (load-file el/emacs-config-file))
+    (byte-compile-file el/emacs-config-file)
+    (delete-file el/emacs-config-file)
+    (load-file elc/emacs-config-file))
 #+END_SRC
