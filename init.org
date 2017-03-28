@@ -544,6 +544,17 @@ Isearch with an overview.
            ("\\.markdown\\'" . markdown-mode)))
 #+END_SRC
 
+** Java
+#+BEGIN_SRC emacs-lisp
+  (use-package meghanada
+    :ensure t
+    :config
+    (add-hook 'java-mode-hook
+              (lambda ()
+                (meghanada-mode t)
+                (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))))
+#+END_SRC
+
 ** Groovy
 #+BEGIN_SRC emacs-lisp
   (use-package groovy-mode :ensure t :defer t)
