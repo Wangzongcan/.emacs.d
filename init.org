@@ -66,8 +66,7 @@ package 管理
 #+BEGIN_SRC emacs-lisp
   (use-package autorevert
     :config
-    (setq auto-revert-check-vc-info t
-          auto-revert-verbose nil
+    (setq auto-revert-verbose nil
           global-auto-revert-non-file-buffers t)
     (global-auto-revert-mode t))
 #+END_SRC
