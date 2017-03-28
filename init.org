@@ -410,6 +410,7 @@ Isearch with an overview.
             (lambda ()
               (whitespace-mode)
               (rainbow-delimiters-mode)
+              (subword-mode)
               (smartparens-mode)))
 #+END_SRC
 
