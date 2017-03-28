@@ -110,6 +110,13 @@ package 管理
   (blink-cursor-mode -1)
  #+END_SRC
 
+** Server
+#+BEGIN_SRC emacs-lisp
+  (use-package server
+    (unless (server-running-p)
+      (server-start)))
+#+END_SRC
+
 ** Smooth Scrolling
 平滑滚动
 #+BEGIN_SRC emacs-lisp
