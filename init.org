@@ -552,14 +552,17 @@ Isearch with an overview.
 #+END_SRC
 
 ** Java
+*** Meghanada
 #+BEGIN_SRC emacs-lisp
   (use-package meghanada
+    :defer t
     :ensure t
-    :config
-    (add-hook 'java-mode-hook
-              (lambda ()
-                (meghanada-mode t)
-                (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))))
+    :commands meghanada-mode)
+#+END_SRC
+
+*** Java mode hook
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'java-mode-hook #'meghanada-mode)
 #+END_SRC
 
 ** Groovy
