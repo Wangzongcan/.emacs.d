@@ -604,6 +604,23 @@ Isearch with an overview.
      ("C-p" . company-select-previous)))
 #+END_SRC
 
+* Yasnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :init (yas-global-mode)
+    :config
+    ;; Add yasnippet support for all company backends
+    ;; https://github.com/syl20bnr/spacemacs/pull/179
+    (with-eval-after-load 'company
+      (defun company-mode/backend-with-yas (backend)
+        (if (and (listp backend) (member 'company-yasnippet backend))
+            backend
+          (append (if (consp backend) backend (list backend))
+                  '(:with company-yasnippet))))
+      (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))))
+#+END_SRC
+
 * Syntax Check
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck :ensure t :defer t)
