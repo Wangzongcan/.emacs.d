@@ -112,6 +112,7 @@ package 管理
 ** Server
 #+BEGIN_SRC emacs-lisp
   (use-package server
+    :config
     (unless (server-running-p)
       (server-start)))
 #+END_SRC
