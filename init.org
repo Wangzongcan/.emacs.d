@@ -537,7 +537,11 @@
 ** Groovy
 
 #+BEGIN_SRC emacs-lisp
-  (use-package groovy-mode :ensure t :defer t)
+  (use-package groovy-mode
+    :ensure t
+    :defer t
+    :mode (("\\.gradle\\'" . groovy-mode)
+           ("\\.groovy\\'" . groovy-mode)))
 #+END_SRC
 
 * Integration
