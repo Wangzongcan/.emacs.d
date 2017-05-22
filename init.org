@@ -398,7 +398,9 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package chruby
-    :ensure t)
+    :ensure t
+    :config
+    (chruby-use "ruby-2.3"))
 #+END_SRC
 
 *** ruby-mode
