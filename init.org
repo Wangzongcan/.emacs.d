@@ -2,26 +2,54 @@
 #+STARTUP: indent
 #+PROPERTY: header-args :tangle yes :results value silent
 
-* Base Configuration
-
-** personal information
-
-#+BEGIN_SRC emacs-lisp
-  (setq user-full-name "Wangzongcan"
-        user-mail-address "wang.zongcan@gmail.com")
-#+END_SRC
-
-** Starting up
+* Optimizing Startup
 
 #+BEGIN_SRC emacs-lisp
   (setq gc-cons-threshold most-positive-fixnum)
   (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold 800000)))
 #+END_SRC
 
-** Startup Screen
+* Personal Information
 
 #+BEGIN_SRC emacs-lisp
-  (setq inhibit-startup-screen t)
+  (setq user-full-name "Wangzongcan"
+        user-mail-address "wang.zongcan@gmail.com")
+#+END_SRC
+
+* Package Configuration
+
+** package.el
+
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+
+  (setq package-enable-at-startup nil
+        package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("org" . "http://orgmode.org/elpa/")))
+
+  (package-initialize)
+#+END_SRC
+
+** use-package
+
+使用 use-package 安装和管理 package
+
+#+BEGIN_SRC emacs-lisp
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  (eval-when-compile
+    (require 'use-package))
+#+END_SRC
+
+* Base Configuration
+
+** Initialization
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-screen t
+        initial-major-mode 'text-mode)
 #+END_SRC
 
 ** PATH
@@ -38,39 +66,25 @@
   (prefer-coding-system 'utf-8)
 #+END_SRC
 
-** Package Manager
+** Frames
 
 #+BEGIN_SRC emacs-lisp
-    (require 'package)
+  (when (boundp 'window-system)
+    (blink-cursor-mode -1)
 
-    (setq package-enable-at-startup nil
-          package-archives '(("melpa" . "https://melpa.org/packages/")
-                             ("org" . "http://orgmode.org/elpa/")))
+    (setq frame-resize-pixelwise t)
 
-    (package-initialize)
+    (let ((settings '((font . "M+ 1m-12")
+                      (menu-bar-lines . 0)
+                      (tool-bar-lines . 0)
+                      (internal-border-width . 0)
+                      (vertical-scroll-bars . nil)
+                      (horizontal-scroll-bars . nil))))
+      (setq initial-frame-alist settings
+            default-frame-alist settings)))
 #+END_SRC
 
-** GUI
-
-设置 frame
-
-#+BEGIN_SRC emacs-lisp
-  (let ((settings '((internal-border-width . 0)
-                    (menu-bar-lines . 0)
-                    (tool-bar-lines . 0)
-                    (vertical-scroll-bars . nil)
-                    (font . "M+ 1m-12"))))
-    (setq initial-frame-alist settings
-          default-frame-alist settings))
-#+END_SRC
-
-最大化时，删除 frame 周围的空隙
-
-#+BEGIN_SRC emacs-lisp
-  (setq frame-resize-pixelwise t)
-#+END_SRC
-
-** Alarm Bell
+** Dislpay
 
 关闭警报声
 
@@ -78,15 +92,22 @@
   (setq ring-bell-function 'ignore)
 #+END_SRC
 
+Truncate Lines
+
+#+BEGIN_SRC emacs-lisp
+  (set-default 'truncate-lines t)
+#+END_SRC
+
 ** Auto Revert
 
 #+BEGIN_SRC emacs-lisp
-  (require 'autorevert)
-  (global-auto-revert-mode +1)
+  (use-package autorevert
+    :config
+    (global-auto-revert-mode +1)
 
-  (setq auto-revert-interval .1
-        auto-revert-verbose nil
-        global-auto-revert-non-file-buffers t)
+    (setq auto-revert-interval .1
+          auto-revert-verbose nil
+          global-auto-revert-non-file-buffers t))
 #+END_SRC
 
 ** Backup
@@ -100,14 +121,6 @@
         auto-save-list-file-prefix nil)
 #+END_SRC
 
-** Cursor
-
-关闭光标闪烁
-
-#+BEGIN_SRC emacs-lisp
-  (blink-cursor-mode -1)
-#+END_SRC
-
 ** Custom File
 
 #+BEGIN_SRC emacs-lisp
@@ -119,36 +132,16 @@
 文件管理
 
 #+BEGIN_SRC emacs-lisp
-  (eval-after-load 'dired
-    '(progn
-       (require 'ls-lisp)
+  (use-package dired
+    :config
+    (require 'ls-lisp)
 
-       (setq dired-dwim-target t
-             ls-lisp-dirs-first t
-             dired-auto-revert-buffer t
-             dired-recursive-copies 'always
-             ls-lisp-use-insert-directory-program nil
-             dired-hide-details-hide-symlink-targets nil)))
-#+END_SRC
-
-** Echo Area
-
-#+BEGIN_SRC emacs-lisp
-  (setq echo-keystrokes .1)
-#+END_SRC
-
-** Final Newline
-
-#+BEGIN_SRC emacs-lisp
-  (setq require-final-newline t)
-#+END_SRC
-
-** Highlight Line
-
-高亮当前行
-
-#+BEGIN_SRC emacs-lisp
-  (global-hl-line-mode +1)
+    (setq dired-dwim-target t
+          ls-lisp-dirs-first t
+          dired-auto-revert-buffer t
+          dired-recursive-copies 'always
+          ls-lisp-use-insert-directory-program nil
+          dired-hide-details-hide-symlink-targets nil))
 #+END_SRC
 
 ** Minibuffer
@@ -165,18 +158,10 @@
               (setq gc-cons-threshold 800000)))
 #+END_SRC
 
-** Tabs
-
-不使用 tab
+Echo Area
 
 #+BEGIN_SRC emacs-lisp
-  (setq-default indent-tabs-mode nil)
-#+END_SRC
-
-** Truncate Lines
-
-#+BEGIN_SRC emacs-lisp
-  (set-default 'truncate-lines t)
+  (setq echo-keystrokes .1)
 #+END_SRC
 
 ** Smooth Scrolling
@@ -187,17 +172,33 @@
         scroll-preserve-screen-position t)
 #+END_SRC
 
+** Yes Or No P
+
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+* Editing Basics
+
+** Final Newline
+
+#+BEGIN_SRC emacs-lisp
+  (setq require-final-newline t)
+#+END_SRC
+
+** Tabs
+
+不使用 tab
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+END_SRC
+
 ** Whitespace
 
 #+BEGIN_SRC emacs-lisp
   (setq whitespace-style '(face empty tabs trailing))
   (add-hook 'before-save-hook #'whitespace-cleanup)
-#+END_SRC
-
-** Yes Or No P
-
-#+BEGIN_SRC emacs-lisp
-  (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
 * External Packages
@@ -390,6 +391,16 @@
     :config (show-smartparens-global-mode))
 #+END_SRC
 
+** Language Server Protocol
+
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode
+    :ensure t)
+
+  (use-package lsp-java
+    :ensure t)
+#+END_SRC
+
 * Programming Language
 
 ** Ruby
@@ -428,23 +439,24 @@
 *** web-mode
 
 #+BEGIN_SRC emacs-lisp
-  (use-package web-mode
-    :ensure t
-    :mode (("\\.html\\'" . web-mode)
-           ("\\.erb\\'" . web-mode))
-    :config
-    (setq web-mode-style-padding 2
-          web-mode-script-padding 2
-          web-mode-css-indent-offset 2
-          web-mode-attr-indent-offset 2
-          web-mode-code-indent-offset 2
-          web-mode-markup-indent-offset 2
-          web-mode-enable-current-element-highlight t
-          web-mode-enable-current-column-highlight t)
+    (use-package web-mode
+      :ensure t
+      :mode (("\\.html\\'" . web-mode)
+             ("\\.erb\\'" . web-mode))
+      :config
+      (setq web-mode-style-padding 2
+            web-mode-script-padding 2
+            web-mode-css-indent-offset 2
+            web-mode-attr-indent-offset 2
+            web-mode-code-indent-offset 2
+            web-mode-markup-indent-offset 2
+            web-mode-enable-auto-indentation nil         ;; 粘贴的时候不要格式化代码
+            web-mode-enable-current-element-highlight t
+            web-mode-enable-current-column-highlight t)
 
-    (add-hook 'web-mode-hook
-              '(lambda ()
-                 (smartparens-mode -1))))
+      (add-hook 'web-mode-hook
+                (lambda ()
+                  (smartparens-mode -1))))
 #+END_SRC
 
 *** emmet
@@ -490,15 +502,6 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package coffee-mode :ensure t :mode "\\.coffee\\'")
-#+END_SRC
-
-** Java
-
-#+BEGIN_SRC emacs-lisp
-  (use-package meghanada
-    :ensure t
-    :config
-    (add-hook 'java-mode-hook #'meghanada-mode))
 #+END_SRC
 
 ** CSS
@@ -681,6 +684,15 @@
                :base-extension "org"
                :base-directory "~/Dropbox/Blog/pages"
                :publishing-directory "~/Blog/"
+               :publishing-function org-html-publish-to-html
+
+               :html-head ,blog-html-head
+               :html-preamble ,blog-html-preamble)
+
+              ("emacs"
+               :base-extension "org"
+               :base-directory "~/.emacs.d/"
+               :publishing-directory "~/Blog/pages"
                :publishing-function org-html-publish-to-html
 
                :html-head ,blog-html-head
