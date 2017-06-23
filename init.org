@@ -112,10 +112,11 @@ Truncate Lines
 
 ** Backup
 
-关闭 auto-save 和 backup
+关闭 auto-save, backup, lockfiles
 
 #+BEGIN_SRC emacs-lisp
   (setq backup-inhibited t
+        create-lockfiles nil
         auto-save-default nil
         auto-save-list-file-name nil
         auto-save-list-file-prefix nil)
