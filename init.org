@@ -145,6 +145,14 @@ Truncate Lines
           dired-hide-details-hide-symlink-targets nil))
 #+END_SRC
 
+** Ibuffer
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ibuffer
+    :defer t
+    :bind ("C-x C-b" . ibuffer))
+#+END_SRC
+
 ** Minibuffer
 
 [[http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/][为什么这么做]]
