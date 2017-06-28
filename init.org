@@ -295,6 +295,15 @@ Echo Area
     :config (projectile-rails-global-mode +1))
 #+END_SRC
 
+** Color identifiers
+
+#+BEGIN_SRC emacs-lisp
+  (use-package color-identifiers-mode
+    :ensure t
+    :config
+    (add-hook 'after-init-hook 'global-color-identifiers-mode))
+#+END_SRC
+
 ** Theme
 
 *** challenger-deep
