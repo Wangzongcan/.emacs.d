@@ -522,6 +522,16 @@ Echo Area
           js2-mode-show-strict-warnings nil))
 #+END_SRC
 
+*** rjsx-mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package rjsx-mode
+    :ensure t
+    :mode (("\\.js\\'" . rjsx-mode))
+    :config
+    (add-hook 'rjsx-mode-hook (lambda () (tern-mode t))))
+#+END_SRC
+
 *** coffee-mode
 
 #+BEGIN_SRC emacs-lisp
