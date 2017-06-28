@@ -497,14 +497,21 @@ Echo Area
     :config (nvm-use (caar (last (nvm--installed-versions)))))
 #+END_SRC
 
+*** tern
+
+#+BEGIN_SRC emacs-lisp
+  (use-package company-tern :ensure t)
+  (use-package tern
+    :ensure t
+    :config
+    (add-to-list 'company-backends 'company-tern))
+#+END_SRC
+
 *** js2-mode
 
 #+BEGIN_SRC emacs-lisp
   (use-package js2-mode
     :ensure t
-    :mode (("\\.js\\'" . js2-mode)
-           ("\\.es6\\'" . js2-mode)
-           ("\\.jsx\\'" . js2-jsx-mode))
     :interpreter (("node" . js2-mode))
     :config
     (setq-default js2-indent-level 2)
