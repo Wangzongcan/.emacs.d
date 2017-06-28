@@ -583,6 +583,20 @@ Echo Area
     :config (setq scss-compile-at-save nil))
 #+END_SRC
 
+** JSON
+
+#+BEGIN_SRC emacs-lisp
+  (use-package json-mode
+    :ensure t
+    :mode ("\\.json\\'" . json-mode)
+    :config
+    (add-hook 'json-mode
+              (lambda ()
+                (setq-local js-indent-level 2
+                            json-reformat:indent-width 2
+                            json-reformat:pretty-string? t))))
+#+END_SRC
+
 ** YAML
 
 #+BEGIN_SRC emacs-lisp
