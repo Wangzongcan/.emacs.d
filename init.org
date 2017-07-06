@@ -170,7 +170,15 @@ Truncate Lines
 Echo Area
 
 #+BEGIN_SRC emacs-lisp
-  (setq echo-keystrokes .1)
+  (setq echo-keystrokes .01)
+#+END_SRC
+
+光标样式
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'minibuffer-setup-hook
+            (lambda ()
+              (setq-local cursor-type 'bar)))
 #+END_SRC
 
 ** Mode Line
