@@ -4,8 +4,10 @@
 
 * Optimizing Startup
 
+加快启动速度
+
 #+BEGIN_SRC emacs-lisp
-  (setq gc-cons-threshold most-positive-fixnum)
+  (setq gc-cons-threshold (* 100 1024 1024))
   (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold 800000)))
 #+END_SRC
 
@@ -18,19 +20,20 @@
 
 * Package Configuration
 
-** package.el
+** Package.el
 
 #+BEGIN_SRC emacs-lisp
   (require 'package)
 
   (setq package-enable-at-startup nil
         package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("org" . "http://orgmode.org/elpa/")))
+                           ("org" . "http://orgmode.org/elpa/")
+                           ("gnu" . "http://elpa.gnu.org/packages/")))
 
   (package-initialize)
 #+END_SRC
 
-** use-package
+** Use Package
 
 使用 use-package 安装和管理 package
 
@@ -41,61 +44,46 @@
 
   (eval-when-compile
     (require 'use-package))
+  (require 'diminish)
+  (require 'bind-key)
 #+END_SRC
 
 * Base Configuration
 
-** Initialization
+** Appearance
+
+*** Cursor
 
 #+BEGIN_SRC emacs-lisp
-  (setq inhibit-startup-screen t
-        initial-major-mode 'text-mode)
+  (blink-cursor-mode -1)
+
+  (add-hook 'minibuffer-setup-hook
+            (lambda ()
+              (setq-local cursor-type 'bar)))
 #+END_SRC
 
-** PATH
+*** Frame
 
 #+BEGIN_SRC emacs-lisp
-  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+  (setq frame-resize-pixelwise t)
+
+  (let ((settings '((font . "M+ 1m-12")
+                    (horizontal-scroll-bars . nil)
+                    (internal-border-width . 0)
+                    (menu-bar-lines . 0)
+                    (tool-bar-lines . 0)
+                    (vertical-scroll-bars . nil))))
+    (setq default-frame-alist settings
+          initial-frame-alist settings))
 #+END_SRC
 
-** Encoding
+*** Mode Line
 
-使用 utf-8
-
-#+BEGIN_SRC emacs-lisp
-  (prefer-coding-system 'utf-8)
-#+END_SRC
-
-** Frames
+在 mode line 上显示光标所在位置
 
 #+BEGIN_SRC emacs-lisp
-  (when (boundp 'window-system)
-    (blink-cursor-mode -1)
-
-    (setq frame-resize-pixelwise t)
-
-    (let ((settings '((font . "M+ 1m-12")
-                      (menu-bar-lines . 0)
-                      (tool-bar-lines . 0)
-                      (internal-border-width . 0)
-                      (vertical-scroll-bars . nil)
-                      (horizontal-scroll-bars . nil))))
-      (setq initial-frame-alist settings
-            default-frame-alist settings)))
-#+END_SRC
-
-** Dislpay
-
-关闭警报声
-
-#+BEGIN_SRC emacs-lisp
-  (setq ring-bell-function 'ignore)
-#+END_SRC
-
-Truncate Lines
-
-#+BEGIN_SRC emacs-lisp
-  (set-default 'truncate-lines t)
+  (setq line-number-mode t
+        column-number-mode t)
 #+END_SRC
 
 ** Auto Revert
@@ -115,11 +103,11 @@ Truncate Lines
 关闭 auto-save, backup, lockfiles
 
 #+BEGIN_SRC emacs-lisp
-  (setq backup-inhibited t
-        create-lockfiles nil
-        auto-save-default nil
+  (setq auto-save-default nil
         auto-save-list-file-name nil
-        auto-save-list-file-prefix nil)
+        auto-save-list-file-prefix nil
+        backup-inhibited t
+        create-lockfiles nil)
 #+END_SRC
 
 ** Custom File
@@ -133,23 +121,109 @@ Truncate Lines
 文件管理
 
 #+BEGIN_SRC emacs-lisp
+  (use-package dired-x)
   (use-package dired
+    :defer t
     :config
-    (require 'ls-lisp)
+    (use-package ls-lisp)
 
     (setq dired-dwim-target t
           ls-lisp-dirs-first t
           dired-auto-revert-buffer t
           dired-recursive-copies 'always
           ls-lisp-use-insert-directory-program nil
-          dired-hide-details-hide-symlink-targets nil))
+          dired-hide-details-hide-symlink-targets nil)
+
+    (add-hook 'dired-mode-hook 'dired-hide-details-mode))
+#+END_SRC
+
+** Editing
+*** Alarms Bell
+
+关闭警报声
+
+#+BEGIN_SRC emacs-lisp
+  (setq ring-bell-function 'ignore)
+#+END_SRC
+
+*** Dialog
+
+#+BEGIN_SRC emacs-lisp
+  (setq use-dialog-box nil
+        use-file-dialog nil)
+#+END_SRC
+
+*** Echo Area
+
+#+BEGIN_SRC emacs-lisp
+  (setq echo-keystrokes .01)
+#+END_SRC
+
+*** Final Newline
+
+#+BEGIN_SRC emacs-lisp
+  (setq require-final-newline t)
+#+END_SRC
+
+*** Scrolling
+
+#+BEGIN_SRC emacs-lisp
+  (setq scroll-margin 1
+        scroll-conservatively 10000
+        scroll-preserve-screen-position t)
+#+END_SRC
+
+*** Tabs
+
+不使用 tab
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+END_SRC
+
+*** Truncate Lines
+
+#+BEGIN_SRC emacs-lisp
+  (set-default 'truncate-lines t)
+#+END_SRC
+
+*** Whitespace
+
+#+BEGIN_SRC emacs-lisp
+  (use-package whitespace
+    :defer t
+    :diminish whitespace-mode
+    :config
+    (setq whitespace-style '(face empty tabs trailing))
+    (add-hook 'before-save-hook 'whitespace-cleanup))
+#+END_SRC
+
+*** Yes Or No P
+
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+** Encoding
+
+使用 utf-8
+
+#+BEGIN_SRC emacs-lisp
+  (prefer-coding-system 'utf-8)
+#+END_SRC
+
+** Initial
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-screen t
+        initial-scratch-message ""
+        initial-major-mode 'text-mode)
 #+END_SRC
 
 ** Ibuffer
 
 #+BEGIN_SRC emacs-lisp
   (use-package ibuffer
-    :defer t
     :bind ("C-x C-b" . ibuffer))
 #+END_SRC
 
@@ -167,27 +241,11 @@ Truncate Lines
               (setq gc-cons-threshold 800000)))
 #+END_SRC
 
-Echo Area
+** PATH
 
 #+BEGIN_SRC emacs-lisp
-  (setq echo-keystrokes .01)
-#+END_SRC
-
-光标样式
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'minibuffer-setup-hook
-            (lambda ()
-              (setq-local cursor-type 'bar)))
-#+END_SRC
-
-** Mode Line
-
-在 mode line 上显示光标所在位置
-
-#+BEGIN_SRC emacs-lisp
-  (setq line-number-mode t
-        column-number-mode t)
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
 #+END_SRC
 
 ** Uniquify
@@ -198,83 +256,88 @@ Echo Area
     (setq uniquify-buffer-name-style 'forward))
 #+END_SRC
 
-** Smooth Scrolling
+** Server
 
 #+BEGIN_SRC emacs-lisp
-  (setq scroll-margin 1
-        scroll-conservatively 10000
-        scroll-preserve-screen-position t)
-#+END_SRC
-
-** Yes Or No P
-
-#+BEGIN_SRC emacs-lisp
-  (defalias 'yes-or-no-p 'y-or-n-p)
-#+END_SRC
-
-* Editing Basics
-
-** Final Newline
-
-#+BEGIN_SRC emacs-lisp
-  (setq require-final-newline t)
-#+END_SRC
-
-** Tabs
-
-不使用 tab
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default indent-tabs-mode nil)
-#+END_SRC
-
-** Whitespace
-
-#+BEGIN_SRC emacs-lisp
-  (setq whitespace-style '(face empty tabs trailing))
-  (add-hook 'before-save-hook #'whitespace-cleanup)
+  (use-package server
+    :config
+    (unless (server-running-p)
+      (server-start)))
 #+END_SRC
 
 * External Packages
 
-** Package Configuration
+** Editing
 
-*** use-package
-
-使用 use-package 安装和管理 package
+*** Iedit
 
 #+BEGIN_SRC emacs-lisp
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
-
-  (eval-when-compile
-    (require 'use-package))
+  (use-package iedit
+    :defer t
+    :ensure t
+    :commands iedit-mode
+    :bind ("C-;" . iedit-mode))
 #+END_SRC
 
-*** esup
+*** Undo Tree
 
 #+BEGIN_SRC emacs-lisp
-  (use-package esup :ensure t)
+  (use-package undo-tree
+    :ensure t
+    :diminish undo-tree-mode)
+#+END_SRC
+
+*** SmartParens
+
+#+BEGIN_SRC emacs-lisp
+  (use-package smartparens-config
+    :ensure smartparens
+    :diminish smartparens-mode
+    :config
+    (show-smartparens-global-mode)
+
+    (sp-with-modes 'web-mode
+      (sp-local-pair "{ " " }")
+      (sp-local-pair "<% " " %>")
+      (sp-local-pair "<%= "  " %>")))
+#+END_SRC
+
+** ESUP
+
+#+BEGIN_SRC emacs-lisp
+  (use-package esup :defer t :ensure t)
 #+END_SRC
 
 ** Interface Enhancement
-
-*** Ivy
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :ensure t
-    :config
-    (ivy-mode +1))
-#+END_SRC
 
 *** Counsel
 
 #+BEGIN_SRC emacs-lisp
   (use-package counsel
     :ensure t
-    :bind* ("M-x" . counsel-M-x))
+    :bind (("M-x" . counsel-M-x)
+           ("C-s" . counsel-grep-or-swiper))
+    :config
+    (setq counsel-grep-base-command
+          "rg -i -M 120 --no-heading --line-number --color never '%s' %s"))
+#+END_SRC
+
+*** Hydra
+
+#+BEGIN_SRC emacs-lisp
+  (use-package hydra
+    :defer t
+    :ensure t)
+#+END_SRC
+
+*** Ivy
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t
+    :diminish ivy-mode
+    :config
+    (ivy-mode +1))
 #+END_SRC
 
 *** Swiper
@@ -282,134 +345,43 @@ Echo Area
 #+BEGIN_SRC emacs-lisp
   (use-package swiper
     :ensure t
-    :bind* ("C-s" . swiper))
-#+END_SRC
-
-** File Manager
-
-*** Dired+
-
-#+BEGIN_SRC emacs-lisp
-  (use-package dired+ :ensure t)
-#+END_SRC
-
-** Project management
-
-*** projectile
-
-#+BEGIN_SRC emacs-lisp
-  (use-package projectile
-    :ensure t
-    :init (setq projectile-completion-system 'ivy)
-    :config (projectile-mode))
-#+END_SRC
-
-*** projectile-rails
-
-#+BEGIN_SRC emacs-lisp
-  (use-package projectile-rails
-    :ensure t
-    :config (projectile-rails-global-mode +1))
-#+END_SRC
-
-** Color identifiers
-
-#+BEGIN_SRC emacs-lisp
-  (use-package color-identifiers-mode
-    :ensure t
-    :config
-    (add-hook 'after-init-hook 'global-color-identifiers-mode))
-#+END_SRC
-
-** Theme
-
-*** challenger-deep
-
-#+BEGIN_SRC emacs-lisp
-  (use-package challenger-deep-theme :defer t :ensure t)
-#+END_SRC
-
-*** color-theme-sanityinc-tomorrow
-
-#+BEGIN_SRC emacs-lisp
-  (use-package color-theme-sanityinc-tomorrow :defer t :ensure t)
-#+END_SRC
-
-*** darktooth-theme
-
-#+BEGIN_SRC emacs-lisp
-  (use-package darktooth-theme :defer t :ensure t)
-#+END_SRC
-
-*** dracula-theme
-
-#+BEGIN_SRC emacs-lisp
-  (use-package dracula-theme :defer t :ensure t)
-#+END_SRC
-
-*** monokai
-
-#+BEGIN_SRC emacs-lisp
-  (use-package monokai-theme :defer t :ensure t)
-#+END_SRC
-
-*** load-theme
-
-#+BEGIN_SRC emacs-lisp
-  (load-theme 'challenger-deep t)
+    :bind ("C-s" . swiper))
 #+END_SRC
 
 ** Visual
 
 *** Rainbow Delimiters
-
 #+BEGIN_SRC emacs-lisp
-  (use-package rainbow-delimiters :ensure t)
+  (use-package rainbow-delimiters :defer t :ensure t)
 #+END_SRC
 
-*** Undo Tree
+*** Theme
 
 #+BEGIN_SRC emacs-lisp
-  (use-package undo-tree :ensure t)
-#+END_SRC
+  (use-package doom-themes
+    :ensure t
+    :config
+    (setq doom-themes-enable-bold t
+          doom-themes-enable-italic t)
 
-** Version control
-
-*** Magit
-
-#+BEGIN_SRC emacs-lisp
-  (use-package magit :defer t :ensure t)
-#+END_SRC
-
-** Editing
-
-*** iedit
-
-#+BEGIN_SRC emacs-lisp
-  (use-package iedit :ensure t)
+    (load-theme 'doom-nova t))
 #+END_SRC
 
 * Programming
 
-** Prog mode
+** Auto Complete
 
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook
-            '(lambda()
-               (rainbow-delimiters-mode +1)
-               (smartparens-mode +1)
-               (whitespace-mode +1)))
-#+END_SRC
-
-** Company
+*** Company
 
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
+    :diminish company-mode
     :config
     (global-company-mode)
+
     (setq company-idle-delay 0.1
-          company-minimum-prefix-length 1
+          company-minimum-prefix-length 2
           company-begin-commands '(self-insert-command))
 
     (bind-keys
@@ -426,96 +398,38 @@ Echo Area
   (use-package flycheck :defer t :ensure t)
 #+END_SRC
 
-** SmartParens
+** Languages
+
+*** CSS
+
+**** CSS Mode
 
 #+BEGIN_SRC emacs-lisp
-  (use-package smartparens-config
-    :ensure smartparens
-    :config (show-smartparens-global-mode))
+  (use-package css-mode
+    :defer t
+    :config (setq css-indent-offset 2))
 #+END_SRC
 
-** Language Server Protocol
+**** SASS Mode
 
 #+BEGIN_SRC emacs-lisp
-  (use-package lsp-mode
-    :ensure t)
-
-  (use-package lsp-java
-    :ensure t)
-#+END_SRC
-
-* Programming Language
-
-** Ruby
-
-*** chruby
-
-#+BEGIN_SRC emacs-lisp
-  (use-package chruby
+  (use-package sass-mode
     :ensure t
-    :config
-    (chruby-use "ruby-2.3"))
+    :mode ("\\.sass\\'" . sass-mode))
 #+END_SRC
 
-*** ruby-mode
+**** SCSS Mode
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ruby-mode
-    :config
-    (require 'smartparens-ruby)
-
-    (setq ruby-insert-encoding-magic-comment nil)
-
-    (add-hook 'ruby-mode-hook
-              (lambda ()
-                (flycheck-mode +1))))
-#+END_SRC
-
-*** inf-ruby
-
-#+BEGIN_SRC emacs-lisp
-  (use-package inf-ruby :ensure t)
-#+END_SRC
-
-** Web Development
-
-*** web-mode
-
-#+BEGIN_SRC emacs-lisp
-    (use-package web-mode
-      :ensure t
-      :mode (("\\.html\\'" . web-mode)
-             ("\\.erb\\'" . web-mode))
-      :config
-      (setq web-mode-style-padding 2
-            web-mode-script-padding 2
-            web-mode-css-indent-offset 2
-            web-mode-attr-indent-offset 2
-            web-mode-code-indent-offset 2
-            web-mode-markup-indent-offset 2
-            web-mode-enable-auto-indentation nil         ;; 粘贴的时候不要格式化代码
-            web-mode-enable-current-element-highlight t
-            web-mode-enable-current-column-highlight t)
-
-      (add-hook 'web-mode-hook
-                (lambda ()
-                  (smartparens-mode -1))))
-#+END_SRC
-
-*** emmet
-
-#+BEGIN_SRC emacs-lisp
-  (use-package emmet-mode
+  (use-package scss-mode
     :ensure t
-    :config
-    (add-hook 'web-mode-hook 'emmet-mode)
-    (add-hook 'sgml-mode-hook 'emmet-mode)
-    (add-hook 'css-mode-hook 'emmet-mode))
+    :mode ("\\.scss\\'" . scss-mode)
+    :config (setq scss-compile-at-save nil))
 #+END_SRC
 
-** Javascript
+*** Javascript
 
-*** nvm
+**** NVM
 
 #+BEGIN_SRC emacs-lisp
   (use-package nvm
@@ -523,17 +437,7 @@ Echo Area
     :config (nvm-use (caar (last (nvm--installed-versions)))))
 #+END_SRC
 
-*** tern
-
-#+BEGIN_SRC emacs-lisp
-  (use-package company-tern :ensure t)
-  (use-package tern
-    :ensure t
-    :config
-    (add-to-list 'company-backends 'company-tern))
-#+END_SRC
-
-*** js2-mode
+**** JS2 Mode
 
 #+BEGIN_SRC emacs-lisp
   (use-package js2-mode
@@ -548,50 +452,28 @@ Echo Area
           js2-mode-show-strict-warnings nil))
 #+END_SRC
 
-*** rjsx-mode
+**** Tern
+
+#+BEGIN_SRC emacs-lisp
+  (use-package tern
+    :defer t
+    :ensure t
+    :config
+    (use-package company-tern :ensure t)
+    (add-to-list 'company-backends 'company-tern))
+#+END_SRC
+
+**** Rjsx Mode
 
 #+BEGIN_SRC emacs-lisp
   (use-package rjsx-mode
     :ensure t
-    :mode (("\\.js\\'" . rjsx-mode))
+    :mode ("\\.js\\'" . rjsx-mode)
     :config
-    (add-hook 'rjsx-mode-hook (lambda () (tern-mode t))))
+    (add-hook 'rjsx-mode-hook 'tern-mode))
 #+END_SRC
 
-*** coffee-mode
-
-#+BEGIN_SRC emacs-lisp
-  (use-package coffee-mode :ensure t :mode "\\.coffee\\'")
-#+END_SRC
-
-** CSS
-
-*** css-mode
-
-#+BEGIN_SRC emacs-lisp
-  (use-package css-mode
-    :defer t
-    :config (setq css-indent-offset 2))
-#+END_SRC
-
-*** sass-mode
-
-#+BEGIN_SRC emacs-lisp
-  (use-package sass-mode
-    :ensure t
-    :mode ("\\.sass\\'" . sass-mode))
-#+END_SRC
-
-*** scss-mode
-
-#+BEGIN_SRC emacs-lisp
-  (use-package scss-mode
-    :ensure t
-    :mode ("\\.scss\\'" . scss-mode)
-    :config (setq scss-compile-at-save nil))
-#+END_SRC
-
-** JSON
+*** JSON
 
 #+BEGIN_SRC emacs-lisp
   (use-package json-mode
@@ -605,7 +487,82 @@ Echo Area
                             json-reformat:pretty-string? t))))
 #+END_SRC
 
-** YAML
+*** Lua
+
+#+BEGIN_SRC emacs-lisp
+  (use-package lua-mode
+    :ensure t
+    :defer t
+    :mode ("\\.lua$'" . lua-mode)
+    :interpreter ("lua" . lua-mode))
+#+END_SRC
+
+*** Ruby
+
+**** Chruby
+
+#+BEGIN_SRC emacs-lisp
+  (use-package chruby :defer t :ensure t)
+#+END_SRC
+
+**** Inf Ruby
+
+#+BEGIN_SRC emacs-lisp
+  (use-package inf-ruby
+    :defer t
+    :ensure t)
+#+END_SRC
+
+**** Ruby Mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ruby-mode
+    :interpreter "ruby"
+    :config
+    (setq ruby-insert-encoding-magic-comment nil)
+
+    (add-hook 'ruby-mode-hook
+              (lambda ()
+                (chruby "2.3")
+                (flycheck-mode)
+                (inf-ruby-minor-mode))))
+#+END_SRC
+
+*** Web
+
+**** Web Mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package web-mode
+    :ensure t
+    :mode (("\\.html\\'" . web-mode)
+           ("\\.erb\\'" . web-mode))
+    :config
+    (setq web-mode-style-padding 2
+          web-mode-script-padding 2
+          web-mode-css-indent-offset 2
+          web-mode-attr-indent-offset 2
+          web-mode-code-indent-offset 2
+          web-mode-markup-indent-offset 2
+          web-mode-enable-auto-pairing nil
+          web-mode-enable-auto-indentation nil         ;; 粘贴的时候不要格式化代码
+          web-mode-enable-current-element-highlight t
+          web-mode-enable-current-column-highlight t))
+
+#+END_SRC
+
+**** Emmet
+
+#+BEGIN_SRC emacs-lisp
+  (use-package emmet-mode
+    :ensure t
+    :config
+    (add-hook 'web-mode-hook 'emmet-mode)
+    (add-hook 'sgml-mode-hook 'emmet-mode)
+    (add-hook 'css-mode-hook 'emmet-mode))
+#+END_SRC
+
+*** YAML
 
 #+BEGIN_SRC emacs-lisp
   (use-package yaml-mode
@@ -613,39 +570,83 @@ Echo Area
     :mode ("\\.yml\\'" . yaml-mode))
 #+END_SRC
 
-** Groovy
+** Prog Mode
 
 #+BEGIN_SRC emacs-lisp
-  (use-package groovy-mode
-    :ensure t
-    :defer t
-    :mode (("\\.gradle\\'" . groovy-mode)
-           ("\\.groovy\\'" . groovy-mode)))
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (rainbow-delimiters-mode +1)
+              (smartparens-mode +1)
+              (whitespace-mode +1)))
 #+END_SRC
 
-* Integration
+** Project Management
+
+*** Projectile
+
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :defer t
+    :ensure t
+    :bind-keymap ("C-c p" . projectile-command-map)
+    :init (setq projectile-completion-system 'ivy)
+    :config (projectile-mode))
+#+END_SRC
+
+*** Projectile Rails
+
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile-rails
+    :ensure t
+    :bind-keymap ("C-c r" . projectile-rails-command-map)
+    :config
+    (add-hook 'projectile-mode-hook 'projectile-rails-on))
+#+END_SRC
 
 ** Search
 
-*** ag
+*** Ripgrep
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ag :defer t :ensure t)
+  (use-package ripgrep :defer t :ensure t)
+  (use-package projectile-ripgrep
+    :ensure t
+    :commands projectile-ripgrep)
 #+END_SRC
 
-*** wgrep
+*** Wgrep
 
 #+BEGIN_SRC emacs-lisp
   (use-package wgrep :defer t :ensure t)
 #+END_SRC
 
-** google-translate
+** Version Control
+
+*** Magit
 
 #+BEGIN_SRC emacs-lisp
-  (use-package google-translate-smooth-ui
-    :ensure google-translate
-    :bind* ("\C-ct" . google-translate-smooth-translate)
-    :config (setq google-translate-translation-directions-alist '(("en" . "zh-CN"))))
+  (use-package magit :defer t :ensure t)
+#+END_SRC
+
+*** Git Gutter Fringe
+
+#+BEGIN_SRC emacs-lisp
+  (use-package git-gutter-fringe
+    :ensure t
+    :diminish git-gutter-mode
+    :config
+    (global-git-gutter-mode +1)
+
+    (setq-default fringes-outside-margins t)
+    (fringe-helper-define 'git-gutter-fr:added '(center repeated)
+                          "XXX.....")
+    (fringe-helper-define 'git-gutter-fr:modified '(center repeated)
+                          "XXX.....")
+    (fringe-helper-define 'git-gutter-fr:deleted 'bottom
+                          "X......."
+                          "XX......"
+                          "XXX....."
+                          "XXXX...."))
 #+END_SRC
 
 * Vim Emulation
@@ -665,19 +666,9 @@ Echo Area
      ((read-kbd-macro evil-toggle-key) . evil-emacs-state)))
 #+END_SRC
 
-** Evil Surround
+* Org
 
-#+BEGIN_SRC emacs-lisp
-  (use-package evil-surround
-    :ensure t
-    :config
-    (global-evil-surround-mode +1))
-#+END_SRC
-
-* Note
-
-** org-mode
-
+** Org Mode
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :defer t
@@ -685,8 +676,17 @@ Echo Area
     :pin org
     :config
     (setq org-startup-indented t
-          org-src-fontify-natively t))
+          org-src-fontify-natively t)
+
+    (dolist (face '(org-level-1
+                    org-level-2
+                    org-level-3
+                    org-level-4
+                    org-level-5))
+      (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
 #+END_SRC
+
+* Note
 
 ** htmlize
 
@@ -698,90 +698,90 @@ Echo Area
     (setq htmlize-html-charset "utf-8"))
 #+END_SRC
 
-** ox-publish
+** ox publish
 
 #+BEGIN_SRC emacs-lisp
-    (use-package ox-publish
-      :defer t
-      :commands (org-publish-project publish-blog)
-      :config
-      (defun publish-blog()
-        "publish my blog"
-        (interactive)
-        (org-publish-project "blog"))
+  (use-package ox-publish
+    :defer t
+    :commands (org-publish-project publish-blog)
+    :config
+    (defun publish-blog()
+      "publish my blog"
+      (interactive)
+      (org-publish-project "blog"))
 
-      (defun read-html-template (template-file)
-        (with-temp-buffer
-          (insert-file-contents template-file)
-          (buffer-string)))
+    (defun read-html-template (template-file)
+      (with-temp-buffer
+        (insert-file-contents template-file)
+        (buffer-string)))
 
-      (setq
-       org-publish-use-timestamps-flag nil
+    (setq
+     org-publish-use-timestamps-flag nil
 
-       org-export-with-section-numbers nil  ;; 去掉编号
-       org-export-with-toc nil              ;; 关闭 TOC
+     org-export-with-section-numbers nil  ;; 去掉编号
+     org-export-with-toc nil              ;; 关闭 TOC
 
-       org-html-divs '((preamble "header" "top")
-                       (content "main" "content")
-                       (postamble "footer" "postamble"))
+     org-html-divs '((preamble "header" "top")
+                     (content "main" "content")
+                     (postamble "footer" "postamble"))
 
-       org-html-postamble nil
-       org-html-html5-fancy t
-       org-html-doctype "html5"
-       org-html-container-element "section"
-       org-html-head-include-scripts nil        ;; 去掉默认的 script
-       org-html-head-include-default-style nil  ;; 去掉默认的 css
-       org-html-metadata-timestamp-format "%Y-%m-%d")
+     org-html-postamble nil
+     org-html-html5-fancy t
+     org-html-doctype "html5"
+     org-html-container-element "section"
+     org-html-head-include-scripts nil        ;; 去掉默认的 script
+     org-html-head-include-default-style nil  ;; 去掉默认的 css
+     org-html-metadata-timestamp-format "%Y-%m-%d")
 
-      (setq blog-html-head (read-html-template "~/Dropbox/Blog/include/head.html"))
-      (setq blog-html-preamble (read-html-template "~/Dropbox/Blog/include/nav.html"))
+    (setq blog-html-head (read-html-template "~/Dropbox/Blog/include/head.html"))
+    (setq blog-html-preamble (read-html-template "~/Dropbox/Blog/include/nav.html"))
 
-      (setq org-publish-project-alist
-            `(("blog" :components ("blog-notes" "blog-pages" "blog-assets"))
+    (setq org-publish-project-alist
+          `(("blog" :components ("blog-notes" "blog-pages" "blog-assets"))
 
-              ("blog-notes"
-               :base-extension "org"
-               :base-directory "~/Dropbox/Blog/notes"
-               :publishing-directory "~/Blog/"
-               :publishing-function org-html-publish-to-html
+            ("blog-notes"
+             :base-extension "org"
+             :base-directory "~/Dropbox/Blog/notes"
+             :publishing-directory "~/Blog/"
+             :publishing-function org-html-publish-to-html
 
-               :html-head ,blog-html-head
-               :html-preamble ,blog-html-preamble
+             :html-head ,blog-html-head
+             :html-preamble ,blog-html-preamble
 
-               :auto-sitemap t
-               :sitemap-title "Blog"
-               :sitemap-filename "index.org"
-               :sitemap-file-entry-format "%d » [%t]"
-               :sitemap-function org-publish-org-sitemap)
+             :auto-sitemap t
+             :sitemap-title "Blog"
+             :sitemap-filename "index.org"
+             :sitemap-file-entry-format "%d » [%t]"
+             :sitemap-function org-publish-org-sitemap)
 
-              ("blog-pages"
-               :base-extension "org"
-               :base-directory "~/Dropbox/Blog/pages"
-               :publishing-directory "~/Blog/"
-               :publishing-function org-html-publish-to-html
+            ("blog-pages"
+             :base-extension "org"
+             :base-directory "~/Dropbox/Blog/pages"
+             :publishing-directory "~/Blog/"
+             :publishing-function org-html-publish-to-html
 
-               :html-head ,blog-html-head
-               :html-preamble ,blog-html-preamble)
+             :html-head ,blog-html-head
+             :html-preamble ,blog-html-preamble)
 
-              ("emacs"
-               :base-extension "org"
-               :base-directory "~/.emacs.d/"
-               :publishing-directory "~/Blog/pages"
-               :publishing-function org-html-publish-to-html
+            ("emacs"
+             :base-extension "org"
+             :base-directory "~/.emacs.d/"
+             :publishing-directory "~/Blog/pages"
+             :publishing-function org-html-publish-to-html
 
-               :html-head ,blog-html-head
-               :html-preamble ,blog-html-preamble)
+             :html-head ,blog-html-head
+             :html-preamble ,blog-html-preamble)
 
-              ("blog-assets"
-               :base-extension "css\\|js"
-               :base-directory "~/Dropbox/Blog/"
-               :publishing-directory "~/Blog/"
-               :publishing-function org-publish-attachment
+            ("blog-assets"
+             :base-extension "css\\|js"
+             :base-directory "~/Dropbox/Blog/"
+             :publishing-directory "~/Blog/"
+             :publishing-function org-publish-attachment
 
-               :recursive t))))
+             :recursive t))))
 #+END_SRC
 
-** deft
+** Deft
 
 #+BEGIN_SRC emacs-lisp
   (use-package deft

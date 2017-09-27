@@ -3,6 +3,8 @@ elpa/
 meghanada/
 url/
 
+network-security.data
+
 init.el
 init.elc
 
