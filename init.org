@@ -480,11 +480,11 @@
     :ensure t
     :mode ("\\.json\\'" . json-mode)
     :config
-    (add-hook 'json-mode
+    (add-hook 'json-mode-hook
               (lambda ()
-                (setq-local js-indent-level 2
-                            json-reformat:indent-width 2
-                            json-reformat:pretty-string? t))))
+                (setq js-indent-level 2
+                      json-reformat:indent-width 2
+                      json-reformat:pretty-string? t))))
 #+END_SRC
 
 *** Lua
