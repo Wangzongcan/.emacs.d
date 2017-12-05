@@ -44,8 +44,9 @@
 
   (eval-when-compile
     (require 'use-package))
-  (require 'diminish)
-  (require 'bind-key)
+
+  (use-package diminish :ensure t)
+  (use-package bind-key :ensure t)
 #+END_SRC
 
 * Base Configuration
@@ -428,14 +429,6 @@
 #+END_SRC
 
 *** Javascript
-
-**** NVM
-
-#+BEGIN_SRC emacs-lisp
-  (use-package nvm
-    :ensure t
-    :config (nvm-use (caar (last (nvm--installed-versions)))))
-#+END_SRC
 
 **** JS2 Mode
 
