@@ -224,8 +224,7 @@
 ** Ibuffer
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ibuffer
-    :bind ("C-x C-b" . ibuffer))
+  (defalias 'list-buffers 'ibuffer)
 #+END_SRC
 
 ** Minibuffer
