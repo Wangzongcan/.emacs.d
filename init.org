@@ -89,13 +89,9 @@
 ** Auto Revert
 
 #+BEGIN_SRC emacs-lisp
-  (use-package autorevert
-    :config
-    (global-auto-revert-mode +1)
-
-    (setq auto-revert-interval .1
-          auto-revert-verbose nil
-          global-auto-revert-non-file-buffers t))
+  (add-hook 'after-init-hook 'global-auto-revert-mode)
+  (setq global-auto-revert-non-file-buffers t
+        auto-revert-verbose nil)
 #+END_SRC
 
 ** Backup
