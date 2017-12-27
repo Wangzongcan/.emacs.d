@@ -343,6 +343,15 @@
     :bind ("C-s" . swiper))
 #+END_SRC
 
+*** Nyan Cat
+
+#+BEGIN_SRC emacs-lisp
+  (use-package nyan-mode
+    :ensure t
+    :init (setq nyan-animate-nyancat t)
+    :config (nyan-mode))
+#+END_SRC
+
 ** Visual
 
 *** Rainbow Delimiters
