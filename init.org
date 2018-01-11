@@ -140,23 +140,26 @@
 文件管理
 
 #+BEGIN_SRC emacs-lisp
-  (use-package dired-x)
   (use-package dired
+    :bind ("C-x C-j" . dired-jump)
     :defer t
     :config
-    (use-package ls-lisp)
+    (use-package dired+ :ensure t)
+
+    (use-package ls-lisp
+      :config
+      (setq ls-lisp-dirs-first t
+            ls-lisp-use-insert-directory-program nil))
 
     (setq dired-dwim-target t
-          ls-lisp-dirs-first t
-          dired-auto-revert-buffer t
-          dired-recursive-copies 'always
-          ls-lisp-use-insert-directory-program nil
-          dired-hide-details-hide-symlink-targets nil)
+          dired-use-ls-dired nil
+          dired-recursive-copies 'always)
 
     (add-hook 'dired-mode-hook 'dired-hide-details-mode))
 #+END_SRC
 
 ** Editing
+
 *** Alarms Bell
 
 关闭警报声
