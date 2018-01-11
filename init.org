@@ -51,6 +51,29 @@
 
 * Base Configuration
 
+** PATH
+
+#+BEGIN_SRC emacs-lisp
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
+#+END_SRC
+
+** Encoding
+
+使用 utf-8
+
+#+BEGIN_SRC emacs-lisp
+  (prefer-coding-system 'utf-8)
+#+END_SRC
+
+** Initial
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-screen t
+        initial-scratch-message ""
+        initial-major-mode 'text-mode)
+#+END_SRC
+
 ** Appearance
 
 *** Cursor
@@ -200,22 +223,6 @@
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
-** Encoding
-
-使用 utf-8
-
-#+BEGIN_SRC emacs-lisp
-  (prefer-coding-system 'utf-8)
-#+END_SRC
-
-** Initial
-
-#+BEGIN_SRC emacs-lisp
-  (setq inhibit-startup-screen t
-        initial-scratch-message ""
-        initial-major-mode 'text-mode)
-#+END_SRC
-
 ** Ibuffer
 
 #+BEGIN_SRC emacs-lisp
@@ -234,13 +241,6 @@
   (add-hook 'minibuffer-exit-hook
             (lambda ()
               (setq gc-cons-threshold 800000)))
-#+END_SRC
-
-** PATH
-
-#+BEGIN_SRC emacs-lisp
-  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin")))
 #+END_SRC
 
 ** Uniquify
