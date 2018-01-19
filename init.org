@@ -671,9 +671,19 @@
      ((read-kbd-macro evil-toggle-key) . evil-emacs-state)))
 #+END_SRC
 
-* Org
+* Mails
 
-** Org Mode
+** mu4e
+
+#+BEGIN_SRC emacs-lisp
+  (use-package mu4e
+    :config
+    (setq mu4e-maildir "~/Maildir"
+          mu4e-get-mail-command "mbsync -a"))
+#+END_SRC
+
+* Org Mode
+
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :defer t
