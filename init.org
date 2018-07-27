@@ -144,7 +144,7 @@
   (use-package dracula-theme)
   (use-package doom-themes)
 
-  (load-theme 'doom-tomorrow-night t)
+  (load-theme 'doom-one t)
 #+END_SRC
 
 ** Rainbow Delimiters
