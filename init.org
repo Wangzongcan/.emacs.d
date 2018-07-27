@@ -265,6 +265,11 @@
   (use-package dired-x :ensure nil
     :bind ("C-x C-j" . dired-jump))
 
+  (use-package dired-aux :ensure nil
+    :after dired-x
+    :bind (:map dired-mode-map
+           ("I" . dired-kill-subdir)))
+
   (use-package ls-lisp :defer 0 :ensure nil
     :config
     (setq-default
