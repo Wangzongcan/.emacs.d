@@ -2,32 +2,40 @@
 #+STARTUP: align indent
 #+PROPERTY: header-args :tangle yes :results value silent
 
-* Initializeation
+* Initialization
+
+** Load Newest
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default load-prefer-newer t)
+#+END_SRC
 
 ** Functions
 
-*** GC
+*** Change GC Cons
 
 #+BEGIN_SRC emacs-lisp
   (defun change-gc-cons()
-    (setq gc-cons-threshold 402653184
+    (setq gc-cons-threshold most-positive-fixnum
           gc-cons-percentage 0.6))
+#+END_SRC
 
+*** Reset GC Cons
+
+#+BEGIN_SRC emacs-lisp
   (defun reset-gc-cons()
-    (setq gc-cons-threshold 16777216
+    (setq gc-cons-threshold (* 100 1024 1024)
           gc-cons-percentage 0.1))
 #+END_SRC
 
-** Optimizing
-
-*** GC
+** Optimizing GC
 
 #+BEGIN_SRC emacs-lisp
   (change-gc-cons)
   (add-hook 'emacs-startup-hook #'reset-gc-cons)
 #+END_SRC
 
-*** File Name Handler
+** File Name Handler
 
 #+BEGIN_SRC emacs-lisp
   (defvar doom--file-name-handler-alist file-name-handler-alist)
@@ -49,86 +57,48 @@
 
 #+BEGIN_SRC emacs-lisp
   (require 'package)
-  (package-initialize)
 
-  (setq-default package-enable-at-startup nil
-                package--init-file-ensured t)
+  (setq-default
+   package-enable-at-startup nil
+   package--init-file-ensured t)
 
   (add-to-list 'package-archives
                '("melpa" . "https://melpa.org/packages/") t)
+
+  (package-initialize)
 #+END_SRC
 
 ** Use Package
 
 #+BEGIN_SRC emacs-lisp
-  (unless (package-installed-p 'use-package)
+  (when (not (package-installed-p 'use-package))
     (package-refresh-contents)
     (package-install 'use-package))
 
   (eval-when-compile
     (require 'use-package)
-    (setq-default use-package-always-defer t
-                  use-package-always-ensure t))
+    (setq-default
+     use-package-always-defer t
+     use-package-always-ensure t))
 #+END_SRC
 
 * Appearance
 
-** Startup Screen
+** Base
 
-#+BEGIN_SRC emacs-lisp
-  (setq-default inhibit-startup-screen t
-                initial-scratch-message ""
-                initial-major-mode 'text-mode)
-#+END_SRC
-
-** Alarms
+*** Alarms
 
 #+BEGIN_SRC emacs-lisp
   (setq-default ring-bell-function 'ignore)
 #+END_SRC
 
-** Cursor
-
-#+BEGIN_SRC emacs-lisp
-  (when window-system
-    (blink-cursor-mode -1))
-#+END_SRC
-
-** Echo Area
+*** Echo Area
 
 #+BEGIN_SRC emacs-lisp
   (setq-default echo-keystrokes 0.1)
 #+END_SRC
 
-** Frame
-
-#+BEGIN_SRC emacs-lisp
-  (menu-bar-mode -1)
-
-  (when window-system
-    (tool-bar-mode -1)
-    (scroll-bar-mode -1)
-
-    (setq-default frame-resize-pixelwise t
-                  truncate-lines t)
-
-    (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-    (add-to-list 'default-frame-alist '(ns-appearance . dark))
-
-    (let ((no-border '(internal-border-width . 0)))
-      (add-to-list 'default-frame-alist no-border)
-      (add-to-list 'initial-frame-alist no-border)))
-#+END_SRC
-
-** Font
-
-#+BEGIN_SRC emacs-lisp
-  (when window-system
-    (set-default-font "M+ 1m-12")
-    (setq default-frame-alias '((font . "M+ 1m-12"))))
-#+END_SRC
-
-** Line Number
+*** Line Number
 
 #+BEGIN_SRC emacs-lisp
   (use-package display-line-numbers
@@ -136,7 +106,38 @@
    :config (setq-default display-line-numbers-width 4))
 #+END_SRC
 
-** Themes
+*** Menu Bar
+
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+#+END_SRC
+
+*** Rainbow Delimiters
+
+#+BEGIN_SRC emacs-lisp
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+#+END_SRC
+
+*** Scroll
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default
+   scroll-margin                   1
+   scroll-conservatively           10000
+   scroll-preserve-screen-position t)
+#+END_SRC
+
+*** Startup Screen
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default
+   inhibit-startup-screen  t
+   initial-scratch-message ""
+   initial-major-mode      'text-mode)
+#+END_SRC
+
+*** Themes
 
 #+BEGIN_SRC emacs-lisp
   (use-package challenger-deep-theme)
@@ -147,22 +148,7 @@
   (load-theme 'doom-one t)
 #+END_SRC
 
-** Rainbow Delimiters
-
-#+BEGIN_SRC emacs-lisp
-  (use-package rainbow-delimiters
-    :hook (prog-mode . rainbow-delimiters-mode))
-#+END_SRC
-
-** Scroll
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default scroll-margin 1
-                scroll-conservatively 10000
-                scroll-preserve-screen-position t)
-#+END_SRC
-
-** Whitespace
+*** Whitespace
 
 #+BEGIN_SRC emacs-lisp
   (use-package whitespace
@@ -170,7 +156,45 @@
     :config (setq-default whitespace-style '(face empty tabs trailing)))
 #+END_SRC
 
+** Window System
+
+#+BEGIN_SRC emacs-lisp
+  (when window-system
+    (tool-bar-mode -1)
+    (scroll-bar-mode -1)
+    (blink-cursor-mode -1)
+
+    (let ((no-border '(internal-border-width . 0)))
+      (add-to-list 'default-frame-alist no-border)
+      (add-to-list 'initial-frame-alist no-border))
+
+    (set-default-font "M+ 1m-12" nil t)
+
+    (setq-default
+     truncate-lines t
+     use-dialog-box nil))
+#+END_SRC
+
+** Mac
+
+#+BEGIN_SRC emacs-lisp
+  (when (eq system-type 'darwin)
+    (add-to-list 'default-frame-alist '(ns-appearance . dark))
+    (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+
+    (setq-default frame-resize-pixelwise t))
+#+END_SRC
+
 * Editing
+
+** Ace Window
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ace-window
+    :commands ace-window
+    :bind ("C-x o" . ace-window)
+    :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+#+END_SRC
 
 ** Auto Revert
 
@@ -181,12 +205,6 @@
     :config (setq-default auto-revert-interval 0.1))
 #+END_SRC
 
-** Dialog
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default use-dialog-box nil)
-#+END_SRC
-
 ** Editorconfig
 
 #+BEGIN_SRC emacs-lisp
@@ -194,24 +212,18 @@
     :init (editorconfig-mode))
 #+END_SRC
 
-** Expand Region
+** Flycheck
 
 #+BEGIN_SRC emacs-lisp
-  (use-package expand-region
-    :bind ("C-=" . er/expand-region))
+  (use-package flycheck
+    :hook (ruby-mode . flycheck-mode))
 #+END_SRC
 
-** Iedit
+** Minibuffer
 
 #+BEGIN_SRC emacs-lisp
-  (use-package iedit
-    :bind ("C-;" . iedit-mode))
-#+END_SRC
-
-** Quit
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default confirm-kill-emacs 'y-or-n-p)
+  (add-hook 'minibuffer-setup-hook #'change-gc-cons)
+  (add-hook 'minibuffer-exit-hook #'reset-gc-cons)
 #+END_SRC
 
 ** Server
@@ -248,9 +260,11 @@
 ** Auto Save
 
 #+BEGIN_SRC emacs-lisp
-  (setq-default auto-save-default nil
-                auto-save-list-file-name nil
-                auto-save-list-file-prefix nil)
+  (setq-default
+   auto-save-default          nil
+   auto-save-list-file-name   nil
+   auto-save-list-file-prefix nil
+   auto-save-list-file-prefix nil)
 #+END_SRC
 
 ** Backup
@@ -273,7 +287,7 @@
   (use-package ls-lisp :defer 0 :ensure nil
     :config
     (setq-default
-     ls-lisp-dirs-first t
+     ls-lisp-dirs-first                   t
      ls-lisp-use-insert-directory-program nil))
 
   (use-package dired :ensure nil
@@ -281,7 +295,7 @@
     :hook (dired-mode . dired-hide-details-mode)
     :config
     (setq-default
-     dired-dwim-target t
+     dired-dwim-target      t
      dired-recursive-copies 'always))
 #+END_SRC
 
@@ -291,36 +305,6 @@
   (setq-default create-lockfiles nil)
 #+END_SRC
 
-* Tools
-
-** Ace Window
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ace-window
-    :commands ace-window
-    :bind ("C-x o" . ace-window)
-    :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-#+END_SRC
-
-** Flycheck
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :hook (ruby-mode . flycheck-mode))
-#+END_SRC
-
-** Magit
-
-#+BEGIN_SRC emacs-lisp
-  (use-package magit :bind ("C-x g" . magit-status))
-#+END_SRC
-
-** Ripgrep
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ripgrep)
-#+END_SRC
-
 * Vim Emulation
 
 ** Evil
@@ -328,8 +312,18 @@
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :init
-    (setq-default evil-disable-insert-state-bindings t)
+    (setq-default
+     evil-disable-insert-state-bindings t)
+
     (evil-mode))
+#+END_SRC
+
+* Version Control
+
+** Magit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit :bind ("C-x g" . magit-status))
 #+END_SRC
 
 * Project Management
@@ -346,32 +340,25 @@
 ** Projectile Riggrep
 
 #+BEGIN_SRC emacs-lisp
+  (use-package ripgrep)
   (use-package projectile-ripgrep
     :commands projectile-ripgrep)
 #+END_SRC
 
 * Completion
 
-** Ivy
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :init (ivy-mode)
-    :config (setq ivy-use-selectable-prompt t))
-#+END_SRC
-
-** Counsel
-
-#+BEGIN_SRC emacs-lisp
-  (use-package counsel
-    :bind ("M-x" . counsel-M-x))
-#+END_SRC
-
 ** Swiper
 
 #+BEGIN_SRC emacs-lisp
   (use-package swiper
     :bind ("C-s" . swiper))
+
+  (use-package counsel
+    :bind ("M-x" . counsel-M-x))
+
+  (use-package ivy
+    :init (ivy-mode)
+    :config (setq ivy-use-selectable-prompt t))
 #+END_SRC
 
 ** Company
