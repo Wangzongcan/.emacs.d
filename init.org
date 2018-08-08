@@ -140,9 +140,6 @@
 *** Themes
 
 #+BEGIN_SRC emacs-lisp
-  (use-package challenger-deep-theme)
-  (use-package kaolin-themes)
-  (use-package dracula-theme)
   (use-package doom-themes)
 
   (load-theme 'doom-one t)
