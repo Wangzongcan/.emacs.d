@@ -165,7 +165,7 @@
       (add-to-list 'default-frame-alist no-border)
       (add-to-list 'initial-frame-alist no-border))
 
-    (set-default-font "M+ 1m-12" nil t)
+    (set-default-font "等距更纱黑体 SC-12" nil t)
 
     (setq-default
      truncate-lines t
