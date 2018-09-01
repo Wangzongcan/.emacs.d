@@ -62,8 +62,8 @@
    package-enable-at-startup nil
    package--init-file-ensured t)
 
-  (add-to-list 'package-archives
-               '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
   (package-initialize)
 #+END_SRC
@@ -300,6 +300,20 @@
 
 #+BEGIN_SRC emacs-lisp
   (setq-default create-lockfiles nil)
+#+END_SRC
+
+* Org Mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :config
+    (dolist (face '(org-level-1
+                    org-level-2
+                    org-level-3
+                    org-level-4
+                    org-level-5))
+      (set-face-attribute face nil :height 1.0 :bold t)))
+  (use-package org-plus-contrib)
 #+END_SRC
 
 * Vim Emulation
