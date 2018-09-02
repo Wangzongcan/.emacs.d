@@ -140,9 +140,9 @@
 *** Themes
 
 #+BEGIN_SRC emacs-lisp
-  (use-package doom-themes)
+  (use-package dracula-theme)
 
-  (load-theme 'doom-one t)
+  (load-theme 'dracula t)
 #+END_SRC
 
 *** Whitespace
