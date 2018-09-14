@@ -1,4 +1,4 @@
-#+TITLE: Emacs 配置
+#+TITLE: Emacs 26 Configuration
 #+STARTUP: align indent
 #+PROPERTY: header-args :tangle yes :results value silent
 
@@ -58,28 +58,30 @@
 #+BEGIN_SRC emacs-lisp
   (require 'package)
 
-  (setq-default
-   package-enable-at-startup nil
-   package--init-file-ensured t)
+  (setq package-enable-at-startup nil
+        package--init-file-ensured t)
 
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives
+               '("org" . "https://orgmode.org/elpa/") t)
 
   (package-initialize)
+
+  (when (not package-archive-contents)
+    (package-refresh-contents))
 #+END_SRC
 
 ** Use Package
 
 #+BEGIN_SRC emacs-lisp
   (when (not (package-installed-p 'use-package))
-    (package-refresh-contents)
     (package-install 'use-package))
 
   (eval-when-compile
     (require 'use-package)
-    (setq-default
-     use-package-always-defer t
-     use-package-always-ensure t))
+    (setq use-package-always-defer t
+          use-package-always-ensure t))
 #+END_SRC
 
 * Appearance
