@@ -3,11 +3,9 @@ elpa/
 meghanada/
 url/
 eshell/
+var/
 
 network-security.data
 
 init.el
 init.elc
-
-projectile-bookmarks.eld
-projectile.cache
