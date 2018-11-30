@@ -276,6 +276,12 @@
     :defer 0.3
     :init (setq evil-disable-insert-state-bindings t)
     :config (evil-mode))
+
+  (use-package evil-escape
+    :config
+    (setq evil-escape-key-sequence "fj")
+    (setq evil-escape-unordered-key-sequence t)
+    (evil-escape-mode))
 #+END_SRC
 
 ** Indent
