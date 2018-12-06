@@ -232,31 +232,22 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package dired :ensure nil :defer t
+    :hook ((dired-mode . diredfl-mode)
+           (dired-mode . dired-omit-mode)
+           (dired-mode . dired-hide-details-mode))
     :bind (("C-x C-j" . dired-jump)
            :map dired-mode-map
            ("I" . dired-kill-subdir))
     :config
-    (defun my-dired-mode-hook()
-      (setq dired-dwim-target t
-            dired-recursive-copies 'always)
+    (setq dired-dwim-target t
+          dired-recursive-copies 'always
+          insert-directory-program "gls"
+          dired-listing-switches "-aBhl --group-directories-first")
 
-      (dired-hide-details-mode)
-
-      (use-package ls-lisp :ensure nil
-        :init
-        (setq ls-lisp-dirs-first t
-              ls-lisp-use-insert-directory-program nil))
-
-      (use-package dired-x :ensure nil
-        :init
-        (setq dired-omit-mode t
-              dired-omit-files
-              (concat dired-omit-files "\\|^.DS_Store$")))
-
-      (use-package diredfl
-        :config (diredfl-global-mode)))
-
-    (add-hook 'dired-mode-hook #'my-dired-mode-hook))
+    (use-package dired-x :ensure nil
+      :config
+      (setq dired-omit-files
+            (concat dired-omit-files "\\|^.DS_Store$"))))
 #+END_SRC
 
 ** Lockfile
