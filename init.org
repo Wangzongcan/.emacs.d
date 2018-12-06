@@ -238,13 +238,23 @@
     :config
     (defun my-dired-mode-hook()
       (setq dired-dwim-target t
-           dired-recursive-copies 'always)
+            dired-recursive-copies 'always)
 
       (dired-hide-details-mode)
 
-      (require 'ls-lisp)
-      (setq ls-lisp-dirs-first t
-            ls-lisp-use-insert-directory-program nil))
+      (use-package ls-lisp :ensure nil
+        :init
+        (setq ls-lisp-dirs-first t
+              ls-lisp-use-insert-directory-program nil))
+
+      (use-package dired-x :ensure nil
+        :init
+        (setq dired-omit-mode t
+              dired-omit-files
+              (concat dired-omit-files "\\|^.DS_Store$")))
+
+      (use-package diredfl
+        :config (diredfl-global-mode)))
 
     (add-hook 'dired-mode-hook #'my-dired-mode-hook))
 #+END_SRC
