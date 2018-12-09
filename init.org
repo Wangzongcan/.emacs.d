@@ -90,11 +90,13 @@
 ** Theme
 
 #+BEGIN_SRC emacs-lisp
-  (use-package base16-theme
+  (use-package spacemacs-common
+    :ensure spacemacs-theme
     :config
-    (setq base16-distinct-fringe-background nil
-          base16-highlight-mode-line 'contrast)
-    (load-theme 'base16-snazzy t))
+    (setq spacemacs-theme-comment-italic t
+          spacemacs-theme-org-height nil)
+
+    (load-theme 'spacemacs-dark t))
 #+END_SRC
 
 * Window Settings
@@ -198,6 +200,9 @@
           show-paren-when-point-inside-paren t))
 
   (use-package rainbow-delimiters
+    :custom-face
+    (rainbow-delimiters-mismatched-face ((t (:overline nil :inverse-video t))))
+    (rainbow-delimiters-unmatched-face ((t (:overline nil :inverse-video t))))
     :hook ((prog-mode text-mode) . rainbow-delimiters-mode))
 #+END_SRC
 
