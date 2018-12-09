@@ -251,7 +251,8 @@
 
     (use-package dired-x :ensure nil
       :config
-      (setq dired-omit-files
+      (setq dired-omit-verbose nil
+            dired-omit-files
             (concat dired-omit-files "\\|^.DS_Store$"))))
 #+END_SRC
 
