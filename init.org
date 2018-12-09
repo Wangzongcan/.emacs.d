@@ -363,6 +363,15 @@
     (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 #+END_SRC
 
+** Git Gutter
+
+#+BEGIN_SRC emacs-lisp
+  (use-package git-gutter-fringe
+    :config
+    (setq git-gutter-fr:side 'right-fringe)
+    (global-git-gutter-mode))
+#+END_SRC
+
 * Project Management
 ** Projectile
 
