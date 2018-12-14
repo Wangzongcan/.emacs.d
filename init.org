@@ -281,6 +281,14 @@
     :config (global-undo-tree-mode))
 #+END_SRC
 
+** Easy Kill
+
+#+BEGIN_SRC emacs-lisp
+  (use-package easy-kill
+    :bind (([remap kill-ring-save] . easy-kill)
+           ([remap mark-sexp] . easy-mark)))
+#+END_SRC
+
 ** Evil
 
 #+BEGIN_SRC emacs-lisp
