@@ -289,6 +289,13 @@
            ([remap mark-sexp] . easy-mark)))
 #+END_SRC
 
+** Editor Config
+
+#+BEGIN_SRC emacs-lisp
+  (use-package editorconfig
+    :config (editorconfig-mode 1))
+#+END_SRC
+
 ** Evil
 
 #+BEGIN_SRC emacs-lisp
