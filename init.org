@@ -453,20 +453,32 @@
   (use-package web-mode
     :defer t
     :hook (web-mode . emmet-mode)
-    :mode (("\\.html\\'" . web-mode)
-           ("\\.erb\\'" . web-mode)
-           ("\\.json\\'" . web-mode)
-           ("\\.vue\\'" . web-mode))
+    :mode ("\\.html\\'" "\\.erb\\'" "\\.json\\'" "\\.vue\\'")
     :config
 
-    (setq web-mode-enable-auto-pairing t
-          web-mode-enable-auto-indentation nil
-          web-mode-markup-indent-offset 2
+    ;; Display
+    (setq web-mode-enable-current-column-highlight t
+          web-mode-enable-current-element-highlight t
+          web-mode-enable-auto-indentation nil)
+
+    ;; Format
+    (setq web-mode-markup-indent-offset 2
           web-mode-css-indent-offset 2
           web-mode-code-indent-offset 2
           web-mode-style-padding 2
-          web-mode-script-padding 2))
+          web-mode-script-padding 2)
 
+    (setq web-mode-content-types-alist
+          '(("vue" . "\\.vue\\'")))
+
+    (defun my/web-vue-setup()
+      (setq web-mode-style-padding 0
+            web-mode-script-padding 0))
+
+    (add-hook 'web-mode-hook
+              (lambda ()
+                (cond ((equal web-mode-content-type "vue")
+                       (my/web-vue-setup))))))
 #+END_SRC
 
 ** CSS
