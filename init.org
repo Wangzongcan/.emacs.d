@@ -304,6 +304,9 @@
     :init (setq evil-disable-insert-state-bindings t)
     :config (evil-mode))
 
+  (use-package evil-surround
+    :config (global-evil-surround-mode 1))
+
   (use-package evil-escape
     :config
     (setq evil-escape-key-sequence "fj")
