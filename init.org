@@ -419,7 +419,7 @@
           "rg -i -M 120 --no-heading --line-number --color never '%s' %s"))
 
   (use-package swiper
-    :bind ("C-s" . counsel-grep-or-swiper))
+    :bind ("C-s" . swiper-isearch))
 #+END_SRC
 
 ** Magit
