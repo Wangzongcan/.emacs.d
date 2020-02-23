@@ -4,8 +4,11 @@ meghanada/
 url/
 eshell/
 var/
+straight/
+transient/
 
-network-security.data
+package-quickstart.el
+custom.el
 
-init.el
-init.elc
+projectile-bookmarks.eld
+projectile.cache
