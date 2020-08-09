@@ -1,21 +1,33 @@
+;; Format
+(setq require-final-newline t)
+
+(setq-default tab-width 4
+              indent-tabs-mode nil)
+
+;; Autorevert
+(use-package autorevert
+  :straight nil
+  :hook (after-init . global-auto-revert-mode)
+  :config
+  (setq auto-revert-interval 0.1
+        auto-revert-verbose nil
+        global-auto-revert-non-file-buffers t))
+
+;; Delete selection
 (use-package delsel
   :straight nil
   :hook (after-init . delete-selection-mode))
 
-(use-package elec-pair
+;; Server
+(use-package server
   :straight nil
-  :hook (after-init . electric-pair-mode)
-  :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+  :if window-system
+  :hook (after-init . server-mode))
 
-(use-package avy
-  :bind (("C-:" . avy-goto-char)
-         ("C-'" . avy-goto-char-2)
-         ("M-g f" . avy-goto-line)
-         ("M-g w" . avy-goto-word-1)
-         ("M-g e" . avy-goto-word-0))
-  :hook (after-init . avy-setup-default)
-  :config (setq avy-all-windows nil
-                avy-all-windows-alt t
-                avy-background t))
+;; Grep
+(use-package wgrep
+  :init
+  (setq wgrep-auto-save-buffer t
+        wgrep-change-readonly-file t))
 
 (provide 'init-editing)

@@ -8,8 +8,6 @@
 (push '(vertical-scroll-bars) default-frame-alist)
 (push '(font . "Sarasa Mono SC-12") default-frame-alist)
 
-(setq frame-inhibit-implied-resize t)
-
 (when (featurep 'ns)
-  (setq ns-use-proxy-icon nil)
-  (push '(ns-transparent-titlebar . t) default-frame-alist))
+  (push '(ns-transparent-titlebar . t) default-frame-alist)
+  (push '(ns-appearance . light) default-frame-alist))

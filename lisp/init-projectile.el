@@ -1,5 +1,4 @@
 (use-package projectile
-  :diminish
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-completion-system 'ivy))

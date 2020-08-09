@@ -1,14 +1,14 @@
+(use-package esup)
+
 (use-package no-littering
-  :demand)
+  :demand t)
 
-(use-package wgrep
-  :init
-  (setq wgrep-auto-save-buffer t
-        wgrep-change-readonly-file t))
+(use-package gcmh
+  :hook (after-init . gcmh-mode))
 
-(use-package youdao-dictionary
-  :bind ("C-c y" . youdao-dictionary-search-at-point)
-  :config
-  (setq url-automatic-caching t))
+(use-package snails
+  :disabled
+  :ensure nil
+  :straight (:host github :repo "manateelazycat/snails" :depth 1 :no-byte-compile t))
 
 (provide 'init-utils)

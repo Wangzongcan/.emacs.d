@@ -1,14 +1,10 @@
 (use-package emmet-mode
   :hook web-mode)
 
-(use-package add-node-modules-path
-  :hook js-mode)
-
 (use-package web-mode
   :mode ("\\.html\\'" "\\.erb\\'" "\\.vue\\'")
   :config
-  (setq web-mode-enable-current-column-highlight t
-        web-mode-enable-current-element-highlight t
+  (setq web-mode-enable-current-element-highlight t
         web-mode-enable-auto-indentation nil)
 
   (setq web-mode-markup-indent-offset 2
