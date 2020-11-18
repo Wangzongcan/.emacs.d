@@ -9,5 +9,4 @@
 (push '(font . "Sarasa Mono SC-12") default-frame-alist)
 
 (when (featurep 'ns)
-  (push '(ns-transparent-titlebar . t) default-frame-alist)
-  (push '(ns-appearance . light) default-frame-alist))
+  (push '(ns-transparent-titlebar . t) default-frame-alist))

@@ -1,4 +1,6 @@
 ;; Frame
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
 (setq frame-resize-pixelwise t
       frame-inhibit-implied-resize t)
 
