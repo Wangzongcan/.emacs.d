@@ -12,6 +12,10 @@
 
 (setq ns-use-proxy-icon nil)
 
+(unless (display-graphic-p)
+  (setq-default left-margin-width 1
+                right-margin-width 1))
+
 ;; Buffers
 (setq uniquify-buffer-name-style 'forward)
 (setq-default truncate-lines t)

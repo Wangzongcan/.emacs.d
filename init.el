@@ -14,6 +14,7 @@
 (require 'init-completion)
 (require 'init-projectile)
 (require 'init-version-control)
+(require 'init-flycheck)
 (require 'init-evil)
 
 (require 'init-org)
