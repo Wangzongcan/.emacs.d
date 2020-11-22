@@ -1,20 +1,20 @@
 (use-package elec-pair
-  :straight nil
+  :straight (:type built-in)
   :hook (prog-mode . electric-pair-mode)
   :init
   (setq electric-pair-inhibit-predicate
         'electric-pair-conservative-inhibit))
 
 (use-package paren
-  :straight nil
+  :straight (:type built-in)
   :hook (prog-mode . show-paren-mode))
 
 (use-package subword
-  :straight nil
+  :straight (:type built-in)
   :hook (prog-mode . subword-mode))
 
 (use-package whitespace
-  :straight nil
+  :straight (:type built-in)
   :hook (prog-mode . whitespace-mode)
   :config
   (setq whitespace-line-column nil

@@ -44,12 +44,12 @@
 (advice-add #'yes-or-no-p :override #'y-or-n-p)
 
 (use-package hl-line
-  :straight nil
+  :straight (:type built-in)
   :hook (after-init . global-hl-line-mode))
 
 ;; Tooltip
 (use-package tooltip
-  :straight nil
+  :straight (:type built-in)
   :config
   (tooltip-mode -1))
 

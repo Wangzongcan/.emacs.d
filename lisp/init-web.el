@@ -26,12 +26,12 @@
                      (my/web-vue-setup))))))
 
 (use-package js-mode
-  :straight nil
+  :straight (:type built-in)
   :mode "\\.jsx\\'"
   :init (setq js-indent-level 2))
 
 (use-package css-mode
-  :straight nil
+  :straight (:type built-in)
   :init (setq css-indent-offset 2))
 
 (use-package json-mode)

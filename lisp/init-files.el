@@ -5,7 +5,7 @@
 
 ;; Dired
 (use-package dired
-  :straight nil
+  :straight (:type built-in)
   :config
   (setq dired-auto-revert-buffer t
         dired-dwim-target t
@@ -16,7 +16,7 @@
         dired-listing-switches "-ahl -v --group-directories-first"))
 
 (use-package dired-x
-  :straight nil
+  :straight (:type built-in)
   :bind ("C-x C-j" . dired-jump))
 
 (use-package diredfl

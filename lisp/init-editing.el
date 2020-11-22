@@ -6,7 +6,7 @@
 
 ;; Autorevert
 (use-package autorevert
-  :straight nil
+  :straight (:type built-in)
   :hook (after-init . global-auto-revert-mode)
   :config
   (setq auto-revert-interval 0.1
@@ -15,12 +15,12 @@
 
 ;; Delete selection
 (use-package delsel
-  :straight nil
+  :straight (:type built-in)
   :hook (after-init . delete-selection-mode))
 
 ;; Server
 (use-package server
-  :straight nil
+  :straight (:type built-in)
   :if window-system
   :hook (after-init . server-mode))
 
