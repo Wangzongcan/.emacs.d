@@ -8,6 +8,7 @@
 
 (require 'init-basic)
 (require 'init-ui)
+(require 'init-key-bindings)
 (require 'init-editing)
 (require 'init-files)
 

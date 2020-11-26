@@ -20,6 +20,9 @@
 
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
-  :bind ("C-s" . swiper-isearch))
+  :bind ("C-s" . swiper-isearch)
+  :general
+  (my-leader-def 'normal
+    "SPC" 'counsel-M-x))
 
 (provide 'init-completion)
