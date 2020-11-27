@@ -30,4 +30,7 @@
   (setq wgrep-auto-save-buffer t
         wgrep-change-readonly-file t))
 
+;; Avy
+(use-package avy)
+
 (provide 'init-editing)

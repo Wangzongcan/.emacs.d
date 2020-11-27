@@ -3,6 +3,12 @@
 
 (use-package evil
   :defer 0.2
+  :general
+  (my-leader-def 'normal
+    "j" '(:ignore t :wk "Jump")
+    "jc" 'evil-avy-goto-char
+    "jw" 'evil-avy-goto-word-1
+    "jl" 'evil-avy-goto-line)
   :init
   (setq evil-want-keybinding nil
         evil-disable-insert-state-bindings t

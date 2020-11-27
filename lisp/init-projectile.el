@@ -1,4 +1,7 @@
 (use-package projectile
+  :general
+  (my-leader-def 'normal
+    "p" '(:keymap projectile-command-map))
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-enable-caching t
