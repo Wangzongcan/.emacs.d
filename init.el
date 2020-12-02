@@ -23,6 +23,7 @@
 
 (require 'init-prog)
 (require 'init-ruby)
+(require 'init-python)
 (require 'init-web)
 (require 'init-yaml)
 
