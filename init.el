@@ -1,30 +1,28 @@
 (push (expand-file-name "lisp" user-emacs-directory) load-path)
 
-(require 'init-speed-up)
+(require 'init-gc)
 (require 'init-package)
-(require 'init-environment)
-
-(require 'init-utils)
 
 (require 'init-basic)
 (require 'init-ui)
-(require 'init-key-bindings)
-(require 'init-editing)
-(require 'init-files)
-
-(require 'init-completion)
-(require 'init-projectile)
-(require 'init-version-control)
-(require 'init-flycheck)
-(require 'init-evil)
+(require 'init-edit)
+(require 'init-dired)
+(require 'init-themes)
 
 (require 'init-org)
-(require 'init-docker)
 
-(require 'init-prog)
-(require 'init-ruby)
-(require 'init-python)
+(require 'init-git)
+(require 'init-ivy)
+(require 'init-evil)
+(require 'init-company)
+(require 'init-yasnippet)
+(require 'init-projectile)
+(require 'init-flycheck)
+
 (require 'init-web)
+(require 'init-ruby)
 (require 'init-yaml)
+(require 'init-docker)
+(require 'init-python)
 
 (require 'init-custom-file)

@@ -20,12 +20,10 @@
 ;; use-package
 (straight-use-package 'use-package)
 
-(eval-and-compile
-  (setq use-package-always-defer t
-        use-package-expand-minimally t))
-
-(eval-when-compile
-  (require 'use-package))
+(use-package use-package
+  :custom
+  (use-package-always-defer t)
+  (use-package-expand-minimally t))
 
 (use-package diminish)
 (use-package bind-key)

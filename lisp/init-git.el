@@ -10,8 +10,6 @@
          (after-init . diff-hl-flydiff-mode))
   :init (setq diff-hl-draw-borders nil)
   :config
-  (setq-default fringes-outside-margins t)
-
   (defun my-diff-hl-fringe-bmp-function (_type _pos)
     "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
     (define-fringe-bitmap 'my-diff-hl-bmp [224] 1 8 '(center t)))
@@ -25,4 +23,4 @@
     (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
     (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
 
-(provide 'init-version-control)
+(provide 'init-git)

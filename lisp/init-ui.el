@@ -1,66 +1,65 @@
 ;; Frame
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-
 (setq frame-resize-pixelwise t
       frame-inhibit-implied-resize t)
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 
-(setq use-file-dialog nil
-      use-dialog-box nil)
-
-(setq ring-bell-function #'ignore
-      visible-bell nil)
-
+;; Title Bar
 (setq ns-use-proxy-icon nil)
-
-(unless (display-graphic-p)
-  (setq-default left-margin-width 1
-                right-margin-width 1))
-
-;; Buffers
-(setq uniquify-buffer-name-style 'forward)
-(setq-default truncate-lines t)
-
-;; Mode Line
-(setq column-number-mode 1)
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
-
-;; Scrolling
-(setq hscroll-margin 2
-      hscroll-step 1
-      scroll-conservatively 101
-      scroll-margin 0
-      scroll-preserve-screen-position t
-      auto-window-vscroll nil)
 
 ;; Cursor
 (setq-default cursor-in-non-selected-windows nil)
 (blink-cursor-mode -1)
 
-;; Minibuffer
-(setq enable-recursive-minibuffers t)
-(setq echo-keystrokes 0.02)
+;; Buffer Display
+(setq-default truncate-lines t)
 
-(setq minibuffer-prompt-properties
-      '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
-(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+(setq use-file-dialog nil
+      use-dialog-box nil)
+
+;; Tooltip
+(tooltip-mode -1)
+
+;; Mode Line
+(column-number-mode +1)
+
+;; Minibuffer
+(setq echo-keystrokes 0.02)
 
 (advice-add #'yes-or-no-p :override #'y-or-n-p)
 
-(use-package hl-line
-  :straight (:type built-in)
-  :hook (after-init . global-hl-line-mode))
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-buffer-file-name-style 'buffer-name))
 
-;; Tooltip
-(use-package tooltip
-  :straight (:type built-in)
-  :config
-  (tooltip-mode -1))
+(use-package nyan-mode
+  :hook (after-init)
+  :custom
+  (nyan-animate-nyancat t))
 
-;; Themes
-(use-package doom-themes)
-(add-hook 'after-init-hook
-          (lambda ()
-            (load-theme 'doom-snazzy t)))
+;; Paren
+(use-package paren
+  :straight (:type built-in)
+  :hook (after-init . show-paren-mode)
+  :custom
+  (show-paren-when-point-inside-paren t)
+  (show-paren-when-point-in-periphery t))
+
+;; Whitespace
+(use-package whitespace
+  :straight (:type built-in)
+  :hook (prog-mode . whitespace-mode)
+  :custom
+  (whitespace-line-column nil)
+  (whitespace-style '(face empty tabs tab-mark
+                           trailing space-before-tab)))
+
+;; Highlight Parentheses
+(use-package highlight-parentheses
+  :hook (prog-mode . highlight-parentheses-mode))
+
+;; Rainbow Delimiters
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (provide 'init-ui)
