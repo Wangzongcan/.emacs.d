@@ -1,6 +1,5 @@
-;; straight
+;; straight.el
 (setq straight-cache-autoloads t
-      straight-use-package-by-default t
       straight-vc-git-default-clone-depth 1
       straight-check-for-modifications '(check-on-save))
 
@@ -19,15 +18,9 @@
 
 ;; use-package
 (straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
-(eval-and-compile
-  (setq use-package-always-defer t
-        use-package-expand-minimally t))
-
-(eval-when-compile
-  (require 'use-package))
-
-(use-package diminish)
+(use-package use-package)
 (use-package bind-key)
 
 (provide 'init-package)

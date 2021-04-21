@@ -6,6 +6,7 @@ eshell/
 var/
 straight/
 transient/
+eln-cache/
 
 package-quickstart.el
 custom.el

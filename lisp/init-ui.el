@@ -1,66 +1,60 @@
 ;; Frame
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-
 (setq frame-resize-pixelwise t
       frame-inhibit-implied-resize t)
 
-(setq use-file-dialog nil
-      use-dialog-box nil)
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+(push '(internal-border-width . 0) default-frame-alist)
+(push '(font . "Sarasa Mono SC-12") default-frame-alist)
 
-(setq ring-bell-function #'ignore
-      visible-bell nil)
+;; Suppress GUI features
+(setq use-dialog-box nil
+      use-file-dialog nil)
 
-(setq ns-use-proxy-icon nil)
+;; Startup Screen
+(setq inhibit-startup-screen t)
 
-(unless (display-graphic-p)
-  (setq-default left-margin-width 1
-                right-margin-width 1))
+;; Bell
+(setq visible-bell nil
+      ring-bell-function #'ignore)
 
-;; Buffers
-(setq uniquify-buffer-name-style 'forward)
+;; Display Buffer
 (setq-default truncate-lines t)
 
-;; Mode Line
-(setq column-number-mode 1)
+(setq uniquify-buffer-name-style 'forward)
+
+;; Cursor
+(blink-cursor-mode -1)
+(setq-default cursor-in-non-selected-windows nil)
+
+;; Modeline
+(column-number-mode +1)
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode))
 
-;; Scrolling
-(setq hscroll-margin 2
-      hscroll-step 1
-      scroll-conservatively 101
-      scroll-margin 0
-      scroll-preserve-screen-position t
-      auto-window-vscroll nil)
+;; Scroll
+(setq scroll-step 1
+      scroll-conservatively 10000)
 
-;; Cursor
-(setq-default cursor-in-non-selected-windows nil)
-(blink-cursor-mode -1)
-
-;; Minibuffer
-(setq enable-recursive-minibuffers t)
-(setq echo-keystrokes 0.02)
-
-(setq minibuffer-prompt-properties
-      '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
-(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-
-(advice-add #'yes-or-no-p :override #'y-or-n-p)
-
-(use-package hl-line
+;; Whitespace
+(use-package whitespace
   :straight (:type built-in)
-  :hook (after-init . global-hl-line-mode))
+  :hook (prog-mode . whitespace-mode)
+  :init
+  (setq whitespace-line-column nil
+        whitespace-style '(face empty tabs tab-mark
+                                trailing space-before-tab)))
 
-;; Tooltip
-(use-package tooltip
+;; Paren
+(use-package paren
   :straight (:type built-in)
-  :config
-  (tooltip-mode -1))
+  :hook (after-init . show-paren-mode)
+  :init
+  (setq show-paren-when-point-inside-paren t
+        show-paren-when-point-in-periphery t))
 
-;; Themes
-(use-package doom-themes)
-(add-hook 'after-init-hook
-          (lambda ()
-            (load-theme 'doom-snazzy t)))
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (provide 'init-ui)

@@ -2,48 +2,23 @@
   :hook (after-init . global-undo-tree-mode))
 
 (use-package evil
-  :defer 0.2
-  :general
-  (my-leader-def 'normal
-    "j" '(:ignore t :wk "Jump")
-    "jc" 'evil-avy-goto-char
-    "jw" 'evil-avy-goto-word-1
-    "jl" 'evil-avy-goto-line)
+  :hook (after-init . evil-mode)
   :init
   (setq evil-want-keybinding nil
-        evil-disable-insert-state-bindings t
-        evil-want-Y-yank-to-eol t)
-  :config
-  (evil-set-undo-system 'undo-tree)
-
-  (evil-mode))
+        evil-want-Y-yank-to-eol t
+        evil-undo-system 'undo-tree
+        evil-disable-insert-state-bindings t))
 
 (use-package evil-collection
   :after evil
-  :demand t
-  :config
-  (evil-collection-init))
-
-(use-package evil-matchit
-  :after evil
-  :demand t
-  :config
-  (global-evil-matchit-mode))
+  :config (evil-collection-init))
 
 (use-package evil-surround
   :after evil
-  :demand t
-  :config
-  (global-evil-surround-mode))
+  :config (global-evil-surround-mode))
 
 (use-package evil-snipe
   :after evil
-  :demand t
-  :config
-  (evil-snipe-override-mode))
-
-(use-package evil-magit
-  :after (evil magit)
-  :demand t)
+  :config (evil-snipe-override-mode))
 
 (provide 'init-evil)
