@@ -8,6 +8,7 @@ straight/
 transient/
 eln-cache/
 
+projects
 package-quickstart.el
 custom.el
 
