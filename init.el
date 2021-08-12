@@ -24,5 +24,6 @@
 (require 'init-yaml)
 (require 'init-python)
 (require 'init-rust)
+(require 'init-dart)
 
 (require 'init-custom-file)
