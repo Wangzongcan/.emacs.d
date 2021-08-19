@@ -40,4 +40,8 @@
   (setq wgrep-auto-save-buffer t
         wgrep-change-readonly-file t))
 
+;; xclip
+(use-package xclip
+  :hook (after-init . xclip-mode))
+
 (provide 'init-edit)
