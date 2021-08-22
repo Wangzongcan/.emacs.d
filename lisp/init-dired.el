@@ -1,5 +1,4 @@
 (use-package dired
-  :defer t
   :straight (:type built-in)
   :init
   (setq dired-dwim-target t

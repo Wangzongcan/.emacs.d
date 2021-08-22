@@ -1,9 +1,7 @@
 (use-package projectile
-  :defer t
+  :hook (after-init . projectile-mode)
   :bind-keymap ("C-c p" . projectile-command-map)
   :init
-  (setq projectile-dynamic-mode-line nil)
-  :config
-  (projectile-mode +1))
+  (setq projectile-dynamic-mode-line nil))
 
 (provide 'init-projectile)

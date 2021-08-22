@@ -20,7 +20,11 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
-(use-package use-package)
+(setq use-package-always-defer t
+      use-package-expand-minimally t)
+(eval-when-compile
+  (require 'use-package))
+
 (use-package bind-key)
 
 (provide 'init-package)

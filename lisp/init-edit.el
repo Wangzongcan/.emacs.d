@@ -35,7 +35,6 @@
 
 ;; Grep
 (use-package wgrep
-  :defer t
   :init
   (setq wgrep-auto-save-buffer t
         wgrep-change-readonly-file t))

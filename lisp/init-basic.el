@@ -1,20 +1,22 @@
-(setq load-prefer-newer t)
+;; GCMH
+(use-package gcmh
+  :hook (after-init . gcmh-mode)
+  :init
+  (setq gcmh-idle-delay 0.5
+        gcmh-high-cons-threshold (* 16 1024 1024)))
+
+(setq inhibit-startup-message t
+      inhibit-startup-echo-area-message nil
+      inhibit-default-init t
+      initial-major-mode 'fundamental-mode
+      initial-scratch-message nil)
 
 ;; Native comp
 (setq native-comp-async-report-warnings-errors nil)
 
-;; Encoding
-(prefer-coding-system 'utf-8)
-(set-language-environment 'utf-8)
-
 ;; Minibuffer
 (setq echo-keystrokes 0.02
       enable-recursive-minibuffers t)
-
-;; Do not allow the cursor in the minibuffer prompt
-(setq minibuffer-prompt-properties
-      '(read-only t cursor-intangible t face minibuffer-prompt))
-(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
 ;; Confirm
 (fset 'yes-or-no-p 'y-or-n-p)

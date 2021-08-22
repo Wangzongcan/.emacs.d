@@ -2,18 +2,13 @@
 (setq frame-resize-pixelwise t
       frame-inhibit-implied-resize t)
 
-(push '(menu-bar-lines . 0) default-frame-alist)
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-(push '(internal-border-width . 0) default-frame-alist)
-(push '(font . "Sarasa Mono SC-12") default-frame-alist)
-
 ;; Suppress GUI features
 (setq use-dialog-box nil
       use-file-dialog nil)
 
-;; Startup Screen
-(setq inhibit-startup-screen t)
+;; Title bar
+(when (eq system-type 'darwin)
+  (setq ns-use-proxy-icon nil))
 
 ;; Bell
 (setq visible-bell nil
@@ -21,7 +16,6 @@
 
 ;; Display Buffer
 (setq-default truncate-lines t)
-
 (setq uniquify-buffer-name-style 'forward)
 
 ;; Cursor
@@ -31,7 +25,10 @@
 ;; Modeline
 (column-number-mode +1)
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-icon nil
+        doom-modeline-height 1))
 
 ;; Scroll
 (setq scroll-step 1

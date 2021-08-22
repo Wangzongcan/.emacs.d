@@ -1,5 +1,4 @@
 (use-package flycheck
-  :defer t
   :config
   (setq flycheck-emacs-lisp-load-path 'inherit
         flycheck-check-syntax-automatically '(save mode-enabled)

@@ -1,9 +1,10 @@
+(setq gc-cons-threshold most-positive-fixnum)
+
 (push (expand-file-name "lisp" user-emacs-directory) load-path)
 
-(require 'init-gc)
 (require 'init-package)
+(require 'init-environment)
 (require 'init-basic)
-(require 'init-macos)
 (require 'init-ui)
 (require 'init-edit)
 (require 'init-dired)
@@ -13,8 +14,9 @@
 (require 'init-git)
 (require 'init-docker)
 
-(require 'init-ivy)
 (require 'init-org)
+
+(require 'init-ivy)
 (require 'init-company)
 (require 'init-projectile)
 (require 'init-flycheck)
