@@ -19,11 +19,7 @@
 
 (use-package server
   :straight (:type built-in)
-  :config
-  (add-hook 'after-init-hook
-            (lambda ()
-              (unless (server-running-p)
-                (server-start)))))
+  :hook (after-init . server-mode))
 
 ;; Symbol Overlay
 (use-package symbol-overlay
