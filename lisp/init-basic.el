@@ -1,41 +1,54 @@
-;; GCMH
-(use-package gcmh
-  :hook (after-init . gcmh-mode)
-  :init
-  (setq gcmh-idle-delay 0.5
-        gcmh-high-cons-threshold (* 16 1024 1024)))
+;; Encoding
+(prefer-coding-system 'utf-8)
+(set-language-environment 'utf-8)
 
-(setq inhibit-startup-message t
-      inhibit-startup-echo-area-message nil
-      inhibit-default-init t
-      initial-major-mode 'fundamental-mode
-      initial-scratch-message nil)
+;; Don't create lockfile
+(setq create-lockfiles nil)
 
-;; Native comp
-(setq native-comp-async-report-warnings-errors nil)
-
-;; Minibuffer
-(setq echo-keystrokes 0.02
-      enable-recursive-minibuffers t)
+;; Don’t compact font caches during GC.
+(setq inhibit-compacting-font-caches t)
 
 ;; Confirm
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; TAB
-(setq-default tab-width 4
-              indent-tabs-mode nil)
+;; Startup
+(use-package startup
+  :straight (:type built-in)
+  :custom
+  (inhibit-startup-screen t)
+  (initial-scratch-message nil)
+  (initial-major-mode 'fundamental-mode)
+  (auto-save-list-file-prefix nil))
 
-;; Final newline
-(setq require-final-newline t)
+;; Files
+(use-package files
+  :straight (:type built-in)
+  :custom
+  (auto-save-default nil)
+  (make-backup-files nil)
+  (require-final-newline t))
 
-;; Backup
-(setq auto-save-default nil
-      make-backup-files nil)
+;; Savehist
+(use-package savehist
+  :straight (:type built-in)
+  :hook (after-init . savehist-mode)
+  :custom
+  (history-length 1000)
+  (savehist-autosave-interval 300))
 
-;; Don't create auto-save-list directory
-(setq auto-save-list-file-prefix nil)
+;; Recentf
+(use-package recentf
+  :straight (:type built-in)
+  :hook (after-init . recentf-mode))
 
-;; Don't create lockfile
-(setq create-lockfiles nil)
+;; GCMH
+(use-package gcmh
+  :hook (after-init . gcmh-mode)
+  :custom
+  (gcmh-idle-delay 5)
+  (gcmh-high-cons-threshold 16777216))
+
+;; No Littering
+(use-package no-littering :demand t)
 
 (provide 'init-basic)

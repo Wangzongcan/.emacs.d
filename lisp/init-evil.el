@@ -1,21 +1,18 @@
-(use-package undo-tree
-  :hook (after-init . global-undo-tree-mode))
-
 (use-package evil
   :defer 0.2
+  :custom
+  (evil-want-keybinding nil)
+  (evil-want-Y-yank-to-eol t)
+  (evil-undo-system 'undo-redo)
   :init
-  (setq evil-want-keybinding nil
-        evil-want-Y-yank-to-eol t
-        evil-undo-system 'undo-tree
-        evil-disable-insert-state-bindings t)
+  (setq evil-disable-insert-state-bindings t)
   :config
   (evil-mode +1))
 
 (use-package evil-collection
   :demand t
   :after evil
-  :config
-  (evil-collection-init))
+  :config (evil-collection-init))
 
 (use-package evil-surround
   :demand t

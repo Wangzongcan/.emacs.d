@@ -1,4 +1,4 @@
 (use-package yaml-mode
-  :mode "\\.yml\\'")
+  :mode "\\.y[a]ml\\'")
 
 (provide 'init-yaml)

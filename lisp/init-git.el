@@ -1,9 +1,18 @@
+;; Magit
 (use-package magit
   :bind ("C-x g" . magit-status))
 
+;; Git Modes
+(use-package git-modes)
+
+;; Git Timemachine
+(use-package git-timemachine)
+
+;; Diff Hl
 (use-package diff-hl
   :hook ((after-init . global-diff-hl-mode)
-         (after-init . diff-hl-flydiff-mode))
+         (after-init . diff-hl-flydiff-mode)
+         (dired-mode . diff-hl-dired-mode))
   :custom-face
   (diff-hl-change ((t (:foreground ,(face-background 'highlight) :background nil))))
   (diff-hl-insert ((t (:background nil))))

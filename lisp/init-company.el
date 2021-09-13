@@ -5,11 +5,11 @@
          ("TAB" . company-complete-common-or-cycle)
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
-  :init
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 1
-        company-require-match nil
-        company-dabbrev-downcase nil
-        company-dabbrev-ignore-case nil))
+  :custom
+  (company-idle-delay 0)
+  (company-minimum-prefix-length 1)
+  (company-require-match nil)
+  (company-dabbrev-downcase nil)
+  (company-dabbrev-ignore-case nil))
 
 (provide 'init-company)

@@ -7,8 +7,11 @@ var/
 straight/
 transient/
 eln-cache/
+librime/
 
 projects
+history
+recentf
 package-quickstart.el
 custom.el
 

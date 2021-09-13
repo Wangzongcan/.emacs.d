@@ -1,7 +1,8 @@
-;; straight.el
+;; Straight.el
 (setq straight-cache-autoloads t
+      straight-use-package-by-default t
       straight-vc-git-default-clone-depth 1
-      straight-check-for-modifications '(check-on-save))
+      straight-check-for-modifications '(check-on-save find-when-checking))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -16,15 +17,13 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; use-package
+;; Use Package
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
 
-(setq use-package-always-defer t
-      use-package-expand-minimally t)
-(eval-when-compile
-  (require 'use-package))
-
+(use-package use-package
+  :custom
+  (use-package-always-defer t)
+  (use-package-expand-minimally t))
 (use-package bind-key)
 
 (provide 'init-package)
