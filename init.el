@@ -8,6 +8,7 @@
 (require 'init-edit)
 (require 'init-dired)
 (require 'init-themes)
+(require 'init-ibuffer)
 (require 'init-minibuffer)
 (require 'init-keybindings)
 
