@@ -11,15 +11,15 @@
 ;; Diff Hl
 (use-package diff-hl
   :hook ((after-init . global-diff-hl-mode)
-         (after-init . diff-hl-flydiff-mode)
+         (diff-hl-mode . diff-hl-flydiff-mode)
          (dired-mode . diff-hl-dired-mode))
+  :custom
+  (diff-hl-draw-borders nil)
   :custom-face
   (diff-hl-change ((t (:foreground ,(face-background 'highlight) :background nil))))
   (diff-hl-insert ((t (:background nil))))
   (diff-hl-delete ((t (:background nil))))
   :config
-  (setq diff-hl-draw-borders nil)
-
   (defun my-diff-hl-fringe-bmp-function (_type _pos)
     "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
     (define-fringe-bitmap 'my-diff-hl-bmp [224] 1 8 '(center t)))

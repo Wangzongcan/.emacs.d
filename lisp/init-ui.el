@@ -23,6 +23,9 @@
 (setq-default truncate-lines t)
 (setq uniquify-buffer-name-style 'forward)
 
+;; Fringe
+(setq-default fringes-outside-margins t)
+
 ;; Scroll
 (setq scroll-step 1
       scroll-margin 0
