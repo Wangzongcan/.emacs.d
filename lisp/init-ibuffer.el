@@ -7,7 +7,7 @@
   (defun my/ibuffer-vc ()
     (ibuffer-vc-set-filter-groups-by-vc-root)
     (unless (eq ibuffer-sorting-mode 'alphabetic)
-      (buffer-do-sort-by-alphabetic)))
+      (ibuffer-do-sort-by-alphabetic)))
   :hook (ibuffer . my/ibuffer-vc))
 
 (provide 'init-ibuffer)
