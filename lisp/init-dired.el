@@ -12,10 +12,6 @@
     (setq insert-directory-program "gls"
           dired-listing-switches "-alh --group-directories-first")))
 
-(use-package dired-x
-  :straight (:type built-in)
-  :bind ("C-x C-j" . dired-jump))
-
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
 
