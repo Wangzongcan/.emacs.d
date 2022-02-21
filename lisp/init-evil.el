@@ -1,13 +1,11 @@
 (use-package evil
-  :defer 0.2
+  :hook (after-init . evil-mode)
   :custom
   (evil-want-keybinding nil)
   (evil-want-Y-yank-to-eol t)
   (evil-undo-system 'undo-redo)
   :init
-  (setq evil-disable-insert-state-bindings t)
-  :config
-  (evil-mode +1))
+  (setq evil-disable-insert-state-bindings t))
 
 (use-package evil-collection
   :demand t
