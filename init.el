@@ -2,19 +2,18 @@
 
 (push (expand-file-name "lisp" user-emacs-directory) load-path)
 
+(require 'init-const)
 (require 'init-package)
 (require 'init-basic)
-(require 'init-ui)
-(require 'init-edit)
+(require 'init-frame)
+(require 'init-display)
+(require 'init-editing)
 (require 'init-dired)
 (require 'init-themes)
 (require 'init-ibuffer)
 (require 'init-minibuffer)
-(require 'init-keybindings)
 
-(when (eq system-type 'darwin)
-  (require 'init-macos))
-
+(require 'init-project)
 (require 'init-org)
 
 (require 'init-evil)

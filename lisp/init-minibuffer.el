@@ -1,16 +1,12 @@
-;; Minibuffer
-(setq echo-keystrokes 0.02
-      enable-recursive-minibuffers t)
-
-;; Do not allow the cursor in the minibuffer prompt
-(setq minibuffer-prompt-properties
-      '(read-only t cursor-intangible t face minibuffer-prompt))
-(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+(my-leader-def 'normal 'override
+  "SPC" 'execute-extended-command)
 
 ;; Orderless
 (use-package orderless
   :custom
-  (completion-styles '(substring orderless)))
+  (completion-styles '(substring orderless))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion)))))
 
 ;; Vertico
 (use-package vertico
@@ -18,8 +14,9 @@
 
 ;; Consult
 (use-package consult
-  :bind (("C-s" . consult-line)
-         ("C-x b" . consult-buffer))
+  :general
+  ("C-s" 'consult-line)
+  ("C-x b" 'consult-buffer)
   :config
   (setq consult-project-root-function
         (lambda ()
@@ -28,9 +25,10 @@
 
 ;; Embark
 (use-package embark
-  :bind (:map minibuffer-local-map
-         ("C-." . embark-act)
-         ("C-c C-o" . 'embark-export))
+  :general
+  (minibuffer-local-map
+   "C-." 'embark-act
+   "C-c C-o" 'embark-export)
   :custom
   (prefix-help-command #'embark-prefix-help-command))
 

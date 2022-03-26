@@ -20,10 +20,17 @@
 ;; Use Package
 (straight-use-package 'use-package)
 
-(use-package use-package
-  :custom
-  (use-package-always-defer t)
-  (use-package-expand-minimally t))
-(use-package bind-key)
+(eval-and-compile
+  (setq use-package-always-defer t)
+  (setq use-package-expand-minimally t))
+
+(eval-when-compile
+  (require 'use-package))
+
+(use-package general
+  :demand t
+  :init
+  (general-create-definer my-leader-def
+    :prefix "SPC"))
 
 (provide 'init-package)

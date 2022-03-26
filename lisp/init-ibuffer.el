@@ -1,6 +1,6 @@
 (use-package ibuffer
   :straight (:type built-in)
-  :bind ("C-x C-b" . ibuffer))
+  :general ("C-x C-b" 'ibuffer))
 
 (use-package ibuffer-vc
   :config

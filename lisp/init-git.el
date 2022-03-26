@@ -1,6 +1,8 @@
 ;; Magit
 (use-package magit
-  :bind ("C-x g" . magit-status))
+  :general
+  (my-leader-def 'normal 'override
+    "gs" 'magit-status))
 
 ;; Git Modes
 (use-package git-modes)

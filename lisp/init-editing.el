@@ -3,10 +3,26 @@
               indent-tabs-mode nil)
 
 ;; Indent
-(use-package indent
-  :straight (:type built-in)
-  :custom
-  (tab-always-indent 'complete))
+(setq tab-always-indent 'complete)
+
+;; Minibuffer
+(setq echo-keystrokes 0.02
+      enable-recursive-minibuffers t)
+
+;; Do not allow the cursor in the minibuffer prompt
+(setq minibuffer-prompt-properties
+      '(read-only t cursor-intangible t face minibuffer-prompt))
+(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+;; Auto Save
+(setq auto-save-default nil
+      auto-save-list-file-prefix nil)
+
+;;; Backup
+(setq make-backup-files nil)
+
+;;; Lockfiles
+(setq create-lockfiles nil)
 
 ;; Autorevert
 (use-package autorevert
@@ -37,19 +53,26 @@
   :hook (after-init . my/server-start))
 
 ;; Avy
-(use-package avy)
+(use-package avy
+  :general
+  (my-leader-def 'normal 'override
+    "jj" 'avy-goto-char-timer))
 
 ;; Editorconfig
 (use-package editorconfig
   :hook (after-init . editorconfig-mode))
 
+;; Rg.el
+(use-package rg)
+
 ;; Symbol Overlay
 (use-package symbol-overlay
   :hook (prog-mode . symbol-overlay-mode)
-  :bind (("M-i" . symbol-overlay-put)
-         ("M-n" . symbol-overlay-switch-forward)
-         ("M-p" . symbol-overlay-switch-backward)
-         ("M-I" . symbol-overlay-remove-all)))
+  :general
+  ("M-i" 'symbol-overlay-put)
+  ("M-n" 'symbol-overlay-switch-forward)
+  ("M-p" 'symbol-overlay-switch-backward)
+  ("M-I" 'symbol-overlay-remove-all))
 
 ;; Xclip
 (use-package xclip
@@ -57,6 +80,8 @@
   :hook (after-init . xclip-mode))
 
 ;; Wgrep
-(use-package wgrep)
+(use-package wgrep
+  :custom
+  (wgrep-auto-save-buffer t))
 
-(provide 'init-edit)
+(provide 'init-editing)
