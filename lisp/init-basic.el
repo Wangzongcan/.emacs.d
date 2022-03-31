@@ -9,6 +9,10 @@
     (setenv "PATH" (concat paths ":" (getenv "PATH")))
     (setq-default exec-path (append extra-paths exec-path))))
 
+;; Native comp
+(when (fboundp 'native-comp-available-p)
+  (setq native-comp-async-report-warnings-errors nil))
+
 ;; Confirm
 (fset 'yes-or-no-p 'y-or-n-p)
 
