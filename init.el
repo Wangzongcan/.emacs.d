@@ -11,7 +11,6 @@
 (require 'init-dired)
 (require 'init-themes)
 (require 'init-ibuffer)
-(require 'init-minibuffer)
 
 (require 'init-project)
 (require 'init-org)
@@ -20,7 +19,7 @@
 (require 'init-git)
 (require 'init-docker)
 
-(require 'init-company)
+(require 'init-completion)
 (require 'init-flycheck)
 
 (require 'init-web)

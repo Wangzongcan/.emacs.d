@@ -1,6 +1,3 @@
-(my-leader-def 'normal 'override
-  "SPC" 'execute-extended-command)
-
 ;; Orderless
 (use-package orderless
   :custom
@@ -38,4 +35,19 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-(provide 'init-minibuffer)
+;; Corfu
+(use-package corfu
+  :hook (after-init . global-corfu-mode)
+  :custom
+  (corfu-quit-no-match 'separator))
+
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-abbrev)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-symbol)
+  (add-to-list 'completion-at-point-functions #'cape-sgml)
+  (add-to-list 'completion-at-point-functions #'cape-keyword))
+
+(provide 'init-completion)
