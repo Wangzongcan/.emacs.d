@@ -9,6 +9,9 @@
 ;; Line Truncation
 (setq-default truncate-lines t)
 
+;; Uniquify
+(setq uniquify-buffer-name-style 'forward)
+
 ;; Whitespace
 (use-package whitespace
   :straight (:type built-in)
