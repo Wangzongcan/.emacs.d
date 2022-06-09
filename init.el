@@ -29,5 +29,6 @@
 (require 'init-rust)
 (require 'init-dart)
 (require 'init-lua)
+(require 'init-markdown)
 
 (require 'init-custom-file)
