@@ -35,6 +35,24 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Company Mode
+(use-package company
+  :unless window-system
+  :hook (after-init . global-company-mode)
+  :general
+  ("TAB" 'company-indent-or-complete-common)
+  (company-active-map
+   "TAB" 'company-complete-common-or-cycle
+   "<tab>" 'company-complete-common-or-cycle
+   "C-n" 'company-select-next
+   "C-p" 'company-select-previous)
+  :custom
+  (company-idle-delay 0)
+  (company-minimum-prefix-length 1)
+  (company-require-match nil)
+  (company-dabbrev-downcase nil)
+  (company-dabbrev-ignore-case nil))
+
 ;; Corfu
 (use-package corfu
   :hook (after-init . global-corfu-mode)
@@ -44,10 +62,6 @@
 (use-package cape
   :init
   (add-to-list 'completion-at-point-functions #'cape-file)
-  (add-to-list 'completion-at-point-functions #'cape-abbrev)
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-symbol)
-  (add-to-list 'completion-at-point-functions #'cape-sgml)
-  (add-to-list 'completion-at-point-functions #'cape-keyword))
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
 
 (provide 'init-completion)

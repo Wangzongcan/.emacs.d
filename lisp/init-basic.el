@@ -3,11 +3,11 @@
 (set-language-environment 'utf-8)
 
 ;; Exec Path
-(when (and *is-a-mac* (display-graphic-p))
-  (let* ((extra-paths '("/usr/local/bin" "/opt/homebrew/bin" "~/.asdf/shims"))
-         (paths (mapconcat 'identity extra-paths ":")))
-    (setenv "PATH" (concat paths ":" (getenv "PATH")))
-    (setq-default exec-path (append extra-paths exec-path))))
+;; (when (and *is-a-mac* (display-graphic-p))
+;;   (let* ((extra-paths '("/usr/local/bin" "/opt/homebrew/bin" "~/.asdf/shims"))
+;;          (paths (mapconcat 'identity extra-paths ":")))
+;;     (setenv "PATH" (concat paths ":" (getenv "PATH")))
+;;     (setq-default exec-path (append extra-paths exec-path))))
 
 ;; Native comp
 (when (fboundp 'native-comp-available-p)

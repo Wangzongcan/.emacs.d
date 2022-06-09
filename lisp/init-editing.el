@@ -62,9 +62,6 @@
 (use-package editorconfig
   :hook (after-init . editorconfig-mode))
 
-;; Rg.el
-(use-package rg)
-
 ;; Symbol Overlay
 (use-package symbol-overlay
   :hook (prog-mode . symbol-overlay-mode)
