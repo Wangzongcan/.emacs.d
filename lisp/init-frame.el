@@ -28,4 +28,7 @@
   (doom-modeline-height 1)
   (doom-modeline-icon nil))
 
+;; Posframe
+(use-package posframe)
+
 (provide 'init-frame)
