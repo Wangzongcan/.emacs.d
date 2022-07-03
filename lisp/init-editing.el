@@ -52,6 +52,10 @@
   :commands server-running-p
   :hook (after-init . my/server-start))
 
+(use-package subword-mode
+  :straight (:type built-in)
+  :hook prog-mode)
+
 ;; Avy
 (use-package avy
   :general
