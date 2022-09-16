@@ -63,7 +63,10 @@
   :hook (after-init . editorconfig-mode))
 
 ;; Rg.el
-(use-package rg)
+(use-package rg
+  :general
+  (my-leader-def 'normal 'override
+    "s" 'rg-menu))
 
 ;; Symbol Overlay
 (use-package symbol-overlay
