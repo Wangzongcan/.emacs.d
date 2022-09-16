@@ -22,6 +22,7 @@
 (require 'init-completion)
 (require 'init-flycheck)
 
+(require 'init-prog)
 (require 'init-web)
 (require 'init-ruby)
 (require 'init-yaml)
