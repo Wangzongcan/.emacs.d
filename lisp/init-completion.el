@@ -39,6 +39,7 @@
 (use-package corfu
   :hook (after-init . global-corfu-mode)
   :custom
+  (corfu-auto t)
   (corfu-quit-no-match 'separator))
 
 (use-package cape
@@ -46,8 +47,6 @@
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-abbrev)
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-symbol)
-  (add-to-list 'completion-at-point-functions #'cape-sgml)
   (add-to-list 'completion-at-point-functions #'cape-keyword))
 
 (provide 'init-completion)
