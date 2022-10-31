@@ -18,6 +18,7 @@
 (require 'init-evil)
 (require 'init-git)
 (require 'init-docker)
+(require 'init-term)
 
 (require 'init-completion)
 (require 'init-flycheck)
