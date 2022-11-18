@@ -1,9 +1,9 @@
 ;; Orderless
 (use-package orderless
   :custom
-  (completion-styles '(substring orderless))
+  (completion-styles '(orderless basic))
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles partial-completion)))))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; Vertico
 (use-package vertico
@@ -35,18 +35,4 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-;; Corfu
-(use-package corfu
-  :hook (after-init . global-corfu-mode)
-  :custom
-  (corfu-auto t)
-  (corfu-quit-no-match 'separator))
-
-(use-package cape
-  :init
-  (add-to-list 'completion-at-point-functions #'cape-file)
-  (add-to-list 'completion-at-point-functions #'cape-abbrev)
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-keyword))
-
-(provide 'init-completion)
+(provide 'init-vertico)

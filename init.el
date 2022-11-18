@@ -20,7 +20,8 @@
 (require 'init-docker)
 (require 'init-term)
 
-(require 'init-completion)
+(require 'init-vertico)
+(require 'init-company)
 (require 'init-flycheck)
 
 (require 'init-prog)
