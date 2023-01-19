@@ -27,10 +27,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package general
-  :demand t
-  :init
-  (general-create-definer my-leader-def
-    :prefix "SPC"))
+(use-package bind-key)
 
 (provide 'init-package)

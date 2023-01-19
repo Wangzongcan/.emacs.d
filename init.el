@@ -18,7 +18,6 @@
 (require 'init-evil)
 (require 'init-git)
 (require 'init-docker)
-(require 'init-term)
 
 (require 'init-vertico)
 (require 'init-company)
@@ -33,4 +32,4 @@
 (require 'init-dart)
 (require 'init-lua)
 
-(require 'init-custom-file)
+(require 'init-custom)

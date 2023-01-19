@@ -53,29 +53,22 @@
   :hook (after-init . my/server-start))
 
 ;; Avy
-(use-package avy
-  :general
-  (my-leader-def 'normal 'override
-    "jj" 'avy-goto-char-timer))
+(use-package avy)
 
 ;; Editorconfig
 (use-package editorconfig
   :hook (after-init . editorconfig-mode))
 
 ;; Rg.el
-(use-package rg
-  :general
-  (my-leader-def 'normal 'override
-    "s" 'rg-menu))
+(use-package rg)
 
 ;; Symbol Overlay
 (use-package symbol-overlay
   :hook (prog-mode . symbol-overlay-mode)
-  :general
-  ("M-i" 'symbol-overlay-put)
-  ("M-n" 'symbol-overlay-switch-forward)
-  ("M-p" 'symbol-overlay-switch-backward)
-  ("M-I" 'symbol-overlay-remove-all))
+  :bind (("M-i" . symbol-overlay-put)
+         ("M-n" . symbol-overlay-switch-forward)
+         ("M-p" . symbol-overlay-switch-backward)
+         ("M-I" . symbol-overlay-remove-all)))
 
 ;; Xclip
 (use-package xclip

@@ -11,9 +11,8 @@
 
 ;; Consult
 (use-package consult
-  :general
-  ("C-s" 'consult-line)
-  ("C-x b" 'consult-buffer)
+  :bind (("C-s" . consult-line)
+         ("C-x b" . consult-buffer))
   :config
   (setq consult-project-root-function
         (lambda ()
@@ -22,17 +21,15 @@
 
 ;; Embark
 (use-package embark
-  :general
-  (minibuffer-local-map
-   "C-." 'embark-act
-   "C-c C-o" 'embark-export)
+  :bind (:map minibuffer-local-map
+         ("C-." . embark-act)
+         ("C-c C-o" . embark-export))
   :custom
   (prefix-help-command #'embark-prefix-help-command))
 
 (use-package embark-consult
   :after (embark consult)
   :demand t
-  :hook
-  (embark-collect-mode . consult-preview-at-point-mode))
+  :hook (embark-collect-mode . consult-preview-at-point-mode))
 
 (provide 'init-vertico)

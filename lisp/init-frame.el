@@ -31,7 +31,7 @@
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom
-  (doom-modeline-height 1)
+  (doom-modeline-height 18)
   (doom-modeline-icon nil))
 
 (provide 'init-frame)

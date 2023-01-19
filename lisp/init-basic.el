@@ -24,12 +24,6 @@
       initial-scratch-message nil
       initial-major-mode 'fundamental-mode)
 
-(use-package simple
-  :straight (:type built-in)
-  :init
-  (my-leader-def 'normal 'override
-    "SPC" 'execute-extended-command))
-
 ;; GCMH
 (use-package gcmh
   :hook (after-init . gcmh-mode)

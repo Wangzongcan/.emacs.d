@@ -5,7 +5,17 @@
   (evil-want-Y-yank-to-eol t)
   (evil-undo-system 'undo-redo)
   :init
-  (setq evil-disable-insert-state-bindings t))
+  (setq evil-disable-insert-state-bindings t)
+  :config
+  (evil-set-leader nil (kbd "SPC"))
+
+  (evil-define-key 'normal 'global
+    (kbd "<leader>SPC") 'execute-extended-command
+    (kbd "<leader>pp") 'project-switch-project
+    (kbd "<leader>pd") 'project-find-dir
+    (kbd "<leader>pf") 'project-find-file
+    (kbd "<leader>pb") 'project-switch-to-buffer
+    (kbd "<leader>psr") 'rg-project))
 
 (use-package evil-collection
   :demand t

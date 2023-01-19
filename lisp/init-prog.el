@@ -1,6 +1,3 @@
-(use-package devdocs
-  :general
-  (my-leader-def 'normal 'override
-    "hD" 'devdocs-lookup))
+(use-package devdocs)
 
 (provide 'init-prog)

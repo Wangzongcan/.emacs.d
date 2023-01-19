@@ -2,4 +2,4 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(provide 'init-custom-file)
+(provide 'init-custom)
