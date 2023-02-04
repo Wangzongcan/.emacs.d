@@ -20,7 +20,11 @@
 (use-package evil-collection
   :demand t
   :after evil
-  :config (evil-collection-init))
+  :config
+  (evil-collection-init)
+
+  (with-eval-after-load 'dired
+    (evil-collection-define-key 'normal 'dired-mode-map " " nil)))
 
 (use-package evil-surround
   :demand t
