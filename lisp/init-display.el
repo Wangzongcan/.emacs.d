@@ -24,4 +24,8 @@
 (use-package rainbow-delimiters
   :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
 
+;; Highlight TODO
+(use-package hl-todo
+  :hook (after-init . global-hl-todo-mode))
+
 (provide 'init-display)

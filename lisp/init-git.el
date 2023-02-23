@@ -1,6 +1,10 @@
 ;; Magit
 (use-package magit)
 
+;; Magit TODO
+(use-package magit-todos
+  :hook (magit-mode . magit-todos-mode))
+
 ;; Git Modes
 (use-package git-modes)
 
