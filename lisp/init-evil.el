@@ -15,7 +15,8 @@
     (kbd "<leader>pd") 'project-find-dir
     (kbd "<leader>pf") 'project-find-file
     (kbd "<leader>pb") 'project-switch-to-buffer
-    (kbd "<leader>psr") 'rg-project))
+    (kbd "<leader>psr") 'rg-project
+    (kbd "<leader>jj") 'avy-goto-char-timer))
 
 (use-package evil-collection
   :demand t
