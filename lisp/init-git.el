@@ -19,9 +19,9 @@
   :custom
   (diff-hl-draw-borders nil)
   :custom-face
-  (diff-hl-change ((t (:foreground ,(face-background 'highlight) :background nil))))
-  (diff-hl-insert ((t (:background nil))))
-  (diff-hl-delete ((t (:background nil))))
+  (diff-hl-change ((t (:foreground ,(face-background 'highlight) :background unspecified))))
+  (diff-hl-insert ((t (:background unspecified))))
+  (diff-hl-delete ((t (:background unspecified))))
   :config
   (defun my/diff-hl-fringe-bmp-function (_type _pos)
     "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
