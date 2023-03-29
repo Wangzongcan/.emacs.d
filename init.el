@@ -22,6 +22,7 @@
 (require 'init-vertico)
 (require 'init-company)
 (require 'init-flycheck)
+(require 'init-yasnippet)
 
 (require 'init-prog)
 (require 'init-web)
