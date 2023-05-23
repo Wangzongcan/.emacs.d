@@ -1,9 +1,7 @@
 (use-package company
   :hook (after-init . global-company-mode)
-  :bind (("TAB" . company-indent-or-complete-common)
+  :bind (([remap indent-for-tab-command] . company-indent-or-complete-common)
          :map company-active-map
-         ("TAB" . company-complete-common-or-cycle)
-         ("<tab>" . company-complete-common-or-cycle)
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
   :custom

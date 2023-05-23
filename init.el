@@ -18,6 +18,7 @@
 (require 'init-evil)
 (require 'init-git)
 (require 'init-docker)
+(require 'init-copilot)
 
 (require 'init-vertico)
 (require 'init-company)
