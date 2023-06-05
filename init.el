@@ -14,6 +14,7 @@
 
 (require 'init-project)
 (require 'init-org)
+(require 'init-treesit)
 
 (require 'init-evil)
 (require 'init-git)
