@@ -28,8 +28,6 @@
 
   (add-hook 'web-mode-hook
             (lambda ()
-              (message "123")
-              (message web-mode-content-type)
               (cond ((equal web-mode-content-type "vue")
                      (my/web-vue-setup))))))
 
