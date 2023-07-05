@@ -8,6 +8,10 @@
         (indent-for-tab-command)))
   :bind (:map copilot-completion-map
               ("TAB" . my/copilot-tab)
-              ("<tab>" . my/copilot-tab)))
+              ("<tab>" . my/copilot-tab))
+  :config
+  (with-eval-after-load 'company
+    ;; disable inline previews
+    (delq 'company-preview-if-just-one-frontend company-frontends)))
 
 (provide 'init-copilot)
