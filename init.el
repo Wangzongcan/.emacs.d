@@ -30,6 +30,7 @@
 (require 'init-company)
 (require 'init-flycheck)
 (require 'init-yasnippet)
+(require 'init-ace-window)
 
 (require 'init-prog)
 (require 'init-web)
