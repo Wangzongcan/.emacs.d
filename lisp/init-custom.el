@@ -1,5 +1,13 @@
+(defcustom proxy-host "127.0.0.1"
+  "The proxy host."
+  :group 'init-custom
+  :type 'string)
+
+(defcustom proxy-port "1080"
+  "The proxy port."
+  :group 'init-custom
+  :type 'string)
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
 
 (provide 'init-custom)

@@ -24,6 +24,13 @@
       initial-scratch-message nil
       initial-major-mode 'fundamental-mode)
 
+;; Proxy
+(let ((proxy-url (concat proxy-host ":" proxy-port)))
+  (setq url-proxy-services
+        `(("http" . ,proxy-url)
+          ("https" . ,proxy-url)
+          ("no_proxy" . "^\\(localhost\\|192.168.*\\|10.*\\)"))))
+
 ;; GCMH
 (use-package gcmh
   :hook (after-init . gcmh-mode)

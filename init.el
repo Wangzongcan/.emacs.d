@@ -2,7 +2,12 @@
 
 (push (expand-file-name "lisp" user-emacs-directory) load-path)
 
+(require 'init-custom)
 (require 'init-const)
+
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (require 'init-package)
 (require 'init-basic)
 (require 'init-frame)
@@ -34,5 +39,3 @@
 (require 'init-rust)
 (require 'init-dart)
 (require 'init-lua)
-
-(require 'init-custom)
