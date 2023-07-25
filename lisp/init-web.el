@@ -31,21 +31,6 @@
               (cond ((equal web-mode-content-type "vue")
                      (my/web-vue-setup))))))
 
-(use-package js2-mode
-  :mode "\\.js\\'"
-  :interpreter "node"
-  :custom
-  (js-indent-level 2)
-  (js2-mode-show-strict-warnings nil))
-
-(use-package typescript-mode
-  :mode ("\\.ts[x]\\'" . typescript-mode)
-  :custom
-  (typescript-indent-level 2))
-
-(use-package json-mode
-  :mode "\\.json\\'")
-
 (use-package restclient
   :mode ("\\.http\\'" . restclient-mode))
 
