@@ -1,9 +1,3 @@
-(use-package css-mode
-  :straight (:type built-in)
-  :mode ("\\.css\\'" "\\.scss\\'")
-  :custom
-  (css-indent-offset 2))
-
 (use-package emmet-mode
   :hook web-mode)
 

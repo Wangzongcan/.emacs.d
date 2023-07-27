@@ -35,6 +35,7 @@
 (require 'init-prog)
 (require 'init-web)
 (require 'init-javascript)
+(require 'init-css)
 (require 'init-ruby)
 (require 'init-yaml)
 (require 'init-python)
