@@ -1,9 +1,11 @@
 (use-package treesit
   :straight nil
   :custom
-  (treesit-font-lock-level 4)
-  :init
-  (push '(ruby-mode . ruby-ts-mode) major-mode-remap-alist)
-  (push '(js-mode . js-ts-mode) major-mode-remap-alist))
+  (treesit-font-lock-level 4))
+
+(use-package treesit-auto
+  :hook (after-init . global-treesit-auto-mode)
+  :custom
+  (treesit-auto-install 'prompt))
 
 (provide 'init-treesit)
