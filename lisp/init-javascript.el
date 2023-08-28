@@ -6,10 +6,13 @@
   :custom
   (js-indent-level 2))
 
-(use-package typescript-mode
-  :mode ("\\.ts[x]\\'" . typescript-mode)
-  :custom
-  (typescript-indent-level 2))
+(use-package typescript-ts-mode
+  :straight (:type built-in)
+  :mode "\\.ts\\'")
+
+(use-package tsx-ts-mode
+  :straight (:type built-in)
+  :mode "\\.tsx\\'")
 
 (use-package json-mode
   :mode "\\.json\\'")
