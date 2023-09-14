@@ -23,6 +23,7 @@
 
 (require 'init-evil)
 (require 'init-git)
+(require 'init-lsp)
 (require 'init-docker)
 (require 'init-copilot)
 

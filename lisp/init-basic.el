@@ -13,6 +13,8 @@
 (when (fboundp 'native-comp-available-p)
   (setq native-comp-async-report-warnings-errors nil))
 
+(setq read-process-output-max (* 1024 1024))
+
 ;; Confirm
 (fset 'yes-or-no-p 'y-or-n-p)
 
