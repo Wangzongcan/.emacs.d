@@ -16,7 +16,6 @@
   (setq web-mode-content-types-alist '(("vue" . "\\.vue\\'")))
   :config
   (defun my/web-vue-setup()
-    (message "web vue setup")
     (setq-local web-mode-style-padding 0
                 web-mode-script-padding 0))
 
