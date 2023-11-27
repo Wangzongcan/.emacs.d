@@ -43,14 +43,7 @@
 
 ;; Elec Pair
 (use-package elec-pair
-  :hook (after-init . electric-pair-mode)
-  :config
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (when (equal web-mode-content-type "vue")
-                (setq-local electric-pair-inhibit-predicate
-                            `(lambda (c)
-                               (if (char-equal c ?{) t (,electric-pair-inhibit-predicate c))))))))
+  :hook (after-init . electric-pair-mode))
 
 ;; Server
 (use-package server

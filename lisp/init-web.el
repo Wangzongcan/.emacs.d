@@ -2,7 +2,7 @@
   :hook web-mode)
 
 (use-package web-mode
-  :mode ("\\.html\\'" "\\.erb\\'" "\\.vue\\'")
+  :mode ("\\.html\\'" "\\.erb\\'")
   :custom
   (web-mode-enable-current-element-highlight t)
   (web-mode-enable-auto-indentation nil)
@@ -13,16 +13,20 @@
   (web-mode-style-padding 2)
   (web-mode-script-padding 2)
   :init
-  (setq web-mode-content-types-alist '(("vue" . "\\.vue\\'")))
-  :config
-  (defun my/web-vue-setup()
-    (setq-local web-mode-style-padding 0
-                web-mode-script-padding 0))
+  (define-derived-mode vue-mode web-mode "vue"))
 
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (cond ((equal web-mode-content-type "vue")
-                     (my/web-vue-setup))))))
+(use-package vue-mode
+  :straight nil
+  :mode "\\.vue\\'"
+  :preface
+  (defun my/vue-mode-setup()
+    (setq-local electric-pair-inhibit-predicate
+                `(lambda (c)
+                   (if (char-equal c ?{) t (,electric-pair-inhibit-predicate c)))
+
+                web-mode-style-padding 0
+                web-mode-script-padding 0))
+  :hook (vue-mode . my/vue-mode-setup))
 
 (use-package restclient
   :mode ("\\.http\\'" . restclient-mode))
