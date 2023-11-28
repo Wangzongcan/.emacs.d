@@ -28,4 +28,7 @@
 (use-package hl-todo
   :hook (after-init . global-hl-todo-mode))
 
+(use-package pulsar
+  :hook (after-init . pulsar-global-mode))
+
 (provide 'init-display)
