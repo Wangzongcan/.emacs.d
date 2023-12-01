@@ -83,4 +83,12 @@
   :custom
   (wgrep-auto-save-buffer t))
 
+;; Browse Kill Ring
+(use-package browse-kill-ring
+  :bind ("C-c y" . browse-kill-ring)
+  :hook (after-init . browse-kill-ring-default-keybindings)
+  :custom
+  (browse-kill-ring-separator "────────────────")
+  (browse-kill-ring-separator-face 'shadow))
+
 (provide 'init-editing)
