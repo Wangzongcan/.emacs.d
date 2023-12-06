@@ -12,6 +12,14 @@
 ;; Uniquify
 (setq uniquify-buffer-name-style 'forward)
 
+;; Parentheses
+(use-package paren
+  :straight (:type built-in)
+  :hook (after-init . show-paren-mode)
+  :custom
+  (show-paren-when-point-inside-paren t)
+  (show-paren-when-point-in-periphery t))
+
 ;; Whitespace
 (use-package whitespace
   :straight (:type built-in)
