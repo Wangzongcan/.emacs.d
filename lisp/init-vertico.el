@@ -32,4 +32,8 @@
   :demand t
   :hook (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Marginalia
+(use-package marginalia
+  :hook (after-init . marginalia-mode))
+
 (provide 'init-vertico)
