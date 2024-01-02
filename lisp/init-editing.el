@@ -43,6 +43,7 @@
 
 ;; Elec Pair
 (use-package elec-pair
+  :straight (:type built-in)
   :hook (after-init . electric-pair-mode))
 
 ;; Server
@@ -90,5 +91,11 @@
   :custom
   (browse-kill-ring-separator "────────────────")
   (browse-kill-ring-separator-face 'shadow))
+
+;; Jinx
+(use-package jinx
+  :hook ((text-mode prog-mode conf-mode) . jinx-mode)
+  :config
+  (add-to-list 'jinx-exclude-regexps '(t "\\cc")))
 
 (provide 'init-editing)
