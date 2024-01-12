@@ -1,5 +1,5 @@
 (use-package treesit
-  :straight nil
+  :straight (:type built-in)
   :custom
   (treesit-font-lock-level 4))
 

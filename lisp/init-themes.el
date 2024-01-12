@@ -1,7 +1,6 @@
 ;; Themes
-(use-package doom-themes)
-(use-package dracula-theme)
 (use-package modus-themes
+  :straight (:host github :repo "protesilaos/modus-themes")
   :custom
   (modus-themes-bold-constructs t)
   (modus-themes-italic-constructs t)
