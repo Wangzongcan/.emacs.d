@@ -28,7 +28,7 @@
 (require 'init-copilot)
 
 (require 'init-vertico)
-(require 'init-company)
+(require 'init-corfu)
 (require 'init-flycheck)
 (require 'init-yasnippet)
 
