@@ -23,10 +23,12 @@
   (diff-hl-insert ((t (:background unspecified))))
   (diff-hl-delete ((t (:background unspecified))))
   :config
-  (defun my/diff-hl-fringe-bmp-function (_type _pos)
-    "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
-    (define-fringe-bitmap 'my-diff-hl-bmp [224] 1 8 '(center t)))
-  (setq diff-hl-fringe-bmp-function #'my/diff-hl-fringe-bmp-function)
+  (let* ((height (frame-char-height))
+         (width 2)
+         (ones (1- (expt 2 width)))
+         (bits (make-vector height ones)))
+    (define-fringe-bitmap 'my-diff-hl-bitmap bits height width))
+  (setq diff-hl-fringe-bmp-function (lambda (type pos) 'my-diff-hl-bitmap))
 
   (unless (display-graphic-p)
     (diff-hl-margin-mode 1))
