@@ -63,7 +63,10 @@
   :hook (after-init . editorconfig-mode))
 
 ;; Rg.el
-(use-package rg)
+(use-package rg
+  :hook (after-init . rg-enable-default-bindings)
+  :custom
+  (rg-show-columns t))
 
 ;; Symbol Overlay
 (use-package symbol-overlay
