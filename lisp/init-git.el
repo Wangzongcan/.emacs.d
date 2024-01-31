@@ -19,16 +19,14 @@
   :custom
   (diff-hl-draw-borders nil)
   :custom-face
-  (diff-hl-change ((t (:foreground ,(face-background 'highlight) :background unspecified))))
-  (diff-hl-insert ((t (:background unspecified))))
-  (diff-hl-delete ((t (:background unspecified))))
+  (diff-hl-change ((t (:background unspecified :foreground "DarkOrange"))))
+  (diff-hl-insert ((t (:background unspecified :foreground "LightGreen"))))
+  (diff-hl-delete ((t (:background unspecified :foreground "Red"))))
   :config
-  (let* ((height (frame-char-height))
-         (width 2)
-         (ones (1- (expt 2 width)))
-         (bits (make-vector height ones)))
-    (define-fringe-bitmap 'my-diff-hl-bitmap bits height width))
-  (setq diff-hl-fringe-bmp-function (lambda (type pos) 'my-diff-hl-bitmap))
+  (let* ((width 2)
+         (bitmap (vector (1- (expt 2 width)))))
+    (define-fringe-bitmap 'my:diff-hl-bitmap bitmap 1 width '(top t)))
+  (setq diff-hl-fringe-bmp-function (lambda (type pos) 'my:diff-hl-bitmap))
 
   (unless (display-graphic-p)
     (diff-hl-margin-mode 1))
