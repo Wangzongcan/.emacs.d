@@ -1,4 +1,3 @@
-(use-package project
-  :straight (:type built-in))
+(use-package project)
 
 (provide 'init-project)

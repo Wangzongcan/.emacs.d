@@ -16,7 +16,7 @@
   (define-derived-mode vue-mode web-mode "vue"))
 
 (use-package vue-mode
-  :straight nil
+  :ensure nil
   :mode "\\.vue\\'"
   :preface
   (defun my/vue-mode-setup()

@@ -14,7 +14,6 @@
 
 ;; Parentheses
 (use-package paren
-  :straight (:type built-in)
   :hook (after-init . show-paren-mode)
   :custom
   (show-paren-when-point-inside-paren t)
@@ -22,7 +21,6 @@
 
 ;; Whitespace
 (use-package whitespace
-  :straight (:type built-in)
   :hook ((prog-mode conf-mode) . whitespace-mode)
   :custom
   (whitespace-line-column nil)

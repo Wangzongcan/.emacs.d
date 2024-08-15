@@ -1,5 +1,4 @@
 (use-package ibuffer
-  :straight (:type built-in)
   :bind ("C-x C-b" . ibuffer))
 
 (use-package ibuffer-vc

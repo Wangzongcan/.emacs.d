@@ -1,5 +1,5 @@
 (use-package dired
-  :straight (:type built-in)
+  :ensure nil
   :hook ((dired-mode . hl-line-mode)
          (dired-mode . dired-hide-details-mode))
   :custom
