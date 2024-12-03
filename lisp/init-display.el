@@ -51,4 +51,22 @@
 (use-package pulsar
   :hook (after-init . pulsar-global-mode))
 
+(use-package nerd-icons)
+
+;; Dashboard
+(use-package dashboard
+  :demand t
+  :custom
+  (dashboard-center-content t)
+  (dashboard-vertically-center-content t)
+  (dashboard-display-icons-p t)
+  (dashboard-icon-type 'nerd-icons)
+  (dashboard-set-heading-icons t)
+  (dashboard-set-file-icons t)
+  (dashboard-items '((recents  . 10)
+                     (projects . 5)
+                     (agenda . 5)))
+  :config
+  (dashboard-setup-startup-hook))
+
 (provide 'init-display)
