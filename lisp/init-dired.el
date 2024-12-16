@@ -8,12 +8,10 @@
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
   (dired-hide-details-hide-symlink-targets nil)
+  (dired-listing-switches "-ahl --group-directories-first")
   :config
   (when (executable-find "gls")
-    (setq insert-directory-program "gls"))
-
-  (when (or *is-a-linux* (executable-find "gls"))
-    (setq dired-listing-switches "-alh --group-directories-first")))
+    (setq insert-directory-program "gls")))
 
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
