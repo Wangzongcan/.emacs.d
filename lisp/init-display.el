@@ -14,13 +14,15 @@
 
 ;; Parentheses
 (use-package paren
-  :hook (after-init . show-paren-mode)
+  :ensure nil
+  :hook ((prog-mode conf-mode) . show-paren-mode)
   :custom
   (show-paren-when-point-inside-paren t)
   (show-paren-when-point-in-periphery t))
 
 ;; Whitespace
 (use-package whitespace
+  :ensure nil
   :hook ((prog-mode conf-mode) . whitespace-mode)
   :custom
   (whitespace-line-column nil)

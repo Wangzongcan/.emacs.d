@@ -1,3 +1,7 @@
+;; Transient
+(use-package transient
+  :demand t)
+
 ;; Magit
 (use-package magit)
 

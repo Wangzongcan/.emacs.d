@@ -41,3 +41,5 @@
 (require 'init-rust)
 (require 'init-dart)
 (require 'init-lua)
+
+(elpaca-wait)

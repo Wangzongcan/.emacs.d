@@ -29,6 +29,7 @@
 
 ;; Autorevert
 (use-package autorevert
+  :ensure nil
   :hook (after-init . global-auto-revert-mode)
   :custom
   (auto-revert-interval 0.1)
@@ -37,14 +38,17 @@
 
 ;; Delete Selection
 (use-package delsel
+  :ensure nil
   :hook (after-init . delete-selection-mode))
 
 ;; Elec Pair
 (use-package elec-pair
+  :ensure nil
   :hook (after-init . electric-pair-mode))
 
 ;; Server
 (use-package server
+  :ensure nil
   :preface
   (defun my/server-start ()
     (unless (server-running-p)
@@ -86,7 +90,7 @@
 ;; Browse Kill Ring
 (use-package browse-kill-ring
   :bind ("C-c y" . browse-kill-ring)
-  :hook (after-init . browse-kill-ring-default-keybindings)
+  :init (browse-kill-ring-default-keybindings)
   :custom
   (browse-kill-ring-separator "────────────────")
   (browse-kill-ring-separator-face 'shadow))
