@@ -1,4 +1,4 @@
 (use-package project
-  :straight (:type built-in))
+  :ensure nil)
 
 (provide 'init-project)

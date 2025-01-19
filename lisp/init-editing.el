@@ -29,7 +29,7 @@
 
 ;; Autorevert
 (use-package autorevert
-  :straight (:type built-in)
+  :ensure nil
   :hook (after-init . global-auto-revert-mode)
   :custom
   (auto-revert-interval 0.1)
@@ -38,16 +38,17 @@
 
 ;; Delete Selection
 (use-package delsel
-  :straight (:type built-in)
+  :ensure nil
   :hook (after-init . delete-selection-mode))
 
 ;; Elec Pair
 (use-package elec-pair
+  :ensure nil
   :hook (after-init . electric-pair-mode))
 
 ;; Server
 (use-package server
-  :straight (:type built-in)
+  :ensure nil
   :preface
   (defun my/server-start ()
     (unless (server-running-p)

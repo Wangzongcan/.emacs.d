@@ -1,31 +1,19 @@
-;; Straight.el
-(setq straight-cache-autoloads t
-      straight-use-package-by-default t
-      straight-vc-git-default-clone-depth 1
-      straight-check-for-modifications '(check-on-save find-when-checking))
+;; package.el
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 6))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(setq package-enable-at-startup nil)
+(package-initialize)
 
-;; Use Package
-(straight-use-package 'use-package)
+(setq package-install-upgrade-built-in t)
 
-(eval-and-compile
-  (setq use-package-always-defer t)
-  (setq use-package-expand-minimally t))
-
-(eval-when-compile
-  (require 'use-package))
+;; use-package
+(use-package use-package
+  :config
+  (setq use-package-always-ensure t
+        use-package-always-defer t
+        use-package-expand-minimally t
+        use-package-enable-imenu-support t))
 
 (use-package bind-key)
 

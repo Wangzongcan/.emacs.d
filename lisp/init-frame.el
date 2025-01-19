@@ -23,7 +23,7 @@
 
 ;;; Tooltips
 (use-package tooltip
-  :straight (:type built-in)
+  :ensure nil
   :if window-system
   :init (tooltip-mode -1))
 

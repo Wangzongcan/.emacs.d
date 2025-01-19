@@ -16,7 +16,7 @@
   (define-derived-mode vue-mode web-mode "vue"))
 
 (use-package vue-mode
-  :straight nil
+  :ensure nil
   :mode "\\.vue\\'"
   :preface
   (defun my/vue-mode-setup()
@@ -27,8 +27,5 @@
                 web-mode-style-padding 0
                 web-mode-script-padding 0))
   :hook (vue-mode . my/vue-mode-setup))
-
-(use-package restclient
-  :mode ("\\.http\\'" . restclient-mode))
 
 (provide 'init-web)

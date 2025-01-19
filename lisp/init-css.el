@@ -1,5 +1,5 @@
 (use-package css-mode
-  :straight (:type built-in)
+  :ensure nil
   :mode "\\.css\\'"
   :custom
   (css-indent-offset 2))

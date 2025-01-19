@@ -1,5 +1,5 @@
 (use-package ruby-mode
-  :straight (:type built-in)
+  :ensure nil
   :interpreter "ruby"
   :custom
   (ruby-insert-encoding-magic-comment nil))

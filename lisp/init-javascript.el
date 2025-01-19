@@ -1,5 +1,5 @@
 (use-package js-mode
-  :straight (:type built-in)
+  :ensure nil
   :mode (("\\.js\\'" . js-mode)
          ("\\.jsx\\'" . js-jsx-mode))
   :interpreter "node"
@@ -7,11 +7,11 @@
   (js-indent-level 2))
 
 (use-package typescript-ts-mode
-  :straight (:type built-in)
+  :ensure nil
   :mode "\\.ts\\'")
 
 (use-package tsx-ts-mode
-  :straight (:type built-in)
+  :ensure nil
   :mode "\\.tsx\\'")
 
 (use-package json-mode
