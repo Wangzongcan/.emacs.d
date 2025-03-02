@@ -28,6 +28,11 @@
   (whitespace-line-column nil)
   (whitespace-style '(face empty tabs tab-mark trailing space-before-tab)))
 
+;; Which Key
+(use-package which-key
+  :ensure nil
+  :hook (after-init . which-key-mode))
+
 ;; Rainbow Delimiters
 (use-package rainbow-delimiters
   :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
