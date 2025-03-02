@@ -12,7 +12,9 @@
 ;; Consult
 (use-package consult
   :bind (("C-s" . consult-line)
-         ("C-x b" . consult-buffer))
+         ("C-x b" . consult-buffer)
+
+         ("M-s r" . consult-ripgrep))
   :config
   (setq consult-project-root-function
         (lambda ()
