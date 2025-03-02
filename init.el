@@ -24,6 +24,7 @@
 (require 'init-evil)
 (require 'init-git)
 (require 'init-docker)
+(require 'init-mise)
 
 (require 'init-vertico)
 (require 'init-corfu)
