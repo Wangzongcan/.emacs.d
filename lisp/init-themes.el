@@ -11,4 +11,8 @@
      (border-mode-line-active unspecified)
      (border-mode-line-inactive unspecified))))
 
+(use-package catppuccin-theme)
+
+(use-package doom-themes)
+
 (provide 'init-themes)
