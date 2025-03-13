@@ -25,6 +25,7 @@
 (require 'init-git)
 (require 'init-docker)
 (require 'init-mise)
+(require 'init-aider)
 
 (require 'init-vertico)
 (require 'init-corfu)
