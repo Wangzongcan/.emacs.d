@@ -6,6 +6,11 @@
 
   (push '(ns-transparent-titlebar . t) default-frame-alist))
 
+;; Font
+(set-face-attribute 'default nil
+                    :family "Maple Mono CN"
+                    :height (cond (*is-a-mac* 120)
+                                  (t 100)))
 ;;; Cursor
 (blink-cursor-mode -1)
 

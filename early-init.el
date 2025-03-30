@@ -14,7 +14,6 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
 (push '(internal-border-width . 0) default-frame-alist)
-(push '(font . "Sarasa Mono SC-12") default-frame-alist)
 
 ;; file name handler alist
 (let ((old-file-name-handler-alist file-name-handler-alist))
