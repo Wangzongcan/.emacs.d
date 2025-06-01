@@ -4,6 +4,7 @@
 (when *is-a-mac*
   (setq ns-use-proxy-icon nil)
 
+  (push '(ns-appearance . dark) default-frame-alist)
   (push '(ns-transparent-titlebar . t) default-frame-alist))
 
 ;; Font
